@@ -10,11 +10,13 @@
 #import "AssignmentsCell.h"
 #import "PatientDetails.h"
 #import "Login.h"
+#import "AssessmentViewController.h"
 
 
 @interface AssignmentsViewController ()
 
 @property(nonatomic,strong)UIPopoverController *popOver;
+
 
 
 @end
@@ -66,7 +68,13 @@ PatientDetails *patientsDetails;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-        
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AssessmentViewController *tvc=[storyBoard instantiateViewControllerWithIdentifier:@"AssessmentViewController"];
+           [self.view addSubview:tvc.view];
+            [self addChildViewController:tvc];
+
+
+   
 }
 
 - (IBAction)addAssignmentClicked:(id)sender {

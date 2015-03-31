@@ -62,6 +62,38 @@
 		91D7F35D1ACAB75000BAE67E /* WoundCare.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 91D7F35A1ACAB75000BAE67E /* WoundCare.sqlite */; };
 		91D7F35E1ACAB75000BAE67E /* WoundCare.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 91D7F35B1ACAB75000BAE67E /* WoundCare.sqlite-shm */; };
 		91D7F35F1ACAB75000BAE67E /* WoundCare.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 91D7F35C1ACAB75000BAE67E /* WoundCare.sqlite-wal */; };
+		9497E85F1ACAC74100F8FC12 /* AssessmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9497E85E1ACAC74000F8FC12 /* AssessmentViewController.m */; };
+		9497E8611ACAC78400F8FC12 /* cloudpdf.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8601ACAC78400F8FC12 /* cloudpdf.png */; };
+		9497E8631ACAC7BC00F8FC12 /* completed.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8621ACAC7BC00F8FC12 /* completed.png */; };
+		9497E8811ACAC7F000F8FC12 /* deletion.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8641ACAC7F000F8FC12 /* deletion.png */; };
+		9497E8821ACAC7F000F8FC12 /* head.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8651ACAC7F000F8FC12 /* head.png */; };
+		9497E8831ACAC7F000F8FC12 /* headerasses.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8661ACAC7F000F8FC12 /* headerasses.png */; };
+		9497E8841ACAC7F000F8FC12 /* human2013.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8671ACAC7F000F8FC12 /* human2013.png */; };
+		9497E8851ACAC7F000F8FC12 /* icon_education.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8681ACAC7F000F8FC12 /* icon_education.png */; };
+		9497E8861ACAC7F000F8FC12 /* icon_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8691ACAC7F000F8FC12 /* icon_home.png */; };
+		9497E8871ACAC7F000F8FC12 /* icon_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E86A1ACAC7F000F8FC12 /* icon_logout.png */; };
+		9497E8881ACAC7F000F8FC12 /* icon_pain.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E86B1ACAC7F000F8FC12 /* icon_pain.png */; };
+		9497E8891ACAC7F000F8FC12 /* icon_recommend.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E86C1ACAC7F000F8FC12 /* icon_recommend.png */; };
+		9497E88A1ACAC7F000F8FC12 /* icon_risk.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E86D1ACAC7F000F8FC12 /* icon_risk.png */; };
+		9497E88B1ACAC7F000F8FC12 /* icon_treatment.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E86E1ACAC7F000F8FC12 /* icon_treatment.png */; };
+		9497E88C1ACAC7F000F8FC12 /* hoverimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E86F1ACAC7F000F8FC12 /* hoverimage.png */; };
+		9497E88D1ACAC7F000F8FC12 /* logouthover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8701ACAC7F000F8FC12 /* logouthover.png */; };
+		9497E88E1ACAC7F000F8FC12 /* hoverlogout.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8711ACAC7F000F8FC12 /* hoverlogout.png */; };
+		9497E88F1ACAC7F000F8FC12 /* imggalleryhover2013.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8721ACAC7F000F8FC12 /* imggalleryhover2013.png */; };
+		9497E8901ACAC7F000F8FC12 /* icon_education_hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8731ACAC7F000F8FC12 /* icon_education_hover.png */; };
+		9497E8911ACAC7F000F8FC12 /* icon_wound.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8741ACAC7F000F8FC12 /* icon_wound.png */; };
+		9497E8921ACAC7F000F8FC12 /* imggallery2013.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8751ACAC7F000F8FC12 /* imggallery2013.png */; };
+		9497E8931ACAC7F000F8FC12 /* homanhover2013.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8761ACAC7F000F8FC12 /* homanhover2013.png */; };
+		9497E8941ACAC7F000F8FC12 /* ineerscreencommon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8771ACAC7F000F8FC12 /* ineerscreencommon.png */; };
+		9497E8951ACAC7F000F8FC12 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8781ACAC7F000F8FC12 /* left.png */; };
+		9497E8961ACAC7F000F8FC12 /* logout2013.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8791ACAC7F000F8FC12 /* logout2013.png */; };
+		9497E8971ACAC7F000F8FC12 /* visited.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E87A1ACAC7F000F8FC12 /* visited.png */; };
+		9497E8981ACAC7F000F8FC12 /* mmi_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E87B1ACAC7F000F8FC12 /* mmi_bg.png */; };
+		9497E8991ACAC7F000F8FC12 /* patientname_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E87C1ACAC7F000F8FC12 /* patientname_bg.png */; };
+		9497E89A1ACAC7F000F8FC12 /* popup.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E87D1ACAC7F000F8FC12 /* popup.png */; };
+		9497E89B1ACAC7F000F8FC12 /* searchnew.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E87E1ACAC7F000F8FC12 /* searchnew.png */; };
+		9497E89C1ACAC7F000F8FC12 /* testimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E87F1ACAC7F000F8FC12 /* testimg.png */; };
+		9497E89D1ACAC7F000F8FC12 /* txtbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8801ACAC7F000F8FC12 /* txtbox.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +183,39 @@
 		91D7F35A1ACAB75000BAE67E /* WoundCare.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = WoundCare.sqlite; sourceTree = "<group>"; };
 		91D7F35B1ACAB75000BAE67E /* WoundCare.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WoundCare.sqlite-shm"; sourceTree = "<group>"; };
 		91D7F35C1ACAB75000BAE67E /* WoundCare.sqlite-wal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WoundCare.sqlite-wal"; sourceTree = "<group>"; };
+		9497E85D1ACAC74000F8FC12 /* AssessmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssessmentViewController.h; sourceTree = "<group>"; };
+		9497E85E1ACAC74000F8FC12 /* AssessmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssessmentViewController.m; sourceTree = "<group>"; };
+		9497E8601ACAC78400F8FC12 /* cloudpdf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloudpdf.png; path = WoundCare/cloudpdf.png; sourceTree = "<group>"; };
+		9497E8621ACAC7BC00F8FC12 /* completed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = completed.png; path = WoundCare/completed.png; sourceTree = "<group>"; };
+		9497E8641ACAC7F000F8FC12 /* deletion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = deletion.png; path = WoundCare/deletion.png; sourceTree = "<group>"; };
+		9497E8651ACAC7F000F8FC12 /* head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = head.png; path = WoundCare/head.png; sourceTree = "<group>"; };
+		9497E8661ACAC7F000F8FC12 /* headerasses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = headerasses.png; path = WoundCare/headerasses.png; sourceTree = "<group>"; };
+		9497E8671ACAC7F000F8FC12 /* human2013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = human2013.png; path = WoundCare/human2013.png; sourceTree = "<group>"; };
+		9497E8681ACAC7F000F8FC12 /* icon_education.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_education.png; path = WoundCare/icon_education.png; sourceTree = "<group>"; };
+		9497E8691ACAC7F000F8FC12 /* icon_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_home.png; path = WoundCare/icon_home.png; sourceTree = "<group>"; };
+		9497E86A1ACAC7F000F8FC12 /* icon_logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_logout.png; path = WoundCare/icon_logout.png; sourceTree = "<group>"; };
+		9497E86B1ACAC7F000F8FC12 /* icon_pain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_pain.png; path = WoundCare/icon_pain.png; sourceTree = "<group>"; };
+		9497E86C1ACAC7F000F8FC12 /* icon_recommend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_recommend.png; path = WoundCare/icon_recommend.png; sourceTree = "<group>"; };
+		9497E86D1ACAC7F000F8FC12 /* icon_risk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_risk.png; path = WoundCare/icon_risk.png; sourceTree = "<group>"; };
+		9497E86E1ACAC7F000F8FC12 /* icon_treatment.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_treatment.png; path = WoundCare/icon_treatment.png; sourceTree = "<group>"; };
+		9497E86F1ACAC7F000F8FC12 /* hoverimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hoverimage.png; path = WoundCare/hoverimage.png; sourceTree = "<group>"; };
+		9497E8701ACAC7F000F8FC12 /* logouthover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logouthover.png; path = WoundCare/logouthover.png; sourceTree = "<group>"; };
+		9497E8711ACAC7F000F8FC12 /* hoverlogout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hoverlogout.png; path = WoundCare/hoverlogout.png; sourceTree = "<group>"; };
+		9497E8721ACAC7F000F8FC12 /* imggalleryhover2013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imggalleryhover2013.png; path = WoundCare/imggalleryhover2013.png; sourceTree = "<group>"; };
+		9497E8731ACAC7F000F8FC12 /* icon_education_hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_education_hover.png; path = WoundCare/icon_education_hover.png; sourceTree = "<group>"; };
+		9497E8741ACAC7F000F8FC12 /* icon_wound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_wound.png; path = WoundCare/icon_wound.png; sourceTree = "<group>"; };
+		9497E8751ACAC7F000F8FC12 /* imggallery2013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = imggallery2013.png; path = WoundCare/imggallery2013.png; sourceTree = "<group>"; };
+		9497E8761ACAC7F000F8FC12 /* homanhover2013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = homanhover2013.png; path = WoundCare/homanhover2013.png; sourceTree = "<group>"; };
+		9497E8771ACAC7F000F8FC12 /* ineerscreencommon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ineerscreencommon.png; path = WoundCare/ineerscreencommon.png; sourceTree = "<group>"; };
+		9497E8781ACAC7F000F8FC12 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left.png; path = WoundCare/left.png; sourceTree = "<group>"; };
+		9497E8791ACAC7F000F8FC12 /* logout2013.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout2013.png; path = WoundCare/logout2013.png; sourceTree = "<group>"; };
+		9497E87A1ACAC7F000F8FC12 /* visited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = visited.png; path = WoundCare/visited.png; sourceTree = "<group>"; };
+		9497E87B1ACAC7F000F8FC12 /* mmi_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mmi_bg.png; path = WoundCare/mmi_bg.png; sourceTree = "<group>"; };
+		9497E87C1ACAC7F000F8FC12 /* patientname_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = patientname_bg.png; path = WoundCare/patientname_bg.png; sourceTree = "<group>"; };
+		9497E87D1ACAC7F000F8FC12 /* popup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = popup.png; path = WoundCare/popup.png; sourceTree = "<group>"; };
+		9497E87E1ACAC7F000F8FC12 /* searchnew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = searchnew.png; path = WoundCare/searchnew.png; sourceTree = "<group>"; };
+		9497E87F1ACAC7F000F8FC12 /* testimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = testimg.png; path = WoundCare/testimg.png; sourceTree = "<group>"; };
+		9497E8801ACAC7F000F8FC12 /* txtbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = txtbox.png; path = WoundCare/txtbox.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +296,8 @@
 				91D48F0A1AC16485003F8B0A /* AssignmentTypePopOverController.m */,
 				91CD6F291AC151A400F56AE0 /* NumberEntryViewController.h */,
 				91CD6F2A1AC151A400F56AE0 /* NumberEntryViewController.m */,
+				9497E85D1ACAC74000F8FC12 /* AssessmentViewController.h */,
+				9497E85E1ACAC74000F8FC12 /* AssessmentViewController.m */,
 				91C2287E1ABA983900E389AF /* AppDelegate.h */,
 				91C2287F1ABA983900E389AF /* AppDelegate.m */,
 				91C228841ABA983900E389AF /* ViewController.h */,
@@ -307,6 +374,7 @@
 		91C228C31ABA9B0C00E389AF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9497E89E1ACAD90D00F8FC12 /* assessment */,
 				91CD6F081AC150B300F56AE0 /* numbersView */,
 				91C165AF1ABFFD96007A1B41 /* greentick.png */,
 				91C165A81ABFFD1F007A1B41 /* assignments */,
@@ -347,6 +415,44 @@
 				91CD6F141AC150C300F56AE0 /* n9.png */,
 			);
 			name = numbersView;
+			sourceTree = "<group>";
+		};
+		9497E89E1ACAD90D00F8FC12 /* assessment */ = {
+			isa = PBXGroup;
+			children = (
+				9497E8621ACAC7BC00F8FC12 /* completed.png */,
+				9497E8601ACAC78400F8FC12 /* cloudpdf.png */,
+				9497E8641ACAC7F000F8FC12 /* deletion.png */,
+				9497E8651ACAC7F000F8FC12 /* head.png */,
+				9497E8661ACAC7F000F8FC12 /* headerasses.png */,
+				9497E8671ACAC7F000F8FC12 /* human2013.png */,
+				9497E8681ACAC7F000F8FC12 /* icon_education.png */,
+				9497E8691ACAC7F000F8FC12 /* icon_home.png */,
+				9497E86A1ACAC7F000F8FC12 /* icon_logout.png */,
+				9497E86B1ACAC7F000F8FC12 /* icon_pain.png */,
+				9497E86C1ACAC7F000F8FC12 /* icon_recommend.png */,
+				9497E86D1ACAC7F000F8FC12 /* icon_risk.png */,
+				9497E86E1ACAC7F000F8FC12 /* icon_treatment.png */,
+				9497E86F1ACAC7F000F8FC12 /* hoverimage.png */,
+				9497E8701ACAC7F000F8FC12 /* logouthover.png */,
+				9497E8711ACAC7F000F8FC12 /* hoverlogout.png */,
+				9497E8721ACAC7F000F8FC12 /* imggalleryhover2013.png */,
+				9497E8731ACAC7F000F8FC12 /* icon_education_hover.png */,
+				9497E8741ACAC7F000F8FC12 /* icon_wound.png */,
+				9497E8751ACAC7F000F8FC12 /* imggallery2013.png */,
+				9497E8761ACAC7F000F8FC12 /* homanhover2013.png */,
+				9497E8771ACAC7F000F8FC12 /* ineerscreencommon.png */,
+				9497E8781ACAC7F000F8FC12 /* left.png */,
+				9497E8791ACAC7F000F8FC12 /* logout2013.png */,
+				9497E87A1ACAC7F000F8FC12 /* visited.png */,
+				9497E87B1ACAC7F000F8FC12 /* mmi_bg.png */,
+				9497E87C1ACAC7F000F8FC12 /* patientname_bg.png */,
+				9497E87D1ACAC7F000F8FC12 /* popup.png */,
+				9497E87E1ACAC7F000F8FC12 /* searchnew.png */,
+				9497E87F1ACAC7F000F8FC12 /* testimg.png */,
+				9497E8801ACAC7F000F8FC12 /* txtbox.png */,
+			);
+			name = assessment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -428,41 +534,72 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9497E8921ACAC7F000F8FC12 /* imggallery2013.png in Resources */,
 				91C090911AC047BD008D7FAC /* dottrans.png in Resources */,
+				9497E8941ACAC7F000F8FC12 /* ineerscreencommon.png in Resources */,
+				9497E88A1ACAC7F000F8FC12 /* icon_risk.png in Resources */,
+				9497E88B1ACAC7F000F8FC12 /* icon_treatment.png in Resources */,
+				9497E8911ACAC7F000F8FC12 /* icon_wound.png in Resources */,
+				9497E8981ACAC7F000F8FC12 /* mmi_bg.png in Resources */,
+				9497E8861ACAC7F000F8FC12 /* icon_home.png in Resources */,
 				91CD6F281AC1513B00F56AE0 /* dot.png in Resources */,
 				91C228891ABA983900E389AF /* Main.storyboard in Resources */,
+				9497E89B1ACAC7F000F8FC12 /* searchnew.png in Resources */,
 				91CD6F231AC150C800F56AE0 /* n0.png in Resources */,
+				9497E8851ACAC7F000F8FC12 /* icon_education.png in Resources */,
 				91CD6F241AC150C800F56AE0 /* n0a.png in Resources */,
 				91C228CC1ABA9B2100E389AF /* textboxbig.png in Resources */,
+				9497E88C1ACAC7F000F8FC12 /* hoverimage.png in Resources */,
 				91C165B41ABFFDC9007A1B41 /* icon_logout.png in Resources */,
 				91CD6F201AC150C300F56AE0 /* n9.png in Resources */,
 				91CD6F1A1AC150C300F56AE0 /* n5.png in Resources */,
 				91CD6F1B1AC150C300F56AE0 /* n5a.png in Resources */,
 				91CD6F261AC150D500F56AE0 /* backspace.png in Resources */,
 				91C228C91ABA9B1B00E389AF /* welcome_bg.png in Resources */,
+				9497E8991ACAC7F000F8FC12 /* patientname_bg.png in Resources */,
 				91CD6F191AC150C300F56AE0 /* n4.png in Resources */,
+				9497E8891ACAC7F000F8FC12 /* icon_recommend.png in Resources */,
+				9497E8631ACAC7BC00F8FC12 /* completed.png in Resources */,
+				9497E8831ACAC7F000F8FC12 /* headerasses.png in Resources */,
 				91C165AC1ABFFD3E007A1B41 /* assignmentbg.png in Resources */,
+				9497E8931ACAC7F000F8FC12 /* homanhover2013.png in Resources */,
 				91D7F35D1ACAB75000BAE67E /* WoundCare.sqlite in Resources */,
 				91CD6F1F1AC150C300F56AE0 /* n8a.png in Resources */,
 				91C165AA1ABFFD2A007A1B41 /* addnewcases.png in Resources */,
 				91CD6F1D1AC150C300F56AE0 /* n7.png in Resources */,
+				9497E8881ACAC7F000F8FC12 /* icon_pain.png in Resources */,
 				91D7F35E1ACAB75000BAE67E /* WoundCare.sqlite-shm in Resources */,
+				9497E8811ACAC7F000F8FC12 /* deletion.png in Resources */,
+				9497E8951ACAC7F000F8FC12 /* left.png in Resources */,
+				9497E8821ACAC7F000F8FC12 /* head.png in Resources */,
 				91C165AE1ABFFD55007A1B41 /* backgroundlogin.png in Resources */,
+				9497E8611ACAC78400F8FC12 /* cloudpdf.png in Resources */,
 				91C2288E1ABA983900E389AF /* LaunchScreen.xib in Resources */,
 				91CD6F1E1AC150C300F56AE0 /* n8.png in Resources */,
 				91C2288B1ABA983900E389AF /* Images.xcassets in Resources */,
 				91CD6F181AC150C300F56AE0 /* n3.png in Resources */,
+				9497E88E1ACAC7F000F8FC12 /* hoverlogout.png in Resources */,
+				9497E8971ACAC7F000F8FC12 /* visited.png in Resources */,
 				91C165B21ABFFDB0007A1B41 /* head.png in Resources */,
 				91C165B61ABFFE09007A1B41 /* myassignmentname.png in Resources */,
 				91D48F0D1AC1655F003F8B0A /* checkboxun.png in Resources */,
+				9497E89A1ACAC7F000F8FC12 /* popup.png in Resources */,
+				9497E8961ACAC7F000F8FC12 /* logout2013.png in Resources */,
 				91C228C81ABA9B1B00E389AF /* sample.png in Resources */,
+				9497E8841ACAC7F000F8FC12 /* human2013.png in Resources */,
+				9497E89C1ACAC7F000F8FC12 /* testimg.png in Resources */,
+				9497E8901ACAC7F000F8FC12 /* icon_education_hover.png in Resources */,
 				91CD6F161AC150C300F56AE0 /* n2.png in Resources */,
 				91C090931AC04957008D7FAC /* orangedot.png in Resources */,
 				91CD6F171AC150C300F56AE0 /* n2a.png in Resources */,
 				91C165B01ABFFD96007A1B41 /* greentick.png in Resources */,
 				91CD6F1C1AC150C300F56AE0 /* n6.png in Resources */,
+				9497E8871ACAC7F000F8FC12 /* icon_logout.png in Resources */,
+				9497E88D1ACAC7F000F8FC12 /* logouthover.png in Resources */,
 				91D7F35F1ACAB75000BAE67E /* WoundCare.sqlite-wal in Resources */,
+				9497E88F1ACAC7F000F8FC12 /* imggalleryhover2013.png in Resources */,
 				91C228CA1ABA9B1B00E389AF /* loginbutton.png in Resources */,
+				9497E89D1ACAC7F000F8FC12 /* txtbox.png in Resources */,
 				91CD6F151AC150C300F56AE0 /* n1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +636,7 @@
 				91C228BF1ABA9A9600E389AF /* CoreDataHelper.m in Sources */,
 				91C228B51ABA9A5E00E389AF /* PatientDetails.m in Sources */,
 				91C2287D1ABA983900E389AF /* main.m in Sources */,
+				9497E85F1ACAC74100F8FC12 /* AssessmentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
