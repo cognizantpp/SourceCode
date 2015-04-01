@@ -127,7 +127,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
             endingLineNumber = "83"
-            landmarkName = "-OkClicked"
+            landmarkName = "-addAssignmentClicked:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
