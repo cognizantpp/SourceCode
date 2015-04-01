@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PainHomeViewController.h"
+#import "EducationHomeViewController.h"
+#import "RecommendationHomeViewController.h"
+#import "TreatmentHomeViewController.h"
 @interface AssessmentViewController : UIViewController
 
 @end

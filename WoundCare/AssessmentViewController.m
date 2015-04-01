@@ -10,12 +10,11 @@
 
 
 @interface AssessmentViewController (){
-    int buttonClicked;
+    long buttonClicked;
 }
 - (IBAction)buttonClciked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *baseView;
 @property (weak, nonatomic) IBOutlet UIView *initialview;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *assessbuttons;
 @property (weak, nonatomic) IBOutlet UIButton *pain;
 @property (weak, nonatomic) IBOutlet UIButton *review;
 @property (weak, nonatomic) IBOutlet UIButton *education;
@@ -76,9 +75,9 @@
     if([sender tag]==1){
         [sender setBackgroundImage:[UIImage imageNamed:@"visited.png"] forState:UIControlStateNormal];
         [self setButtonBackground];
-        //FirstViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
-        //[self.initialview addSubview:tvc.view];
-        //[self addChildViewController:tvc];
+        PainHomeViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"PainHomeViewController"];
+        [self.initialview addSubview:tvc.view];
+        [self addChildViewController:tvc];
         buttonClicked=[sender tag];
         self.delete.alpha=0;
         
@@ -96,9 +95,9 @@
     if ([sender tag]==3){
         [sender setBackgroundImage:[UIImage imageNamed:@"visited.png"] forState:UIControlStateNormal];
         [self setButtonBackground];
-//        EducationHomeViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"EducationHomeViewController"];
-//        [self.initialview addSubview:tvc.view];
-//        [self addChildViewController:tvc];
+        EducationHomeViewController *tvc=[self.storyboard         instantiateViewControllerWithIdentifier:@"EducationHomeViewController"];
+        [self.initialview addSubview:tvc.view];
+        [self addChildViewController:tvc];
         buttonClicked=[sender tag];
         self.delete.alpha=0;
         
@@ -106,18 +105,18 @@
     if([sender tag]==4){
         [sender setBackgroundImage:[UIImage imageNamed:@"visited.png"] forState:UIControlStateNormal];
         [self setButtonBackground];
-//        FirstViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
-//        [self.initialview addSubview:tvc.view];
-//        [self addChildViewController:tvc];
+        TreatmentHomeViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"TreatmentHomeViewController"];
+        [self.initialview addSubview:tvc.view];
+        [self addChildViewController:tvc];
         buttonClicked=[sender tag];
         self.delete.alpha=0;
     }
     if([sender tag]==5){
         [sender setBackgroundImage:[UIImage imageNamed:@"visited.png"] forState:UIControlStateNormal];
       [self setButtonBackground];
-//        FirstViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
-//        [self.initialview addSubview:tvc.view];
-//        [self addChildViewController:tvc];
+       RecommendationHomeViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"RecommendationHomeViewController"];
+        [self.initialview addSubview:tvc.view];
+        [self addChildViewController:tvc];
         buttonClicked=[sender tag];
         self.delete.alpha=0;
         
