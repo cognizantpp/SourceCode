@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="MO7-JL-XRO">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -20,9 +20,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="welcome_bg.png" highlightedImage="welcome_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ur9-cP-iU5">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sample.png" highlightedImage="sample.png" translatesAutoresizingMaskIntoConstraints="NO" id="vXH-zf-evz">
-                                <rect key="frame" x="139" y="20" width="650" height="650"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NA0-Kc-GZr">
                                 <rect key="frame" x="327" y="521" width="122" height="44"/>
@@ -49,6 +46,9 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ziX-6e-WVu"/>
                                 </connections>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sample.png" highlightedImage="sample.png" translatesAutoresizingMaskIntoConstraints="NO" id="vXH-zf-evz">
+                                <rect key="frame" x="412" y="-264" width="650" height="650"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -662,6 +662,47 @@
             </objects>
             <point key="canvasLocation" x="1013" y="832"/>
         </scene>
+        <!--OstomyalreadyselectedVC-->
+        <scene sceneID="n2n-Or-vDg">
+            <objects>
+                <viewController storyboardIdentifier="sixthviewcontroller" id="73M-tP-KXy" customClass="OstomyalreadyselectedVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="POC-5u-wlG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jsh-R8-hkb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jeJ-2U-vdP">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="poppupsmall.png" translatesAutoresizingMaskIntoConstraints="NO" id="3pp-sm-aik">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ostomy Already Selected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWe-6f-H1t">
+                                <rect key="frame" x="54" y="43" width="220" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxC-UB-SSD">
+                                <rect key="frame" x="82" y="94" width="137" height="44"/>
+                                <state key="normal" image="button_ok.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okbtnn:" destination="73M-tP-KXy" eventType="touchUpInside" id="QnN-M4-i0g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Z4-HN-ulF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1670" y="650"/>
+        </scene>
         <!--Treatment Home View Controller-->
         <scene sceneID="IR5-RX-P6e">
             <objects>
@@ -960,6 +1001,166 @@
             </objects>
             <point key="canvasLocation" x="689" y="295"/>
         </scene>
+        <!--Select Wound Type Table View Controller-->
+        <scene sceneID="naG-Sr-IZF">
+            <objects>
+                <tableViewController id="APK-8Q-YzC" customClass="SelectWoundTypeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="31H-Bz-ALV">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="8ns-9U-5TN" customClass="Cell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8ns-9U-5TN" id="AaU-bx-XcA">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="APK-8Q-YzC" id="ed1-s1-27a"/>
+                            <outlet property="delegate" destination="APK-8Q-YzC" id="C4U-Bi-1aG"/>
+                        </connections>
+                    </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="300"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2IJ-lX-oMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="617" y="197"/>
+        </scene>
+        <!--GastrocountreachedVC-->
+        <scene sceneID="jUD-88-S91">
+            <objects>
+                <viewController storyboardIdentifier="fifthviewcontroller" id="rMR-uy-2AR" customClass="GastrocountreachedVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fSp-JC-sIr"/>
+                        <viewControllerLayoutGuide type="bottom" id="McU-nX-r8h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SGQ-CX-Zhc">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="poppupsmall.png" translatesAutoresizingMaskIntoConstraints="NO" id="n1F-3Q-lf8">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gastrostomy already selected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMN-Zg-5lF">
+                                <rect key="frame" x="32" y="37" width="236" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDb-tp-eiI">
+                                <rect key="frame" x="76" y="84" width="137" height="44"/>
+                                <state key="normal" image="button_ok.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okbtnn:" destination="rMR-uy-2AR" eventType="touchUpInside" id="HCa-xD-zYe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sO6-cZ-sBO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="650"/>
+        </scene>
+        <!--WouldyouliketousecameraVC-->
+        <scene sceneID="BKx-Wh-kla">
+            <objects>
+                <viewController storyboardIdentifier="thirdviewcontroller" id="TMZ-XF-chI" customClass="WouldyouliketousecameraVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Syt-gW-zr4"/>
+                        <viewControllerLayoutGuide type="bottom" id="Akv-x3-4ma"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pB9-uw-Q5M">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="poppupsmall.png" translatesAutoresizingMaskIntoConstraints="NO" id="TTH-0q-bpw">
+                                <rect key="frame" x="0.0" y="0.0" width="311" height="236"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-o3-yZB">
+                                <rect key="frame" x="8" y="85" width="137" height="44"/>
+                                <state key="normal" image="button_yes.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDT-PC-5Ta">
+                                <rect key="frame" x="153" y="85" width="137" height="44"/>
+                                <state key="normal" image="button_no.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Would you like to capture image?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sL2-3c-apF">
+                                <rect key="frame" x="26" y="28" width="258" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dub-EQ-eGL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="561" y="650"/>
+        </scene>
+        <!--WouldyouliketomarkVC-->
+        <scene sceneID="2hA-cB-ANT">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" id="Meh-sa-9Df" customClass="WouldyouliketomarkVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w3H-8l-HPj"/>
+                        <viewControllerLayoutGuide type="bottom" id="hpR-kY-Qfi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iev-N5-RGz">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="poppupsmall.png" translatesAutoresizingMaskIntoConstraints="NO" id="iQJ-rK-bT8">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Would you like to use this mark?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pos-1z-WJT">
+                                <rect key="frame" x="38" y="35" width="224" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dk-Vz-Mdx">
+                                <rect key="frame" x="50" y="79" width="70" height="42"/>
+                                <state key="normal" image="button_yes.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="yescancelbutton:" destination="Meh-sa-9Df" eventType="touchUpInside" id="rTk-n4-itH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTn-0d-cJ7">
+                                <rect key="frame" x="162" y="79" width="73" height="44"/>
+                                <state key="normal" image="btncancel.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="yescancelbutton:" destination="Meh-sa-9Df" eventType="touchUpInside" id="pNG-nT-8nW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="APL-I0-9ad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="208" y="650"/>
+        </scene>
         <!--Follow Up Table View Controller-->
         <scene sceneID="onU-Jl-AXA">
             <objects>
@@ -1159,6 +1360,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMM-JZ-ddY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="416" y="672.00000000000011"/>
+        </scene>
+        <!--Wound Image View Controller-->
+        <scene sceneID="IVm-7N-ZqA">
+            <objects>
+                <viewController id="9rR-15-kgK" customClass="WoundImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sCm-ba-4K7"/>
+                        <viewControllerLayoutGuide type="bottom" id="i29-OQ-ZPH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8AH-VA-tNm">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="humanbodywithimg.png" translatesAutoresizingMaskIntoConstraints="NO" id="7qM-1A-OES">
+                                <rect key="frame" x="-24" y="20" width="1024" height="545"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7qM-1A-OES" firstAttribute="top" secondItem="8AH-VA-tNm" secondAttribute="topMargin" constant="20" id="DI1-go-4gt"/>
+                            <constraint firstItem="7qM-1A-OES" firstAttribute="leading" secondItem="8AH-VA-tNm" secondAttribute="leadingMargin" constant="-40" id="Drm-Q3-1QD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7qM-1A-OES" secondAttribute="trailing" constant="8" id="M2P-Ib-GOA"/>
+                            <constraint firstItem="i29-OQ-ZPH" firstAttribute="top" secondItem="7qM-1A-OES" secondAttribute="bottom" constant="203" id="ifl-zc-hQS"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1024" height="768"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDW-M4-ZZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--WoundlimitreachedVC-->
+        <scene sceneID="TTv-Zo-mtP">
+            <objects>
+                <viewController storyboardIdentifier="fourthviewcontroller" id="zer-aR-zgx" customClass="WoundlimitreachedVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Gb-HY-3Is"/>
+                        <viewControllerLayoutGuide type="bottom" id="L0C-Xt-OKR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PSe-WO-YxX">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="poppupsmall.png" translatesAutoresizingMaskIntoConstraints="NO" id="DqE-Ce-pHg">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wound Limit Already Reached" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceP-Nk-KmE">
+                                <rect key="frame" x="29" y="47" width="242" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1CF-sm-wn2">
+                                <rect key="frame" x="76" y="91" width="137" height="44"/>
+                                <state key="normal" image="button_ok.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="okbtn:" destination="zer-aR-zgx" eventType="touchUpInside" id="Hp7-v7-DaQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xdK-v0-d0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="956" y="650"/>
         </scene>
         <!--Assignment Type Pop Over Controller-->
         <scene sceneID="e9T-Xz-lJc">
@@ -1986,6 +2258,62 @@
             </objects>
             <point key="canvasLocation" x="1181" y="341"/>
         </scene>
+        <!--Wound Image View Controller-->
+        <scene sceneID="hgr-vp-5q5">
+            <objects>
+                <viewController id="MO7-JL-XRO" customClass="WoundImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QQ0-sV-Z6R"/>
+                        <viewControllerLayoutGuide type="bottom" id="7oB-ab-Tra"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fGy-qU-v3k">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="humanbodywithimg.png" translatesAutoresizingMaskIntoConstraints="NO" id="GOb-kr-y6P">
+                                <rect key="frame" x="-24" y="20" width="600" height="377"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GOb-kr-y6P" firstAttribute="leading" secondItem="fGy-qU-v3k" secondAttribute="leadingMargin" constant="-40" id="1na-7E-0V0"/>
+                            <constraint firstItem="7oB-ab-Tra" firstAttribute="top" secondItem="GOb-kr-y6P" secondAttribute="bottom" constant="203" id="2K4-1m-SIK"/>
+                            <constraint firstItem="GOb-kr-y6P" firstAttribute="top" secondItem="fGy-qU-v3k" secondAttribute="topMargin" constant="20" id="Bmx-wD-6h6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GOb-kr-y6P" secondAttribute="trailing" constant="8" id="Qaa-UY-Aey"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m7m-eg-W13" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Select Wound Type Table View Controller-->
+        <scene sceneID="lKH-eh-1S1">
+            <objects>
+                <tableViewController id="rMH-SX-m4S" customClass="SelectWoundTypeTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5UN-gH-wOr">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="dWO-2h-b1l" customClass="Cell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dWO-2h-b1l" id="nKG-ma-0de">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rMH-SX-m4S" id="iFp-zB-Si5"/>
+                            <outlet property="delegate" destination="rMH-SX-m4S" id="hsB-MS-Quw"/>
+                        </connections>
+                    </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="300"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e2o-d3-p1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="617" y="197"/>
+        </scene>
         <!--Select Activity Table View Controller-->
         <scene sceneID="wdM-bi-Qph">
             <objects>
@@ -2532,7 +2860,10 @@
         <image name="addnewcases.png" width="288" height="94"/>
         <image name="assignmentbg.png" width="739" height="521"/>
         <image name="backspace.png" width="105" height="55"/>
+        <image name="btncancel.png" width="82" height="44"/>
+        <image name="button_no.png" width="82" height="44"/>
         <image name="button_ok.png" width="82" height="44"/>
+        <image name="button_yes.png" width="82" height="44"/>
         <image name="checkboxmark.png" width="1024" height="685"/>
         <image name="checkboxun.png" width="25" height="24"/>
         <image name="cloudpdf.png" width="54" height="42"/>
@@ -2547,6 +2878,7 @@
         <image name="head.png" width="1024" height="63"/>
         <image name="headerasses.png" width="74" height="40"/>
         <image name="human2013.png" width="52" height="64"/>
+        <image name="humanbodywithimg.png" width="900" height="600"/>
         <image name="icon_education.png" width="60" height="59"/>
         <image name="icon_home.png" width="42" height="42"/>
         <image name="icon_logout.png" width="44" height="44"/>
@@ -2573,6 +2905,7 @@
         <image name="n8.png" width="107" height="54"/>
         <image name="n9.png" width="105" height="54"/>
         <image name="patientname_bg.png" width="177" height="55"/>
+        <image name="poppupsmall.png" width="295" height="162"/>
         <image name="popup.png" width="320" height="353"/>
         <image name="radiobtnactive.png" width="23" height="23"/>
         <image name="radiobtndeactive.png" width="23" height="23"/>
