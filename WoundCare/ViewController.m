@@ -77,8 +77,8 @@
                      animations:^
      {
          CGRect frame = self.view.frame;
-         frame.origin.y = 0;
-         frame.origin.x = (-100);
+         frame.origin.y = (-100);
+         frame.origin.x = 0;
          self.view.frame = frame;
      }
                      completion:^(BOOL finished)

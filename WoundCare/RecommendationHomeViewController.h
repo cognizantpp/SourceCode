@@ -15,7 +15,7 @@
 #import "TissueTableViewController.h"
 #import "FollowUpTableViewController.h"
 
-@interface RecommendationHomeViewController : UIViewController<GetDataProtocol,UIScrollViewDelegate>
+@interface RecommendationHomeViewController : UIViewController<GetDataProtocol,UIScrollViewDelegate,UIScrollViewDelegate,UITextFieldDelegate>
 
 - (IBAction)selectButtonAction:(UIButton *)sender;
 

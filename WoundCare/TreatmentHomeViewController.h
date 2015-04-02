@@ -12,7 +12,7 @@
 #import "NegativePressureWoundTableViewController.h"
 #import "SkinCareTableViewController.h"
 
-@interface TreatmentHomeViewController : UIViewController<GetDataProtocol>
+@interface TreatmentHomeViewController : UIViewController<GetDataProtocol,UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *cleansingButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *dressingButtonOutlet;
@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *yesButtonOutlet;
 
 
+@property (strong, nonatomic) IBOutlet UITextField *otherTextField;
 
 
 - (IBAction)SelectButtonAction:(UIButton *)sender;

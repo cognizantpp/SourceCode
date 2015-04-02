@@ -40,6 +40,7 @@
     
     [_footerView addSubview:button];
     
+    
 }
 -(void)viewDidAppear:(BOOL)animated
 {

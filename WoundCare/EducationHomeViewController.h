@@ -15,7 +15,7 @@
 #import "SelectTeachingAssessmentTableViewController.h"
 
 
-@interface EducationHomeViewController : UIViewController<GetDataProtocol>
+@interface EducationHomeViewController : UIViewController<GetDataProtocol,UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *discussedButtonOutlet;
 
@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *hrButtonOutlet;
 - (IBAction)radioButtonAction:(UIButton *)sender;
 
+@property (strong, nonatomic) IBOutlet UITextField *otherTextField;
 
 
 
