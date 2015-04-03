@@ -11,6 +11,7 @@
 #import "EducationHomeViewController.h"
 #import "RecommendationHomeViewController.h"
 #import "TreatmentHomeViewController.h"
+#import "WoundImageViewController.h"
 @interface AssessmentViewController : UIViewController
 
 @end

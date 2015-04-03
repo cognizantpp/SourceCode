@@ -39,6 +39,13 @@
     
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    WoundImageViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"WoundImageViewController"];
+    [self.initialview addSubview:tvc.view];
+    [self addChildViewController:tvc];
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -125,9 +132,9 @@
         self.delete.alpha=1;
         [sender setImage:[UIImage imageNamed:@"homanhover2013.png"] forState:UIControlStateNormal];
         [self setButtonBackground];
-//        FirstViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
-//        [self.initialview addSubview:tvc.view];
-//        [self addChildViewController:tvc];
+       WoundImageViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"WoundImageViewController"];
+        [self.initialview addSubview:tvc.view];
+        [self addChildViewController:tvc];
 //        NSLog(@"%d",buttonClicked);
         buttonClicked=[sender tag];
         

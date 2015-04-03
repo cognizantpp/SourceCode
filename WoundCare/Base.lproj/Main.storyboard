@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LfV-4f-rmT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LfV-4f-rmT">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -1365,7 +1365,7 @@
         <!--Wound Image View Controller-->
         <scene sceneID="IVm-7N-ZqA">
             <objects>
-                <viewController id="9rR-15-kgK" customClass="WoundImageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WoundImageViewController" id="9rR-15-kgK" customClass="WoundImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sCm-ba-4K7"/>
                         <viewControllerLayoutGuide type="bottom" id="i29-OQ-ZPH"/>
@@ -1378,7 +1378,7 @@
                                 <rect key="frame" x="-24" y="20" width="1024" height="545"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7qM-1A-OES" firstAttribute="top" secondItem="8AH-VA-tNm" secondAttribute="topMargin" constant="20" id="DI1-go-4gt"/>
                             <constraint firstItem="7qM-1A-OES" firstAttribute="leading" secondItem="8AH-VA-tNm" secondAttribute="leadingMargin" constant="-40" id="Drm-Q3-1QD"/>
