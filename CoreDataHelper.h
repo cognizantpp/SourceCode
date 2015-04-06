@@ -28,7 +28,7 @@
 
 -(BOOL)CheckUserId:(NSString *)userid;
 -(PatientDetails *) getAssignmentsList:(NSString *)staffId;
-
+-(void)getOldAssignments;
 -(NSArray *)fetchTheFlaccFields:(NSString *)categoryId;
 -(NSArray *)fetchTheFlaccScore:(NSString *)categoryId;
 
