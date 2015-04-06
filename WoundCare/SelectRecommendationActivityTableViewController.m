@@ -23,7 +23,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableView.allowsMultipleSelection = YES;
-    self.activityArray = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.activityArray= [cdh fetchTheRecommendationsFields:@"2"];
+    
     
     _itemsToBePassed=[[NSMutableArray alloc]init];
     self.tableView.backgroundColor = [UIColor clearColor];

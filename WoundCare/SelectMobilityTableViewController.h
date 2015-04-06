@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GetDataProtocol.h"
+#import "CoreDataHelper.h"
 
 @interface SelectMobilityTableViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>
 

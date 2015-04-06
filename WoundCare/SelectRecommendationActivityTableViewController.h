@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import"GetDataProtocol.h"
+#import "CoreDataHelper.h"
 
 @interface SelectRecommendationActivityTableViewController : UITableViewController<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic,assign)id<GetDataProtocol>dataDelegate;
