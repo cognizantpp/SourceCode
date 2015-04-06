@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "PatientDetails.h"
+#import "Pain.h"
+#import "Education.h"
+#import "Treatment.h"
+#import "Recommendations.h"
 
 
 @interface CoreDataHelper : NSObject
@@ -24,4 +28,12 @@
 
 -(BOOL)CheckUserId:(NSString *)userid;
 -(PatientDetails *) getAssignmentsList:(NSString *)staffId;
+
+-(NSArray *)fetchTheFlaccFields:(NSString *)categoryId;
+-(NSArray *)fetchTheFlaccScore:(NSString *)categoryId;
+
+-(NSArray *)fetchTheEducationFields:(NSString *)categoryId;
+-(NSArray *)fetchTheTreatmentFields:(NSString *)categoryId;
+-(NSArray *)fetchTheRecommendationsFields:(NSString *)categoryId;
+
 @end

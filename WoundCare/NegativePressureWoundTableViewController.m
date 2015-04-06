@@ -26,7 +26,11 @@
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.tableView.allowsMultipleSelection = YES;
-    self.negativePressureWoundArray = [NSArray arrayWithObjects:@"Tree", @"Plant", @"Satellite", @"Burger", @"Ham and Egg Sandwich", @"Idly", @"Dhosa", nil];
+    
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.negativePressureWoundArray=[cdh fetchTheTreatmentFields:@"3"];
+
+    
     
     _itemsToBePassed=[[NSMutableArray alloc]init];
     self.tableView.backgroundColor = [UIColor clearColor];

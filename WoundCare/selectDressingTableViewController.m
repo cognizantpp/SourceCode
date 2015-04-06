@@ -21,7 +21,11 @@
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.tableView.allowsMultipleSelection = YES;
-    self.dressingArray = [NSArray arrayWithObjects:@"Egg", @"Apple", @"Msngo", @"Burger", @"Ham and Egg Sandwich", @"Sandwich", @"Pizza", @"Other", nil];
+    
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.dressingArray=[cdh fetchTheTreatmentFields:@"2"];
+
+    
     
     _itemsToBePassed=[[NSMutableArray alloc]init];
     self.tableView.backgroundColor = [UIColor clearColor];

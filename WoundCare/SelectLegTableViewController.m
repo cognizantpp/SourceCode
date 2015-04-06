@@ -20,8 +20,10 @@
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.legArray= [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", nil];
-    self.legScore= [NSArray arrayWithObjects:@"0", @"1", @"2", nil];
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.legArray= [cdh fetchTheFlaccFields:@"2"];
+    self.legScore= [cdh fetchTheFlaccScore:@"2"];
+
     
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup.png"]];
     

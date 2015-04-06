@@ -22,8 +22,9 @@
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.consolabilityArray= [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", nil];
-    self.consolabilityScore= [NSArray arrayWithObjects:@"0", @"1", @"2", nil];
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.consolabilityArray= [cdh fetchTheFlaccFields:@"5"];
+    self.consolabilityScore= [cdh fetchTheFlaccScore:@"5"];
     
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup.png"]];
     
