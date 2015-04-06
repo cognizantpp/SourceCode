@@ -117,10 +117,12 @@
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     UITouch *touch = [[event allTouches] anyObject];
     CGPoint location = [touch locationInView:_imageV];
-    if((location.x >=80 && location.x <=305 && location.y >=45 && location.y <=570)||
-        (location.x >=390 && location.x <=615 && location.y >=45 && location.y <=570)||
-        (location.x >=770 && location.x <=930 && location.y >=110 && location.y <=275)||
-        (location.x >=735 && location.x <=955 && location.y >=320 && location.y <=480))
+    
+    NSLog(@"x:-%f,y:-%f",location.x,location.y);
+    if((location.x >=150 && location.x <=375 && location.y >=115 && location.y <=645)||
+        (location.x >=460 && location.x <=685 && location.y >=115 && location.y <=640)||
+        (location.x >=840 && location.x <=1000 && location.y >=180 && location.y <=345)||
+        (location.x >=805 && location.x <=1025 && location.y >=390 && location.y <=550))
 
     {
         _locx=location.x;
@@ -387,7 +389,7 @@
                 
                 if(self.wc == 0)
                 {
-                    UIImageView *dot =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-10,20,20)];
+                    UIImageView *dot =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
                     dot.image=[UIImage imageNamed:@"w1.png"];
                     [self.view addSubview:dot];
 
@@ -395,7 +397,7 @@
                 
                 if(self.wc == 1)
                 {
-                    UIImageView *dot1 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-10,20,20)];
+                    UIImageView *dot1 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
                     dot1.image=[UIImage imageNamed:@"w2.png"];
                     [self.view addSubview:dot1];
                     
@@ -403,7 +405,7 @@
                 
                 if(self.wc == 2)
                 {
-                    UIImageView *dot2 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-10,20,20)];
+                    UIImageView *dot2 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
                     dot2.image=[UIImage imageNamed:@"w3.png"];
                     [self.view addSubview:dot2];
                     
@@ -411,7 +413,7 @@
                 
                 if(self.wc == 3)
                 {
-                    UIImageView *dot3 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-10,20,20)];
+                    UIImageView *dot3 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
                     dot3.image=[UIImage imageNamed:@"w4.png"];
                     [self.view addSubview:dot3];
                     
@@ -419,7 +421,7 @@
                 
                 if(self.wc == 4)
                 {
-                    UIImageView *dot4 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-10,20,20)];
+                    UIImageView *dot4 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
                     dot4.image=[UIImage imageNamed:@"w5.png"];
                     [self.view addSubview:dot4];
                     
@@ -427,7 +429,7 @@
                 
                 if(self.wc == 5)
                 {
-                    UIImageView *dot5 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-10,20,20)];
+                    UIImageView *dot5 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
                     dot5.image=[UIImage imageNamed:@"w6.png"];
                     [self.view addSubview:dot5];
                     
@@ -435,7 +437,7 @@
                 
                 if(self.wc == 6)
                 {
-                    UIImageView *dot6 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-10,20,20)];
+                    UIImageView *dot6 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
                     dot6.image=[UIImage imageNamed:@"w7.png"];
                     [self.view addSubview:dot6];
                     
@@ -490,7 +492,7 @@
                 
                 if(self.gc == 0)
                 {
-                    UIImageView *dot7 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-10,20,20)];
+                    UIImageView *dot7 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
                     dot7.image=[UIImage imageNamed:@"g1.png"];
                     [self.view addSubview:dot7];
                     
@@ -525,7 +527,7 @@
 
                 if(self.oc == 0)
                 {
-                    UIImageView *dot8 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-10,20,20)];
+                    UIImageView *dot8 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
                     dot8.image=[UIImage imageNamed:@"o1.png"];
                     [self.view addSubview:dot8];
                     

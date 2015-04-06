@@ -43,10 +43,17 @@
 }
 
 - (IBAction)btnLoginClicked:(id)sender {
-    if ([self.txtUserName.text isEqualToString:@""] || [self.txtPassword.text isEqualToString:@""]) {
+     if([self.txtUserName.text isEqualToString:@""]&&[self.txtPassword.text isEqualToString:@""]){
         [self showAlert:@"Username and password required"];
     }
-    else{
+
+    else if ([self.txtUserName.text isEqualToString:@""]){
+        [self showAlert:@"Username required"];
+    }
+    else if([self.txtPassword.text isEqualToString:@""]) {
+        [self showAlert:@"Password required"];
+    }
+        else{
        // AssignmentsViewController *assignmentController =
         //[self.storyboard instantiateViewControllerWithIdentifier:@"AssignmentsViewController"];
         CoreDataHelper *coredataHelper = [CoreDataHelper sharedInstance];
@@ -58,7 +65,11 @@
             [self presentViewController:assignmentController animated:NO completion:nil];
         }
         else{
-            [self showAlert:@"Invalid username and password"];
+            BOOL res=[coredataHelper CheckUserId:self.txtUserName.text];
+            if(!res)
+            [self showAlert:@"Invalid username"];
+            else
+                [self showAlert:@"Invalid password"];
         }
     }
 }
