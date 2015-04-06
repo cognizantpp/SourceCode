@@ -65,8 +65,11 @@
             [self presentViewController:assignmentController animated:NO completion:nil];
         }
         else{
-            
-            [self showAlert:@"Invalid username and password"];
+            BOOL res=[coredataHelper CheckUserId:self.txtUserName.text];
+            if(!res)
+            [self showAlert:@"Invalid username"];
+            else
+                [self showAlert:@"Invalid password"];
         }
     }
 }

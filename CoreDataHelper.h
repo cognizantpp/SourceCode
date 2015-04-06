@@ -21,5 +21,7 @@
 -(void)insertNewPatients:(NSDictionary*)newPatient;
 -(BOOL)validateEntryNumber:(NSString *)entryNo;
 -(BOOL)validateUserId:(NSString *)userid andpassword:(NSString *)password;
+
+-(BOOL)CheckUserId:(NSString *)userid;
 -(PatientDetails *) getAssignmentsList:(NSString *)staffId;
 @end
