@@ -37,6 +37,7 @@
 -(void)getFrictionData:(NSArray *)data;
 -(void)getTissueData:(NSArray *)data;
 -(void)getFollowUpData:(NSString *)data;
+-(void)getDate:(NSString *)date;
 //Treatment
 -(void)getData:(NSArray *)data;
 -(void)getDressingData:(NSArray *)data;

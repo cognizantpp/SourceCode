@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "GetDataProtocol.h"
+#import "CoreDataHelper.h"
+
 @interface MoistureTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
 
 

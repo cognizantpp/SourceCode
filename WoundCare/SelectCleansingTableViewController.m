@@ -23,7 +23,10 @@
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.tableView.allowsMultipleSelection = YES;
-     self.cleansingArray = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
+    
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.cleansingArray=[cdh fetchTheTreatmentFields:@"1"];
+    
     
     _itemsToBePassed=[[NSMutableArray alloc]init];
     self.tableView.backgroundColor = [UIColor clearColor];

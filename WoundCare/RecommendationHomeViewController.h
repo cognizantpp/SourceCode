@@ -14,6 +14,7 @@
 #import "FrictionTableViewController.h"
 #import "TissueTableViewController.h"
 #import "FollowUpTableViewController.h"
+#import "SelectDatePickerViewController.h"
 
 @interface RecommendationHomeViewController : UIViewController<GetDataProtocol,UIScrollViewDelegate,UIScrollViewDelegate,UITextFieldDelegate>
 
@@ -26,21 +27,20 @@
 @property (weak, nonatomic) IBOutlet UIButton *frictionButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *tissueperfusionButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *followUpButtonOutlet;
-@property (weak, nonatomic) IBOutlet UIButton *selectDateButtonOutlet;
+
 
 @property (weak, nonatomic) IBOutlet UITextField *followUpOtherTextField;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
+
+
+@property (weak, nonatomic) IBOutlet UIButton *dateButtonOutlet;
 
 
 - (IBAction)selectDateButtonAction:(UIButton *)sender;
 
-- (IBAction)doneButtonAction:(UIBarButtonItem *)sender;
 
-
-@property (weak, nonatomic) IBOutlet UIToolbar *toolbarOutlet;
 
 
 
@@ -51,6 +51,7 @@
 @property(nonatomic,strong)FrictionTableViewController *frictionViewController;
 @property(nonatomic,strong)TissueTableViewController *tissueViewController;
 @property(nonatomic,strong)FollowUpTableViewController *followUpController;
+@property(nonatomic,strong)SelectDatePickerViewController *selectDateViewController;
 
 
 

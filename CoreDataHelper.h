@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "PatientDetails.h"
+#import "Pain.h"
+#import "Education.h"
+#import "Treatment.h"
+#import "Recommendations.h"
 
 
 @interface CoreDataHelper : NSObject
@@ -21,6 +25,8 @@
 -(void)insertNewPatients:(NSDictionary*)newPatient;
 -(BOOL)validateEntryNumber:(NSString *)entryNo;
 -(BOOL)validateUserId:(NSString *)userid andpassword:(NSString *)password;
+
+-(BOOL)CheckUserId:(NSString *)userid;
 -(PatientDetails *) getAssignmentsList:(NSString *)staffId;
 -(void) getOldAssignments;
 @end

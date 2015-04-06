@@ -19,6 +19,7 @@
 @property(nonatomic,strong)UIPopoverController *frictionPopOver;
 @property(nonatomic,strong)UIPopoverController *tissuePopOver;
 @property(nonatomic,strong)UIPopoverController *followUpPopOver;
+@property(nonatomic,strong)UIPopoverController *datePickerPopOver;
     
 @property(nonatomic)CGRect r;
 @property(nonatomic)CGRect tRect;
@@ -60,22 +61,19 @@
     _followUpController.dataDelegate=self;
     _followUpCount=0;
     
-    
+        //  _selectDateViewController=[[SelectDatePickerViewController alloc]init];
+ 
     
     _scrollView.delegate=self;
     
     
-    [self.datePicker addTarget:self action:@selector(datePickerChanged:) forControlEvents:UIControlEventValueChanged];
-    
-    [self.datePicker setMinimumDate: [NSDate date]];
-    _datePicker.backgroundColor=[UIColor grayColor];
-    
-        _toolbarOutlet.backgroundColor=[UIColor grayColor];
-    
-    
+       
     self.followUpOtherTextField.delegate = self;
     
     
+    self.dateButtonOutlet.userInteractionEnabled=YES;
+    
+    
     
 
     
@@ -84,22 +82,7 @@
 }
 
 
-- (void)datePickerChanged:(UIDatePicker *)datePicker
-{
-    
-    NSDate *date1 = self.datePicker.date;
-    
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    
-    [dateFormat setDateFormat:@"dd-MM-yyyy"];
-    NSLog(@"%@",[dateFormat stringFromDate:date1]);
-    
-[self.selectDateButtonOutlet setTitle:[dateFormat stringFromDate:date1] forState:UIControlStateNormal]  ;
-    
-    
 
-    
-}
 
 
 
@@ -150,9 +133,8 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     self.followUpOtherTextField.hidden=YES;
-    _selectDateButtonOutlet.hidden=YES;
-    _datePicker.hidden=YES;
-    _toolbarOutlet.hidden=YES;
+    _dateButtonOutlet.hidden=YES;
+  
     
  
 }
@@ -275,12 +257,12 @@
     {
     
         
-        self.selectDateButtonOutlet.hidden=NO;
+        self.dateButtonOutlet.hidden=NO;
         
     }
     else
     {
-        self.selectDateButtonOutlet.hidden=YES;
+        self.dateButtonOutlet.hidden=YES;
         
     }
     
@@ -318,6 +300,7 @@
         
     }
 }
+
 
 
 - (IBAction)selectButtonAction:(UIButton *)sender {
@@ -455,21 +438,27 @@
 
 }
 
+-(void)getDate:(NSString *)date
+{
+    [self.dateButtonOutlet setTitle:date forState:UIControlStateNormal];
+}
 
 
 - (IBAction)selectDateButtonAction:(UIButton *)sender {
     
-    _toolbarOutlet.hidden=NO;
+    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:Nil];
+    _selectDateViewController=[storyBoard instantiateViewControllerWithIdentifier:@"datePicker"];
+    _selectDateViewController.dataDelegate=self;
     
-    _datePicker.hidden=NO;
-    
-}
 
-- (IBAction)doneButtonAction:(UIBarButtonItem *)sender {
-    _toolbarOutlet.hidden=YES;
+    self.datePickerPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectDateViewController];
+    [self.datePickerPopOver setPopoverContentSize:CGSizeMake(300, 300)];
     
-    _datePicker.hidden=YES;
+    _r = [sender frame];
+    _tRect = [sender convertRect:sender.bounds toView:self.view];
+    _tRect.origin.x=_r.origin.x;
     
-    
+    [self.datePickerPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+
 }
 @end

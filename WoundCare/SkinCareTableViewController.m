@@ -26,7 +26,11 @@
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.tableView.allowsMultipleSelection = YES;
-    self.skinCareArray = [NSArray arrayWithObjects:@"Skin", @"Bone", @"Parenchyma", @"Humerous", @"Skull", @"Idly", @"Hair", nil];
+    
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.skinCareArray=[cdh fetchTheTreatmentFields:@"4"];
+
+    
     
     _itemsToBePassed=[[NSMutableArray alloc]init];
     self.tableView.backgroundColor = [UIColor clearColor];

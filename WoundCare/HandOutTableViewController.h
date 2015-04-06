@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "GetDataProtocol.h"
+#import "CoreDataHelper.h"
+
 @interface HandOutTableViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>
 
 

@@ -19,7 +19,10 @@
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableView.allowsMultipleSelection = YES;
-    self.teachingAssessmentArray = [NSArray arrayWithObjects:@"Egg", @"Apple", @"Msngo", @"Burger", @"Ham and Egg Sandwich", @"Sandwich", @"Pizza",@"Other", nil];
+    
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.teachingAssessmentArray= [cdh fetchTheEducationFields:@"6"];
+    
     
     _itemsToBePassed=[[NSMutableArray alloc]init];
     self.tableView.backgroundColor = [UIColor clearColor];

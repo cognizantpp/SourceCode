@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GetDataProtocol.h"
+#import "CoreDataHelper.h"
 
 @interface SkinCareTableViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,weak)id<GetDataProtocol>dataDelegate;
