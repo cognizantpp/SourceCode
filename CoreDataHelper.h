@@ -22,4 +22,5 @@
 -(BOOL)validateEntryNumber:(NSString *)entryNo;
 -(BOOL)validateUserId:(NSString *)userid andpassword:(NSString *)password;
 -(PatientDetails *) getAssignmentsList:(NSString *)staffId;
+-(void) getOldAssignments;
 @end

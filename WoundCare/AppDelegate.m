@@ -21,9 +21,10 @@
     
     NSError *error;
     NSFileManager *fileManger = [NSFileManager defaultManager];
-    
+    BOOL firstLaunch = YES;
     NSString *fromPath = [[NSBundle mainBundle]pathForResource:@"WoundCare" ofType:@"sqlite"];
     NSString *toPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSLog(@"topath  %@",toPath);
     NSString *toPathFinal = [toPath stringByAppendingPathComponent:@"WoundCare.sqlite"];
     
     NSString *fromPath1 = [[NSBundle mainBundle]pathForResource:@"WoundCare" ofType:@"sqlite-shm"];
@@ -43,8 +44,16 @@
         [fileManger copyItemAtPath:fromPath2 toPath:toPathFinal2 error:&copyError];
 
     }
+    else{
+        firstLaunch = NO;
+    }
     CoreDataHelper *theHandler=[CoreDataHelper sharedInstance];
     theHandler.managedObjectContext=self.managedObjectContext;
+    if (firstLaunch) {
+         [theHandler getOldAssignments];
+    }
+   
+    //[self saveContext];
     return YES;
 }
 
@@ -118,7 +127,8 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
-    
+//    CoreDataHelper *theHandler=[CoreDataHelper sharedInstance];
+//    theHandler.managedObjectContext=self.managedObjectContext;
     return _persistentStoreCoordinator;
 }
 
@@ -126,7 +136,7 @@
 - (NSManagedObjectContext *)managedObjectContext {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
     if (_managedObjectContext != nil) {
-        return _managedObjectContext;
+            return _managedObjectContext;
     }
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
@@ -135,7 +145,7 @@
     }
     _managedObjectContext = [[NSManagedObjectContext alloc] init];
     [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-    return _managedObjectContext;
+     return _managedObjectContext;
 }
 
 #pragma mark - Core Data Saving support

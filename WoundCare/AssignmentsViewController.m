@@ -84,6 +84,12 @@ PatientDetails *patientsDetails;
      self.popOver =  [[UIPopoverController alloc]initWithContentViewController:self.addAssignmentPopOverController];
     //[self.popOver setPopoverContentSize:CGSizeMake(500, 400)];
     [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+    
+    
+//    _addAssignmentPopOverController =
+//    [self.storyboard instantiateViewControllerWithIdentifier:@"AddAssignmentPopOverController"];
+//    [self presentViewController:_addAssignmentPopOverController animated:NO completion:nil];
 }
 
 -(void)OkClicked{

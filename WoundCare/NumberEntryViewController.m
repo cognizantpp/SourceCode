@@ -60,7 +60,7 @@
 }
 - (IBAction)btnGoClicked:(id)sender {
     CoreDataHelper *coreDataHelper = [CoreDataHelper sharedInstance];
-    BOOL valid = YES;//[coreDataHelper validateEntryNumber:_entryData];
+    BOOL valid = [coreDataHelper validateEntryNumber:_entryData];
     if (valid) {
         [self.delegate OkClicked];
     }

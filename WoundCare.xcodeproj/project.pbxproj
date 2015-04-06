@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91A2F6B71AD2C9430000A0CA /* WoundCare.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 91A2F6B41AD2C9430000A0CA /* WoundCare.sqlite */; };
+		91A2F6B81AD2C9430000A0CA /* WoundCare.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 91A2F6B51AD2C9430000A0CA /* WoundCare.sqlite-shm */; };
+		91A2F6B91AD2C9430000A0CA /* WoundCare.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 91A2F6B61AD2C9430000A0CA /* WoundCare.sqlite-wal */; };
 		91C090911AC047BD008D7FAC /* dottrans.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C090901AC047BD008D7FAC /* dottrans.png */; };
 		91C090931AC04957008D7FAC /* orangedot.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C090921AC04957008D7FAC /* orangedot.png */; };
 		91C165AA1ABFFD2A007A1B41 /* addnewcases.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C165A91ABFFD2A007A1B41 /* addnewcases.png */; };
 		91C165AC1ABFFD3E007A1B41 /* assignmentbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C165AB1ABFFD3E007A1B41 /* assignmentbg.png */; };
 		91C165AE1ABFFD55007A1B41 /* backgroundlogin.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C165AD1ABFFD55007A1B41 /* backgroundlogin.png */; };
 		91C165B01ABFFD96007A1B41 /* greentick.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C165AF1ABFFD96007A1B41 /* greentick.png */; };
-		91C165B21ABFFDB0007A1B41 /* head.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C165B11ABFFDB0007A1B41 /* head.png */; };
-		91C165B41ABFFDC9007A1B41 /* icon_logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C165B31ABFFDC9007A1B41 /* icon_logout.png */; };
 		91C165B61ABFFE09007A1B41 /* myassignmentname.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C165B51ABFFE09007A1B41 /* myassignmentname.png */; };
 		91C165BB1AC01821007A1B41 /* AssignmentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C165BA1AC01821007A1B41 /* AssignmentsCell.m */; };
 		91C2287D1ABA983900E389AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C2287C1ABA983900E389AF /* main.m */; };
@@ -70,11 +71,8 @@
 		91D19C7A1ACBCCD60056BD2E /* fac4.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C6F1ACBCCD60056BD2E /* fac4.png */; };
 		91D19C7B1ACBCCD60056BD2E /* fac5.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C701ACBCCD60056BD2E /* fac5.png */; };
 		91D19C7C1ACBCCD60056BD2E /* fac6.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C711ACBCCD60056BD2E /* fac6.png */; };
-		91D19C7D1ACBCCD60056BD2E /* ineerscreencommon.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C721ACBCCD60056BD2E /* ineerscreencommon.png */; };
-		91D19C7E1ACBCCD60056BD2E /* popup.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C731ACBCCD60056BD2E /* popup.png */; };
 		91D19C7F1ACBCCD60056BD2E /* button_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C741ACBCCD60056BD2E /* button_ok.png */; };
 		91D19C801ACBCCD60056BD2E /* radiobtnimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C751ACBCCD60056BD2E /* radiobtnimg.png */; };
-		91D19C811ACBCCD60056BD2E /* txtbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C761ACBCCD60056BD2E /* txtbox.png */; };
 		91D19C991ACBCEEF0056BD2E /* EducationHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C8C1ACBCEEF0056BD2E /* EducationHomeViewController.m */; };
 		91D19C9A1ACBCEEF0056BD2E /* SelectDiscussedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C8E1ACBCEEF0056BD2E /* SelectDiscussedTableViewController.m */; };
 		91D19C9B1ACBCEEF0056BD2E /* SelectMethodUsedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C901ACBCEEF0056BD2E /* SelectMethodUsedTableViewController.m */; };
@@ -84,7 +82,6 @@
 		91D19C9F1ACBCEEF0056BD2E /* SelectTeachingAssessmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C981ACBCEEF0056BD2E /* SelectTeachingAssessmentTableViewController.m */; };
 		91D19CA41ACBD0110056BD2E /* radiobtnactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19CA11ACBD0110056BD2E /* radiobtnactive.png */; };
 		91D19CA51ACBD0110056BD2E /* radiobtndeactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19CA21ACBD0110056BD2E /* radiobtndeactive.png */; };
-		91D19CA61ACBD0110056BD2E /* radiobtnimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19CA31ACBD0110056BD2E /* radiobtnimg.png */; };
 		91D19CAA1ACBD19B0056BD2E /* RecommendationHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CA91ACBD19B0056BD2E /* RecommendationHomeViewController.m */; };
 		91D19CAD1ACBD1C90056BD2E /* SelectMobilityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CAC1ACBD1C90056BD2E /* SelectMobilityTableViewController.m */; };
 		91D19CB31ACBD1D40056BD2E /* SensoryPerceptionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CB21ACBD1D40056BD2E /* SensoryPerceptionTableViewController.m */; };
@@ -103,9 +100,6 @@
 		91D48F081AC16441003F8B0A /* AddAssignmentPopOverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D48F071AC16441003F8B0A /* AddAssignmentPopOverController.m */; };
 		91D48F0B1AC16485003F8B0A /* AssignmentTypePopOverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D48F0A1AC16485003F8B0A /* AssignmentTypePopOverController.m */; };
 		91D48F0D1AC1655F003F8B0A /* checkboxun.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D48F0C1AC1655F003F8B0A /* checkboxun.png */; };
-		91D7F35D1ACAB75000BAE67E /* WoundCare.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 91D7F35A1ACAB75000BAE67E /* WoundCare.sqlite */; };
-		91D7F35E1ACAB75000BAE67E /* WoundCare.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 91D7F35B1ACAB75000BAE67E /* WoundCare.sqlite-shm */; };
-		91D7F35F1ACAB75000BAE67E /* WoundCare.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 91D7F35C1ACAB75000BAE67E /* WoundCare.sqlite-wal */; };
 		9497E85F1ACAC74100F8FC12 /* AssessmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9497E85E1ACAC74000F8FC12 /* AssessmentViewController.m */; };
 		9497E8611ACAC78400F8FC12 /* cloudpdf.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8601ACAC78400F8FC12 /* cloudpdf.png */; };
 		9497E8631ACAC7BC00F8FC12 /* completed.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8621ACAC7BC00F8FC12 /* completed.png */; };
@@ -141,7 +135,6 @@
 		B6E4886B1ACC1AF000E356F7 /* w1.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E4886A1ACC1AF000E356F7 /* w1.png */; };
 		B6E4886D1ACC1AFB00E356F7 /* poppupsmall.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E4886C1ACC1AFB00E356F7 /* poppupsmall.png */; };
 		B6E488711ACC1B7B00E356F7 /* button_yes.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E488701ACC1B7B00E356F7 /* button_yes.png */; };
-		B6E488731ACC1B8500E356F7 /* icon_education_hover.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E488721ACC1B8500E356F7 /* icon_education_hover.png */; };
 		B6E488751ACC1B8B00E356F7 /* humanbodywithimg.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E488741ACC1B8B00E356F7 /* humanbodywithimg.png */; };
 		B6E488771ACC1B9000E356F7 /* btncancel.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E488761ACC1B9000E356F7 /* btncancel.png */; };
 		B6E488791ACC1B9400E356F7 /* button_no.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E488781ACC1B9400E356F7 /* button_no.png */; };
@@ -173,6 +166,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		91A2F6B41AD2C9430000A0CA /* WoundCare.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = WoundCare.sqlite; sourceTree = "<group>"; };
+		91A2F6B51AD2C9430000A0CA /* WoundCare.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WoundCare.sqlite-shm"; sourceTree = "<group>"; };
+		91A2F6B61AD2C9430000A0CA /* WoundCare.sqlite-wal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WoundCare.sqlite-wal"; sourceTree = "<group>"; };
 		91C090901AC047BD008D7FAC /* dottrans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dottrans.png; sourceTree = "<group>"; };
 		91C090921AC04957008D7FAC /* orangedot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orangedot.png; sourceTree = "<group>"; };
 		91C165A91ABFFD2A007A1B41 /* addnewcases.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addnewcases.png; sourceTree = "<group>"; };
@@ -321,9 +317,6 @@
 		91D48F0A1AC16485003F8B0A /* AssignmentTypePopOverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentTypePopOverController.m; sourceTree = "<group>"; };
 		91D48F0C1AC1655F003F8B0A /* checkboxun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkboxun.png; sourceTree = "<group>"; };
 		91D48F0E1AC18F15003F8B0A /* DismissPopOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DismissPopOver.h; path = WoundCare/DismissPopOver.h; sourceTree = "<group>"; };
-		91D7F35A1ACAB75000BAE67E /* WoundCare.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = WoundCare.sqlite; sourceTree = "<group>"; };
-		91D7F35B1ACAB75000BAE67E /* WoundCare.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WoundCare.sqlite-shm"; sourceTree = "<group>"; };
-		91D7F35C1ACAB75000BAE67E /* WoundCare.sqlite-wal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WoundCare.sqlite-wal"; sourceTree = "<group>"; };
 		9497E85D1ACAC74000F8FC12 /* AssessmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssessmentViewController.h; sourceTree = "<group>"; };
 		9497E85E1ACAC74000F8FC12 /* AssessmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssessmentViewController.m; sourceTree = "<group>"; };
 		9497E8601ACAC78400F8FC12 /* cloudpdf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloudpdf.png; path = WoundCare/cloudpdf.png; sourceTree = "<group>"; };
@@ -407,12 +400,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91A2F6B21AD2C2650000A0CA /* AssignmentsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				91C228C01ABA9AF500E389AF /* AssignmentsViewController.h */,
+				91C228C11ABA9AF500E389AF /* AssignmentsViewController.m */,
+				91D48F061AC16441003F8B0A /* AddAssignmentPopOverController.h */,
+				91D48F071AC16441003F8B0A /* AddAssignmentPopOverController.m */,
+				91D48F091AC16485003F8B0A /* AssignmentTypePopOverController.h */,
+				91D48F0A1AC16485003F8B0A /* AssignmentTypePopOverController.m */,
+				91CD6F291AC151A400F56AE0 /* NumberEntryViewController.h */,
+				91CD6F2A1AC151A400F56AE0 /* NumberEntryViewController.m */,
+			);
+			name = AssignmentsScreen;
+			sourceTree = "<group>";
+		};
+		91A2F6B31AD2C2880000A0CA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				91C228841ABA983900E389AF /* ViewController.h */,
+				91C228851ABA983900E389AF /* ViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		91C08BFF1ACA8DA600957D66 /* DB */ = {
 			isa = PBXGroup;
 			children = (
-				91D7F35A1ACAB75000BAE67E /* WoundCare.sqlite */,
-				91D7F35B1ACAB75000BAE67E /* WoundCare.sqlite-shm */,
-				91D7F35C1ACAB75000BAE67E /* WoundCare.sqlite-wal */,
+				91A2F6B41AD2C9430000A0CA /* WoundCare.sqlite */,
+				91A2F6B51AD2C9430000A0CA /* WoundCare.sqlite-shm */,
+				91A2F6B61AD2C9430000A0CA /* WoundCare.sqlite-wal */,
 			);
 			name = DB;
 			sourceTree = "<group>";
@@ -459,25 +476,17 @@
 		91C228791ABA983900E389AF /* WoundCare */ = {
 			isa = PBXGroup;
 			children = (
+				91A2F6B31AD2C2880000A0CA /* Login */,
+				91A2F6B21AD2C2650000A0CA /* AssignmentsScreen */,
 				B6E4886E1ACC1B1400E356F7 /* Wound */,
 				91D19CCF1ACBD5480056BD2E /* Treatment */,
 				91D19CA71ACBD0480056BD2E /* Recommendations */,
 				91D19C841ACBCDDC0056BD2E /* Education */,
 				91D19C821ACBCCF00056BD2E /* PainScreen */,
-				91C228C01ABA9AF500E389AF /* AssignmentsViewController.h */,
-				91C228C11ABA9AF500E389AF /* AssignmentsViewController.m */,
-				91D48F061AC16441003F8B0A /* AddAssignmentPopOverController.h */,
-				91D48F071AC16441003F8B0A /* AddAssignmentPopOverController.m */,
-				91D48F091AC16485003F8B0A /* AssignmentTypePopOverController.h */,
-				91D48F0A1AC16485003F8B0A /* AssignmentTypePopOverController.m */,
-				91CD6F291AC151A400F56AE0 /* NumberEntryViewController.h */,
-				91CD6F2A1AC151A400F56AE0 /* NumberEntryViewController.m */,
 				9497E85D1ACAC74000F8FC12 /* AssessmentViewController.h */,
 				9497E85E1ACAC74000F8FC12 /* AssessmentViewController.m */,
 				91C2287E1ABA983900E389AF /* AppDelegate.h */,
 				91C2287F1ABA983900E389AF /* AppDelegate.m */,
-				91C228841ABA983900E389AF /* ViewController.h */,
-				91C228851ABA983900E389AF /* ViewController.m */,
 				91C228871ABA983900E389AF /* Main.storyboard */,
 				91C2288A1ABA983900E389AF /* Images.xcassets */,
 				91C2288C1ABA983900E389AF /* LaunchScreen.xib */,
@@ -892,15 +901,13 @@
 				9497E89B1ACAC7F000F8FC12 /* searchnew.png in Resources */,
 				91CD6F231AC150C800F56AE0 /* n0.png in Resources */,
 				9497E8851ACAC7F000F8FC12 /* icon_education.png in Resources */,
-				B6E488731ACC1B8500E356F7 /* icon_education_hover.png in Resources */,
+				91A2F6B91AD2C9430000A0CA /* WoundCare.sqlite-wal in Resources */,
 				91CD6F241AC150C800F56AE0 /* n0a.png in Resources */,
 				B6E4886D1ACC1AFB00E356F7 /* poppupsmall.png in Resources */,
 				91C228CC1ABA9B2100E389AF /* textboxbig.png in Resources */,
 				91D19C791ACBCCD60056BD2E /* fac3.png in Resources */,
 				9497E88C1ACAC7F000F8FC12 /* hoverimage.png in Resources */,
 				B6E488791ACC1B9400E356F7 /* button_no.png in Resources */,
-				91D19CA61ACBD0110056BD2E /* radiobtnimg.png in Resources */,
-				91C165B41ABFFDC9007A1B41 /* icon_logout.png in Resources */,
 				91CD6F201AC150C300F56AE0 /* n9.png in Resources */,
 				91CD6F1A1AC150C300F56AE0 /* n5.png in Resources */,
 				91CD6F1B1AC150C300F56AE0 /* n5a.png in Resources */,
@@ -910,6 +917,7 @@
 				91D19C801ACBCCD60056BD2E /* radiobtnimg.png in Resources */,
 				91CD6F191AC150C300F56AE0 /* n4.png in Resources */,
 				B6E4887D1ACC1BA300E356F7 /* w7.png in Resources */,
+				91A2F6B81AD2C9430000A0CA /* WoundCare.sqlite-shm in Resources */,
 				9497E8891ACAC7F000F8FC12 /* icon_recommend.png in Resources */,
 				9497E8631ACAC7BC00F8FC12 /* completed.png in Resources */,
 				9497E8831ACAC7F000F8FC12 /* headerasses.png in Resources */,
@@ -917,13 +925,10 @@
 				91C165AC1ABFFD3E007A1B41 /* assignmentbg.png in Resources */,
 				B6E488751ACC1B8B00E356F7 /* humanbodywithimg.png in Resources */,
 				9497E8931ACAC7F000F8FC12 /* homanhover2013.png in Resources */,
-				91D7F35D1ACAB75000BAE67E /* WoundCare.sqlite in Resources */,
 				91CD6F1F1AC150C300F56AE0 /* n8a.png in Resources */,
-				91D19C7E1ACBCCD60056BD2E /* popup.png in Resources */,
 				91C165AA1ABFFD2A007A1B41 /* addnewcases.png in Resources */,
 				91CD6F1D1AC150C300F56AE0 /* n7.png in Resources */,
 				9497E8881ACAC7F000F8FC12 /* icon_pain.png in Resources */,
-				91D7F35E1ACAB75000BAE67E /* WoundCare.sqlite-shm in Resources */,
 				B6E488871ACC1BC100E356F7 /* g1.png in Resources */,
 				9497E8811ACAC7F000F8FC12 /* deletion.png in Resources */,
 				9497E8951ACAC7F000F8FC12 /* left.png in Resources */,
@@ -939,10 +944,8 @@
 				91CD6F181AC150C300F56AE0 /* n3.png in Resources */,
 				9497E88E1ACAC7F000F8FC12 /* hoverlogout.png in Resources */,
 				B6E488831ACC1BB000E356F7 /* w4.png in Resources */,
-				91D19C7D1ACBCCD60056BD2E /* ineerscreencommon.png in Resources */,
 				9497E8971ACAC7F000F8FC12 /* visited.png in Resources */,
 				B6E488851ACC1BB400E356F7 /* w3.png in Resources */,
-				91C165B21ABFFDB0007A1B41 /* head.png in Resources */,
 				91C165B61ABFFE09007A1B41 /* myassignmentname.png in Resources */,
 				91D48F0D1AC1655F003F8B0A /* checkboxun.png in Resources */,
 				9497E89A1ACAC7F000F8FC12 /* popup.png in Resources */,
@@ -957,19 +960,18 @@
 				91D19C7A1ACBCCD60056BD2E /* fac4.png in Resources */,
 				91CD6F161AC150C300F56AE0 /* n2.png in Resources */,
 				91C090931AC04957008D7FAC /* orangedot.png in Resources */,
-				91D19C811ACBCCD60056BD2E /* txtbox.png in Resources */,
 				91D19C7F1ACBCCD60056BD2E /* button_ok.png in Resources */,
 				91CD6F171AC150C300F56AE0 /* n2a.png in Resources */,
 				91C165B01ABFFD96007A1B41 /* greentick.png in Resources */,
 				91CD6F1C1AC150C300F56AE0 /* n6.png in Resources */,
 				9497E8871ACAC7F000F8FC12 /* icon_logout.png in Resources */,
 				9497E88D1ACAC7F000F8FC12 /* logouthover.png in Resources */,
-				91D7F35F1ACAB75000BAE67E /* WoundCare.sqlite-wal in Resources */,
 				9497E88F1ACAC7F000F8FC12 /* imggalleryhover2013.png in Resources */,
 				91C228CA1ABA9B1B00E389AF /* loginbutton.png in Resources */,
 				9497E89D1ACAC7F000F8FC12 /* txtbox.png in Resources */,
 				91CD6F151AC150C300F56AE0 /* n1.png in Resources */,
 				91D19CA51ACBD0110056BD2E /* radiobtndeactive.png in Resources */,
+				91A2F6B71AD2C9430000A0CA /* WoundCare.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

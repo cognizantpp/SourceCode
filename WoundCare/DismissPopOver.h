@@ -10,7 +10,7 @@
 
 @protocol DismissPopOver <NSObject>
 
-
+@optional
 -(void)OkClicked;
 -(void)updateEntryNumber:(NSString*)entryNumber;
 

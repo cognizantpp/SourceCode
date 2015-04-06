@@ -339,9 +339,10 @@
      }
                      completion:^(BOOL finished)
      {
-         NSLog(@"Completed");
+        // NSLog(@"Completed");
          
-     }];
+     }
+     ];
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     //[self.scrollView setContentOffset:CGPointZero animated:NO];
@@ -358,9 +359,10 @@
      }
                      completion:^(BOOL finished)
      {
-         NSLog(@"Completed");
+        // NSLog(@"Completed");
          
-     }];
+     }
+     ];
     
 }
 
