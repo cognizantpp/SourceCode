@@ -1713,7 +1713,7 @@
                                 </connections>
                             </button>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="testimg.png" translatesAutoresizingMaskIntoConstraints="NO" id="C8B-I2-nZL">
-                                <rect key="frame" x="60" y="75" width="968" height="584"/>
+                                <rect key="frame" x="60" y="71" width="968" height="697"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="59" y="132" width="900" height="600"/>
                                 </variation>
