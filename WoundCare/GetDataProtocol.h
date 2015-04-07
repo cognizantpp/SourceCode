@@ -52,5 +52,7 @@
 //RecommendationsNumberEntry
 -(void)OkRecommendationsClicked;
 -(void)updateRecommendationsEntryNumber:(NSString*)entryNumber;
+//PatientInfo
+-(void)patientInfoOKClicked;
 
 @end

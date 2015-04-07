@@ -24,7 +24,6 @@
 @implementation AssignmentsViewController
 @synthesize tableView;
 
-PatientDetails *patientsDetails;
 
 -(void) viewDidLoad{
     CoreDataHelper *coreDatahelper = [CoreDataHelper sharedInstance];
@@ -68,6 +67,7 @@ PatientDetails *patientsDetails;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    selectedPatientIndex = indexPath.row;
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     AssessmentViewController *tvc=[storyBoard instantiateViewControllerWithIdentifier:@"AssessmentViewController"];
            [self.view addSubview:tvc.view];

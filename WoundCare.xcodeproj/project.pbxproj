@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9128274A1AD3EA8B00FD2D5F /* PatientInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912827491AD3EA8B00FD2D5F /* PatientInfoViewController.m */; };
+		9128274C1AD3EE1E00FD2D5F /* patientsattribute.png in Resources */ = {isa = PBXBuildFile; fileRef = 9128274B1AD3EE1E00FD2D5F /* patientsattribute.png */; };
 		91A2F6B71AD2C9430000A0CA /* WoundCare.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 91A2F6B41AD2C9430000A0CA /* WoundCare.sqlite */; };
 		91A2F6B81AD2C9430000A0CA /* WoundCare.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 91A2F6B51AD2C9430000A0CA /* WoundCare.sqlite-shm */; };
 		91A2F6B91AD2C9430000A0CA /* WoundCare.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 91A2F6B61AD2C9430000A0CA /* WoundCare.sqlite-wal */; };
@@ -169,6 +171,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		912827481AD3EA8B00FD2D5F /* PatientInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientInfoViewController.h; sourceTree = "<group>"; };
+		912827491AD3EA8B00FD2D5F /* PatientInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientInfoViewController.m; sourceTree = "<group>"; };
+		9128274B1AD3EE1E00FD2D5F /* patientsattribute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientsattribute.png; sourceTree = "<group>"; };
 		91A2F6B41AD2C9430000A0CA /* WoundCare.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = WoundCare.sqlite; sourceTree = "<group>"; };
 		91A2F6B51AD2C9430000A0CA /* WoundCare.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WoundCare.sqlite-shm"; sourceTree = "<group>"; };
 		91A2F6B61AD2C9430000A0CA /* WoundCare.sqlite-wal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WoundCare.sqlite-wal"; sourceTree = "<group>"; };
@@ -419,6 +424,8 @@
 				91D48F0A1AC16485003F8B0A /* AssignmentTypePopOverController.m */,
 				91CD6F291AC151A400F56AE0 /* NumberEntryViewController.h */,
 				91CD6F2A1AC151A400F56AE0 /* NumberEntryViewController.m */,
+				912827481AD3EA8B00FD2D5F /* PatientInfoViewController.h */,
+				912827491AD3EA8B00FD2D5F /* PatientInfoViewController.m */,
 			);
 			name = AssignmentsScreen;
 			sourceTree = "<group>";
@@ -739,6 +746,7 @@
 		9497E89E1ACAD90D00F8FC12 /* assessment */ = {
 			isa = PBXGroup;
 			children = (
+				9128274B1AD3EE1E00FD2D5F /* patientsattribute.png */,
 				9497E8621ACAC7BC00F8FC12 /* completed.png */,
 				9497E8601ACAC78400F8FC12 /* cloudpdf.png */,
 				9497E8641ACAC7F000F8FC12 /* deletion.png */,
@@ -984,6 +992,7 @@
 				9497E89D1ACAC7F000F8FC12 /* txtbox.png in Resources */,
 				91CD6F151AC150C300F56AE0 /* n1.png in Resources */,
 				91D19CA51ACBD0110056BD2E /* radiobtndeactive.png in Resources */,
+				9128274C1AD3EE1E00FD2D5F /* patientsattribute.png in Resources */,
 				91A2F6B71AD2C9430000A0CA /* WoundCare.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1052,6 +1061,7 @@
 				91D19C9E1ACBCEEF0056BD2E /* SelectComprehensionTableViewController.m in Sources */,
 				91D19C671ACBCCA30056BD2E /* SelectLegTableViewController.m in Sources */,
 				91D19C9F1ACBCEEF0056BD2E /* SelectTeachingAssessmentTableViewController.m in Sources */,
+				9128274A1AD3EA8B00FD2D5F /* PatientInfoViewController.m in Sources */,
 				91D19C9B1ACBCEEF0056BD2E /* SelectMethodUsedTableViewController.m in Sources */,
 				91D19C691ACBCCA30056BD2E /* SelectCryTableViewController.m in Sources */,
 				91C228BF1ABA9A9600E389AF /* CoreDataHelper.m in Sources */,

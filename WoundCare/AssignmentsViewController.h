@@ -10,7 +10,8 @@
 #import "CoreDataHelper.h"
 #import "AddAssignmentPopOverController.h"
 
-
+int selectedPatientIndex;
+PatientDetails *patientsDetails;
 @interface AssignmentsViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,GetDataProtocol>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *patients, *entryNumber, *consult,*roomNum;
@@ -21,4 +22,5 @@
 
 
 - (IBAction)addAssignmentClicked:(id)sender;
+
 @end
