@@ -396,7 +396,13 @@
             self.recommendationsNumberEntryViewController.delegate=self;
             self.popOver =  [[UIPopoverController alloc]initWithContentViewController:self.recommendationsNumberEntryViewController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 250)];
-            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            
+            [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+
             break;
 
             
