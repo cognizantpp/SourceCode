@@ -8,11 +8,11 @@
 
 
 #import <UIKit/UIKit.h>
-#import "DismissPopOver.h"
+#import "GetDataProtocol.h"
 #import "NumberEntryViewController.h"
 
 
-@interface AddAssignmentPopOverController : UIViewController<DismissPopOver,UITextFieldDelegate>
+@interface AddAssignmentPopOverController : UIViewController<GetDataProtocol,UITextFieldDelegate>
 
 
 - (IBAction)btnOKClicked:(id)sender;
@@ -26,6 +26,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtFacilityName;
 @property (strong, nonatomic) IBOutlet UITextField *txtPatientName;
 
-@property (nonatomic, weak)id <DismissPopOver> delegate;
+@property (nonatomic, weak)id <GetDataProtocol> delegate;
 @property (strong, nonatomic) NumberEntryViewController *numberEntryViewController;
 @end

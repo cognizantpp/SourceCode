@@ -9,9 +9,13 @@
 #import "RecommendationHomeViewController.h"
 
 @interface  RecommendationHomeViewController()
+{
+    CGPoint p;
+    UIStoryboard *storyBoardRecommendation;
+}
 
 
-
+@property (strong, nonatomic)UIPopoverController *popOver;
 @property(nonatomic,strong)UIPopoverController *mobilityPopOver;
 @property(nonatomic,strong)UIPopoverController *activityPopOver;
 @property(nonatomic,strong)UIPopoverController *sensoryPopOver;
@@ -87,48 +91,6 @@
 
 
 
--(void)textFieldDidBeginEditing:(UITextField *)textField{
-    //    CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y);
-    //    [self.scrollView setContentOffset:scrollPoint animated:NO];
-    //[self animateTextField:textField up:YES];
-    [UIView animateWithDuration:0.5
-                          delay:0.1
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^
-     {
-         CGRect frame = self.view.frame;
-         frame.origin.y = (-250);
-         frame.origin.x = 0;
-         self.view.frame = frame;
-     }
-                     completion:^(BOOL finished)
-     {
-        // NSLog(@"Completed");
-         
-     }
-     ];
-}
--(void)textFieldDidEndEditing:(UITextField *)textField{
-    //[self.scrollView setContentOffset:CGPointZero animated:NO];
-    //[self animateTextField:textField up:NO];
-    [UIView animateWithDuration:0.5
-                          delay:0.1
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^
-     {
-         CGRect frame = self.view.frame;
-         frame.origin.y = 0;
-         frame.origin.x = 0;
-         self.view.frame = frame;
-     }
-                     completion:^(BOOL finished)
-     {
-        // NSLog(@"Completed");
-         
-     }
-     ];
-    
-}
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -428,7 +390,14 @@
             
             break;
 
-
+        case 8:
+            storyBoardRecommendation = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            self.recommendationsNumberEntryViewController = [storyBoardRecommendation instantiateViewControllerWithIdentifier:@"RecommendationsNumberEntryViewController"];
+            self.recommendationsNumberEntryViewController.delegate=self;
+            self.popOver =  [[UIPopoverController alloc]initWithContentViewController:self.recommendationsNumberEntryViewController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 250)];
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+            break;
 
             
         default:
@@ -442,6 +411,18 @@
 {
     [self.dateButtonOutlet setTitle:date forState:UIControlStateNormal];
 }
+
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    p= self.scrollView.contentOffset;
+    
+    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 550)];
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    self.scrollView.contentOffset =p;
+    
+}
+
 
 
 - (IBAction)selectDateButtonAction:(UIButton *)sender {
@@ -460,5 +441,18 @@
     
     [self.datePickerPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
 
+}
+
+-(void)OkRecommendationsClicked{
+    [self.popOver dismissPopoverAnimated:YES];
+}
+
+
+-(void)updateRecommendationsEntryNumber:(NSString *)entryNumber{
+    [self.btnrecommendationNumberEntry setTintColor:[UIColor blackColor]];
+    self.btnrecommendationNumberEntry.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+    [self.btnrecommendationNumberEntry setAttributedTitle: [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",entryNumber]] forState:UIControlStateNormal];
+    
+    
 }
 @end

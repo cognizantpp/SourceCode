@@ -12,6 +12,9 @@
 
 
 @interface ViewController ()
+{
+    CGPoint p;
+}
 
 @end
 
@@ -22,6 +25,7 @@
     self.txtPassword.delegate = self;
     self.txtUserName.delegate = self;
     // Do any additional setup after loading the view, typically from a nib.
+    self.scrollView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,46 +83,13 @@
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
-//    CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y);
-//    [self.scrollView setContentOffset:scrollPoint animated:NO];
-    //[self animateTextField:textField up:YES];
-    [UIView animateWithDuration:0.5
-                          delay:0.1
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^
-     {
-         CGRect frame = self.view.frame;
-         frame.origin.y = (-100);
-         frame.origin.x = 0;
-         self.view.frame = frame;
-     }
-                     completion:^(BOOL finished)
-     {
-         //NSLog(@"Completed");
-         
-     }
-     ];
+    p= self.scrollView.contentOffset;
+    
+    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 275)];
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    //[self.scrollView setContentOffset:CGPointZero animated:NO];
-    //[self animateTextField:textField up:NO];
-    [UIView animateWithDuration:0.5
-                          delay:0.1
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^
-     {
-         CGRect frame = self.view.frame;
-         frame.origin.y = 0;
-         frame.origin.x = 0;
-         self.view.frame = frame;
-     }
-                     completion:^(BOOL finished)
-     {
-        // NSLog(@"Completed");
-         
-     }
-     ];
-
+    self.scrollView.contentOffset =p;
+    
 }
 
 
@@ -137,6 +108,19 @@
     self.view.frame = CGRectOffset(self.view.frame,movement,0);
     [UIView commitAnimations];
 }
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    if (sender.contentOffset.x != 0) {
+        CGPoint offset = sender.contentOffset;
+        offset.x = 0;
+        sender.contentOffset = offset;
+        
+        
+        
+        
+        
+    }
+}
+
 
 
 @end

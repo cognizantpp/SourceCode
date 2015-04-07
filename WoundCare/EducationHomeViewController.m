@@ -9,6 +9,12 @@
 #import "EducationHomeViewController.h"
 
 @interface EducationHomeViewController ()
+{
+    CGPoint p;
+    UIStoryboard *storyBoardEducation;
+    
+}
+@property (strong, nonatomic)UIPopoverController *popOver;
 @property(nonatomic,strong)UIPopoverController *discussedPopOver;
 @property(nonatomic,strong)UIPopoverController *methodPopOver;
 @property(nonatomic,strong)UIPopoverController *handOutPopOver;
@@ -291,6 +297,16 @@
             [self.teachingAssessmentPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
             
             break;
+        
+        case 6:
+            
+           storyBoardEducation = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            self.educationNumberEntryViewController = [storyBoardEducation instantiateViewControllerWithIdentifier:@"EducationNumberEntryViewController"];
+            self.educationNumberEntryViewController.delegate=self;
+            self.popOver =  [[UIPopoverController alloc]initWithContentViewController:self.educationNumberEntryViewController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 250)];
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+            break;
         default:
             break;
     }
@@ -324,46 +340,25 @@
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
-    //    CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y);
-    //    [self.scrollView setContentOffset:scrollPoint animated:NO];
-    //[self animateTextField:textField up:YES];
-    [UIView animateWithDuration:0.5
-                          delay:0.1
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^
-     {
-         CGRect frame = self.view.frame;
-         frame.origin.y = (-150);
-         frame.origin.x = 0;
-         self.view.frame = frame;
-     }
-                     completion:^(BOOL finished)
-     {
-        // NSLog(@"Completed");
-         
-     }
-     ];
+    p= self.scrollView.contentOffset;
+    
+    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 275)];
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField{
-    //[self.scrollView setContentOffset:CGPointZero animated:NO];
-    //[self animateTextField:textField up:NO];
-    [UIView animateWithDuration:0.5
-                          delay:0.1
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^
-     {
-         CGRect frame = self.view.frame;
-         frame.origin.y = 0;
-         frame.origin.x = 0;
-         self.view.frame = frame;
-     }
-                     completion:^(BOOL finished)
-     {
-        // NSLog(@"Completed");
-         
-     }
-     ];
+    self.scrollView.contentOffset =p;
     
 }
 
+-(void)OkEducationClicked{
+    [self.popOver dismissPopoverAnimated:YES];
+}
+
+
+-(void)updateEducationEntryNumber:(NSString *)entryNumber{
+    [self.btnEducationNumber setTintColor:[UIColor blackColor]];
+    self.btnEducationNumber.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+    [self.btnEducationNumber setAttributedTitle: [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",entryNumber]] forState:UIControlStateNormal];
+    
+    
+}
 @end

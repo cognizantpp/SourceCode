@@ -40,6 +40,9 @@
 		91C228C91ABA9B1B00E389AF /* welcome_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C228C61ABA9B1B00E389AF /* welcome_bg.png */; };
 		91C228CA1ABA9B1B00E389AF /* loginbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C228C71ABA9B1B00E389AF /* loginbutton.png */; };
 		91C228CC1ABA9B2100E389AF /* textboxbig.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C228CB1ABA9B2100E389AF /* textboxbig.png */; };
+		91CC03D41AD3A17500A4B2B6 /* SelectDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC03D31AD3A17500A4B2B6 /* SelectDatePickerViewController.m */; };
+		91CC03D71AD3B9E700A4B2B6 /* EducationNumberEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC03D61AD3B9E700A4B2B6 /* EducationNumberEntryViewController.m */; };
+		91CC03DA1AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC03D91AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.m */; };
 		91CD6F151AC150C300F56AE0 /* n1.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CD6F091AC150C300F56AE0 /* n1.png */; };
 		91CD6F161AC150C300F56AE0 /* n2.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CD6F0A1AC150C300F56AE0 /* n2.png */; };
 		91CD6F171AC150C300F56AE0 /* n2a.png in Resources */ = {isa = PBXBuildFile; fileRef = 91CD6F0B1AC150C300F56AE0 /* n2a.png */; };
@@ -218,6 +221,12 @@
 		91C228C61ABA9B1B00E389AF /* welcome_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg.png; sourceTree = "<group>"; };
 		91C228C71ABA9B1B00E389AF /* loginbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbutton.png; sourceTree = "<group>"; };
 		91C228CB1ABA9B2100E389AF /* textboxbig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textboxbig.png; sourceTree = "<group>"; };
+		91CC03D21AD3A17500A4B2B6 /* SelectDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDatePickerViewController.h; sourceTree = "<group>"; };
+		91CC03D31AD3A17500A4B2B6 /* SelectDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDatePickerViewController.m; sourceTree = "<group>"; };
+		91CC03D51AD3B9E700A4B2B6 /* EducationNumberEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationNumberEntryViewController.h; sourceTree = "<group>"; };
+		91CC03D61AD3B9E700A4B2B6 /* EducationNumberEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationNumberEntryViewController.m; sourceTree = "<group>"; };
+		91CC03D81AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendationsNumberEntryViewController.h; sourceTree = "<group>"; };
+		91CC03D91AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendationsNumberEntryViewController.m; sourceTree = "<group>"; };
 		91CD6F091AC150C300F56AE0 /* n1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = n1.png; sourceTree = "<group>"; };
 		91CD6F0A1AC150C300F56AE0 /* n2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = n2.png; sourceTree = "<group>"; };
 		91CD6F0B1AC150C300F56AE0 /* n2a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = n2a.png; sourceTree = "<group>"; };
@@ -316,7 +325,6 @@
 		91D48F091AC16485003F8B0A /* AssignmentTypePopOverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentTypePopOverController.h; sourceTree = "<group>"; };
 		91D48F0A1AC16485003F8B0A /* AssignmentTypePopOverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignmentTypePopOverController.m; sourceTree = "<group>"; };
 		91D48F0C1AC1655F003F8B0A /* checkboxun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkboxun.png; sourceTree = "<group>"; };
-		91D48F0E1AC18F15003F8B0A /* DismissPopOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DismissPopOver.h; path = WoundCare/DismissPopOver.h; sourceTree = "<group>"; };
 		9497E85D1ACAC74000F8FC12 /* AssessmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssessmentViewController.h; sourceTree = "<group>"; };
 		9497E85E1ACAC74000F8FC12 /* AssessmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssessmentViewController.m; sourceTree = "<group>"; };
 		9497E8601ACAC78400F8FC12 /* cloudpdf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloudpdf.png; path = WoundCare/cloudpdf.png; sourceTree = "<group>"; };
@@ -657,7 +665,6 @@
 			children = (
 				91D19C4C1ACBCCA30056BD2E /* GetDataProtocol.h */,
 				B6E4889F1ACC218100E356F7 /* selectDataProtocol.h */,
-				91D48F0E1AC18F15003F8B0A /* DismissPopOver.h */,
 			);
 			name = Delegate;
 			sourceTree = "<group>";
@@ -679,6 +686,8 @@
 				91D19C961ACBCEEF0056BD2E /* SelectComprehensionTableViewController.m */,
 				91D19C971ACBCEEF0056BD2E /* SelectTeachingAssessmentTableViewController.h */,
 				91D19C981ACBCEEF0056BD2E /* SelectTeachingAssessmentTableViewController.m */,
+				91CC03D51AD3B9E700A4B2B6 /* EducationNumberEntryViewController.h */,
+				91CC03D61AD3B9E700A4B2B6 /* EducationNumberEntryViewController.m */,
 			);
 			name = Education;
 			sourceTree = "<group>";
@@ -686,8 +695,8 @@
 		91D19CA71ACBD0480056BD2E /* Recommendations */ = {
 			isa = PBXGroup;
 			children = (
-				0A90341A1AD26DDA006D8CD7 /* SelectDatePickerViewController.h */,
-				0A90341B1AD26DDB006D8CD7 /* SelectDatePickerViewController.m */,
+				91CC03D21AD3A17500A4B2B6 /* SelectDatePickerViewController.h */,
+				91CC03D31AD3A17500A4B2B6 /* SelectDatePickerViewController.m */,
 				91D19CAB1ACBD1C90056BD2E /* SelectMobilityTableViewController.h */,
 				91D19CAC1ACBD1C90056BD2E /* SelectMobilityTableViewController.m */,
 				91D19CB11ACBD1D40056BD2E /* SensoryPerceptionTableViewController.h */,
@@ -704,6 +713,8 @@
 				91D19CA91ACBD19B0056BD2E /* RecommendationHomeViewController.m */,
 				91D19CC91ACBD3FD0056BD2E /* SelectRecommendationActivityTableViewController.h */,
 				91D19CCA1ACBD3FD0056BD2E /* SelectRecommendationActivityTableViewController.m */,
+				91CC03D81AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.h */,
+				91CC03D91AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.m */,
 			);
 			name = Recommendations;
 			sourceTree = "<group>";
@@ -994,12 +1005,13 @@
 				91D19C631ACBCCA30056BD2E /* selectMethodTableViewController.m in Sources */,
 				B6E488981ACC213A00E356F7 /* WouldyouliketousecameraVC.m in Sources */,
 				91CD6F2B1AC151A400F56AE0 /* NumberEntryViewController.m in Sources */,
-				0A90341C1AD26DDB006D8CD7 /* SelectDatePickerViewController.m in Sources */,
+				91CC03D41AD3A17500A4B2B6 /* SelectDatePickerViewController.m in Sources */,
 				91D19CAD1ACBD1C90056BD2E /* SelectMobilityTableViewController.m in Sources */,
 				91D19CCB1ACBD3FD0056BD2E /* SelectRecommendationActivityTableViewController.m in Sources */,
 				91C228A61ABA9A5D00E389AF /* Pain.m in Sources */,
 				91D19CE31ACBD6980056BD2E /* NegativePressureWoundTableViewController.m in Sources */,
 				91D19C991ACBCEEF0056BD2E /* EducationHomeViewController.m in Sources */,
+				91CC03D71AD3B9E700A4B2B6 /* EducationNumberEntryViewController.m in Sources */,
 				91D48F0B1AC16485003F8B0A /* AssignmentTypePopOverController.m in Sources */,
 				91C165BB1AC01821007A1B41 /* AssignmentsCell.m in Sources */,
 				B6E4888C1ACC210300E356F7 /* WouldyouliketomarkVC.m in Sources */,
@@ -1014,6 +1026,7 @@
 				91C228BB1ABA9A5E00E389AF /* Login.m in Sources */,
 				91D19CCE1ACBD4FB0056BD2E /* SelectActivityTableViewController.m in Sources */,
 				91D19CE21ACBD6980056BD2E /* selectDressingTableViewController.m in Sources */,
+				91CC03DA1AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.m in Sources */,
 				91D19CB61ACBD1D80056BD2E /* MoistureTableViewController.m in Sources */,
 				91D19C9C1ACBCEEF0056BD2E /* HandOutTableViewController.m in Sources */,
 				91C228831ABA983900E389AF /* WoundCare.xcdatamodeld in Sources */,

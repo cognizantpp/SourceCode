@@ -15,8 +15,8 @@
 #import "TissueTableViewController.h"
 #import "FollowUpTableViewController.h"
 #import "SelectDatePickerViewController.h"
-
-@interface RecommendationHomeViewController : UIViewController<GetDataProtocol,UIScrollViewDelegate,UIScrollViewDelegate,UITextFieldDelegate>
+#import "RecommendationsNumberEntryViewController.h"
+@interface RecommendationHomeViewController : UIViewController<GetDataProtocol,UIScrollViewDelegate,UITextFieldDelegate>
 
 - (IBAction)selectButtonAction:(UIButton *)sender;
 
@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *frictionButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *tissueperfusionButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *followUpButtonOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *btnrecommendationNumberEntry;
 
 
 @property (weak, nonatomic) IBOutlet UITextField *followUpOtherTextField;
@@ -53,7 +54,7 @@
 @property(nonatomic,strong)FollowUpTableViewController *followUpController;
 @property(nonatomic,strong)SelectDatePickerViewController *selectDateViewController;
 
-
+@property (strong, nonatomic) RecommendationsNumberEntryViewController *recommendationsNumberEntryViewController;
 
 
 @property(nonatomic)int followUpCount;

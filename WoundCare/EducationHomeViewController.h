@@ -13,6 +13,7 @@
 #import "PersonTaughtTableViewController.h"
 #import "SelectComprehensionTableViewController.h"
 #import "SelectTeachingAssessmentTableViewController.h"
+#import "EducationNumberEntryViewController.h"
 
 
 @interface EducationHomeViewController : UIViewController<GetDataProtocol,UITextFieldDelegate>
@@ -40,6 +41,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *teachingAssessmentOtherTextField;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 
@@ -61,6 +63,9 @@
 @property(nonatomic)int handOutCount;
 @property(nonatomic)int personTaughtCount;
 @property(nonatomic)int teachingAssessmentCount;
+@property (strong, nonatomic) EducationNumberEntryViewController *educationNumberEntryViewController;
+@property (weak, nonatomic) IBOutlet UIButton *btnEducationNumber;
+
 
 
 @end

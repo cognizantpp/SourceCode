@@ -48,7 +48,6 @@
             [_entryData appendString:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
             break;
     }
-    NSLog(@"length %lu",(unsigned long)[_entryData length]);
     if([_entryData length] >6){
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Alert" message:@"Entry number should be only 6 digits" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertView show];

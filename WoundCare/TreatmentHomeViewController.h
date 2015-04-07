@@ -13,6 +13,7 @@
 #import "SkinCareTableViewController.h"
 
 @interface TreatmentHomeViewController : UIViewController<GetDataProtocol,UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (weak, nonatomic) IBOutlet UIButton *cleansingButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *dressingButtonOutlet;

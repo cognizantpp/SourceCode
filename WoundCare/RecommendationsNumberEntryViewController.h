@@ -1,14 +1,14 @@
 //
-//  NumberEntryViewController.h
+//  RecommendationsNumberEntryViewController.h
 //  WoundCare
 //
-//  Created by Sangeetha on 24/03/15.
+//  Created by Sangeetha on 07/04/15.
 //
 //
 
 #import <UIKit/UIKit.h>
 #import "GetDataProtocol.h"
-@interface NumberEntryViewController : UIViewController
+@interface RecommendationsNumberEntryViewController : UIViewController
 - (IBAction)numberClicked:(UIButton*)sender;
 @property (nonatomic, strong)id<GetDataProtocol> delegate;
 @property (nonatomic, strong)NSMutableString *entryData;

@@ -43,4 +43,14 @@
 -(void)getDressingData:(NSArray *)data;
 -(void)getNegativePressureWoundData:(NSArray *)data;
 -(void)getSkinCareData:(NSArray *)data;
+//Number Entry
+-(void)OkClicked;
+-(void)updateEntryNumber:(NSString*)entryNumber;
+//EducationNumber Entry
+-(void)OkEducationClicked;
+-(void)updateEducationEntryNumber:(NSString*)entryNumber;
+//RecommendationsNumberEntry
+-(void)OkRecommendationsClicked;
+-(void)updateRecommendationsEntryNumber:(NSString*)entryNumber;
+
 @end

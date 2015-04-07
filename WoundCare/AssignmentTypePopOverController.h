@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DismissPopOver.h"
+#import "GetDataProtocol.h"
 
 @interface AssignmentTypePopOverController : UIViewController
-@property (nonatomic, strong)id<DismissPopOver> delegate;
+@property (nonatomic, strong)id<GetDataProtocol> delegate;
 - (IBAction)btnCancelClicked:(id)sender;
 - (IBAction)btnAddClicked:(id)sender;
 @end

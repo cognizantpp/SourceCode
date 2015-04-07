@@ -9,6 +9,9 @@
 #import "TreatmentHomeViewController.h"
 
 @interface TreatmentHomeViewController ()
+{
+    CGPoint p;
+}
 @property(nonatomic,strong)UIPopoverController *popOver;
 @property(nonatomic,strong)UIPopoverController *dressingPopOver;
 @property(nonatomic,strong)UIPopoverController *negativePressureWoundPopOver;
@@ -41,48 +44,7 @@
     self.otherTextField.delegate = self;
     
 }
--(void)textFieldDidBeginEditing:(UITextField *)textField{
-    //    CGPoint scrollPoint = CGPointMake(0, textField.frame.origin.y);
-    //    [self.scrollView setContentOffset:scrollPoint animated:NO];
-    //[self animateTextField:textField up:YES];
-    [UIView animateWithDuration:0.5
-                          delay:0.1
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^
-     {
-         CGRect frame = self.view.frame;
-         frame.origin.y = (-200);
-         frame.origin.x = 0;
-         self.view.frame = frame;
-     }
-                     completion:^(BOOL finished)
-     {
-        // NSLog(@"Completed");
-         
-     }
-     ];
-}
--(void)textFieldDidEndEditing:(UITextField *)textField{
-    //[self.scrollView setContentOffset:CGPointZero animated:NO];
-    //[self animateTextField:textField up:NO];
-    [UIView animateWithDuration:0.5
-                          delay:0.1
-                        options: UIViewAnimationOptionCurveEaseOut
-                     animations:^
-     {
-         CGRect frame = self.view.frame;
-         frame.origin.y = 0;
-         frame.origin.x = 0;
-         self.view.frame = frame;
-     }
-                     completion:^(BOOL finished)
-     {
-        // NSLog(@"Completed");
-         
-     }
-     ];
-    
-}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     self.CleansingOtherTextField.hidden=YES;
@@ -95,6 +57,15 @@
 }
 
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    p= self.scrollView.contentOffset;
+    
+    [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 275)];
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    self.scrollView.contentOffset =p;
+    
+}
 
 
 -(void)getData:data;

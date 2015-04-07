@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITextFieldDelegate>
+@interface ViewController : UIViewController <UITextFieldDelegate,UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (strong, nonatomic) IBOutlet UITextField *txtUserName;
 @property (strong, nonatomic) IBOutlet UITextField *txtPassword;
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
 - (IBAction)btnLoginClicked:(id)sender;
 @end
