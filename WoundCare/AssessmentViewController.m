@@ -93,9 +93,9 @@
     if([sender tag]==2){
         [sender setBackgroundImage:[UIImage imageNamed:@"visited.png"] forState:UIControlStateNormal];
         [self setButtonBackground];
-        //FirstViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
-        //[self.initialview addSubview:tvc.view];
-        //[self addChildViewController:tvc];
+        ReviewOfSystemsHomeViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"ReviewOfSystemsHomeViewController"];
+        [self.initialview addSubview:tvc.view];
+        [self addChildViewController:tvc];
         buttonClicked=[sender tag];
         self.delete.alpha=0;
         

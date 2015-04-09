@@ -43,6 +43,17 @@
 -(void)getDressingData:(NSArray *)data;
 -(void)getNegativePressureWoundData:(NSArray *)data;
 -(void)getSkinCareData:(NSArray *)data;
+//ReviewOfSystems
+-(void)getRiskFactorData:(NSArray *)data ;
+-(void)getConsultsData:(NSArray *)data;
+-(void)getTestsData:(NSArray *)data;
+-(void)getROSMobilityString:(NSString *)data andScore:(NSInteger)painScore;
+-(void)getROSActivityString:(NSString *)data andScore:(NSInteger)painScore;
+-(void)getROSSensoryString:(NSString *)data andScore:(NSInteger)painScore;
+-(void)getROSMoistureString:(NSString *)data andScore:(NSInteger)painScore;
+-(void)getROSFrictionString:(NSString *)data andScore:(NSInteger)painScore;
+-(void)getROSNutritionString:(NSString *)data andScore:(NSInteger)painScore;
+-(void)getROSTissueString:(NSString *)data andScore:(NSInteger)painScore;
 //Number Entry
 -(void)OkClicked;
 -(void)updateEntryNumber:(NSString*)entryNumber;
