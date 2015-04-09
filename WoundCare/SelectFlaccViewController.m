@@ -13,16 +13,18 @@
 
 
 
-@property(nonatomic,strong)UIPopoverController *facePopOver;
-@property(nonatomic,strong)UIPopoverController *legsPopOver;
-@property(nonatomic,strong)UIPopoverController *activityPopOver;
-@property(nonatomic,strong)UIPopoverController *cryPopOver;
-@property(nonatomic,strong)UIPopoverController *consolabilityPopOver;
+@property(nonatomic,strong)UIPopoverController *PopOver;
+
+@property(nonatomic)NSInteger PainScore;
 @property(nonatomic)NSInteger facePainScore;
 @property(nonatomic)NSInteger legsPainScore;
 @property(nonatomic)NSInteger activityPainScore;
 @property(nonatomic)NSInteger cryPainScore;
 @property(nonatomic)NSInteger consolabilityPainScore;
+
+
+
+
 
 
 
@@ -39,29 +41,18 @@
     
 
     
-    _selectFaceViewController=[[SelectFaceTableViewController alloc]init];
-    _selectFaceViewController.dataDelegate=self;
-    
-    _selectLegViewController=[[SelectLegTableViewController alloc]init];
-    _selectLegViewController.dataDelegate=self;
-    
-    
-    _selectActivityViewController=[[SelectActivityTableViewController alloc]init];
-    _selectActivityViewController.dataDelegate=self;
-    
-    
-    _selectCryViewController=[[SelectCryTableViewController alloc]init];
-    _selectCryViewController.dataDelegate=self;
-    
-    _consolabilityViewController=[[ConsolabilityTableViewController alloc]init];
-    _consolabilityViewController.dataDelegate=self;
-    
+    _selectFlaccPropertiesViewController=[[SelectFlaccPropertiesTableViewController alloc]init];
+    _selectFlaccPropertiesViewController.dataDelegate=self;
+      
     _PainScore=0;
     _facePainScore=0;
     _legsPainScore=0;
     _cryPainScore=0;
     _activityPainScore=0;
     _consolabilityPainScore=0;
+    
+    
+    
     
 }
 
@@ -71,7 +62,7 @@
     self.faceButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
 
     [self.faceButtonOutlet setTitle:data forState:UIControlStateNormal];
-    [self.facePopOver dismissPopoverAnimated:YES];
+    [self.PopOver dismissPopoverAnimated:YES];
     _facePainScore=painScore;
     
     
@@ -85,7 +76,7 @@
     self.legButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
     
     [self.legButtonOutlet setTitle:data forState:UIControlStateNormal];
-    [self.legsPopOver dismissPopoverAnimated:YES];
+    [self.PopOver dismissPopoverAnimated:YES];
     _legsPainScore=painScore;
         //NSLog(@"%ld",(long)_PainScore);
     
@@ -98,7 +89,7 @@
     self.activityButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
     
     [self.activityButtonOutlet setTitle:data forState:UIControlStateNormal];
-    [self.activityPopOver dismissPopoverAnimated:YES];
+    [self.PopOver dismissPopoverAnimated:YES];
     _activityPainScore=painScore;
         //  NSLog(@"%ld",(long)_PainScore);
     
@@ -112,7 +103,7 @@
     self.cryButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
     
     [self.cryButtonOutlet setTitle:data forState:UIControlStateNormal];
-    [self.cryPopOver dismissPopoverAnimated:YES];
+    [self.PopOver dismissPopoverAnimated:YES];
     _cryPainScore=painScore;
 
     
@@ -124,7 +115,7 @@
     self.consolabilityButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
     
     [self.consolabilityButtonOutlet setTitle:data forState:UIControlStateNormal];
-    [self.consolabilityPopOver dismissPopoverAnimated:YES];
+    [self.PopOver dismissPopoverAnimated:YES];
     _consolabilityPainScore=painScore;
    
     
@@ -139,11 +130,13 @@
             
         case 0:
             
-            self.facePopOver=[[UIPopoverController alloc]initWithContentViewController:_selectFaceViewController];
-            [self.facePopOver setPopoverContentSize:CGSizeMake(300,135)];
+            self.PopOver=[[UIPopoverController alloc]initWithContentViewController:_selectFlaccPropertiesViewController];
+            [self.PopOver setPopoverContentSize:CGSizeMake(300,135)];
 
+            _selectFlaccPropertiesViewController.selectedCategory=@"Face";
             
-            [self.facePopOver presentPopoverFromRect:[sender frame]inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+
+            [self.PopOver presentPopoverFromRect:[sender frame]inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             
             
@@ -152,11 +145,13 @@
             
         case 1:
             
-            self.legsPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectLegViewController];
-            [self.legsPopOver setPopoverContentSize:CGSizeMake(300,135)];
+            self.PopOver=[[UIPopoverController alloc]initWithContentViewController:_selectFlaccPropertiesViewController];
+            [self.PopOver setPopoverContentSize:CGSizeMake(300,135)];
+            _selectFlaccPropertiesViewController.selectedCategory=@"Leg";
+
             
             
-            [self.legsPopOver presentPopoverFromRect:[sender frame]inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            [self.PopOver presentPopoverFromRect:[sender frame]inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             
             
@@ -165,11 +160,13 @@
             
         case 2:
             
-            self.activityPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectActivityViewController];
-            [self.activityPopOver setPopoverContentSize:CGSizeMake(300,135)];
+            self.PopOver=[[UIPopoverController alloc]initWithContentViewController:_selectFlaccPropertiesViewController];
+            [self.PopOver setPopoverContentSize:CGSizeMake(300,135)];
             
+            _selectFlaccPropertiesViewController.selectedCategory=@"Activity";
             
-            [self.activityPopOver presentPopoverFromRect:[sender frame]inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+
+            [self.PopOver presentPopoverFromRect:[sender frame]inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             
             
@@ -179,11 +176,13 @@
 
         case 3:
             
-            self.cryPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectCryViewController];
-            [self.cryPopOver setPopoverContentSize:CGSizeMake(300,135)];
+            self.PopOver=[[UIPopoverController alloc]initWithContentViewController:_selectFlaccPropertiesViewController];
+            [self.PopOver setPopoverContentSize:CGSizeMake(300,135)];
+            _selectFlaccPropertiesViewController.selectedCategory=@"Cry";
             
+
             
-            [self.cryPopOver presentPopoverFromRect:[sender frame]inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            [self.PopOver presentPopoverFromRect:[sender frame]inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             
             
@@ -193,11 +192,13 @@
             
         case 4:
             
-            self.consolabilityPopOver=[[UIPopoverController alloc]initWithContentViewController:_consolabilityViewController];
-            [self.consolabilityPopOver setPopoverContentSize:CGSizeMake(300,135)];
+            self.PopOver=[[UIPopoverController alloc]initWithContentViewController:_selectFlaccPropertiesViewController];
+            [self.PopOver setPopoverContentSize:CGSizeMake(300,135)];
             
+            _selectFlaccPropertiesViewController.selectedCategory=@"Consolability";
             
-            [self.consolabilityPopOver presentPopoverFromRect:[sender frame]inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+
+            [self.PopOver presentPopoverFromRect:[sender frame]inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             
             

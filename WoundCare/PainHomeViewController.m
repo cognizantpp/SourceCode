@@ -47,12 +47,20 @@
     
     
     NSString *selectedData=[data componentsJoinedByString:@","];
+    if ([data count]==0) {
+        [self.characterButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
+
+    }
+    else
+    {
+        NSLog(@"%@",selectedData);
+        _characterButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.characterButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
+        
+    }
     
-    NSLog(@"%@",selectedData);
-    _characterButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.characterButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
-    
-    
+   
     [self.characterPopOver dismissPopoverAnimated: YES];
 
     
@@ -72,7 +80,7 @@
 
         
         self.wongBackerPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectWongBackerViewController];
-        [self.wongBackerPopOver setPopoverContentSize:CGSizeMake(490,100)];
+        [self.wongBackerPopOver setPopoverContentSize:CGSizeMake(635,100)];
         [self.wongBackerPopOver presentPopoverFromRect:[_methodButtonOutlet frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
        
         
@@ -138,7 +146,7 @@ NSString *inStr = [NSString stringWithFormat: @"%ld", (long)data];
             
             self.methodPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectMethodViewController];
             [self.methodPopOver setPopoverContentSize:CGSizeMake(250,100)];
-            [self.methodPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+            [self.methodPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             
             
@@ -149,7 +157,7 @@ NSString *inStr = [NSString stringWithFormat: @"%ld", (long)data];
             
             self.characterPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectCharacterViewController];
             [self.characterPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-            [self.characterPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+            [self.characterPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             
             

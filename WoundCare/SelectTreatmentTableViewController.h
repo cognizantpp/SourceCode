@@ -1,5 +1,5 @@
 //
-//  selectDressingTableViewController.h
+//  SelectTreatmentTableViewController.h
 //  TreatmentApp
 //
 //  Created by Antony on 17/03/15.
@@ -8,16 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "GetDataProtocol.h"
-#import "CoreDataHelper.h"
 
-@interface selectDressingTableViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>
+
+@interface  SelectTreatmentTableViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>
+
 
 @property(nonatomic,weak)id<GetDataProtocol>dataDelegate;
 
 @property(nonatomic,strong)NSMutableArray *itemsToBePassed;
 
-@property(nonatomic,strong)NSArray *dressingArray;
 @property(nonatomic,strong)UIView *footerView;
+
+
+@property(nonatomic,strong)NSMutableArray *array;
+
+@property(nonatomic,strong)NSMutableArray *selectedArray;
+
+@property(nonatomic,strong)NSString *selectedString;
 
 
 

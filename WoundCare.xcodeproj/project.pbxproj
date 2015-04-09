@@ -66,10 +66,7 @@
 		91D19C631ACBCCA30056BD2E /* selectMethodTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C521ACBCCA30056BD2E /* selectMethodTableViewController.m */; };
 		91D19C641ACBCCA30056BD2E /* SelectWongBackerFacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C541ACBCCA30056BD2E /* SelectWongBackerFacesViewController.m */; };
 		91D19C651ACBCCA30056BD2E /* SelectFlaccViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C561ACBCCA30056BD2E /* SelectFlaccViewController.m */; };
-		91D19C661ACBCCA30056BD2E /* SelectFaceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C581ACBCCA30056BD2E /* SelectFaceTableViewController.m */; };
-		91D19C671ACBCCA30056BD2E /* SelectLegTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C5A1ACBCCA30056BD2E /* SelectLegTableViewController.m */; };
-		91D19C691ACBCCA30056BD2E /* SelectCryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C5E1ACBCCA30056BD2E /* SelectCryTableViewController.m */; };
-		91D19C6A1ACBCCA30056BD2E /* ConsolabilityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C601ACBCCA30056BD2E /* ConsolabilityTableViewController.m */; };
+		91D19C661ACBCCA30056BD2E /* SelectFlaccPropertiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C581ACBCCA30056BD2E /* SelectFlaccPropertiesTableViewController.m */; };
 		91D19C771ACBCCD60056BD2E /* fac1.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C6C1ACBCCD60056BD2E /* fac1.png */; };
 		91D19C781ACBCCD60056BD2E /* fac2.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C6D1ACBCCD60056BD2E /* fac2.png */; };
 		91D19C791ACBCCD60056BD2E /* fac3.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C6E1ACBCCD60056BD2E /* fac3.png */; };
@@ -79,29 +76,15 @@
 		91D19C7F1ACBCCD60056BD2E /* button_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C741ACBCCD60056BD2E /* button_ok.png */; };
 		91D19C801ACBCCD60056BD2E /* radiobtnimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19C751ACBCCD60056BD2E /* radiobtnimg.png */; };
 		91D19C991ACBCEEF0056BD2E /* EducationHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C8C1ACBCEEF0056BD2E /* EducationHomeViewController.m */; };
-		91D19C9A1ACBCEEF0056BD2E /* SelectDiscussedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C8E1ACBCEEF0056BD2E /* SelectDiscussedTableViewController.m */; };
-		91D19C9B1ACBCEEF0056BD2E /* SelectMethodUsedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C901ACBCEEF0056BD2E /* SelectMethodUsedTableViewController.m */; };
-		91D19C9C1ACBCEEF0056BD2E /* HandOutTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C921ACBCEEF0056BD2E /* HandOutTableViewController.m */; };
-		91D19C9D1ACBCEEF0056BD2E /* PersonTaughtTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C941ACBCEEF0056BD2E /* PersonTaughtTableViewController.m */; };
-		91D19C9E1ACBCEEF0056BD2E /* SelectComprehensionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C961ACBCEEF0056BD2E /* SelectComprehensionTableViewController.m */; };
-		91D19C9F1ACBCEEF0056BD2E /* SelectTeachingAssessmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C981ACBCEEF0056BD2E /* SelectTeachingAssessmentTableViewController.m */; };
+		91D19C9A1ACBCEEF0056BD2E /* SelectEducationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19C8E1ACBCEEF0056BD2E /* SelectEducationTableViewController.m */; };
 		91D19CA41ACBD0110056BD2E /* radiobtnactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19CA11ACBD0110056BD2E /* radiobtnactive.png */; };
 		91D19CA51ACBD0110056BD2E /* radiobtndeactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D19CA21ACBD0110056BD2E /* radiobtndeactive.png */; };
 		91D19CAA1ACBD19B0056BD2E /* RecommendationHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CA91ACBD19B0056BD2E /* RecommendationHomeViewController.m */; };
-		91D19CAD1ACBD1C90056BD2E /* SelectMobilityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CAC1ACBD1C90056BD2E /* SelectMobilityTableViewController.m */; };
-		91D19CB31ACBD1D40056BD2E /* SensoryPerceptionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CB21ACBD1D40056BD2E /* SensoryPerceptionTableViewController.m */; };
-		91D19CB61ACBD1D80056BD2E /* MoistureTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CB51ACBD1D80056BD2E /* MoistureTableViewController.m */; };
-		91D19CBD1ACBD1DF0056BD2E /* FrictionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CB81ACBD1DF0056BD2E /* FrictionTableViewController.m */; };
-		91D19CBE1ACBD1DF0056BD2E /* TissueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CBA1ACBD1DF0056BD2E /* TissueTableViewController.m */; };
+		91D19CAD1ACBD1C90056BD2E /* SelectRecommendationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CAC1ACBD1C90056BD2E /* SelectRecommendationsTableViewController.m */; };
 		91D19CBF1ACBD1DF0056BD2E /* FollowUpTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CBC1ACBD1DF0056BD2E /* FollowUpTableViewController.m */; };
 		91D19CC51ACBD2CF0056BD2E /* SelectCharacterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CC41ACBD2CF0056BD2E /* SelectCharacterTableViewController.m */; };
-		91D19CCB1ACBD3FD0056BD2E /* SelectRecommendationActivityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CCA1ACBD3FD0056BD2E /* SelectRecommendationActivityTableViewController.m */; };
-		91D19CCE1ACBD4FB0056BD2E /* SelectActivityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CCD1ACBD4FB0056BD2E /* SelectActivityTableViewController.m */; };
 		91D19CE01ACBD6980056BD2E /* TreatmentHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CD71ACBD6980056BD2E /* TreatmentHomeViewController.m */; };
-		91D19CE11ACBD6980056BD2E /* SelectCleansingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CD91ACBD6980056BD2E /* SelectCleansingTableViewController.m */; };
-		91D19CE21ACBD6980056BD2E /* selectDressingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CDB1ACBD6980056BD2E /* selectDressingTableViewController.m */; };
-		91D19CE31ACBD6980056BD2E /* NegativePressureWoundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CDD1ACBD6980056BD2E /* NegativePressureWoundTableViewController.m */; };
-		91D19CE41ACBD6980056BD2E /* SkinCareTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CDF1ACBD6980056BD2E /* SkinCareTableViewController.m */; };
+		91D19CE11ACBD6980056BD2E /* SelectTreatmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CD91ACBD6980056BD2E /* SelectTreatmentTableViewController.m */; };
 		91D48F081AC16441003F8B0A /* AddAssignmentPopOverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D48F071AC16441003F8B0A /* AddAssignmentPopOverController.m */; };
 		91D48F0B1AC16485003F8B0A /* AssignmentTypePopOverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D48F0A1AC16485003F8B0A /* AssignmentTypePopOverController.m */; };
 		91D48F0D1AC1655F003F8B0A /* checkboxun.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D48F0C1AC1655F003F8B0A /* checkboxun.png */; };
@@ -259,14 +242,8 @@
 		91D19C541ACBCCA30056BD2E /* SelectWongBackerFacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectWongBackerFacesViewController.m; sourceTree = "<group>"; };
 		91D19C551ACBCCA30056BD2E /* SelectFlaccViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFlaccViewController.h; sourceTree = "<group>"; };
 		91D19C561ACBCCA30056BD2E /* SelectFlaccViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFlaccViewController.m; sourceTree = "<group>"; };
-		91D19C571ACBCCA30056BD2E /* SelectFaceTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFaceTableViewController.h; sourceTree = "<group>"; };
-		91D19C581ACBCCA30056BD2E /* SelectFaceTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFaceTableViewController.m; sourceTree = "<group>"; };
-		91D19C591ACBCCA30056BD2E /* SelectLegTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLegTableViewController.h; sourceTree = "<group>"; };
-		91D19C5A1ACBCCA30056BD2E /* SelectLegTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectLegTableViewController.m; sourceTree = "<group>"; };
-		91D19C5D1ACBCCA30056BD2E /* SelectCryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCryTableViewController.h; sourceTree = "<group>"; };
-		91D19C5E1ACBCCA30056BD2E /* SelectCryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCryTableViewController.m; sourceTree = "<group>"; };
-		91D19C5F1ACBCCA30056BD2E /* ConsolabilityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsolabilityTableViewController.h; sourceTree = "<group>"; };
-		91D19C601ACBCCA30056BD2E /* ConsolabilityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsolabilityTableViewController.m; sourceTree = "<group>"; };
+		91D19C571ACBCCA30056BD2E /* SelectFlaccPropertiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectFlaccPropertiesTableViewController.h; sourceTree = "<group>"; };
+		91D19C581ACBCCA30056BD2E /* SelectFlaccPropertiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectFlaccPropertiesTableViewController.m; sourceTree = "<group>"; };
 		91D19C6C1ACBCCD60056BD2E /* fac1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fac1.png; sourceTree = "<group>"; };
 		91D19C6D1ACBCCD60056BD2E /* fac2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fac2.png; sourceTree = "<group>"; };
 		91D19C6E1ACBCCD60056BD2E /* fac3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fac3.png; sourceTree = "<group>"; };
@@ -280,51 +257,23 @@
 		91D19C761ACBCCD60056BD2E /* txtbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = txtbox.png; sourceTree = "<group>"; };
 		91D19C8B1ACBCEEF0056BD2E /* EducationHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationHomeViewController.h; sourceTree = "<group>"; };
 		91D19C8C1ACBCEEF0056BD2E /* EducationHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EducationHomeViewController.m; sourceTree = "<group>"; };
-		91D19C8D1ACBCEEF0056BD2E /* SelectDiscussedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDiscussedTableViewController.h; sourceTree = "<group>"; };
-		91D19C8E1ACBCEEF0056BD2E /* SelectDiscussedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDiscussedTableViewController.m; sourceTree = "<group>"; };
-		91D19C8F1ACBCEEF0056BD2E /* SelectMethodUsedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectMethodUsedTableViewController.h; sourceTree = "<group>"; };
-		91D19C901ACBCEEF0056BD2E /* SelectMethodUsedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectMethodUsedTableViewController.m; sourceTree = "<group>"; };
-		91D19C911ACBCEEF0056BD2E /* HandOutTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HandOutTableViewController.h; sourceTree = "<group>"; };
-		91D19C921ACBCEEF0056BD2E /* HandOutTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HandOutTableViewController.m; sourceTree = "<group>"; };
-		91D19C931ACBCEEF0056BD2E /* PersonTaughtTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonTaughtTableViewController.h; sourceTree = "<group>"; };
-		91D19C941ACBCEEF0056BD2E /* PersonTaughtTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonTaughtTableViewController.m; sourceTree = "<group>"; };
-		91D19C951ACBCEEF0056BD2E /* SelectComprehensionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectComprehensionTableViewController.h; sourceTree = "<group>"; };
-		91D19C961ACBCEEF0056BD2E /* SelectComprehensionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectComprehensionTableViewController.m; sourceTree = "<group>"; };
-		91D19C971ACBCEEF0056BD2E /* SelectTeachingAssessmentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTeachingAssessmentTableViewController.h; sourceTree = "<group>"; };
-		91D19C981ACBCEEF0056BD2E /* SelectTeachingAssessmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTeachingAssessmentTableViewController.m; sourceTree = "<group>"; };
+		91D19C8D1ACBCEEF0056BD2E /* SelectEducationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectEducationTableViewController.h; sourceTree = "<group>"; };
+		91D19C8E1ACBCEEF0056BD2E /* SelectEducationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectEducationTableViewController.m; sourceTree = "<group>"; };
 		91D19CA11ACBD0110056BD2E /* radiobtnactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radiobtnactive.png; sourceTree = "<group>"; };
 		91D19CA21ACBD0110056BD2E /* radiobtndeactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radiobtndeactive.png; sourceTree = "<group>"; };
 		91D19CA31ACBD0110056BD2E /* radiobtnimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radiobtnimg.png; sourceTree = "<group>"; };
 		91D19CA81ACBD19B0056BD2E /* RecommendationHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendationHomeViewController.h; sourceTree = "<group>"; };
 		91D19CA91ACBD19B0056BD2E /* RecommendationHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendationHomeViewController.m; sourceTree = "<group>"; };
-		91D19CAB1ACBD1C90056BD2E /* SelectMobilityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectMobilityTableViewController.h; sourceTree = "<group>"; };
-		91D19CAC1ACBD1C90056BD2E /* SelectMobilityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectMobilityTableViewController.m; sourceTree = "<group>"; };
-		91D19CB11ACBD1D40056BD2E /* SensoryPerceptionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensoryPerceptionTableViewController.h; sourceTree = "<group>"; };
-		91D19CB21ACBD1D40056BD2E /* SensoryPerceptionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensoryPerceptionTableViewController.m; sourceTree = "<group>"; };
-		91D19CB41ACBD1D80056BD2E /* MoistureTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoistureTableViewController.h; sourceTree = "<group>"; };
-		91D19CB51ACBD1D80056BD2E /* MoistureTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoistureTableViewController.m; sourceTree = "<group>"; };
-		91D19CB71ACBD1DF0056BD2E /* FrictionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrictionTableViewController.h; sourceTree = "<group>"; };
-		91D19CB81ACBD1DF0056BD2E /* FrictionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrictionTableViewController.m; sourceTree = "<group>"; };
-		91D19CB91ACBD1DF0056BD2E /* TissueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TissueTableViewController.h; sourceTree = "<group>"; };
-		91D19CBA1ACBD1DF0056BD2E /* TissueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TissueTableViewController.m; sourceTree = "<group>"; };
+		91D19CAB1ACBD1C90056BD2E /* SelectRecommendationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectRecommendationsTableViewController.h; sourceTree = "<group>"; };
+		91D19CAC1ACBD1C90056BD2E /* SelectRecommendationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectRecommendationsTableViewController.m; sourceTree = "<group>"; };
 		91D19CBB1ACBD1DF0056BD2E /* FollowUpTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowUpTableViewController.h; sourceTree = "<group>"; };
 		91D19CBC1ACBD1DF0056BD2E /* FollowUpTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowUpTableViewController.m; sourceTree = "<group>"; };
 		91D19CC31ACBD2CF0056BD2E /* SelectCharacterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCharacterTableViewController.h; sourceTree = "<group>"; };
 		91D19CC41ACBD2CF0056BD2E /* SelectCharacterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCharacterTableViewController.m; sourceTree = "<group>"; };
-		91D19CC91ACBD3FD0056BD2E /* SelectRecommendationActivityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectRecommendationActivityTableViewController.h; sourceTree = "<group>"; };
-		91D19CCA1ACBD3FD0056BD2E /* SelectRecommendationActivityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectRecommendationActivityTableViewController.m; sourceTree = "<group>"; };
-		91D19CCC1ACBD4FB0056BD2E /* SelectActivityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectActivityTableViewController.h; sourceTree = "<group>"; };
-		91D19CCD1ACBD4FB0056BD2E /* SelectActivityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectActivityTableViewController.m; sourceTree = "<group>"; };
 		91D19CD61ACBD6980056BD2E /* TreatmentHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreatmentHomeViewController.h; sourceTree = "<group>"; };
 		91D19CD71ACBD6980056BD2E /* TreatmentHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreatmentHomeViewController.m; sourceTree = "<group>"; };
-		91D19CD81ACBD6980056BD2E /* SelectCleansingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCleansingTableViewController.h; sourceTree = "<group>"; };
-		91D19CD91ACBD6980056BD2E /* SelectCleansingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCleansingTableViewController.m; sourceTree = "<group>"; };
-		91D19CDA1ACBD6980056BD2E /* selectDressingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = selectDressingTableViewController.h; sourceTree = "<group>"; };
-		91D19CDB1ACBD6980056BD2E /* selectDressingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = selectDressingTableViewController.m; sourceTree = "<group>"; };
-		91D19CDC1ACBD6980056BD2E /* NegativePressureWoundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NegativePressureWoundTableViewController.h; sourceTree = "<group>"; };
-		91D19CDD1ACBD6980056BD2E /* NegativePressureWoundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NegativePressureWoundTableViewController.m; sourceTree = "<group>"; };
-		91D19CDE1ACBD6980056BD2E /* SkinCareTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkinCareTableViewController.h; sourceTree = "<group>"; };
-		91D19CDF1ACBD6980056BD2E /* SkinCareTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SkinCareTableViewController.m; sourceTree = "<group>"; };
+		91D19CD81ACBD6980056BD2E /* SelectTreatmentTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTreatmentTableViewController.h; sourceTree = "<group>"; };
+		91D19CD91ACBD6980056BD2E /* SelectTreatmentTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTreatmentTableViewController.m; sourceTree = "<group>"; };
 		91D48F061AC16441003F8B0A /* AddAssignmentPopOverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAssignmentPopOverController.h; sourceTree = "<group>"; };
 		91D48F071AC16441003F8B0A /* AddAssignmentPopOverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAssignmentPopOverController.m; sourceTree = "<group>"; };
 		91D48F091AC16485003F8B0A /* AssignmentTypePopOverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssignmentTypePopOverController.h; sourceTree = "<group>"; };
@@ -649,20 +598,12 @@
 				91D19CC41ACBD2CF0056BD2E /* SelectCharacterTableViewController.m */,
 				91D19C511ACBCCA30056BD2E /* selectMethodTableViewController.h */,
 				91D19C521ACBCCA30056BD2E /* selectMethodTableViewController.m */,
-				91D19CCC1ACBD4FB0056BD2E /* SelectActivityTableViewController.h */,
-				91D19CCD1ACBD4FB0056BD2E /* SelectActivityTableViewController.m */,
 				91D19C531ACBCCA30056BD2E /* SelectWongBackerFacesViewController.h */,
 				91D19C541ACBCCA30056BD2E /* SelectWongBackerFacesViewController.m */,
 				91D19C551ACBCCA30056BD2E /* SelectFlaccViewController.h */,
 				91D19C561ACBCCA30056BD2E /* SelectFlaccViewController.m */,
-				91D19C571ACBCCA30056BD2E /* SelectFaceTableViewController.h */,
-				91D19C581ACBCCA30056BD2E /* SelectFaceTableViewController.m */,
-				91D19C591ACBCCA30056BD2E /* SelectLegTableViewController.h */,
-				91D19C5A1ACBCCA30056BD2E /* SelectLegTableViewController.m */,
-				91D19C5D1ACBCCA30056BD2E /* SelectCryTableViewController.h */,
-				91D19C5E1ACBCCA30056BD2E /* SelectCryTableViewController.m */,
-				91D19C5F1ACBCCA30056BD2E /* ConsolabilityTableViewController.h */,
-				91D19C601ACBCCA30056BD2E /* ConsolabilityTableViewController.m */,
+				91D19C571ACBCCA30056BD2E /* SelectFlaccPropertiesTableViewController.h */,
+				91D19C581ACBCCA30056BD2E /* SelectFlaccPropertiesTableViewController.m */,
 			);
 			name = PainScreen;
 			sourceTree = "<group>";
@@ -681,18 +622,8 @@
 			children = (
 				91D19C8B1ACBCEEF0056BD2E /* EducationHomeViewController.h */,
 				91D19C8C1ACBCEEF0056BD2E /* EducationHomeViewController.m */,
-				91D19C8D1ACBCEEF0056BD2E /* SelectDiscussedTableViewController.h */,
-				91D19C8E1ACBCEEF0056BD2E /* SelectDiscussedTableViewController.m */,
-				91D19C8F1ACBCEEF0056BD2E /* SelectMethodUsedTableViewController.h */,
-				91D19C901ACBCEEF0056BD2E /* SelectMethodUsedTableViewController.m */,
-				91D19C911ACBCEEF0056BD2E /* HandOutTableViewController.h */,
-				91D19C921ACBCEEF0056BD2E /* HandOutTableViewController.m */,
-				91D19C931ACBCEEF0056BD2E /* PersonTaughtTableViewController.h */,
-				91D19C941ACBCEEF0056BD2E /* PersonTaughtTableViewController.m */,
-				91D19C951ACBCEEF0056BD2E /* SelectComprehensionTableViewController.h */,
-				91D19C961ACBCEEF0056BD2E /* SelectComprehensionTableViewController.m */,
-				91D19C971ACBCEEF0056BD2E /* SelectTeachingAssessmentTableViewController.h */,
-				91D19C981ACBCEEF0056BD2E /* SelectTeachingAssessmentTableViewController.m */,
+				91D19C8D1ACBCEEF0056BD2E /* SelectEducationTableViewController.h */,
+				91D19C8E1ACBCEEF0056BD2E /* SelectEducationTableViewController.m */,
 				91CC03D51AD3B9E700A4B2B6 /* EducationNumberEntryViewController.h */,
 				91CC03D61AD3B9E700A4B2B6 /* EducationNumberEntryViewController.m */,
 			);
@@ -702,26 +633,16 @@
 		91D19CA71ACBD0480056BD2E /* Recommendations */ = {
 			isa = PBXGroup;
 			children = (
-				91CC03D21AD3A17500A4B2B6 /* SelectDatePickerViewController.h */,
-				91CC03D31AD3A17500A4B2B6 /* SelectDatePickerViewController.m */,
-				91D19CAB1ACBD1C90056BD2E /* SelectMobilityTableViewController.h */,
-				91D19CAC1ACBD1C90056BD2E /* SelectMobilityTableViewController.m */,
-				91D19CB11ACBD1D40056BD2E /* SensoryPerceptionTableViewController.h */,
-				91D19CB21ACBD1D40056BD2E /* SensoryPerceptionTableViewController.m */,
-				91D19CB71ACBD1DF0056BD2E /* FrictionTableViewController.h */,
-				91D19CB81ACBD1DF0056BD2E /* FrictionTableViewController.m */,
-				91D19CB91ACBD1DF0056BD2E /* TissueTableViewController.h */,
-				91D19CBA1ACBD1DF0056BD2E /* TissueTableViewController.m */,
-				91D19CBB1ACBD1DF0056BD2E /* FollowUpTableViewController.h */,
-				91D19CBC1ACBD1DF0056BD2E /* FollowUpTableViewController.m */,
-				91D19CB41ACBD1D80056BD2E /* MoistureTableViewController.h */,
-				91D19CB51ACBD1D80056BD2E /* MoistureTableViewController.m */,
 				91D19CA81ACBD19B0056BD2E /* RecommendationHomeViewController.h */,
 				91D19CA91ACBD19B0056BD2E /* RecommendationHomeViewController.m */,
-				91D19CC91ACBD3FD0056BD2E /* SelectRecommendationActivityTableViewController.h */,
-				91D19CCA1ACBD3FD0056BD2E /* SelectRecommendationActivityTableViewController.m */,
+				91D19CAB1ACBD1C90056BD2E /* SelectRecommendationsTableViewController.h */,
+				91D19CAC1ACBD1C90056BD2E /* SelectRecommendationsTableViewController.m */,
+				91D19CBB1ACBD1DF0056BD2E /* FollowUpTableViewController.h */,
+				91D19CBC1ACBD1DF0056BD2E /* FollowUpTableViewController.m */,
 				91CC03D81AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.h */,
 				91CC03D91AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.m */,
+				91CC03D21AD3A17500A4B2B6 /* SelectDatePickerViewController.h */,
+				91CC03D31AD3A17500A4B2B6 /* SelectDatePickerViewController.m */,
 			);
 			name = Recommendations;
 			sourceTree = "<group>";
@@ -731,14 +652,8 @@
 			children = (
 				91D19CD61ACBD6980056BD2E /* TreatmentHomeViewController.h */,
 				91D19CD71ACBD6980056BD2E /* TreatmentHomeViewController.m */,
-				91D19CD81ACBD6980056BD2E /* SelectCleansingTableViewController.h */,
-				91D19CD91ACBD6980056BD2E /* SelectCleansingTableViewController.m */,
-				91D19CDA1ACBD6980056BD2E /* selectDressingTableViewController.h */,
-				91D19CDB1ACBD6980056BD2E /* selectDressingTableViewController.m */,
-				91D19CDC1ACBD6980056BD2E /* NegativePressureWoundTableViewController.h */,
-				91D19CDD1ACBD6980056BD2E /* NegativePressureWoundTableViewController.m */,
-				91D19CDE1ACBD6980056BD2E /* SkinCareTableViewController.h */,
-				91D19CDF1ACBD6980056BD2E /* SkinCareTableViewController.m */,
+				91D19CD81ACBD6980056BD2E /* SelectTreatmentTableViewController.h */,
+				91D19CD91ACBD6980056BD2E /* SelectTreatmentTableViewController.m */,
 			);
 			name = Treatment;
 			sourceTree = "<group>";
@@ -1015,10 +930,8 @@
 				B6E488981ACC213A00E356F7 /* WouldyouliketousecameraVC.m in Sources */,
 				91CD6F2B1AC151A400F56AE0 /* NumberEntryViewController.m in Sources */,
 				91CC03D41AD3A17500A4B2B6 /* SelectDatePickerViewController.m in Sources */,
-				91D19CAD1ACBD1C90056BD2E /* SelectMobilityTableViewController.m in Sources */,
-				91D19CCB1ACBD3FD0056BD2E /* SelectRecommendationActivityTableViewController.m in Sources */,
+				91D19CAD1ACBD1C90056BD2E /* SelectRecommendationsTableViewController.m in Sources */,
 				91C228A61ABA9A5D00E389AF /* Pain.m in Sources */,
-				91D19CE31ACBD6980056BD2E /* NegativePressureWoundTableViewController.m in Sources */,
 				91D19C991ACBCEEF0056BD2E /* EducationHomeViewController.m in Sources */,
 				91CC03D71AD3B9E700A4B2B6 /* EducationNumberEntryViewController.m in Sources */,
 				91D48F0B1AC16485003F8B0A /* AssignmentTypePopOverController.m in Sources */,
@@ -1027,43 +940,28 @@
 				91D48F081AC16441003F8B0A /* AddAssignmentPopOverController.m in Sources */,
 				91C228B21ABA9A5E00E389AF /* Recommendations.m in Sources */,
 				B6E4889E1ACC215300E356F7 /* SelectWoundTypeTableViewController.m in Sources */,
-				91D19CE11ACBD6980056BD2E /* SelectCleansingTableViewController.m in Sources */,
+				91D19CE11ACBD6980056BD2E /* SelectTreatmentTableViewController.m in Sources */,
 				91C228AC1ABA9A5E00E389AF /* ReviewAssessment.m in Sources */,
 				91D19C611ACBCCA30056BD2E /* PainHomeViewController.m in Sources */,
 				B6E4889B1ACC214600E356F7 /* WoundlimitreachedVC.m in Sources */,
 				91D19C641ACBCCA30056BD2E /* SelectWongBackerFacesViewController.m in Sources */,
 				91C228BB1ABA9A5E00E389AF /* Login.m in Sources */,
-				91D19CCE1ACBD4FB0056BD2E /* SelectActivityTableViewController.m in Sources */,
-				91D19CE21ACBD6980056BD2E /* selectDressingTableViewController.m in Sources */,
 				91CC03DA1AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.m in Sources */,
-				91D19CB61ACBD1D80056BD2E /* MoistureTableViewController.m in Sources */,
-				91D19C9C1ACBCEEF0056BD2E /* HandOutTableViewController.m in Sources */,
 				91C228831ABA983900E389AF /* WoundCare.xcdatamodeld in Sources */,
-				91D19CE41ACBD6980056BD2E /* SkinCareTableViewController.m in Sources */,
-				91D19C661ACBCCA30056BD2E /* SelectFaceTableViewController.m in Sources */,
+				91D19C661ACBCCA30056BD2E /* SelectFlaccPropertiesTableViewController.m in Sources */,
 				91C228C21ABA9AF500E389AF /* AssignmentsViewController.m in Sources */,
 				91D19CC51ACBD2CF0056BD2E /* SelectCharacterTableViewController.m in Sources */,
 				91D19CBF1ACBD1DF0056BD2E /* FollowUpTableViewController.m in Sources */,
-				91D19C9A1ACBCEEF0056BD2E /* SelectDiscussedTableViewController.m in Sources */,
+				91D19C9A1ACBCEEF0056BD2E /* SelectEducationTableViewController.m in Sources */,
 				91C228801ABA983900E389AF /* AppDelegate.m in Sources */,
-				91D19C9D1ACBCEEF0056BD2E /* PersonTaughtTableViewController.m in Sources */,
 				91D19CAA1ACBD19B0056BD2E /* RecommendationHomeViewController.m in Sources */,
 				91C228AF1ABA9A5E00E389AF /* ReviewBase.m in Sources */,
-				91D19C6A1ACBCCA30056BD2E /* ConsolabilityTableViewController.m in Sources */,
-				91D19CBD1ACBD1DF0056BD2E /* FrictionTableViewController.m in Sources */,
-				91D19CBE1ACBD1DF0056BD2E /* TissueTableViewController.m in Sources */,
 				91C228861ABA983900E389AF /* ViewController.m in Sources */,
 				B6E488921ACC212100E356F7 /* WoundImageViewController.m in Sources */,
 				91C228B81ABA9A5E00E389AF /* Treatment.m in Sources */,
-				91D19CB31ACBD1D40056BD2E /* SensoryPerceptionTableViewController.m in Sources */,
 				B6E488901ACC211B00E356F7 /* OstomyalreadyselectedVC.m in Sources */,
 				91C228A91ABA9A5E00E389AF /* Education.m in Sources */,
-				91D19C9E1ACBCEEF0056BD2E /* SelectComprehensionTableViewController.m in Sources */,
-				91D19C671ACBCCA30056BD2E /* SelectLegTableViewController.m in Sources */,
-				91D19C9F1ACBCEEF0056BD2E /* SelectTeachingAssessmentTableViewController.m in Sources */,
 				9128274A1AD3EA8B00FD2D5F /* PatientInfoViewController.m in Sources */,
-				91D19C9B1ACBCEEF0056BD2E /* SelectMethodUsedTableViewController.m in Sources */,
-				91D19C691ACBCCA30056BD2E /* SelectCryTableViewController.m in Sources */,
 				91C228BF1ABA9A9600E389AF /* CoreDataHelper.m in Sources */,
 				91C228B51ABA9A5E00E389AF /* PatientDetails.m in Sources */,
 				B6E488951ACC212B00E356F7 /* GastrocountreachedVC.m in Sources */,

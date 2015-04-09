@@ -229,7 +229,7 @@
 }
 
 
--(NSArray *)fetchTheFlaccFields:(NSString *)categoryId{
+-(NSMutableArray *)fetchTheFlaccFields:(NSString *)categoryId{
     NSMutableArray *categoryFields=[[NSMutableArray alloc]init];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Pain" inManagedObjectContext:self.managedObjectContext];
@@ -258,7 +258,7 @@
     }
     return  categoryFields;
 }
--(NSArray *)fetchTheFlaccScore:(NSString *)categoryId{
+-(NSMutableArray *)fetchTheFlaccScore:(NSString *)categoryId{
     NSMutableArray *categoryScore=[[NSMutableArray alloc]init];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Pain" inManagedObjectContext:self.managedObjectContext];
@@ -288,7 +288,7 @@
     return  categoryScore;
 }
 
--(NSArray *)fetchTheEducationFields:(NSString *)categoryId{
+-(NSMutableArray *)fetchTheEducationFields:(NSString *)categoryId{
     NSMutableArray *categoryFields=[[NSMutableArray alloc]init];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Education" inManagedObjectContext:self.managedObjectContext];
@@ -318,7 +318,7 @@
     return  categoryFields;
 }
 
--(NSArray *)fetchTheTreatmentFields:(NSString *)categoryId{
+-(NSMutableArray *)fetchTheTreatmentFields:(NSString *)categoryId{
     NSMutableArray *categoryFields=[[NSMutableArray alloc]init];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Treatment" inManagedObjectContext:self.managedObjectContext];
@@ -348,7 +348,7 @@
     return  categoryFields;
 }
 
--(NSArray *)fetchTheRecommendationsFields:(NSString *)categoryId{
+-(NSMutableArray *)fetchTheRecommendationsFields:(NSString *)categoryId{
     NSMutableArray *categoryFields=[[NSMutableArray alloc]init];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Recommendations" inManagedObjectContext:self.managedObjectContext];

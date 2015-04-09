@@ -7,13 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SelectDiscussedTableViewController.h"
-#import "SelectMethodUsedTableViewController.h"
-#import "HandOutTableViewController.h"
-#import "PersonTaughtTableViewController.h"
-#import "SelectComprehensionTableViewController.h"
-#import "SelectTeachingAssessmentTableViewController.h"
+#import "SelectEducationTableViewController.h"
+
 #import "EducationNumberEntryViewController.h"
+#import "CoreDataHelper.h"
 
 
 @interface EducationHomeViewController : UIViewController<GetDataProtocol,UITextFieldDelegate>
@@ -49,12 +46,8 @@
 
 
 
-@property(nonatomic,strong)SelectDiscussedTableViewController *selectDiscussedViewController;
-@property(nonatomic,strong)SelectMethodUsedTableViewController *selectMethodViewController;
-@property(nonatomic,strong)HandOutTableViewController *handOutViewController;
-@property(nonatomic,strong)PersonTaughtTableViewController *personTaughtViewController;
-@property(nonatomic,strong)SelectComprehensionTableViewController *selectComprehensionViewController;
-@property(nonatomic,strong)SelectTeachingAssessmentTableViewController *selectTeachingAssessmentViewController;
+@property(nonatomic,strong)SelectEduactionTableViewController *selectEducationViewController;
+@property (strong, nonatomic) EducationNumberEntryViewController *educationNumberEntryViewController;
 
 
 
@@ -63,7 +56,7 @@
 @property(nonatomic)int handOutCount;
 @property(nonatomic)int personTaughtCount;
 @property(nonatomic)int teachingAssessmentCount;
-@property (strong, nonatomic) EducationNumberEntryViewController *educationNumberEntryViewController;
+
 @property (weak, nonatomic) IBOutlet UIButton *btnEducationNumber;
 
 

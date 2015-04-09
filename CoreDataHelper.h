@@ -29,11 +29,11 @@
 -(BOOL)CheckUserId:(NSString *)userid;
 -(PatientDetails *) getAssignmentsList:(NSString *)staffId;
 -(void)getOldAssignments;
--(NSArray *)fetchTheFlaccFields:(NSString *)categoryId;
--(NSArray *)fetchTheFlaccScore:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheFlaccFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheFlaccScore:(NSString *)categoryId;
 
--(NSArray *)fetchTheEducationFields:(NSString *)categoryId;
--(NSArray *)fetchTheTreatmentFields:(NSString *)categoryId;
--(NSArray *)fetchTheRecommendationsFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheEducationFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheTreatmentFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheRecommendationsFields:(NSString *)categoryId;
 
 @end

@@ -16,17 +16,24 @@
 
 
 @property (strong, nonatomic)UIPopoverController *popOver;
-@property(nonatomic,strong)UIPopoverController *mobilityPopOver;
-@property(nonatomic,strong)UIPopoverController *activityPopOver;
-@property(nonatomic,strong)UIPopoverController *sensoryPopOver;
-@property(nonatomic,strong)UIPopoverController *moisturePopOver;
-@property(nonatomic,strong)UIPopoverController *frictionPopOver;
-@property(nonatomic,strong)UIPopoverController *tissuePopOver;
+
+
+@property(nonatomic,strong)NSMutableArray *mobilityArray;
+@property(nonatomic,strong)NSMutableArray *activityArray;
+@property(nonatomic,strong)NSMutableArray *sensoryArray;
+@property(nonatomic,strong)NSMutableArray  *moistureArray;
+@property(nonatomic,strong)NSMutableArray  *frictionArray;
+@property(nonatomic,strong)NSMutableArray  *tissueArray;
+
 @property(nonatomic,strong)UIPopoverController *followUpPopOver;
 @property(nonatomic,strong)UIPopoverController *datePickerPopOver;
     
 @property(nonatomic)CGRect r;
 @property(nonatomic)CGRect tRect;
+
+
+
+
 
 @end
 
@@ -42,23 +49,18 @@
     
     [super viewDidLoad];
     
-    _selectMobilityController=[[SelectMobilityTableViewController alloc]init];
-    _selectMobilityController.dataDelegate=self;
+    _selectRecommendationsController=[[SelectRecommendationsTableViewController alloc]init];
+    _selectRecommendationsController.dataDelegate=self;
     
-    _selectActivityController=[[SelectRecommendationActivityTableViewController alloc]init];
-    _selectActivityController.dataDelegate=self;
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.mobilityArray= [cdh fetchTheRecommendationsFields:@"1"];
+    self.activityArray= [cdh fetchTheRecommendationsFields:@"2"];
+    self.sensoryArray= [cdh fetchTheRecommendationsFields:@"3"];
+    self.moistureArray= [cdh fetchTheRecommendationsFields:@"4"];
+    self.frictionArray= [cdh fetchTheRecommendationsFields:@"5"];
+    self.tissueArray= [cdh fetchTheRecommendationsFields:@"6"];
     
-    _sensoryViewController=[[SensoryPerceptionTableViewController alloc]init];
-    _sensoryViewController.dataDelegate=self;
-    
-    _moistureViewController=[[MoistureTableViewController alloc]init];
-    _moistureViewController.dataDelegate=self;
-    
-    _frictionViewController=[[FrictionTableViewController alloc]init];
-    _frictionViewController.dataDelegate=self;
-    
-    _tissueViewController=[[TissueTableViewController alloc]init];
-    _tissueViewController.dataDelegate=self;
+
     
     
     _followUpController=[[FollowUpTableViewController alloc]init];
@@ -69,6 +71,7 @@
  
     
     _scrollView.delegate=self;
+    [_scrollView setContentSize:CGSizeMake(1024, 1000)];
     
     
        
@@ -107,16 +110,24 @@
     
     
     NSString *selectedData=[data componentsJoinedByString:@","];
+    if ([data count]==0) {
+        [self.mobilityButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
+
+    }
+    else
+    {
+        NSLog(@"%@",selectedData);
+        _mobilityButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.mobilityButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
+        
+    }
  
-    NSLog(@"%@",selectedData);
-   _mobilityButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.mobilityButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+
     
     
     
-    
-    
-    [self.mobilityPopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
 
     
 }
@@ -125,11 +136,19 @@
 {
     
     NSString *selectedData=[data componentsJoinedByString:@","];
+    if ([data count]==0) {
+        [self.activityButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        NSLog(@"%@",selectedData);
+        _activityButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.activityButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+
+    }
     
-    NSLog(@"%@",selectedData);
-    _activityButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.activityButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
-    [self.activityPopOver dismissPopoverAnimated: YES];
+     [self.popOver dismissPopoverAnimated: YES];
     
 
 }
@@ -138,14 +157,22 @@
 {
     
     NSString *selectedData=[data componentsJoinedByString:@","];
+    if ([data count]==0) {
+        [self.sensoryPerceptionButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        NSLog(@"%@",selectedData);
+        _sensoryPerceptionButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        
+        
+        [self.sensoryPerceptionButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+
+    }
     
-    NSLog(@"%@",selectedData);
-    _sensoryPerceptionButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
     
-    
-    [self.sensoryPerceptionButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
-    
-    [self.sensoryPopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
     
     
 }
@@ -153,12 +180,20 @@
 {
     
     NSString *selectedData=[data componentsJoinedByString:@","];
+    if ([data count]==0) {
+        [self.moistureButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        NSLog(@"%@",selectedData);
+        _moistureButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.moistureButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+    }
     
-    NSLog(@"%@",selectedData);
-    _moistureButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.moistureButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+  
     
-    [self.moisturePopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
     
 }
 
@@ -166,12 +201,19 @@
 {
     
     NSString *selectedData=[data componentsJoinedByString:@","];
+    if ([data count]==0) {
+        [self.frictionButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {NSLog(@"%@",selectedData);
+        _frictionButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.frictionButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+
+        
+    }
     
-    NSLog(@"%@",selectedData);
-    _frictionButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.frictionButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
-    
-    [self.frictionPopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
     
 
     
@@ -182,13 +224,20 @@
     
     
     NSString *selectedData=[data componentsJoinedByString:@","];
+    if ([data count]==0) {
+        [self.tissueperfusionButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        NSLog(@"%@",selectedData);
+        _tissueperfusionButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.tissueperfusionButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
+
+    }
     
-    NSLog(@"%@",selectedData);
-    _tissueperfusionButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.tissueperfusionButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
-    
-    
-    [self.tissuePopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
     
 
     
@@ -270,106 +319,100 @@
     switch (sender.tag) {
         case 0:
             
-            self.mobilityPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectMobilityController];
-            [self.mobilityPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-                // [self.mobilityPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectRecommendationsController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
             
+            _selectRecommendationsController.selectedArray=_mobilityArray;
+            _selectRecommendationsController.selectedString=@"Mobility";
             
+            _selectRecommendationsController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
             _r = [sender frame];
-            
-                //trect gives coordinate of sender wrt view
-            
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             
-            [self.mobilityPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-            
-            
+            [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
         case 1:
             
-            self.activityPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectActivityController];
-            [self.activityPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-                // [self.activityPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectRecommendationsController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
             
+            _selectRecommendationsController.selectedArray=_activityArray;
+            _selectRecommendationsController.selectedString=@"Activity";
             
-            
+            _selectRecommendationsController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
             _r = [sender frame];
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             
-            [self.activityPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-    
+            [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
-            
         case 2:
             
-            self.sensoryPopOver=[[UIPopoverController alloc]initWithContentViewController:_sensoryViewController];
-            [self.sensoryPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-                // [self.sensoryPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectRecommendationsController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
             
+            _selectRecommendationsController.selectedArray=_sensoryArray;
+            _selectRecommendationsController.selectedString=@"Sensory";
             
-            
+            _selectRecommendationsController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
             _r = [sender frame];
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             
-            [self.sensoryPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-            
+            [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
             
         case 3:
             
-            self.moisturePopOver=[[UIPopoverController alloc]initWithContentViewController:_moistureViewController];
-            [self.moisturePopOver setPopoverContentSize:CGSizeMake(300, 300)];
-                //[self.moisturePopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectRecommendationsController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
             
+            _selectRecommendationsController.selectedArray=_moistureArray;
+            _selectRecommendationsController.selectedString=@"Moisture";
             
+            _selectRecommendationsController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
             _r = [sender frame];
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             
-            [self.moisturePopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-            
-            
+            [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
-            
-            
             
         case 4:
             
-            self.frictionPopOver=[[UIPopoverController alloc]initWithContentViewController:_frictionViewController];
-            [self.frictionPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-                //  [self.frictionPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectRecommendationsController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
             
+            _selectRecommendationsController.selectedArray=_frictionArray;
+            _selectRecommendationsController.selectedString=@"Friction";
+            
+            _selectRecommendationsController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
             _r = [sender frame];
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             
-            [self.frictionPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-            
-            
+            [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
         case 5:
             
-            self.tissuePopOver=[[UIPopoverController alloc]initWithContentViewController:_tissueViewController];
-            [self.tissuePopOver setPopoverContentSize:CGSizeMake(300, 300)];
-                //[self.tissuePopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectRecommendationsController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
             
+            _selectRecommendationsController.selectedArray=_tissueArray;
+            _selectRecommendationsController.selectedString=@"Tissue";
             
+            _selectRecommendationsController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
             _r = [sender frame];
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             
-            [self.tissuePopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-           
-            
+            [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             break;
-            
         case 6:
             
             

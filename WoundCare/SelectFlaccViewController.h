@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "GetDataProtocol.h"
-#import "SelectFaceTableViewController.h"
-#import "SelectLegTableViewController.h"
-#import "SelectActivityTableViewController.h"
-#import "SelectCryTableViewController.h"
-#import "ConsolabilityTableViewController.h"
+#import "SelectFlaccPropertiesTableViewController.h"
+
+
 
 
 @interface SelectFlaccViewController : UIViewController<GetDataProtocol>
@@ -37,11 +35,7 @@
 
 
 
-@property(nonatomic,strong)SelectFaceTableViewController *selectFaceViewController;
-@property(nonatomic,strong)SelectLegTableViewController *selectLegViewController;
-@property(nonatomic,strong)SelectActivityTableViewController *selectActivityViewController;
-@property(nonatomic,strong)SelectCryTableViewController *selectCryViewController;
-@property(nonatomic,strong)ConsolabilityTableViewController *consolabilityViewController;
-@property(nonatomic)NSInteger PainScore;
+@property(nonatomic,strong)SelectFlaccPropertiesTableViewController *selectFlaccPropertiesViewController;
+
 
 @end
