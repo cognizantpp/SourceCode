@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,15 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6T-k6-efZ">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6T-k6-efZ">
                                 <rect key="frame" x="0.0" y="0.0" width="1064" height="768"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_bg.png" highlightedImage="welcome_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ur9-cP-iU5">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="welcome_bg.png" highlightedImage="welcome_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ur9-cP-iU5">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="768" id="YeX-mZ-S0r"/>
-                                            <constraint firstAttribute="width" constant="1024" id="nwJ-9c-Bum"/>
-                                        </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sample.png" highlightedImage="sample.png" translatesAutoresizingMaskIntoConstraints="NO" id="vXH-zf-evz">
                                         <rect key="frame" x="217" y="84" width="650" height="650"/>
@@ -57,12 +53,6 @@
                                         </connections>
                                     </textField>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="Ur9-cP-iU5" firstAttribute="leading" secondItem="j6T-k6-efZ" secondAttribute="leading" id="8R2-qC-FgR"/>
-                                    <constraint firstItem="Ur9-cP-iU5" firstAttribute="top" secondItem="j6T-k6-efZ" secondAttribute="top" id="M4z-m3-5VZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ur9-cP-iU5" secondAttribute="trailing" constant="40" id="bF6-bL-bFh"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ur9-cP-iU5" secondAttribute="bottom" id="jXV-19-9CA"/>
-                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -740,7 +730,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCH-PQ-AxB">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCH-PQ-AxB">
                                 <rect key="frame" x="0.0" y="0.0" width="1028" height="768"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ineerscreencommon.png" translatesAutoresizingMaskIntoConstraints="NO" id="0VW-hr-KgZ">
@@ -1744,7 +1734,7 @@
                                 </connections>
                             </button>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="testimg.png" translatesAutoresizingMaskIntoConstraints="NO" id="C8B-I2-nZL">
-                                <rect key="frame" x="60" y="71" width="968" height="697"/>
+                                <rect key="frame" x="59" y="70" width="968" height="697"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="59" y="132" width="900" height="600"/>
                                 </variation>
@@ -1871,9 +1861,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1028" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ineerscreencommon.png" translatesAutoresizingMaskIntoConstraints="NO" id="19U-DI-Yor">
-                                <rect key="frame" x="0.0" y="0.0" width="1028" height="768"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Method" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIq-db-pFu">
                                 <rect key="frame" x="119" y="118" width="59" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1892,7 +1879,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGY-ra-jk9">
+                            <button opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGY-ra-jk9">
                                 <rect key="frame" x="315" y="162" width="187" height="33"/>
                                 <state key="normal" backgroundImage="txtbox.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1918,7 +1905,7 @@
                                     <action selector="selectButtonAction:" destination="VaY-aI-K13" eventType="touchUpInside" id="rHu-0P-XWN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgx-0y-Iph">
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgx-0y-Iph">
                                 <rect key="frame" x="315" y="213" width="187" height="33"/>
                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1930,12 +1917,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="19U-DI-Yor" firstAttribute="leading" secondItem="ofT-lC-m3x" secondAttribute="leadingMargin" constant="-16" id="9mb-m8-5Z3"/>
-                            <constraint firstItem="26B-iw-V9M" firstAttribute="top" secondItem="19U-DI-Yor" secondAttribute="bottom" id="ahF-RX-XgO"/>
-                            <constraint firstItem="19U-DI-Yor" firstAttribute="top" secondItem="ofT-lC-m3x" secondAttribute="topMargin" id="mc2-Jb-TlI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="19U-DI-Yor" secondAttribute="trailing" constant="-16" id="tWN-t5-8Af"/>
-                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1028" height="768"/>
@@ -2070,7 +2051,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUM-eQ-v3E">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUM-eQ-v3E">
                                 <rect key="frame" x="274" y="30" width="133" height="33"/>
                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2080,7 +2061,7 @@
                                     <action selector="selectButtonAction:" destination="eUm-Yi-PfI" eventType="touchUpInside" id="H5K-Wx-hdH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNC-La-1Tu">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNC-La-1Tu">
                                 <rect key="frame" x="274" y="134" width="133" height="33"/>
                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2090,7 +2071,7 @@
                                     <action selector="selectButtonAction:" destination="eUm-Yi-PfI" eventType="touchUpInside" id="QCO-l7-bO1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIJ-sQ-h2N">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIJ-sQ-h2N">
                                 <rect key="frame" x="274" y="194" width="133" height="33"/>
                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2109,7 +2090,7 @@
                                     <action selector="OkButtonAction:" destination="eUm-Yi-PfI" eventType="touchUpInside" id="edG-bD-A7T"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9V-GV-dJ5">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H9V-GV-dJ5">
                                 <rect key="frame" x="274" y="81" width="133" height="33"/>
                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2119,7 +2100,7 @@
                                     <action selector="selectButtonAction:" destination="eUm-Yi-PfI" eventType="touchUpInside" id="Sfh-kY-wAZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3S-Ii-auC">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3S-Ii-auC">
                                 <rect key="frame" x="274" y="246" width="133" height="33"/>
                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2436,7 +2417,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-ix-2uG">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-ix-2uG">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ineerscreencommon.png" translatesAutoresizingMaskIntoConstraints="NO" id="MTl-uV-gSI">

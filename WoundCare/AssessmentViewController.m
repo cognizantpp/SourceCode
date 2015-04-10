@@ -28,12 +28,12 @@
 @end
 
 @implementation AssessmentViewController
-
+PainHomeViewController *painController;
+EducationHomeViewController *educationHomeviewcontroller;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    
+        
     buttonClicked=6;
     [self.human setImage:[UIImage imageNamed:@"homanhover2013.png"] forState:UIControlStateNormal];
     
@@ -51,11 +51,24 @@
     // Dispose of any resources that can be recreated.
 }
 -(void)setButtonBackground{
+    
     switch (buttonClicked) {
+            
         case 1:
+        {
             [self.pain setBackgroundImage:[UIImage imageNamed:@"icon_pain.png"] forState:UIControlStateNormal];
+            CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+            NSString *charselected_value=[NSString stringWithFormat:@"%@",painController.characterButtonOutlet.titleLabel.text];
+            NSLog(@"charbutton:........ %@",painController.characterButtonOutlet.titleLabel.text);
+            NSString *scoreselected_value=[NSString stringWithFormat:@"%@",painController.scoreButtonOutlet.titleLabel.text];
+            [CoreDataHelper sharedInstance].painselected_value=[NSArray arrayWithObjects:charselected_value,scoreselected_value,nil];
+
+            NSLog(@"_assignmentsViewController.entry_no   %@",entry_no );
+            [cdh savePain:entry_no andCategoryid:[CoreDataHelper sharedInstance].paincategoryid andCategoryname:[CoreDataHelper sharedInstance].paincategory_name andSelectedvalue:[CoreDataHelper sharedInstance].painselected_value];
             break;
+        }
         case 2:
+            
             [self.review setBackgroundImage:[UIImage imageNamed:@"icon_risk.png"] forState:UIControlStateNormal];
             break;
         case 3:
@@ -82,11 +95,24 @@
     if([sender tag]==1){
         [sender setBackgroundImage:[UIImage imageNamed:@"visited.png"] forState:UIControlStateNormal];
         [self setButtonBackground];
-        PainHomeViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"PainHomeViewController"];
-        [self.initialview addSubview:tvc.view];
-        [self addChildViewController:tvc];
-        buttonClicked=[sender tag];
+        painController=[self.storyboard instantiateViewControllerWithIdentifier:@"PainHomeViewController"];
+        [self.initialview addSubview:painController.view];
+        [self addChildViewController:painController];
+//        NSMutableArray *category_id=[[NSMutableArray alloc]init];
+//        category_id =[[NSString stringWithFormat:@"%ld",(long)tvc.characterButtonOutlet.tag],[NSString stringWithFormat:@"%ld",(long)tvc.scoreButtonOutlet.tag] ];
+        NSString *charstring=[NSString stringWithFormat:@"%ld",(long)painController.characterButtonOutlet.tag];
+        NSString *scorestring=[NSString stringWithFormat:@"%ld",(long)painController.scoreButtonOutlet.tag];
+        [CoreDataHelper sharedInstance].paincategoryid=[NSArray arrayWithObjects:charstring,scorestring,nil];
+        [CoreDataHelper sharedInstance].paincategory_name=[NSArray arrayWithObjects:@"Character",@"score", nil];
+               buttonClicked=[sender tag];
+        //flag=1;
         self.delete.alpha=0;
+        if([CoreDataHelper sharedInstance].painselected_value.count != 0){
+            NSLog(@"[selected_value objectAtIndex:0] %@",[[CoreDataHelper sharedInstance].painselected_value objectAtIndex:0]);
+            [painController.characterButtonOutlet setTitle:[[CoreDataHelper sharedInstance].painselected_value objectAtIndex:0] forState:UIControlStateNormal];
+            [painController.scoreButtonOutlet setTitle:[[CoreDataHelper sharedInstance].painselected_value objectAtIndex:1] forState:UIControlStateNormal];
+            
+        }
         
     }
     if([sender tag]==2){
@@ -102,9 +128,16 @@
     if ([sender tag]==3){
         [sender setBackgroundImage:[UIImage imageNamed:@"visited.png"] forState:UIControlStateNormal];
         [self setButtonBackground];
-        EducationHomeViewController *tvc=[self.storyboard         instantiateViewControllerWithIdentifier:@"EducationHomeViewController"];
-        [self.initialview addSubview:tvc.view];
-        [self addChildViewController:tvc];
+        educationHomeviewcontroller=[self.storyboard         instantiateViewControllerWithIdentifier:@"EducationHomeViewController"];
+        [self.initialview addSubview:educationHomeviewcontroller.view];
+        [self addChildViewController:educationHomeviewcontroller];
+        NSString *discussedid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.discussedButtonOutlet.tag];
+        NSString *methodid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.methodUsedOutlet.tag];
+        NSString *handoutid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.handoutOutlet.tag];
+        NSString *persontaughtid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.personTaughtOutlet.tag];
+        NSString *comprehensionid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.comprehensionOutlet.tag];
+    //    NSString *teachingassessid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.teachingAssessmentCount.tag];
+   //     NSString *timespentid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller..tag];
         buttonClicked=[sender tag];
         self.delete.alpha=0;
         

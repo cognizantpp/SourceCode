@@ -11,6 +11,8 @@
 #import "selectMethodTableViewController.h"
 #import "SelectWongBackerFacesViewController.h"
 #import "SelectFlaccViewController.h"
+#import "CoreDataHelper.h"
+#import "AssignmentsViewController.h"
 
 @interface PainHomeViewController : UIViewController<GetDataProtocol>
 

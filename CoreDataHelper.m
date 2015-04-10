@@ -258,6 +258,10 @@
     }
     return  categoryFields;
 }
+
+
+
+
 -(NSArray *)fetchTheFlaccScore:(NSString *)categoryId{
     NSMutableArray *categoryScore=[[NSMutableArray alloc]init];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -376,6 +380,103 @@
         }
     }
     return  categoryFields;
+}
+-(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value{
+    
+   
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PainSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSManagedObject *matches = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (PainSave *thePain in fetchedObjects) {
+            matches = thePain;
+            [self.managedObjectContext deleteObject:matches];
+            [self saveContext];
+        }
+    }
+    for (int i=0;i<category_id.count;i++) {
+        NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"PainSave" inManagedObjectContext:self.managedObjectContext];
+        [insertObject setValue:entryNo forKey:@"entry_number"];
+        [insertObject setValue:category_id[i] forKey:@"category_id"];
+        [insertObject setValue:Category_name[i] forKey:@"category_name"];
+        [insertObject setValue:Selected_value[i] forKey:@"selected_value"];
+        
+        [self saveContext];
+        
+    }
+    
+    [self fetchPainSaved];
+    
+}
+-(NSArray *)setPainFields:(NSString *)entryNo {
+    NSMutableArray *painArr=[[NSMutableArray alloc]init];;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PainSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (PainSave *thePain in fetchedObjects) {
+            [painArr addObject:thePain.selected_value];
+        }
+    }
+    return painArr;
+}
+-( void)fetchPainSaved{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"PainSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (PainSave *thePain in fetchedObjects) {
+            
+            NSLog(@"category ID: %@ Name: %@ entry_no:%@ selected_value:%@",thePain.category_id,thePain.category_name,thePain.entry_number,thePain.selected_value);
+        }
+    }
+}
+- (void)saveContext {
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil) {
+        NSError *error = nil;
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+                       NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
 }
 
 

@@ -69,6 +69,7 @@ PatientDetails *patientsDetails;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    entry_no=[[patientsDetails valueForKey:@"entry_number"] objectAtIndex:indexPath.row];
     AssessmentViewController *tvc=[storyBoard instantiateViewControllerWithIdentifier:@"AssessmentViewController"];
            [self.view addSubview:tvc.view];
             [self addChildViewController:tvc];

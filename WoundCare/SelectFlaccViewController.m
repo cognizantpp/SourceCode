@@ -137,7 +137,7 @@
     switch (sender.tag) {
             
             
-        case 0:
+        case 1:
             
             self.facePopOver=[[UIPopoverController alloc]initWithContentViewController:_selectFaceViewController];
             [self.facePopOver setPopoverContentSize:CGSizeMake(300,135)];
@@ -150,7 +150,7 @@
             
             break;
             
-        case 1:
+        case 2:
             
             self.legsPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectLegViewController];
             [self.legsPopOver setPopoverContentSize:CGSizeMake(300,135)];
@@ -163,7 +163,7 @@
             
             break;
             
-        case 2:
+        case 3:
             
             self.activityPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectActivityViewController];
             [self.activityPopOver setPopoverContentSize:CGSizeMake(300,135)];
@@ -177,7 +177,7 @@
             break;
             
 
-        case 3:
+        case 4:
             
             self.cryPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectCryViewController];
             [self.cryPopOver setPopoverContentSize:CGSizeMake(300,135)];
@@ -191,7 +191,7 @@
             break;
             
             
-        case 4:
+        case 5:
             
             self.consolabilityPopOver=[[UIPopoverController alloc]initWithContentViewController:_consolabilityViewController];
             [self.consolabilityPopOver setPopoverContentSize:CGSizeMake(300,135)];

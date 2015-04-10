@@ -85,13 +85,20 @@
     
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup.png"]];
     
-    
+
     cell.textLabel.text=[self.characterArray objectAtIndex:indexPath.row];
     
     if ([self.itemsToBePassed indexOfObject:cell.textLabel.text] != NSNotFound) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }else{
         cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    NSArray *fetchedArr = [[[CoreDataHelper sharedInstance].painselected_value objectAtIndex:0] componentsSeparatedByString:@","];
+    NSLog(@"fetched count %lu", (unsigned long)[fetchedArr count]);
+    for(int i=0; i<[fetchedArr count];i++){
+        if ([fetchedArr[i] isEqualToString:[self.characterArray objectAtIndex:indexPath.row]]) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
     }
     
     
