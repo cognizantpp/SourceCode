@@ -41,9 +41,6 @@
 -(NSArray *)fetchTheFlaccFields:(NSString *)categoryId;
 -(NSArray *)fetchTheFlaccScore:(NSString *)categoryId;
 
--(NSArray *)fetchTheEducationFields:(NSString *)categoryId;
--(NSArray *)fetchTheTreatmentFields:(NSString *)categoryId;
--(NSArray *)fetchTheRecommendationsFields:(NSString *)categoryId;
 -(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value;
 -(NSArray *)setPainFields:(NSString *)entryNo;
 @end
