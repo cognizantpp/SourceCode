@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SelectCleansingTableViewController.h"
-#import "selectDressingTableViewController.h"
-#import "NegativePressureWoundTableViewController.h"
-#import "SkinCareTableViewController.h"
+#import "SelectTreatmentTableViewController.h"
+
+#import "CoreDataHelper.h"
 
 @interface TreatmentHomeViewController : UIViewController<GetDataProtocol,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -37,11 +36,9 @@
 
 
 
-@property(nonatomic,strong)SelectCleansingTableViewController *selectCleansingViewController;
+@property(nonatomic,strong)SelectTreatmentTableViewController *selectTreatmentViewController;
 
-@property(nonatomic,strong)selectDressingTableViewController *selectDressingViewController;
-@property(nonatomic,strong)NegativePressureWoundTableViewController *negativePressureWoundController;
-@property(nonatomic,strong)SkinCareTableViewController *skinCareViewController;
+
 
 
 

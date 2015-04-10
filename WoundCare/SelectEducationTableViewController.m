@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 Cognizant. All rights reserved.
 //
 
-#import "SelectDiscussedTableViewController.h"
+#import "SelectEducationTableViewController.h"
 
-@interface SelectDiscussedTableViewController ()
+@interface SelectEduactionTableViewController ()
 
 @end
 
-@implementation SelectDiscussedTableViewController
+@implementation SelectEduactionTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,9 +24,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableView.allowsMultipleSelection = YES;
     
-    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
-    self.discussedArray= [cdh fetchTheEducationFields:@"1"];
-
+    
     
     
     //self.discussedArray = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
@@ -53,12 +51,16 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-        //    if (_itemsToBePassed) {
-        //        [_itemsToBePassed removeAllObjects];
-        //    }
-    [self.tableView reloadData];
-        //    
+    if (_itemsToBePassed) {
+        [_itemsToBePassed removeAllObjects];
+    }
+    if ([self.array containsObject:@"Select"]) {
+        [self.array  removeObject:@"Select"];
+    }
+    self.itemsToBePassed=self.array;
     
+    [self.tableView reloadData];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -70,7 +72,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     
-    return [self.discussedArray count];
+    return [self.selectedArray count];
     
     
     
@@ -82,7 +84,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"myCell";
+    static NSString *simpleTableIdentifier = @"Education";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     
@@ -94,7 +96,7 @@
        cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup.png"]];
     
     
-    cell.textLabel.text=[self.discussedArray objectAtIndex:indexPath.row];
+    cell.textLabel.text=[self.selectedArray objectAtIndex:indexPath.row];
     
     if ([self.itemsToBePassed indexOfObject:cell.textLabel.text] != NSNotFound) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -117,10 +119,10 @@
     
     if (newCell.accessoryType == UITableViewCellAccessoryNone) {
         newCell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [self.itemsToBePassed addObject:[self.discussedArray objectAtIndex:indexPath.row]];
+        [self.itemsToBePassed addObject:[self.selectedArray objectAtIndex:indexPath.row]];
     }else {
         newCell.accessoryType = UITableViewCellAccessoryNone;
-        [_itemsToBePassed removeObject:[self.discussedArray objectAtIndex:indexPath.row]];
+        [_itemsToBePassed removeObject:[self.selectedArray objectAtIndex:indexPath.row]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
@@ -129,8 +131,34 @@
 }
 - (void)footerTapped {
     
-    
-    [self.dataDelegate getDiscussedData:self.itemsToBePassed];
+    if([_selectedString isEqualToString:@"Discussed"])
+    {
+        [self.dataDelegate getDiscussedData:self.itemsToBePassed];
+        
+    }
+    else if ([_selectedString isEqualToString:@"Method"])
+    {
+        [self.dataDelegate getMethodEducationData:self.itemsToBePassed];
+        
+    }
+    else if ([_selectedString isEqualToString:@"HandOut"])
+    {
+        [self.dataDelegate getHandOutData:self.itemsToBePassed];
+        
+    }
+    else if ([_selectedString isEqualToString:@"PersonTaught"])
+    {
+        [self.dataDelegate getPersonTaughtData:self.itemsToBePassed];
+        
+    }
+    else if ([_selectedString isEqualToString:@"Comprehension"])
+    {
+        [self.dataDelegate getComprehensionData:self.itemsToBePassed];
+    }
+    else if ([_selectedString isEqualToString:@"Teaching"])
+    {
+        [self.dataDelegate getTeachingAssessmentData:self.itemsToBePassed];
+    }
     
 }
 

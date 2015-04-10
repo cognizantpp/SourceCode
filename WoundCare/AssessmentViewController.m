@@ -8,7 +8,6 @@
 
 #import "AssessmentViewController.h"
 
-
 @interface AssessmentViewController (){
     long buttonClicked;
 }
@@ -24,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *delete;
 @property (weak, nonatomic) IBOutlet UIButton *gallery;
 @property (weak, nonatomic) IBOutlet UIButton *logout;
+@property (strong, nonatomic) UIPopoverController *popOver;
+- (IBAction)btnPatientInfoClicked:(id)sender;
 
 @end
 
@@ -118,9 +119,9 @@ EducationHomeViewController *educationHomeviewcontroller;
     if([sender tag]==2){
         [sender setBackgroundImage:[UIImage imageNamed:@"visited.png"] forState:UIControlStateNormal];
         [self setButtonBackground];
-        //FirstViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
-        //[self.initialview addSubview:tvc.view];
-        //[self addChildViewController:tvc];
+        ReviewOfSystemsHomeViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"ReviewOfSystemsHomeViewController"];
+        [self.initialview addSubview:tvc.view];
+        [self addChildViewController:tvc];
         buttonClicked=[sender tag];
         self.delete.alpha=0;
         
@@ -183,5 +184,16 @@ EducationHomeViewController *educationHomeviewcontroller;
         buttonClicked=[sender tag];
         
     }
+}
+- (IBAction)btnPatientInfoClicked:(id)sender {
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
+    self.patientInfoViewController = [storyBoard instantiateViewControllerWithIdentifier:@"PatientInfoViewController"];
+    self.patientInfoViewController.delegate = self;
+    self.popOver =  [[UIPopoverController alloc]initWithContentViewController:self.patientInfoViewController];
+    [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+}
+-(void)patientInfoOKClicked{
+    [self.popOver dismissPopoverAnimated:YES];
 }
 @end

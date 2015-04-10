@@ -38,8 +38,8 @@
 -(BOOL)CheckUserId:(NSString *)userid;
 -(PatientDetails *) getAssignmentsList:(NSString *)staffId;
 -(void)getOldAssignments;
--(NSArray *)fetchTheFlaccFields:(NSString *)categoryId;
--(NSArray *)fetchTheFlaccScore:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheFlaccFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheFlaccScore:(NSString *)categoryId;
 
 -(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value;
 -(NSArray *)setPainFields:(NSString *)entryNo;

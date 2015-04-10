@@ -13,9 +13,14 @@
     CGPoint p;
 }
 @property(nonatomic,strong)UIPopoverController *popOver;
-@property(nonatomic,strong)UIPopoverController *dressingPopOver;
-@property(nonatomic,strong)UIPopoverController *negativePressureWoundPopOver;
-@property(nonatomic,strong)UIPopoverController *skinCarePopOver;
+
+
+@property(nonatomic,strong)NSMutableArray *cleansingArray;
+@property(nonatomic,strong)NSMutableArray *dressingArray;
+@property(nonatomic,strong)NSMutableArray *negativePressureWoundArray;
+@property(nonatomic,strong)NSMutableArray*skinCareArray;
+
+
 @end
 
 @implementation TreatmentHomeViewController
@@ -25,23 +30,29 @@
     // Do any additional setup after loading the view, typically from a nib.
     
 
-    _selectCleansingViewController=[[SelectCleansingTableViewController alloc]init];
+    _selectTreatmentViewController=[[SelectTreatmentTableViewController alloc]init];
     
-    _selectCleansingViewController.dataDelegate=self;
-    _selectDressingViewController=[[selectDressingTableViewController alloc]init];
-    _selectDressingViewController.dataDelegate=self;
+    _selectTreatmentViewController.dataDelegate=self;
+
   
     _dressingCount=0;
     _cleansingCount=0;
     
-    _negativePressureWoundController=[[NegativePressureWoundTableViewController alloc]init];
-    _negativePressureWoundController.dataDelegate=self;
+
     
-    self.skinCareViewController=[[SkinCareTableViewController alloc]init];
-    _skinCareViewController.dataDelegate=self;
+
     
     
     self.otherTextField.delegate = self;
+    
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.cleansingArray=[cdh fetchTheTreatmentFields:@"1"];
+        self.dressingArray=[cdh fetchTheTreatmentFields:@"2"];
+    
+        self.negativePressureWoundArray=[cdh fetchTheTreatmentFields:@"3"];
+        self.skinCareArray=[cdh fetchTheTreatmentFields:@"4"];
+    
+    
     
 }
 
@@ -85,10 +96,19 @@
     {
         self.CleansingOtherTextField.hidden=YES;
     }
-    NSLog(@"%@",selectedData);
-      _cleansingButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.cleansingButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+  
     
+    if ([data count]==0 ) {
+        [self.cleansingButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
+
+    }
+    else
+    { _cleansingButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.cleansingButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
+
+        
+    }
     
     
   
@@ -119,16 +139,26 @@
         
     }
     
-    NSLog(@"%@",selectedData);
-      _dressingButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.dressingButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+    
+    if ([data count]==0 ) {
+        [self.dressingButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        NSLog(@"%@",selectedData);
+        
+        _dressingButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.dressingButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
+    }
     
     
 
     
  
     
-    [self.dressingPopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
     
 
 }
@@ -138,16 +168,28 @@
     
     
     NSString *selectedData=[data componentsJoinedByString:@","];
-   
-    NSLog(@"%@",selectedData);
-      _negativePressureWoundButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
     
-    [self.negativePressureWoundButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
     
+    if ([data count]==0 ) {
+        [self.negativePressureWoundButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        
+        NSLog(@"%@",selectedData);
+        _negativePressureWoundButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        
+        [self.negativePressureWoundButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
 
+    }
     
     
-    [self.negativePressureWoundPopOver dismissPopoverAnimated: YES];
+   
+    
+    
+    [self.popOver dismissPopoverAnimated: YES];
 
     
     
@@ -158,10 +200,21 @@
     
     NSString *selectedData=[data componentsJoinedByString:@","];
     
-    NSLog(@"%@",selectedData);
-    _skinCareButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
     
-    [self.skinCareButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+    
+    if ([data count]==0 ) {
+        [self.skinCareButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        NSLog(@"%@",selectedData);
+        _skinCareButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        
+        [self.skinCareButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
+        
+    }
     
     
     
@@ -176,7 +229,7 @@
 //    [self.view addSubview:self.skinCareButtonOutlet];
     
     
-    [self.skinCarePopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
     
     
     
@@ -186,26 +239,65 @@
     switch (sender.tag) {
         case 0:
             
-            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectCleansingViewController];
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectTreatmentViewController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
-            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+            
+            
+            _selectTreatmentViewController.selectedArray=_cleansingArray;
+            _selectTreatmentViewController.selectedString=@"Cleansing";
+            
+            _selectTreatmentViewController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            
+            
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             break;
+            
             case 1:
-            self.dressingPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectDressingViewController];
-            [self.dressingPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-            [self.dressingPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectTreatmentViewController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            
+            
+            _selectTreatmentViewController.selectedArray=_dressingArray;
+            _selectTreatmentViewController.selectedString=@"Dressing";
+            
+            _selectTreatmentViewController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            
+
+            
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
               break;
+            
+            
             case 2:
-            self.negativePressureWoundPopOver=[[UIPopoverController alloc]initWithContentViewController:_negativePressureWoundController];
-            [self.negativePressureWoundPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-            [self.negativePressureWoundPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectTreatmentViewController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            _selectTreatmentViewController.selectedArray=_negativePressureWoundArray;
+            _selectTreatmentViewController.selectedString=@"Negative";
+            
+            _selectTreatmentViewController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            
+
+            
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
         case 3:
-            self.skinCarePopOver=[[UIPopoverController alloc]initWithContentViewController:_skinCareViewController];
-            [self.skinCarePopOver setPopoverContentSize:CGSizeMake(300, 300)];
-            [self.skinCarePopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectTreatmentViewController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 150)];
+            
+            
+            _selectTreatmentViewController.selectedArray=_skinCareArray;
+            _selectTreatmentViewController.selectedString=@"SkinCare";
+            
+            _selectTreatmentViewController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            
+
+            
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             break;
             

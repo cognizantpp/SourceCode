@@ -1,15 +1,15 @@
 //
-//  MoistureTableViewController.m
-//  RecommendationsView
+//  SelectRiskFactorTableViewController.m
+//  ReviewOfSystemsView
 //
-//  Created by Antony on 24/03/15.
+//  Created by Antony on 01/04/15.
 //  Copyright (c) 2015 Cognizant. All rights reserved.
 //
 
-#import "MoistureTableViewController.h"
+#import "SelectReviewOfSystemsTableViewController.h"
 
-@implementation MoistureTableViewController
 
+@implementation SelectReviewOfSystemsTableViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -19,11 +19,8 @@
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.tableView.allowsMultipleSelection = YES;
-    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
-    self.moistureArray= [cdh fetchTheRecommendationsFields:@"4"];
-    
-    
-    _itemsToBePassed=[[NSMutableArray alloc]init];
+       
+    _itemsToBePassed=[[NSMutableArray alloc]initWithCapacity:1];
     self.tableView.backgroundColor = [UIColor clearColor];
     self.tableView.opaque = NO;
     
@@ -41,15 +38,23 @@
     [button addTarget:self action:@selector(footerTapped) forControlEvents:UIControlEventTouchUpInside];
     
     [_footerView addSubview:button];
+
     
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-        //    if (_itemsToBePassed) {
-        //        [_itemsToBePassed removeAllObjects];
-        //    }
-    [self.tableView reloadData];
-        //
+    
+    
+    if (_itemsToBePassed) {
+        [_itemsToBePassed removeAllObjects];
+    }
+    if ([self.array containsObject:@"Select"]) {
+        [self.array  removeObject:@"Select"];
+    }
+    self.itemsToBePassed=self.array;
+    
+          [self.tableView reloadData];
+    
     
 }
 - (void)didReceiveMemoryWarning {
@@ -62,7 +67,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     
-    return [self.moistureArray count];
+    return [self.selectedArray count];
     
     
     
@@ -74,23 +79,30 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"myCell";
+
+    
+    static NSString *simpleTableIdentifier = @"reviewCell";
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
-    
     if (cell == nil) {
+        
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup.png"]];
+    cell.textLabel.text=[self.selectedArray objectAtIndex:indexPath.row];
     
     
-    cell.textLabel.text=[self.moistureArray objectAtIndex:indexPath.row];
+ 
     
     if ([self.itemsToBePassed indexOfObject:cell.textLabel.text] != NSNotFound) {
+        
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
     }else{
+        
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
@@ -109,10 +121,10 @@
     
     if (newCell.accessoryType == UITableViewCellAccessoryNone) {
         newCell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [self.itemsToBePassed addObject:[self.moistureArray objectAtIndex:indexPath.row]];
+        [self.itemsToBePassed addObject:[self.selectedArray objectAtIndex:indexPath.row]];
     }else {
         newCell.accessoryType = UITableViewCellAccessoryNone;
-        [_itemsToBePassed removeObject:[self.moistureArray objectAtIndex:indexPath.row]];
+        [_itemsToBePassed removeObject:[self.selectedArray objectAtIndex:indexPath.row]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
@@ -120,9 +132,28 @@
     
 }
 - (void)footerTapped {
+   
+
+    if([_selectedString isEqualToString:@"Risk"])
+    {
+        [self.dataDelegate getRiskFactorData:self.itemsToBePassed ];
+ 
+    }
+    else if ([_selectedString isEqualToString:@"Consult"])
+    {
+        [self.dataDelegate getConsultsData:self.itemsToBePassed];
+        
+
+    }
+    else if ([_selectedString isEqualToString:@"Tests"])
+    {
+        [self.dataDelegate getTestsData:self.itemsToBePassed];
+        
+
+        
+    }
     
     
-    [self.dataDelegate getMoistureData:self.itemsToBePassed];
     
 }
 

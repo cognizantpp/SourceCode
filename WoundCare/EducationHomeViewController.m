@@ -15,47 +15,51 @@
     
 }
 @property (strong, nonatomic)UIPopoverController *popOver;
-@property(nonatomic,strong)UIPopoverController *discussedPopOver;
-@property(nonatomic,strong)UIPopoverController *methodPopOver;
-@property(nonatomic,strong)UIPopoverController *handOutPopOver;
-@property(nonatomic,strong)UIPopoverController *personTaughtPopOver;
-@property(nonatomic,strong)UIPopoverController *comprehensionPopOver;
-@property(nonatomic,strong)UIPopoverController *teachingAssessmentPopOver;
-@end
+@property(nonatomic,strong)NSMutableArray *discussedArray;
+@property(nonatomic,strong)NSMutableArray *methodArray;
+@property(nonatomic,strong)NSMutableArray *handOutArray;
+@property(nonatomic,strong)NSMutableArray  *personTaughtArray;
+@property(nonatomic,strong)NSMutableArray *comprehensionArray;
+@property(nonatomic,strong)NSMutableArray *teachingAssessmentArray;
 
+@end
 @implementation EducationHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _selectDiscussedViewController=[[SelectDiscussedTableViewController alloc]init];
-    _selectDiscussedViewController.dataDelegate=self;
-    _discussedCount=0;
+    _selectEducationViewController=[[SelectEduactionTableViewController alloc]init];
+    _selectEducationViewController.dataDelegate=self;
     
-    _selectMethodViewController=[[SelectMethodUsedTableViewController alloc]init];
-    _selectMethodViewController.dataDelegate=self;
+    
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.discussedArray=[cdh fetchTheTreatmentFields:@"1"];
+     self.methodArray= [cdh fetchTheEducationFields:@"2"];
+      self.handOutArray= [cdh fetchTheEducationFields:@"3"];
+      self.personTaughtArray= [cdh fetchTheEducationFields:@"4"];
+      self.comprehensionArray= [cdh fetchTheEducationFields:@"5"];
+      self.teachingAssessmentArray= [cdh fetchTheEducationFields:@"6"];
+    
+    
+    
+    
+    _discussedCount=0;
+   
     _methodUsedCount=0;
     
-    _handOutViewController=[[HandOutTableViewController alloc]init];
-    _handOutViewController.dataDelegate=self;
+    
     _handOutCount=0;
     
-    _personTaughtViewController=[[PersonTaughtTableViewController alloc]init];
-    _personTaughtViewController.dataDelegate=self;
+   
     _personTaughtCount=0;
     
-    _selectComprehensionViewController=[[SelectComprehensionTableViewController alloc]init];
-    _selectComprehensionViewController.dataDelegate=self;
-    
-    _selectTeachingAssessmentViewController=[[SelectTeachingAssessmentTableViewController alloc]init];
-    _selectTeachingAssessmentViewController.dataDelegate=self;
+  
     _teachingAssessmentCount=0;
-//    self.discussedOtherTextField.delegate = self;
-//    self.methodUsedOtherTextField.delegate = self;
-//    self.handOutOtherTextField.delegate = self;
-//    self.personTaughtOtherTextField.delegate = self;
+
     self.teachingAssessmentOtherTextField.delegate = self;
     self.otherTextField.delegate = self;
+    
+    self.otherTextField.layer.cornerRadius=5.0f;
     
     
 }
@@ -91,15 +95,24 @@
     {
         self.discussedOtherTextField.hidden=YES;
     }
-    NSLog(@"%@",selectedData);
-    _discussedButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.discussedButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+    
+    if ([data count]==0) {
+        [self.discussedButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
+
+    }
+    else
+    {
+        NSLog(@"%@",selectedData);
+        _discussedButtonOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.discussedButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
+
+    }
     
     
     
     
-    
-    [self.discussedPopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
 }
 
 
@@ -122,15 +135,24 @@
     {
         self.methodUsedOtherTextField.hidden=YES;
     }
-    NSLog(@"%@",selectedData);
-    _methodUsedOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.methodUsedOutlet setTitle:selectedData forState:UIControlStateNormal];
+    
+    if ([data count]==0) {
+        [self.methodUsedOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    { NSLog(@"%@",selectedData);
+        _methodUsedOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.methodUsedOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
+        
+    }
+   
     
     
     
     
-    
-    [self.methodPopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
 }
 
 
@@ -152,15 +174,24 @@
     {
         self.handOutOtherTextField.hidden=YES;
     }
-    NSLog(@"%@",selectedData);
-    _handoutOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.handoutOutlet setTitle:selectedData forState:UIControlStateNormal];
+    
+    if ([data count]==0) {
+        [self.handoutOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        NSLog(@"%@",selectedData);
+        _handoutOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.handoutOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
+
+    }
     
     
     
     
-    
-    [self.handOutPopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
 }
 -(void)getPersonTaughtData:(NSArray *)data
 {
@@ -180,31 +211,49 @@
     {
         self.personTaughtOtherTextField.hidden=YES;
     }
-    NSLog(@"%@",selectedData);
-    _personTaughtOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.personTaughtOutlet setTitle:selectedData forState:UIControlStateNormal];
+    
+    if ([data count]==0) {
+        [self.personTaughtOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        
+        NSLog(@"%@",selectedData);
+        _personTaughtOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.personTaughtOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
+    }
+   
     
     
     
     
-    
-    [self.personTaughtPopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
 }
 -(void)getComprehensionData:(NSArray *)data
 {
     NSString *selectedData=[data componentsJoinedByString:@","];
-  
+    
+    if ([data count]==0) {
+        [self.comprehensionOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        NSLog(@"%@",selectedData);
+        
+        _comprehensionOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.comprehensionOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
+        
+    }
    
-    NSLog(@"%@",selectedData);
-    
-    _comprehensionOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.comprehensionOutlet setTitle:selectedData forState:UIControlStateNormal];
+  
     
     
     
-    
-    
-    [self.comprehensionPopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
 }
 
 
@@ -226,15 +275,26 @@
     {
         self.teachingAssessmentOtherTextField.hidden=YES;
     }
-    NSLog(@"%@",selectedData);
-    _teachingAssessmentOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
-    [self.teachingAssessmentOutlet setTitle:selectedData forState:UIControlStateNormal];
+    
+    
+    if ([data count]==0) {
+        [self.teachingAssessmentOutlet setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        NSLog(@"%@",selectedData);
+        _teachingAssessmentOutlet.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.teachingAssessmentOutlet setTitle:selectedData forState:UIControlStateNormal];
+        
+    }
+    
+   
     
     
     
     
-    
-    [self.teachingAssessmentPopOver dismissPopoverAnimated: YES];
+    [self.popOver dismissPopoverAnimated: YES];
 
 }
 /*
@@ -251,51 +311,76 @@
     switch (sender.tag) {
         case 0:
             
-            self.discussedPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectDiscussedViewController];
-            [self.discussedPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-            [self.discussedPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectEducationViewController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            _selectEducationViewController.selectedArray=_discussedArray;
+            _selectEducationViewController.selectedString=@"Discussed";
+            
+            _selectEducationViewController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             break;
         case 1:
             
-            self.methodPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectMethodViewController];
-            [self.methodPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-            [self.methodPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+            
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectEducationViewController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            _selectEducationViewController.selectedArray=_methodArray;
+            _selectEducationViewController.selectedString=@"Method";
+            
+            _selectEducationViewController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             break;
         case 2:
             
-            self.handOutPopOver=[[UIPopoverController alloc]initWithContentViewController:_handOutViewController];
-            [self.handOutPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-            [self.handOutPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
             
-            break;
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectEducationViewController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 270)];
+            
+            _selectEducationViewController.selectedArray=_handOutArray;
+            _selectEducationViewController.selectedString=@"HandOut";
+            
+            _selectEducationViewController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
         case 3:
             
-            self.personTaughtPopOver=[[UIPopoverController alloc]initWithContentViewController:_personTaughtViewController];
-            [self.personTaughtPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-            [self.personTaughtPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectEducationViewController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 230)];
             
-            break;
+            _selectEducationViewController.selectedArray=_personTaughtArray;
+            _selectEducationViewController.selectedString=@"PersonTaught";
             
-            
+            _selectEducationViewController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
         case 4:
             
-            self.comprehensionPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectComprehensionViewController];
-            [self.comprehensionPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-            [self.comprehensionPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
             
-            break;
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectEducationViewController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            _selectEducationViewController.selectedArray=_comprehensionArray;
+            _selectEducationViewController.selectedString=@"Comprehension";
+            
+            _selectEducationViewController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             break;
         case 5:
             
-            self.teachingAssessmentPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectTeachingAssessmentViewController];
-            [self.teachingAssessmentPopOver setPopoverContentSize:CGSizeMake(300, 300)];
-            [self.teachingAssessmentPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
             
+            self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectEducationViewController];
+            [self.popOver setPopoverContentSize:CGSizeMake(300, 180)];
+            
+            _selectEducationViewController.selectedArray=_teachingAssessmentArray;
+            _selectEducationViewController.selectedString=@"Teaching";
+            
+            _selectEducationViewController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
         
         case 6:
@@ -305,7 +390,7 @@
             self.educationNumberEntryViewController.delegate=self;
             self.popOver =  [[UIPopoverController alloc]initWithContentViewController:self.educationNumberEntryViewController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 250)];
-            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+            [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
         default:
             break;

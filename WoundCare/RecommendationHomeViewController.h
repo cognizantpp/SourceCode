@@ -7,12 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SelectMobilityTableViewController.h"
-#import "SelectRecommendationActivityTableViewController.h"
-#import "SensoryPerceptionTableViewController.h"
-#import "MoistureTableViewController.h"
-#import "FrictionTableViewController.h"
-#import "TissueTableViewController.h"
+#import "SelectRecommendationsTableViewController.h"
+
 #import "FollowUpTableViewController.h"
 #import "SelectDatePickerViewController.h"
 #import "RecommendationsNumberEntryViewController.h"
@@ -45,12 +41,9 @@
 
 
 
-@property(nonatomic,strong)SelectMobilityTableViewController *selectMobilityController;
-@property(nonatomic,strong)SelectRecommendationActivityTableViewController *selectActivityController;
-@property(nonatomic,strong)SensoryPerceptionTableViewController *sensoryViewController;
-@property(nonatomic,strong)MoistureTableViewController *moistureViewController;
-@property(nonatomic,strong)FrictionTableViewController *frictionViewController;
-@property(nonatomic,strong)TissueTableViewController *tissueViewController;
+@property(nonatomic,strong)SelectRecommendationsTableViewController*selectRecommendationsController;
+
+
 @property(nonatomic,strong)FollowUpTableViewController *followUpController;
 @property(nonatomic,strong)SelectDatePickerViewController *selectDateViewController;
 
