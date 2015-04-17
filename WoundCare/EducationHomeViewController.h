@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SelectEducationTableViewController.h"
-
+#import "AssignmentsViewController.h"
 #import "EducationNumberEntryViewController.h"
 #import "CoreDataHelper.h"
 

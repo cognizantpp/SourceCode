@@ -468,6 +468,105 @@
         }
     }
 }
+
+-(void)saveEducation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other{
+    
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EducationSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSManagedObject *matches = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (EducationSave *theEdu in fetchedObjects) {
+            matches = theEdu;
+            [self.managedObjectContext deleteObject:matches];
+            [self saveContext];
+        }
+    }
+    for (int i=0;i<category_id.count;i++) {
+        NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"EducationSave" inManagedObjectContext:self.managedObjectContext];
+        [insertObject setValue:entryNo forKey:@"entry_number"];
+        [insertObject setValue:category_id[i] forKey:@"category_id"];
+        [insertObject setValue:Category_name[i] forKey:@"category_name"];
+        [insertObject setValue:Selected_value[i] forKey:@"selected_value"];
+        [insertObject setValue:other[i] forKey:@"other_value"];
+        [self saveContext];
+        
+    }
+    
+    [self fetchEducationSaved];
+    
+}
+
+-(NSArray *)setEducationFields:(NSString *)entryNo {
+    NSMutableArray *eduArr=[[NSMutableArray alloc]init];
+    //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
+
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EducationSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (EducationSave *theEdu in fetchedObjects) {
+            [eduArr addObject:theEdu.selected_value];
+        }
+        for (EducationSave *theEdu in fetchedObjects) {
+            [eduArr addObject:theEdu.other_value];
+        }
+
+    }
+    NSLog(@"%@",eduArr);
+    return eduArr;
+}
+-( void)fetchEducationSaved{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EducationSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (EducationSave *theEdu in fetchedObjects) {
+            
+            NSLog(@"category ID: %@ Name: %@ entry_no:%@ selected_value:%@ other:%@",theEdu.category_id,theEdu.category_name,theEdu.entry_number,theEdu.selected_value,theEdu.other_value);
+        }
+    }
+}
+
+
+
 - (void)saveContext {
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {

@@ -23,6 +23,7 @@
 @property(nonatomic,strong)NSMutableArray *teachingAssessmentArray;
 
 @end
+NSArray *eduarr;
 @implementation EducationHomeViewController
 
 - (void)viewDidLoad {
@@ -40,7 +41,54 @@
       self.comprehensionArray= [cdh fetchTheEducationFields:@"5"];
       self.teachingAssessmentArray= [cdh fetchTheEducationFields:@"6"];
     
-    
+       eduarr=[cdh setEducationFields:entry_no];
+        if(eduarr.count>0){
+        [self.discussedButtonOutlet setTitle:[eduarr objectAtIndex:0] forState:UIControlStateNormal];
+        [self.methodUsedOutlet setTitle:[eduarr objectAtIndex:1] forState:UIControlStateNormal];
+        [self.handoutOutlet setTitle:[eduarr objectAtIndex:2] forState:UIControlStateNormal];
+        [self.personTaughtOutlet setTitle:[eduarr objectAtIndex:3] forState:UIControlStateNormal];
+        [self.comprehensionOutlet setTitle:[eduarr objectAtIndex:4] forState:UIControlStateNormal];
+        [self.teachingAssessmentOutlet setTitle:[eduarr objectAtIndex:5] forState:UIControlStateNormal];
+        [self.btnEducationNumber setTitle:[eduarr objectAtIndex:6] forState:UIControlStateNormal];
+        NSString *otherStr=[eduarr objectAtIndex:7];
+        [self.otherTextField setText:otherStr];
+            if([[eduarr objectAtIndex:0]containsString:@"Other"]){
+                self.discussedOtherTextField.hidden=NO;
+                NSString *othertext=[eduarr objectAtIndex:8] ;
+                [self.discussedOtherTextField setText:othertext];
+            }
+            if([[eduarr objectAtIndex:1]containsString:@"Other"]){
+                self.methodUsedOtherTextField.hidden=NO;
+                NSString *othertext=[eduarr objectAtIndex:9] ;
+                [self.methodUsedOtherTextField setText:othertext];
+            }
+            if([[eduarr objectAtIndex:2]containsString:@"Other"]){
+                self.handOutOtherTextField.hidden=NO;
+                NSString *othertext=[eduarr objectAtIndex:10] ;
+                [self.handOutOtherTextField setText:othertext];
+            }
+            if([[eduarr objectAtIndex:3]containsString:@"Other"]){
+                self.personTaughtOtherTextField.hidden=NO;
+                NSString *othertext=[eduarr objectAtIndex:11] ;
+                [self.personTaughtOtherTextField setText:othertext];
+            }
+            if([[eduarr objectAtIndex:5]containsString:@"Other"]){
+                self.teachingAssessmentOtherTextField.hidden=NO;
+                NSString *othertext=[eduarr objectAtIndex:13] ;
+                [self.teachingAssessmentOtherTextField setText:othertext];
+            }
+            if([eduarr objectAtIndex:14]){
+                self.minButtonOutlet.hidden=NO;
+                NSString *othertext=[eduarr objectAtIndex:14] ;
+                if([othertext isEqualToString:@"min"])
+                    [self.minButtonOutlet setSelected:YES];
+                else if([othertext isEqualToString:@"hr"])
+                    [self.hrButtonOutlet setSelected:YES];
+            }
+
+
+    }
+
     
     
     _discussedCount=0;
@@ -65,11 +113,11 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    self.discussedOtherTextField.hidden=YES;
-        self.methodUsedOtherTextField.hidden=YES;
-    self.handOutOtherTextField.hidden=YES;
-    self.personTaughtOtherTextField.hidden=YES;
-    self.teachingAssessmentOtherTextField.hidden=YES;
+//    self.discussedOtherTextField.hidden=YES;
+//        self.methodUsedOtherTextField.hidden=YES;
+//    self.handOutOtherTextField.hidden=YES;
+//    self.personTaughtOtherTextField.hidden=YES;
+//    self.teachingAssessmentOtherTextField.hidden=YES;
 
 }
 

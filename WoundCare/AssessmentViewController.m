@@ -27,10 +27,11 @@
 - (IBAction)btnPatientInfoClicked:(id)sender;
 
 @end
-
+NSString *timespentother;
 @implementation AssessmentViewController
 PainHomeViewController *painController;
 EducationHomeViewController *educationHomeviewcontroller;
+TreatmentHomeViewController *treatmentHomeViewController;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -69,11 +70,37 @@ EducationHomeViewController *educationHomeviewcontroller;
             break;
         }
         case 2:
-            
+        
             [self.review setBackgroundImage:[UIImage imageNamed:@"icon_risk.png"] forState:UIControlStateNormal];
-            break;
+                        break;
+        
         case 3:
+        {
             [self.education setBackgroundImage:[UIImage imageNamed:@"icon_education.png"] forState:UIControlStateNormal];
+            CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+            NSString *discussedselected_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.discussedButtonOutlet.titleLabel.text];
+            NSString *methodusedselected_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.methodUsedOutlet.titleLabel.text];
+            NSString *handoutselected_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.handoutOutlet.titleLabel.text];
+            NSString *persontaughtselected_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.personTaughtOutlet.titleLabel.text];
+            NSString *comprehensionselected_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.comprehensionOutlet.titleLabel.text];
+            NSString *teachinassessselected_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.teachingAssessmentOutlet.titleLabel.text];
+            NSString *timespentselected_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.btnEducationNumber.titleLabel.text];
+            NSString *other=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.otherTextField.text];
+            NSString *discussedother_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.discussedOtherTextField.text];
+            NSString *methodusedother_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.methodUsedOtherTextField.text];
+            NSString *handoutother_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.handOutOtherTextField.text];
+            NSString *persontaughtother_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.personTaughtOtherTextField.text];
+            NSString *teachingassessother_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.teachingAssessmentOtherTextField.text];
+            if([educationHomeviewcontroller.minButtonOutlet isSelected])
+               timespentother =@"min";
+            else
+                timespentother=@"hr";
+            [CoreDataHelper sharedInstance].educationselected_value=[NSArray arrayWithObjects:discussedselected_value,methodusedselected_value,handoutselected_value,persontaughtselected_value,comprehensionselected_value,teachinassessselected_value,timespentselected_value,other,nil];
+            
+            
+            [CoreDataHelper sharedInstance].educationOthervalues=[NSArray arrayWithObjects:discussedother_value,methodusedother_value,handoutother_value,persontaughtother_value,@"",teachingassessother_value,timespentother,@"",nil];
+            [cdh saveEducation:entry_no andCategoryid:cdh.educationcategoryid andCategoryname:cdh.educationcategory_name andSelectedvalue:cdh.educationselected_value andOther:cdh.educationOthervalues];
+            }
             break;
         case 4:
             [self.treatment setBackgroundImage:[UIImage imageNamed:@"icon_treatment.png"] forState:UIControlStateNormal];
@@ -99,14 +126,11 @@ EducationHomeViewController *educationHomeviewcontroller;
         painController=[self.storyboard instantiateViewControllerWithIdentifier:@"PainHomeViewController"];
         [self.initialview addSubview:painController.view];
         [self addChildViewController:painController];
-//        NSMutableArray *category_id=[[NSMutableArray alloc]init];
-//        category_id =[[NSString stringWithFormat:@"%ld",(long)tvc.characterButtonOutlet.tag],[NSString stringWithFormat:@"%ld",(long)tvc.scoreButtonOutlet.tag] ];
         NSString *charstring=[NSString stringWithFormat:@"%ld",(long)painController.characterButtonOutlet.tag];
         NSString *scorestring=[NSString stringWithFormat:@"%ld",(long)painController.scoreButtonOutlet.tag];
         [CoreDataHelper sharedInstance].paincategoryid=[NSArray arrayWithObjects:charstring,scorestring,nil];
         [CoreDataHelper sharedInstance].paincategory_name=[NSArray arrayWithObjects:@"Character",@"score", nil];
                buttonClicked=[sender tag];
-        //flag=1;
         self.delete.alpha=0;
         if([CoreDataHelper sharedInstance].painselected_value.count != 0){
             NSLog(@"[selected_value objectAtIndex:0] %@",[[CoreDataHelper sharedInstance].painselected_value objectAtIndex:0]);
@@ -125,6 +149,7 @@ EducationHomeViewController *educationHomeviewcontroller;
         buttonClicked=[sender tag];
         self.delete.alpha=0;
         
+        
     }
     if ([sender tag]==3){
         [sender setBackgroundImage:[UIImage imageNamed:@"visited.png"] forState:UIControlStateNormal];
@@ -137,18 +162,87 @@ EducationHomeViewController *educationHomeviewcontroller;
         NSString *handoutid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.handoutOutlet.tag];
         NSString *persontaughtid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.personTaughtOutlet.tag];
         NSString *comprehensionid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.comprehensionOutlet.tag];
-    //    NSString *teachingassessid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.teachingAssessmentCount.tag];
-   //     NSString *timespentid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller..tag];
+        NSString *teachingassessid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.teachingAssessmentOutlet.tag];
+        NSString *timespentid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.btnEducationNumber.tag];
+        NSString *otherid=[NSString stringWithFormat:@"%ld",(long)educationHomeviewcontroller.otherTextField.tag];
+        
+        [CoreDataHelper sharedInstance].educationcategoryid=[NSArray arrayWithObjects:discussedid,methodid,handoutid,persontaughtid,comprehensionid,teachingassessid,timespentid,otherid,nil];
+        [CoreDataHelper sharedInstance].educationcategory_name=[NSArray arrayWithObjects:@"Discussed",@"Method Used",@"Handout",@"Person Taught",@"Comprehension",@"Teaching Assessment",@"Time Spent Teaching",@"Other", nil];
+        //buttonClicked=[sender tag];
+
         buttonClicked=[sender tag];
         self.delete.alpha=0;
+        if([[CoreDataHelper sharedInstance].educationselected_value count] != 0){
+            [educationHomeviewcontroller.discussedButtonOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:0] forState:UIControlStateNormal];
+            [educationHomeviewcontroller.methodUsedOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:1] forState:UIControlStateNormal];
+             [educationHomeviewcontroller.handoutOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:2] forState:UIControlStateNormal];
+             [educationHomeviewcontroller.personTaughtOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:3] forState:UIControlStateNormal];
+             [educationHomeviewcontroller.comprehensionOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:4] forState:UIControlStateNormal];
+             [educationHomeviewcontroller.teachingAssessmentOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:5] forState:UIControlStateNormal];
+             [educationHomeviewcontroller.btnEducationNumber setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:6] forState:UIControlStateNormal];
+            NSString *str=[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:7];
+            [educationHomeviewcontroller.otherTextField setText:str];
+            //[eduarr objectAtIndex:0]containsString:@"other"]
+            if([[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:0]containsString:@"Other"])
+            {
+                educationHomeviewcontroller.discussedOtherTextField.hidden=NO;
+                NSString *str=[[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:0];
+                [educationHomeviewcontroller.discussedOtherTextField setText:str];
+            }
+            if([[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:1]containsString:@"Other"]){
+                educationHomeviewcontroller.methodUsedOtherTextField.hidden=NO;
+                NSString *str=[[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:1];
+                [educationHomeviewcontroller.methodUsedOtherTextField setText:str];
+            }
+            if([[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:2]containsString:@"Other"]){
+                educationHomeviewcontroller.handOutOtherTextField.hidden=NO;
+                NSString *str=[[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:2];
+                [educationHomeviewcontroller.handOutOtherTextField setText:str];
+            }
+            if([[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:3]containsString:@"Other"]){
+                educationHomeviewcontroller.personTaughtOtherTextField.hidden=NO;
+                NSString *str=[[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:3];
+                [educationHomeviewcontroller.personTaughtOtherTextField setText:str];
+           }
+            if([[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:5]containsString:@"Other"]){
+                educationHomeviewcontroller.teachingAssessmentOtherTextField.hidden=NO;
+                NSString *str=[[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:5];
+                [educationHomeviewcontroller.teachingAssessmentOtherTextField setText:str];
+            }
+            if([[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:6]){
+                NSString *str=[[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:6];
+                if([str isEqualToString:@"min"])
+                [educationHomeviewcontroller.minButtonOutlet setSelected:YES];
+                else if([str isEqualToString:@"hr"])
+                    [educationHomeviewcontroller.hrButtonOutlet setSelected:YES];
+            }
+        }
+
         
     }
     if([sender tag]==4){
+        NSString *debridementid;
         [sender setBackgroundImage:[UIImage imageNamed:@"visited.png"] forState:UIControlStateNormal];
         [self setButtonBackground];
-        TreatmentHomeViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"TreatmentHomeViewController"];
-        [self.initialview addSubview:tvc.view];
-        [self addChildViewController:tvc];
+        treatmentHomeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"TreatmentHomeViewController"];
+        [self.initialview addSubview:treatmentHomeViewController.view];
+        [self addChildViewController:treatmentHomeViewController];
+        NSString *cleansingid=[NSString stringWithFormat:@"%ld",(long)treatmentHomeViewController.cleansingButtonOutlet.tag];
+        NSString *dressingid=[NSString stringWithFormat:@"%ld",(long)treatmentHomeViewController.dressingButtonOutlet.tag];
+        NSString *pressureid=[NSString stringWithFormat:@"%ld",(long)treatmentHomeViewController.negativePressureWoundButtonOutlet.tag];
+        
+        if([treatmentHomeViewController.yesButtonOutlet isSelected]){
+           debridementid=[NSString stringWithFormat:@"%ld",(long)treatmentHomeViewController.yesButtonOutlet.tag];
+        }
+        else{
+        debridementid=[NSString stringWithFormat:@"%ld",(long)treatmentHomeViewController.noButtonOutlet.tag];
+        }
+        NSString *skincareid=[NSString stringWithFormat:@"%ld",(long)treatmentHomeViewController.skinCareButtonOutlet.tag];
+        NSString *otherid=[NSString stringWithFormat:@"%ld",(long)treatmentHomeViewController.otherTextField.tag];
+        
+        [CoreDataHelper sharedInstance].treatmentcategoryid=[NSArray arrayWithObjects:cleansingid,dressingid,pressureid,debridementid,skincareid,otherid,nil];
+        [CoreDataHelper sharedInstance].treatmentcategory_name=[NSArray arrayWithObjects:@"Cleansing/Irregation",@"Dressing/Care",@"Negative Pressure Wound",@"Debridement",@"Skin Care",@"Other", nil];
+
         buttonClicked=[sender tag];
         self.delete.alpha=0;
     }

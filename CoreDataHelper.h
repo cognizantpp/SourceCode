@@ -14,6 +14,7 @@
 #import "Treatment.h"
 #import "Recommendations.h"
 #import "PainSave.h"
+#import "EducationSave.h"
 
 
 @interface CoreDataHelper : NSObject
@@ -30,6 +31,12 @@
 @property(strong,nonatomic)NSArray *educationselected_value;
 @property(strong,nonatomic)NSArray *educationOthervalues;
 
+@property(strong,nonatomic)NSArray *treatmentcategoryid;
+@property(strong,nonatomic)NSArray *treatmentcategory_name;
+@property(strong,nonatomic)NSArray *treatmentselected_value;
+@property(strong,nonatomic)NSArray *treatmentOthervalues;
+
+
 -(void)insertIntoContextForEntity:(NSString *)login withUsername:(NSString *)username andPassword:(NSString *)password;
 -(void)insertNewPatients:(NSDictionary*)newPatient;
 -(BOOL)validateEntryNumber:(NSString *)entryNo;
@@ -41,6 +48,13 @@
 -(NSMutableArray *)fetchTheFlaccFields:(NSString *)categoryId;
 -(NSMutableArray *)fetchTheFlaccScore:(NSString *)categoryId;
 
+-(NSMutableArray *)fetchTheEducationFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheTreatmentFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheRecommendationsFields:(NSString *)categoryId;
+
 -(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value;
 -(NSArray *)setPainFields:(NSString *)entryNo;
+
+-(void)saveEducation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
+-(NSArray *)setEducationFields:(NSString *)entryNo ;
 @end

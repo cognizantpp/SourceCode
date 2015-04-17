@@ -10,6 +10,8 @@
 #import "CoreDataHelper.h"
 #import "AddAssignmentPopOverController.h"
 
+int selectedPatientIndex;
+PatientDetails *patientsDetails;
 NSString *entry_no;
 @interface AssignmentsViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,GetDataProtocol>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

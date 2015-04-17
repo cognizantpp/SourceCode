@@ -13,6 +13,10 @@
 #import "RecommendationHomeViewController.h"
 #import "TreatmentHomeViewController.h"
 #import "WoundImageViewController.h"
-#import "AssignmentsViewController.h"
-@interface AssessmentViewController : UIViewController
+#import "PatientInfoViewController.h"
+#import "ReviewOfSystemsHomeViewController.h"
+#import "CoreDataHelper.h"
+@interface AssessmentViewController : UIViewController<GetDataProtocol>
+@property (strong, nonatomic) PatientInfoViewController *patientInfoViewController;
+
 @end
