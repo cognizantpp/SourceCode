@@ -17,18 +17,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.lblName.text = [[ patientsDetails valueForKey:@"patient_name"] objectAtIndex:selectedPatientIndex];
-    self.lblAge.text = [[ patientsDetails valueForKey:@"age"] objectAtIndex:selectedPatientIndex];
-    self.lblMMI.text = [[ patientsDetails valueForKey:@"mmi"] objectAtIndex:selectedPatientIndex];
+    if(![[[ patientsDetails valueForKey:@"age"] objectAtIndex:selectedPatientIndex] isEqual:[NSNull null]])
+        self.lblAge.text = [[ patientsDetails valueForKey:@"age"] objectAtIndex:selectedPatientIndex];
+    
+    if( ![[[ patientsDetails valueForKey:@"mmi"] objectAtIndex:selectedPatientIndex] isEqual:[NSNull null]])
+        self.lblMMI.text = [[ patientsDetails valueForKey:@"mmi"] objectAtIndex:selectedPatientIndex];
+    
     self.lblRoomNo.text = [[ patientsDetails valueForKey:@"room_number"] objectAtIndex:selectedPatientIndex];
-    self.lblAdmitMd.text = [[ patientsDetails valueForKey:@"admit_md"] objectAtIndex:selectedPatientIndex];
-    self.lblSex.text = [[ patientsDetails valueForKey:@"sex"] objectAtIndex:selectedPatientIndex];
-    self.lblDOB.text = [[ patientsDetails valueForKey:@"dob"] objectAtIndex:selectedPatientIndex];
+    
+    if(![[[ patientsDetails valueForKey:@"admit_md"] objectAtIndex:selectedPatientIndex] isEqual:[NSNull null]])
+        self.lblAdmitMd.text = [[ patientsDetails valueForKey:@"admit_md"] objectAtIndex:selectedPatientIndex];
+    
+    if(![[[ patientsDetails valueForKey:@"sex"] objectAtIndex:selectedPatientIndex] isEqual:[NSNull null]])
+        self.lblSex.text = [[ patientsDetails valueForKey:@"sex"] objectAtIndex:selectedPatientIndex];
+    
+    if(![[[ patientsDetails valueForKey:@"dob"] objectAtIndex:selectedPatientIndex] isEqual:[NSNull null]])
+        self.lblDOB.text = [[ patientsDetails valueForKey:@"dob"] objectAtIndex:selectedPatientIndex];
+    
     self.lblENC.text = [[ patientsDetails valueForKey:@"entry_number"] objectAtIndex:selectedPatientIndex];
     self.lblAdmitDt.text = [[ patientsDetails valueForKey:@"admit_dt"] objectAtIndex:selectedPatientIndex];
-    self.lblMRN.text = [[ patientsDetails valueForKey:@"mrn"] objectAtIndex:selectedPatientIndex];
     
+    if(![[[ patientsDetails valueForKey:@"mrn"] objectAtIndex:selectedPatientIndex] isEqual:[NSNull null]])
+        self.lblMRN.text = [[ patientsDetails valueForKey:@"mrn"] objectAtIndex:selectedPatientIndex];
+    
+
     // Do any additional setup after loading the view.
 }
 

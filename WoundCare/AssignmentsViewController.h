@@ -18,10 +18,10 @@ NSString *entry_no;
 @property (strong, nonatomic) NSArray *patients, *entryNumber, *consult,*roomNum;
 @property (strong, nonatomic) IBOutlet UILabel *lblUserName;
 @property (strong, nonatomic) AddAssignmentPopOverController *addAssignmentPopOverController;
-@property (strong, nonatomic) IBOutlet UILabel *lblPatientsCount;
+@property (strong, nonatomic) IBOutlet UITextField *lblPatientsCount;
 
 
 
-- (IBAction)addAssignmentClicked:(id)sender;
+
 
 @end

@@ -12,10 +12,9 @@
 #import "NumberEntryViewController.h"
 
 
-@interface AddAssignmentPopOverController : UIViewController<GetDataProtocol,UITextFieldDelegate>
+@interface AddAssignmentPopOverController : UIViewController<GetDataProtocol,UITextFieldDelegate,UIScrollViewDelegate>
 
 
-- (IBAction)btnOKClicked:(id)sender;
 - (IBAction)btnEntryNumberClicked:(id)sender;
 - (IBAction)btnFacilityClicked:(id)sender;
 

@@ -7,10 +7,8 @@
 //
 
 #import "AssessmentViewController.h"
-
-@interface AssessmentViewController (){
-    long buttonClicked;
-}
+#import "PictureViewController.h"
+@interface AssessmentViewController ()
 - (IBAction)buttonClciked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *baseView;
 @property (weak, nonatomic) IBOutlet UIView *initialview;
@@ -34,18 +32,28 @@ EducationHomeViewController *educationHomeviewcontroller;
 TreatmentHomeViewController *treatmentHomeViewController;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-        
-    buttonClicked=6;
-    [self.human setImage:[UIImage imageNamed:@"homanhover2013.png"] forState:UIControlStateNormal];
+    NSLog(@"button clicked value %ld",_buttonClicked);
+    if(_buttonClicked != 7){
+        _buttonClicked=6;
+        [self.human setImage:[UIImage imageNamed:@"homanhover2013.png"] forState:UIControlStateNormal];
+    }
+    else{
+        //[ setImage:[UIImage imageNamed:@"imggalleryhover2013.png"] forState:UIControlStateNormal];
+        [self setButtonBackground];
+        PictureViewController *picVw=[self.storyboard instantiateViewControllerWithIdentifier:@"PictureViewController"];
+        [self.initialview addSubview:picVw.view];
+        [self addChildViewController:picVw];
+        self.delete.alpha=0;
+    }
     
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    WoundImageViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"WoundImageViewController"];
-    [self.initialview addSubview:tvc.view];
-    [self addChildViewController:tvc];
-
+    if(_buttonClicked != 7){
+        WoundImageViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"WoundImageViewController"];
+        [self.initialview addSubview:tvc.view];
+        [self addChildViewController:tvc];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,7 +62,7 @@ TreatmentHomeViewController *treatmentHomeViewController;
 }
 -(void)setButtonBackground{
     
-    switch (buttonClicked) {
+    switch (_buttonClicked) {
             
         case 1:
         {
@@ -112,8 +120,11 @@ TreatmentHomeViewController *treatmentHomeViewController;
             [self.human setImage:[UIImage imageNamed:@"human2013.png"] forState:UIControlStateNormal];
             break;
         case 7:
+        {
             [self.gallery setImage:[UIImage imageNamed:@"imggallery2013.png"] forState:UIControlStateNormal];
+            [[CoreDataHelper sharedInstance]saveImages];
             break;
+        }
         default:
             break;
     }
@@ -130,7 +141,7 @@ TreatmentHomeViewController *treatmentHomeViewController;
         NSString *scorestring=[NSString stringWithFormat:@"%ld",(long)painController.scoreButtonOutlet.tag];
         [CoreDataHelper sharedInstance].paincategoryid=[NSArray arrayWithObjects:charstring,scorestring,nil];
         [CoreDataHelper sharedInstance].paincategory_name=[NSArray arrayWithObjects:@"Character",@"score", nil];
-               buttonClicked=[sender tag];
+               _buttonClicked=[sender tag];
         self.delete.alpha=0;
         if([CoreDataHelper sharedInstance].painselected_value.count != 0){
             NSLog(@"[selected_value objectAtIndex:0] %@",[[CoreDataHelper sharedInstance].painselected_value objectAtIndex:0]);
@@ -146,7 +157,7 @@ TreatmentHomeViewController *treatmentHomeViewController;
         ReviewOfSystemsHomeViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"ReviewOfSystemsHomeViewController"];
         [self.initialview addSubview:tvc.view];
         [self addChildViewController:tvc];
-        buttonClicked=[sender tag];
+        _buttonClicked=[sender tag];
         self.delete.alpha=0;
         
         
@@ -170,7 +181,7 @@ TreatmentHomeViewController *treatmentHomeViewController;
         [CoreDataHelper sharedInstance].educationcategory_name=[NSArray arrayWithObjects:@"Discussed",@"Method Used",@"Handout",@"Person Taught",@"Comprehension",@"Teaching Assessment",@"Time Spent Teaching",@"Other", nil];
         //buttonClicked=[sender tag];
 
-        buttonClicked=[sender tag];
+        _buttonClicked=[sender tag];
         self.delete.alpha=0;
         if([[CoreDataHelper sharedInstance].educationselected_value count] != 0){
             [educationHomeviewcontroller.discussedButtonOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:0] forState:UIControlStateNormal];
@@ -243,7 +254,7 @@ TreatmentHomeViewController *treatmentHomeViewController;
         [CoreDataHelper sharedInstance].treatmentcategoryid=[NSArray arrayWithObjects:cleansingid,dressingid,pressureid,debridementid,skincareid,otherid,nil];
         [CoreDataHelper sharedInstance].treatmentcategory_name=[NSArray arrayWithObjects:@"Cleansing/Irregation",@"Dressing/Care",@"Negative Pressure Wound",@"Debridement",@"Skin Care",@"Other", nil];
 
-        buttonClicked=[sender tag];
+        _buttonClicked=[sender tag];
         self.delete.alpha=0;
     }
     if([sender tag]==5){
@@ -252,7 +263,7 @@ TreatmentHomeViewController *treatmentHomeViewController;
        RecommendationHomeViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"RecommendationHomeViewController"];
         [self.initialview addSubview:tvc.view];
         [self addChildViewController:tvc];
-        buttonClicked=[sender tag];
+       _buttonClicked=[sender tag];
         self.delete.alpha=0;
         
     }
@@ -264,18 +275,18 @@ TreatmentHomeViewController *treatmentHomeViewController;
         [self.initialview addSubview:tvc.view];
         [self addChildViewController:tvc];
 //        NSLog(@"%d",buttonClicked);
-        buttonClicked=[sender tag];
+        _buttonClicked=[sender tag];
         
     }
     if([sender tag]==7){
+        [[CoreDataHelper sharedInstance] fetchImages];
         [sender setImage:[UIImage imageNamed:@"imggalleryhover2013.png"] forState:UIControlStateNormal];
-       [self setButtonBackground];
-//        FirstViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
-//        [self.initialview addSubview:tvc.view];
-//        [self addChildViewController:tvc];
-//        NSLog(@"%d",buttonClicked);
-       self.delete.alpha=0;
-        buttonClicked=[sender tag];
+        [self setButtonBackground];
+        PictureViewController *picVw=[self.storyboard instantiateViewControllerWithIdentifier:@"PictureViewController"];
+        [self.initialview addSubview:picVw.view];
+        [self addChildViewController:picVw];
+        self.delete.alpha=0;
+        _buttonClicked=[sender tag];
         
     }
 }
