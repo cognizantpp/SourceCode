@@ -24,6 +24,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *tissueperfusionButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *followUpButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *btnrecommendationNumberEntry;
+@property (weak, nonatomic) IBOutlet UITextField *labelTypeObtained;
+@property (weak, nonatomic) IBOutlet UITextField *deiticianReferral;
+@property (weak, nonatomic) IBOutlet UITextField *OtherTextfield;
+@property (weak, nonatomic) IBOutlet UITextField *bradenQRiskCategory;
 
 
 @property (weak, nonatomic) IBOutlet UITextField *followUpOtherTextField;

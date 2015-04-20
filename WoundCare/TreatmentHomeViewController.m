@@ -22,12 +22,40 @@
 
 
 @end
-
+NSArray *treatmentarray;
 @implementation TreatmentHomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+
+    treatmentarray=[cdh setTreatmentFields:entry_no];
+    if(treatmentarray.count>0){
+        [self.cleansingButtonOutlet setTitle:[treatmentarray objectAtIndex:0] forState:UIControlStateNormal];
+        [self.dressingButtonOutlet setTitle:[treatmentarray objectAtIndex:1] forState:UIControlStateNormal];
+        [self.negativePressureWoundButtonOutlet setTitle:[treatmentarray objectAtIndex:2] forState:UIControlStateNormal];
+        NSString *debridementstr=[treatmentarray objectAtIndex:3];
+        if([debridementstr isEqualToString:@"Yes"])
+            [self.yesButtonOutlet setSelected:YES];
+        else if([debridementstr isEqualToString:@"No"])
+            [self.noButtonOutlet setSelected:YES];
+            
+        [self.skinCareButtonOutlet setTitle:[treatmentarray objectAtIndex:4] forState:UIControlStateNormal];
+        NSString *otherStr=[treatmentarray objectAtIndex:5];
+        [self.otherTextField setText:otherStr];
+        if([[treatmentarray objectAtIndex:0]containsString:@"Other"]){
+            self.CleansingOtherTextField.hidden=NO;
+            NSString *othertext=[treatmentarray objectAtIndex:6] ;
+            [self.CleansingOtherTextField setText:othertext];
+        }
+        if([[treatmentarray objectAtIndex:1]containsString:@"Other"]){
+            self.dressingOtherTextField.hidden=NO;
+            NSString *othertext=[treatmentarray objectAtIndex:7] ;
+            [self.dressingOtherTextField setText:othertext];
+        }
+
+    }
     
 
     _selectTreatmentViewController=[[SelectTreatmentTableViewController alloc]init];
@@ -37,16 +65,9 @@
   
     _dressingCount=0;
     _cleansingCount=0;
+        self.otherTextField.delegate = self;
     
-
-    
-
-    
-    
-    self.otherTextField.delegate = self;
-    
-    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
-    self.cleansingArray=[cdh fetchTheTreatmentFields:@"1"];
+        self.cleansingArray=[cdh fetchTheTreatmentFields:@"1"];
         self.dressingArray=[cdh fetchTheTreatmentFields:@"2"];
     
         self.negativePressureWoundArray=[cdh fetchTheTreatmentFields:@"3"];
@@ -58,8 +79,8 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    self.CleansingOtherTextField.hidden=YES;
-    self.dressingOtherTextField.hidden=YES;
+//    self.CleansingOtherTextField.hidden=YES;
+//    self.dressingOtherTextField.hidden=YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -237,7 +258,7 @@
 
 - (IBAction)SelectButtonAction:(UIButton *)sender {
     switch (sender.tag) {
-        case 0:
+        case 1:
             
             self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectTreatmentViewController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -253,7 +274,7 @@
             
             break;
             
-            case 1:
+            case 2:
             self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectTreatmentViewController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
             
@@ -270,7 +291,7 @@
               break;
             
             
-            case 2:
+            case 3:
             
             self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectTreatmentViewController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -285,7 +306,7 @@
             [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 3:
+        case 6:
             self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectTreatmentViewController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 150)];
             
@@ -311,13 +332,13 @@
     
  
     switch (sender.tag) {
-        case 0:
+        case 4:
         {
             [self.noButtonOutlet setSelected:YES];
             [self.yesButtonOutlet setSelected:NO];
         }
             break;
-        case 1:
+        case 5:
         {
             [self.noButtonOutlet setSelected:NO];
             [self.yesButtonOutlet setSelected:YES];
