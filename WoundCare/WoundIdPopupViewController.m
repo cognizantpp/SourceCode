@@ -1,18 +1,19 @@
 //
-//  AssignmentTypePopOverController.m
+//  WoundIdPopupViewController.m
 //  WoundCare
 //
-//  Created by Sangeetha on 24/03/15.
+//  Created by Sangeetha on 16/04/15.
 //
 //
 
-#import "AssignmentTypePopOverController.h"
+#import "WoundIdPopupViewController.h"
 
-@interface AssignmentTypePopOverController ()
+@interface WoundIdPopupViewController ()
+- (IBAction)woundIdClicked:(id)sender;
 
 @end
 
-@implementation AssignmentTypePopOverController
+@implementation WoundIdPopupViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,10 +35,8 @@
 }
 */
 
-- (IBAction)btnCancelClicked:(id)sender {
-    [self.delegate OkClicked];
-}
-
-- (IBAction)btnAddClicked:(id)sender {
+- (IBAction)woundIdClicked:(id)sender {
+    UIButton *senderbtn = (UIButton *)sender;
+    [self.delegate dismissWoundPopOver:senderbtn.currentImage labelName:senderbtn.accessibilityLabel];
 }
 @end

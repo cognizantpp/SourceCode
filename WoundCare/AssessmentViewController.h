@@ -18,5 +18,5 @@
 #import "CoreDataHelper.h"
 @interface AssessmentViewController : UIViewController<GetDataProtocol>
 @property (strong, nonatomic) PatientInfoViewController *patientInfoViewController;
-
+@property (nonatomic)long buttonClicked;
 @end

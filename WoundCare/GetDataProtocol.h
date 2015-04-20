@@ -65,5 +65,6 @@
 -(void)updateRecommendationsEntryNumber:(NSString*)entryNumber;
 //PatientInfo
 -(void)patientInfoOKClicked;
-
+//dismisswoundIDpopOver
+-(void)dismissWoundPopOver:(UIImage*) imageTag labelName:(NSString *)labelName;
 @end

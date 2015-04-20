@@ -67,6 +67,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [CoreDataHelper sharedInstance].imageArr = [[NSMutableDictionary alloc]init];
+    [CoreDataHelper sharedInstance].imageText = [[NSMutableDictionary alloc]init];
+    [CoreDataHelper sharedInstance].woundIdDic = [[NSMutableDictionary alloc]init];
+    [CoreDataHelper sharedInstance].woundName = [[NSMutableDictionary alloc]init];
     selectedPatientIndex = indexPath.row;
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     entry_no=[[patientsDetails valueForKey:@"entry_number"] objectAtIndex:indexPath.row];
@@ -78,25 +82,10 @@
    
 }
 
-- (IBAction)addAssignmentClicked:(id)sender {
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    self.addAssignmentPopOverController = [storyBoard instantiateViewControllerWithIdentifier:@"AddAssignmentPopOverController"];
-    _addAssignmentPopOverController.delegate=self;
-     self.popOver =  [[UIPopoverController alloc]initWithContentViewController:self.addAssignmentPopOverController];
-    //[self.popOver setPopoverContentSize:CGSizeMake(500, 400)];
-    [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-    
-    
-    
-//    _addAssignmentPopOverController =
-//    [self.storyboard instantiateViewControllerWithIdentifier:@"AddAssignmentPopOverController"];
-//    [self presentViewController:_addAssignmentPopOverController animated:NO completion:nil];
-}
 
 -(void)OkClicked{
     CoreDataHelper *coreDataHelper = [CoreDataHelper sharedInstance];
-    patientsDetails = [coreDataHelper getAssignmentsList:@"user1"];
-    [self.popOver dismissPopoverAnimated:YES];
+    patientsDetails = [coreDataHelper getAssignmentsList:coreDataHelper.gblstaffId];
     self.lblPatientsCount.text = [NSString stringWithFormat:@"%d", [[patientsDetails valueForKey:@"patient_name"] count]];
     [self.tableView reloadData];
     
