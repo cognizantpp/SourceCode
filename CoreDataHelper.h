@@ -15,6 +15,7 @@
 #import "Recommendations.h"
 #import "PainSave.h"
 #import "EducationSave.h"
+#import "TreatmentSave.h"
 
 
 @interface CoreDataHelper : NSObject
@@ -35,6 +36,13 @@
 @property(strong,nonatomic)NSArray *treatmentcategory_name;
 @property(strong,nonatomic)NSArray *treatmentselected_value;
 @property(strong,nonatomic)NSArray *treatmentOthervalues;
+
+@property(strong,nonatomic)NSMutableArray *recommendationcategoryid;
+@property(strong,nonatomic)NSArray *recommendationcategory_name;
+@property(strong,nonatomic)NSArray *recommendationselected_value;
+@property(strong,nonatomic)NSArray *recommendationOthervalues;
+
+
 
 
 -(void)insertIntoContextForEntity:(NSString *)login withUsername:(NSString *)username andPassword:(NSString *)password;
@@ -57,4 +65,7 @@
 
 -(void)saveEducation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
 -(NSArray *)setEducationFields:(NSString *)entryNo ;
+
+-(void)saveTreatment:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
+-(NSArray *)setTreatmentFields:(NSString *)entryNo ;
 @end

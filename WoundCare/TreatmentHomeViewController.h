@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SelectTreatmentTableViewController.h"
-
+#import "AssignmentsViewController.h"
 #import "CoreDataHelper.h"
 
 @interface TreatmentHomeViewController : UIViewController<GetDataProtocol,UITextFieldDelegate>
