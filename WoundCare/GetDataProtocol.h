@@ -89,7 +89,6 @@
 -(void)updateFistulaLength:(NSString*)entryNumber;
 -(void)updateFistulaWidth:(NSString*)entryNumber;
 -(void)updateFistulaDepth:(NSString*)entryNumber;
--(void)OkClicked;
 //gastrostomy
 -(void)getGastrostomySite:(NSArray *)data;
 -(void)getGastrostomyTubeType:(NSArray *)data;
