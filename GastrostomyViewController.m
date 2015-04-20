@@ -425,7 +425,7 @@
 }
 
 
--(void)getDate:(NSString *)date
+-(void)getDate1:(NSString *)date
 {
     [self.dateButtonOutlet setTitle:date forState:UIControlStateNormal];
 }

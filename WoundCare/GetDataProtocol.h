@@ -104,7 +104,7 @@
 -(void)getGranulationTissue:(NSString *)data;
 -(void)getEdema:(NSString *)data;
 -(void)getCondition:(NSString *)data;
--(void)getDate:(NSString *)date;
+-(void)getDate1:(NSString *)date;
 
 
 @end
