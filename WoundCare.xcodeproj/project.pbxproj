@@ -153,6 +153,7 @@
 		9497E89B1ACAC7F000F8FC12 /* searchnew.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E87E1ACAC7F000F8FC12 /* searchnew.png */; };
 		9497E89C1ACAC7F000F8FC12 /* testimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E87F1ACAC7F000F8FC12 /* testimg.png */; };
 		9497E89D1ACAC7F000F8FC12 /* txtbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8801ACAC7F000F8FC12 /* txtbox.png */; };
+		B6450EE81AE536F5009D1E6E /* textsmall.png in Resources */ = {isa = PBXBuildFile; fileRef = B6450EE71AE536F5009D1E6E /* textsmall.png */; };
 		B6AF16CF1AE52D2C008FC7C0 /* gtube.png in Resources */ = {isa = PBXBuildFile; fileRef = B6AF16CE1AE52D2C008FC7C0 /* gtube.png */; };
 		B6AF16D61AE52D47008FC7C0 /* SelectOnsetDate1.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AF16D11AE52D47008FC7C0 /* SelectOnsetDate1.m */; };
 		B6AF16D71AE52D47008FC7C0 /* WidthNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AF16D31AE52D47008FC7C0 /* WidthNumberViewController.m */; };
@@ -402,6 +403,7 @@
 		9497E87E1ACAC7F000F8FC12 /* searchnew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = searchnew.png; path = WoundCare/searchnew.png; sourceTree = "<group>"; };
 		9497E87F1ACAC7F000F8FC12 /* testimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = testimg.png; path = WoundCare/testimg.png; sourceTree = "<group>"; };
 		9497E8801ACAC7F000F8FC12 /* txtbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = txtbox.png; path = WoundCare/txtbox.png; sourceTree = "<group>"; };
+		B6450EE71AE536F5009D1E6E /* textsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textsmall.png; sourceTree = "<group>"; };
 		B6AF16CE1AE52D2C008FC7C0 /* gtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gtube.png; sourceTree = "<group>"; };
 		B6AF16D01AE52D47008FC7C0 /* SelectOnsetDate1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOnsetDate1.h; sourceTree = "<group>"; };
 		B6AF16D11AE52D47008FC7C0 /* SelectOnsetDate1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectOnsetDate1.m; sourceTree = "<group>"; };
@@ -927,6 +929,7 @@
 		B6AF16CD1AE52D10008FC7C0 /* gastrostomy */ = {
 			isa = PBXGroup;
 			children = (
+				B6450EE71AE536F5009D1E6E /* textsmall.png */,
 				B6AF16CE1AE52D2C008FC7C0 /* gtube.png */,
 			);
 			name = gastrostomy;
@@ -1152,6 +1155,7 @@
 				91CD6F1C1AC150C300F56AE0 /* n6.png in Resources */,
 				9497E8871ACAC7F000F8FC12 /* icon_logout.png in Resources */,
 				91BA234B1AE4CEA9002CDD10 /* noimage.png in Resources */,
+				B6450EE81AE536F5009D1E6E /* textsmall.png in Resources */,
 				9497E88D1ACAC7F000F8FC12 /* logouthover.png in Resources */,
 				91BA23531AE4CEC0002CDD10 /* btncrop.png in Resources */,
 				9138ED3E1AD6B0BB00B7D64D /* branqheading.png in Resources */,
