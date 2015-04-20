@@ -45,6 +45,16 @@
 -(void)saveImages;
 -(void)fetchImages;
 
+
+//WoundCapture
+@property (strong, nonatomic) NSMutableArray *woundCoordinates;
+@property (strong, nonatomic) NSMutableArray *woundNumber;
+@property (strong, nonatomic) NSMutableArray *woundImageName;
+-(void)fetchWoundCoordinates;
+-(void)saveWoundCoordinates;
+-(void)deleteWoundCoordinates:(NSString *)woundnum;
+
+
 @property(strong,nonatomic)NSMutableArray *recommendationcategoryid;
 @property(strong,nonatomic)NSArray *recommendationcategory_name;
 @property(strong,nonatomic)NSArray *recommendationselected_value;

@@ -67,10 +67,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [CoreDataHelper sharedInstance].imageArr = [[NSMutableDictionary alloc]init];
-    [CoreDataHelper sharedInstance].imageText = [[NSMutableDictionary alloc]init];
-    [CoreDataHelper sharedInstance].woundIdDic = [[NSMutableDictionary alloc]init];
-    [CoreDataHelper sharedInstance].woundName = [[NSMutableDictionary alloc]init];
+    CoreDataHelper *helper = [CoreDataHelper sharedInstance];
+    helper.imageArr = [[NSMutableDictionary alloc]init];
+    helper.imageText = [[NSMutableDictionary alloc]init];
+    helper.woundIdDic = [[NSMutableDictionary alloc]init];
+    helper.woundName = [[NSMutableDictionary alloc]init];
+    helper.woundImageName = [[NSMutableArray alloc]init];
+    helper.woundCoordinates = [[NSMutableArray alloc]init];
+    helper.woundNumber = [[NSMutableArray alloc]init];
+    
     selectedPatientIndex = indexPath.row;
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     entry_no=[[patientsDetails valueForKey:@"entry_number"] objectAtIndex:indexPath.row];

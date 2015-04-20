@@ -41,6 +41,7 @@
 		91BA235E1AE4DE93002CDD10 /* WoundCare.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 91BA235B1AE4DE93002CDD10 /* WoundCare.sqlite */; };
 		91BA235F1AE4DE93002CDD10 /* WoundCare.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 91BA235C1AE4DE93002CDD10 /* WoundCare.sqlite-shm */; };
 		91BA23601AE4DE93002CDD10 /* WoundCare.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 91BA235D1AE4DE93002CDD10 /* WoundCare.sqlite-wal */; };
+		91BA23631AE53275002CDD10 /* WoundSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BA23621AE53275002CDD10 /* WoundSelection.m */; };
 		91C090911AC047BD008D7FAC /* dottrans.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C090901AC047BD008D7FAC /* dottrans.png */; };
 		91C090931AC04957008D7FAC /* orangedot.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C090921AC04957008D7FAC /* orangedot.png */; };
 		91C165AA1ABFFD2A007A1B41 /* addnewcases.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C165A91ABFFD2A007A1B41 /* addnewcases.png */; };
@@ -234,6 +235,8 @@
 		91BA235B1AE4DE93002CDD10 /* WoundCare.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = WoundCare.sqlite; sourceTree = "<group>"; };
 		91BA235C1AE4DE93002CDD10 /* WoundCare.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WoundCare.sqlite-shm"; sourceTree = "<group>"; };
 		91BA235D1AE4DE93002CDD10 /* WoundCare.sqlite-wal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "WoundCare.sqlite-wal"; sourceTree = "<group>"; };
+		91BA23611AE53275002CDD10 /* WoundSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WoundSelection.h; path = WoundCare/WoundSelection.h; sourceTree = "<group>"; };
+		91BA23621AE53275002CDD10 /* WoundSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WoundSelection.m; path = WoundCare/WoundSelection.m; sourceTree = "<group>"; };
 		91C090901AC047BD008D7FAC /* dottrans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dottrans.png; sourceTree = "<group>"; };
 		91C090921AC04957008D7FAC /* orangedot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orangedot.png; sourceTree = "<group>"; };
 		91C165A91ABFFD2A007A1B41 /* addnewcases.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addnewcases.png; sourceTree = "<group>"; };
@@ -655,6 +658,8 @@
 		91C228A31ABA9A3F00E389AF /* DataModels */ = {
 			isa = PBXGroup;
 			children = (
+				91BA23611AE53275002CDD10 /* WoundSelection.h */,
+				91BA23621AE53275002CDD10 /* WoundSelection.m */,
 				91C228B91ABA9A5E00E389AF /* Login.h */,
 				91C228BA1ABA9A5E00E389AF /* Login.m */,
 				91C228B61ABA9A5E00E389AF /* Treatment.h */,
@@ -901,20 +906,20 @@
 		B6E4886E1ACC1B1400E356F7 /* Wound */ = {
 			isa = PBXGroup;
 			children = (
-				B6E4888B1ACC210300E356F7 /* WouldyouliketomarkVC.m */,
-				B6E4888F1ACC211B00E356F7 /* OstomyalreadyselectedVC.m */,
-				B6E488911ACC212100E356F7 /* WoundImageViewController.m */,
-				B6E488931ACC212600E356F7 /* GastrocountreachedVC.h */,
-				B6E488961ACC213500E356F7 /* WouldyouliketousecameraVC.h */,
-				B6E4889C1ACC214E00E356F7 /* SelectWoundTypeTableViewController.h */,
-				B6E488991ACC213F00E356F7 /* WoundlimitreachedVC.h */,
-				B6E4889D1ACC215300E356F7 /* SelectWoundTypeTableViewController.m */,
-				B6E4889A1ACC214600E356F7 /* WoundlimitreachedVC.m */,
-				B6E488941ACC212B00E356F7 /* GastrocountreachedVC.m */,
-				B6E488971ACC213A00E356F7 /* WouldyouliketousecameraVC.m */,
-				B6E4888E1ACC211600E356F7 /* OstomyalreadyselectedVC.h */,
-				B6E4888D1ACC210F00E356F7 /* WoundImageViewController.h */,
 				B6E4888A1ACC20F900E356F7 /* WouldyouliketomarkVC.h */,
+				B6E4888B1ACC210300E356F7 /* WouldyouliketomarkVC.m */,
+				B6E4888E1ACC211600E356F7 /* OstomyalreadyselectedVC.h */,
+				B6E4888F1ACC211B00E356F7 /* OstomyalreadyselectedVC.m */,
+				B6E488931ACC212600E356F7 /* GastrocountreachedVC.h */,
+				B6E488941ACC212B00E356F7 /* GastrocountreachedVC.m */,
+				B6E488961ACC213500E356F7 /* WouldyouliketousecameraVC.h */,
+				B6E488971ACC213A00E356F7 /* WouldyouliketousecameraVC.m */,
+				B6E488991ACC213F00E356F7 /* WoundlimitreachedVC.h */,
+				B6E4889A1ACC214600E356F7 /* WoundlimitreachedVC.m */,
+				B6E4889C1ACC214E00E356F7 /* SelectWoundTypeTableViewController.h */,
+				B6E4889D1ACC215300E356F7 /* SelectWoundTypeTableViewController.m */,
+				B6E4888D1ACC210F00E356F7 /* WoundImageViewController.h */,
+				B6E488911ACC212100E356F7 /* WoundImageViewController.m */,
 			);
 			name = Wound;
 			sourceTree = "<group>";
@@ -1148,6 +1153,7 @@
 				91BA235A1AE4DAE9002CDD10 /* Wound.m in Sources */,
 				B6E4889B1ACC214600E356F7 /* WoundlimitreachedVC.m in Sources */,
 				91D19C641ACBCCA30056BD2E /* SelectWongBackerFacesViewController.m in Sources */,
+				91BA23631AE53275002CDD10 /* WoundSelection.m in Sources */,
 				91C228BB1ABA9A5E00E389AF /* Login.m in Sources */,
 				91CC03DA1AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.m in Sources */,
 				91C228831ABA983900E389AF /* WoundCare.xcdatamodeld in Sources */,

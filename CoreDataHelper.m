@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 #import <CoreData/CoreData.h>
 #import "AssignmentsViewController.h"
-
+#import "WoundSelection.h"
 @interface CoreDataHelper ()
 
 
@@ -59,7 +59,7 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Login" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     // Specify criteria for filtering which objects to fetch
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"userName",userid];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"userName",userid];
     [fetchRequest setPredicate:predicate];
     // Specify how the fetched objects should be sorted
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"userName"
@@ -108,7 +108,7 @@
             NSLog(@"user %@",theUser.userName);
             if([theUser.userName isEqualToString:userid]){
                 
-                    return YES;
+                return YES;
                 
             }
         }
@@ -182,16 +182,16 @@
 -(void) getOldAssignments{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"PatientDetails" inManagedObjectContext:self.managedObjectContext];
-   // NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@",@"staff_userid",staffId];
+    // NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@",@"staff_userid",staffId];
     [fetchRequest setEntity:entity];
-   // [fetchRequest setPredicate:predicate];
+    // [fetchRequest setPredicate:predicate];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]initWithKey:@"patient_name" ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     if (fetchedObjects == nil) {
         NSLog(@"can't fetch old patient details");
-       
+        
     }
     else{
         
@@ -216,7 +216,7 @@
             [insertObject setValue:patients.mmi forKey:@"mmi"];
             [insertObject setValue:patients.mrn forKey:@"mrn"];
             [insertObject setValue:patients.sex forKey:@"sex"];
- 
+            
             NSError *error;
             if (![self.managedObjectContext save:&error]) {
                 NSLog(@"Error in saving new Patient : %@",[error localizedDescription]);
@@ -382,7 +382,7 @@
 }
 -(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value{
     
-   
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"PainSave" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
@@ -390,7 +390,7 @@
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
     [fetchRequest setPredicate:predicate];
     
-
+    
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
                                                                    ascending:YES];
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
@@ -514,7 +514,7 @@
 -(NSArray *)setEducationFields:(NSString *)entryNo {
     NSMutableArray *eduArr=[[NSMutableArray alloc]init];
     //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
-
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"EducationSave" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
@@ -538,7 +538,7 @@
         for (EducationSave *theEdu in fetchedObjects) {
             [eduArr addObject:theEdu.other_value];
         }
-
+        
     }
     NSLog(@"%@",eduArr);
     return eduArr;
@@ -667,7 +667,7 @@
     if (managedObjectContext != nil) {
         NSError *error = nil;
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-                       NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
     }
@@ -675,11 +675,11 @@
 
 
 /*+(NSManagedObjectContext *)managedObject
-{
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    return appDelegate.managedObjectContext;
-    
-}*/
+ {
+ AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+ return appDelegate.managedObjectContext;
+ 
+ }*/
 
 //Image Capture
 -(void)saveImages{
@@ -706,7 +706,7 @@
         if([imageTextKeys count] > 0 && [imageTextKeys count]> i)
         {
             [insertObject setValue:[self.imageText valueForKey:imageTextKeys[i]] forKey:@"wound_text"];
-
+            
         }
         else{
             [insertObject setValue:@"" forKey:@"wound_text"];
@@ -720,7 +720,6 @@
 }
 
 -(void)deleteImages:(NSString*)woundid{
-    //Wound *theWound;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Wound" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
@@ -780,7 +779,6 @@
                     
                 case 1:
                 {
-                    
                     [self.imageArr setValue:image forKey:@"1"];
                     [self.imageText setValue:wounds.wound_text forKey:@"15"];
                     [self.woundName setValue:wounds.wound_name forKey:@"8"];
@@ -820,12 +818,66 @@
                     break;
             }
         }
+    }
+}
+
+-(void)deleteWoundCoordinates:(NSString *)woundnum{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WoundSelection" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@ AND %K like %@", @"entry_number",entry_no,@"wound_number",woundnum];
+    [fetchRequest setPredicate:predicate];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"wound_number"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects != nil && [fetchedObjects count]>0) {
         
-//        NSLog(@"count of wound %@",[[theWound valueForKey:@"entry_number"]objectAtIndex:0]);
-//        UIImage *image = [UIImage imageWithData:[[theWound valueForKey:@"wound_image"]objectAtIndex:0]];
-//        
+        NSLog(@"deleting wound coordinates ");
+        NSManagedObject *managedObject = fetchedObjects[0];
+        [self.managedObjectContext deleteObject:managedObject];
         
     }
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error in deleting wound coor : %@",[error localizedDescription]);
+    }
     
+}
+-(void)saveWoundCoordinates{
+    
+    for(int i=0;i<[self.woundCoordinates count];i++){
+        NSLog(@"saving wound coor id %@",entry_no);
+        [self deleteWoundCoordinates:[self.woundNumber objectAtIndex:i]];
+        NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"WoundSelection" inManagedObjectContext:self.managedObjectContext];
+        [insertObject setValue:entry_no forKey:@"entry_number"];
+        [insertObject setValue:[self.woundCoordinates objectAtIndex:i] forKey:@"wound_coordinates"];
+        [insertObject setValue:[self.woundImageName objectAtIndex:i] forKey:@"wound_type"];
+        [insertObject setValue:[self.woundNumber objectAtIndex:i] forKey:@"wound_number"];
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Error in saving wound coordinates : %@",[error localizedDescription]);
+        }
+    }
+}
+-(void)fetchWoundCoordinates{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WoundSelection" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entry_no];
+    [fetchRequest setPredicate:predicate];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"wound_number"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects != nil && [fetchedObjects count]>0) {
+        for (WoundSelection *wounds in fetchedObjects) {
+            [self.woundCoordinates addObject:wounds.wound_coordinates];
+            [self.woundImageName addObject:wounds.wound_type];
+            [self.woundNumber addObject:wounds.wound_number];
+        }
+    }
 }
 @end

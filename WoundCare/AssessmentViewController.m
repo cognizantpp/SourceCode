@@ -153,6 +153,7 @@ RecommendationHomeViewController *recommendationHomeViewController;
         }
             break;
         case 6:
+            [[CoreDataHelper sharedInstance]saveWoundCoordinates];
             [self.human setImage:[UIImage imageNamed:@"human2013.png"] forState:UIControlStateNormal];
             break;
         case 7:
