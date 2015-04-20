@@ -1,0 +1,888 @@
+//
+//  OstomyViewController.m
+//  Ostomy
+//
+//  Created by keerthana on 07/04/15.
+//  Copyright (c) 2015 keerthana. All rights reserved.
+//
+
+#import "OstomyViewController.h"
+#import "SizeEntryViewController.h"
+
+
+@interface OstomyViewController ()
+
+@property(nonatomic)CGRect r;
+@property(nonatomic)CGRect tRect;
+
+@property(nonatomic,strong)UIPopoverController *OstomySitePopOver;
+@property(nonatomic,strong)UIPopoverController *StomaPopOver;
+@property(nonatomic,strong)UIPopoverController *datePickerPopOver;
+@property(nonatomic,strong)UIPopoverController *SizeViewPopOver;
+
+
+
+@property(nonatomic,strong)NSArray *ostomySiteArray;
+@property(nonatomic,strong)NSArray *StomaOutputCharacterArray;
+@property(nonatomic,strong)NSArray *PeristomalSkinCharacterArray;
+@property(nonatomic,strong)NSArray *ExudateCharacterArray;
+
+
+
+
+@property(nonatomic,strong)NSArray *StomaLocationArray;
+@property(nonatomic,strong)NSArray *StomaColorArray;
+@property(nonatomic,strong)NSArray *StomaOutputColorArray;
+@property(nonatomic,strong)NSArray *FistulaLocationArray;
+@property(nonatomic,strong)NSArray *FistulaColorArray;
+@property(nonatomic,strong)NSArray *ExudateOdourArray;
+@property(nonatomic,strong)NSArray *ExudateAmountArray;
+@property(nonatomic,strong)NSArray *GranulationTissueArray;
+@property(nonatomic,strong)NSArray *EdemaArray;
+@property(nonatomic,strong)NSArray *PeristomalSkinConditionArray;
+
+@end
+
+@implementation OstomyViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    _scrollView.delegate=self;
+    _scrollView.contentSize=CGSizeMake(1024, 1020);
+    
+    _SelectOstomySiteController=[[SelectOstomySiteTVController alloc]init];
+    _SelectOstomySiteController.dataDelegate=self;
+    
+    _StomaOutputCharacterCount=0;
+    _PeristomalSkinCharacterCount=0;
+    _ExudateCharacterCount=0;
+    
+    _ostomySiteArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
+     _StomaOutputCharacterArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut",@"Other", nil];
+    _PeristomalSkinCharacterArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut",@"Other", nil];
+    _ExudateCharacterArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut",@"Other", nil];
+    
+    
+    _SelectStomaLocationController=[[StomaLocationTVController alloc]init];
+    _SelectStomaLocationController.dataDelegate=self;
+    
+    _StomaLocationCount=0;
+    _StomaColorCount=0;
+    _StomaOutputColorCount=0;
+    _FistulaLocationCount=0;
+    _FistulaColorCount=0;
+    _ExudateOdourCount=0;
+    _GranulationTissueCount=0;
+    
+    _StomaLocationArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
+    _StomaColorArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
+     _StomaOutputColorArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
+    _FistulaLocationArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
+    _FistulaColorArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
+    _ExudateOdourArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
+     _ExudateAmountArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
+     _GranulationTissueArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
+    _EdemaArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
+    _PeristomalSkinConditionArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
+
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    //self.OstomySiteOtherTextField.hidden=YES;
+    [super viewWillAppear:YES];
+    
+    self.StomaOutputCharacterOtherTextField.hidden=YES;
+    self.CharacterOtherTextField.hidden=YES;
+    self.ExudateCharacterOtherTextField.hidden=YES;
+    
+    self.StomaLocationOtherTextField.hidden=YES;
+    self.StomaColorOtherTextField.hidden=YES;
+    self.StomaOutputColorOtherTextField.hidden=YES;
+    self.FistulaLocationOtherTextField.hidden=YES;
+    self.FistulaColorOtherTextField.hidden=YES;
+    self.ExudateOdourOtherTextField.hidden=YES;
+    self.GranulationTissueOtherTextField.hidden=YES;
+
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)getOstomySiteData:(NSArray *)data{
+    NSString *selectedData=[data componentsJoinedByString:@","];
+    NSLog(@"%@",selectedData);
+    _OstomySiteButton.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+    [self.OstomySiteButton setTitle:selectedData forState:UIControlStateNormal];
+    
+    [self.OstomySitePopOver dismissPopoverAnimated: YES];
+}
+
+-(void)getStomaOutputCharacterData:(NSArray *)data
+{
+    NSString *selectedData=[data componentsJoinedByString:@","];
+    BOOL isTheObjectThere = [selectedData containsString:@"Other"];
+    if(isTheObjectThere )
+    {
+        _StomaOutputCharacterCount++;
+        
+        self.StomaOutputCharacterOtherTextField.hidden=NO;
+        if (_StomaOutputCharacterCount>1) {
+            self.StomaOutputCharacterOtherTextField.text=@"";
+        }
+        
+    }
+    else
+    {
+        self.StomaOutputCharacterOtherTextField.hidden=YES;
+    }
+    
+    if ( [data count] == 0) {
+        [self.StomaOutputCharacterButton setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        _StomaOutputCharacterButton.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.StomaOutputCharacterButton setTitle:selectedData forState:UIControlStateNormal];
+    }
+    
+    
+    [self.OstomySitePopOver dismissPopoverAnimated: YES];
+    
+}
+
+-(void)getPeristomalSkinCharacterData:(NSArray *)data
+{
+    NSString *selectedData=[data componentsJoinedByString:@","];
+    BOOL isTheObjectThere = [selectedData containsString:@"Other"];
+    if(isTheObjectThere )
+    {
+        _PeristomalSkinCharacterCount++;
+        
+        self.CharacterOtherTextField.hidden=NO;
+        if (_PeristomalSkinCharacterCount>1) {
+            self.CharacterOtherTextField.text=@"";
+        }
+        
+    }
+    else
+    {
+        self.CharacterOtherTextField.hidden=YES;
+    }
+    
+    if ( [data count] == 0) {
+        [self.PeristomalSkinButton setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        _PeristomalSkinButton.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.PeristomalSkinButton setTitle:selectedData forState:UIControlStateNormal];
+    }
+    
+    
+    [self.OstomySitePopOver dismissPopoverAnimated: YES];
+    
+}
+
+-(void)getPeristomalSkinExudateCharacterData:(NSArray *)data
+
+{
+    NSString *selectedData=[data componentsJoinedByString:@","];
+    BOOL isTheObjectThere = [selectedData containsString:@"Other"];
+    if(isTheObjectThere )
+    {
+        _ExudateCharacterCount++;
+        
+        self.ExudateCharacterOtherTextField.hidden=NO;
+        if (_ExudateCharacterCount>1) {
+            self.ExudateCharacterOtherTextField.text=@"";
+        }
+        
+    }
+    else
+    {
+        self.ExudateCharacterOtherTextField.hidden=YES;
+    }
+    
+    if ( [data count] == 0) {
+        [self.ExudateCharacterButton setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
+        _ExudateCharacterButton.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
+        [self.ExudateCharacterButton setTitle:selectedData forState:UIControlStateNormal];
+    }
+    
+    
+    [self.OstomySitePopOver dismissPopoverAnimated: YES];
+    
+}
+
+
+
+-(void)getStomaLocationData:(NSString *)data{
+    
+    NSString *selectedStomaLocation = [NSString stringWithFormat: @"%@",data];
+        if ([selectedStomaLocation isEqualToString:@"Other"])
+    {
+        _StomaLocationCount++;
+        
+        self.StomaLocationOtherTextField.hidden=NO;
+        if (_StomaLocationCount>1) {
+            self.StomaLocationOtherTextField.text=@"";
+        }
+        
+    }
+    else
+    {
+        self.StomaLocationOtherTextField.hidden=YES;
+    }
+    NSLog(@"%@",selectedStomaLocation);
+   
+    [self.StomaLocationButton setTitle:selectedStomaLocation forState:UIControlStateNormal];
+    
+    [self.StomaPopOver dismissPopoverAnimated: YES];
+}
+
+-(void)getStomaColorData:(NSString *)data{
+    
+    NSString *selectedStomaColor = [NSString stringWithFormat: @"%@",data];
+    if ([selectedStomaColor isEqualToString:@"Other"])
+    {
+        _StomaColorCount++;
+        
+        self.StomaColorOtherTextField.hidden=NO;
+        if (_StomaColorCount>1) {
+            self.StomaColorOtherTextField.text=@"";
+        }
+        
+    }
+    else
+    {
+        self.StomaColorOtherTextField.hidden=YES;
+    }
+    NSLog(@"%@",selectedStomaColor);
+
+    
+    [self.StomaColorButton setTitle:selectedStomaColor forState:UIControlStateNormal];
+    
+    [self.StomaPopOver dismissPopoverAnimated: YES];
+}
+
+-(void)getStomaOutputColorData:(NSString *)data{
+    
+    NSString *selectedStomaOutputColor = [NSString stringWithFormat: @"%@",data];
+    if ([selectedStomaOutputColor isEqualToString:@"Other"])
+    {
+        _StomaOutputColorCount++;
+        
+        self.StomaOutputColorOtherTextField.hidden=NO;
+        if (_StomaOutputColorCount>1) {
+            self.StomaOutputColorOtherTextField.text=@"";
+        }
+        
+    }
+    else
+    {
+        self.StomaOutputColorOtherTextField.hidden=YES;
+    }
+    NSLog(@"%@",selectedStomaOutputColor);
+ 
+    
+    [self.StomaOutputColorButton setTitle:selectedStomaOutputColor forState:UIControlStateNormal];
+    
+    [self.StomaPopOver dismissPopoverAnimated: YES];
+}
+
+-(void)getFistulaLocationData:(NSString *)data{
+    
+    NSString *selectedFistulaLocation = [NSString stringWithFormat: @"%@",data];
+    if ([selectedFistulaLocation isEqualToString:@"Other"])
+    {
+        _FistulaLocationCount++;
+        
+        self.FistulaLocationOtherTextField.hidden=NO;
+        if (_FistulaLocationCount>1) {
+            self.FistulaLocationOtherTextField.text=@"";
+        }
+        
+    }
+    else
+    {
+        self.FistulaLocationOtherTextField.hidden=YES;
+    }
+    NSLog(@"%@",selectedFistulaLocation);
+    
+    
+    [self.FistulaLocationButton setTitle:selectedFistulaLocation forState:UIControlStateNormal];
+    
+    [self.StomaPopOver dismissPopoverAnimated: YES];
+}
+
+-(void)getFistulaColorData:(NSString *)data{
+    
+    NSString *selectedFistulaColor = [NSString stringWithFormat: @"%@",data];
+    if ([selectedFistulaColor isEqualToString:@"Other"])
+    {
+        _FistulaColorCount++;
+        
+        self.FistulaColorOtherTextField.hidden=NO;
+        if (_FistulaColorCount>1) {
+            self.FistulaColorOtherTextField.text=@"";
+        }
+        
+    }
+    else
+    {
+        self.FistulaColorOtherTextField.hidden=YES;
+    }
+    NSLog(@"%@",selectedFistulaColor);
+    
+    
+    [self.FistulaColorButton setTitle:selectedFistulaColor forState:UIControlStateNormal];
+    
+    [self.StomaPopOver dismissPopoverAnimated: YES];
+}
+
+-(void)getPeristomalSkinExudateOdourData:(NSString *)data{
+    
+    NSString *selectedExudateOdour = [NSString stringWithFormat: @"%@",data];
+    if ([selectedExudateOdour isEqualToString:@"Other"])
+    {
+        _ExudateOdourCount++;
+        
+        self.ExudateOdourOtherTextField.hidden=NO;
+        if (_ExudateOdourCount>1) {
+            self.ExudateOdourOtherTextField.text=@"";
+        }
+        
+    }
+    else
+    {
+        self.ExudateOdourOtherTextField.hidden=YES;
+    }
+    NSLog(@"%@",selectedExudateOdour);
+    
+    
+    [self.ExudateOdourButton setTitle:selectedExudateOdour forState:UIControlStateNormal];
+    
+    [self.StomaPopOver dismissPopoverAnimated: YES];
+}
+
+-(void)getPeristomalSkinExudateAmountData:(NSString *)data{
+    
+    NSString *selectedExudateAmount = [NSString stringWithFormat: @"%@",data];
+    NSLog(@"%@",selectedExudateAmount);
+    [self.ExudateAmountButton setTitle:selectedExudateAmount forState:UIControlStateNormal];
+    
+    [self.StomaPopOver dismissPopoverAnimated: YES];
+}
+
+-(void)getPeristomalSkinGranulationTissueData:(NSString *)data{
+    
+    NSString *selectedGranulatedTissue = [NSString stringWithFormat: @"%@",data];
+    if ([selectedGranulatedTissue isEqualToString:@"Other"])
+    {
+        _GranulationTissueCount++;
+        
+        self.GranulationTissueOtherTextField.hidden=NO;
+        if (_GranulationTissueCount>1) {
+            self.GranulationTissueOtherTextField.text=@"";
+        }
+        
+    }
+    else
+    {
+        self.GranulationTissueOtherTextField.hidden=YES;
+    }
+    NSLog(@"%@",selectedGranulatedTissue);
+    
+    
+    [self.GranulationTissueButton setTitle:selectedGranulatedTissue forState:UIControlStateNormal];
+    
+    [self.StomaPopOver dismissPopoverAnimated: YES];
+}
+
+
+-(void)getPeristomalSkinEdemaData:(NSString *)data{
+    
+    NSString *selectedEdema = [NSString stringWithFormat: @"%@",data];
+    NSLog(@"%@",selectedEdema);
+    
+    
+    [self.EdemaButton setTitle:selectedEdema forState:UIControlStateNormal];
+    
+    [self.StomaPopOver dismissPopoverAnimated: YES];
+}
+
+-(void)getPeristomalSkinConditionData:(NSString *)data{
+    
+    NSString *selectedCondition = [NSString stringWithFormat: @"%@",data];
+    
+    NSLog(@"%@",selectedCondition);
+    
+    
+    [self.PeristomalSkinConditionButton setTitle:selectedCondition forState:UIControlStateNormal];
+    
+    [self.StomaPopOver dismissPopoverAnimated: YES];
+}
+
+-(void)getDate:(NSString *)date
+{
+    [self.dateButtonOutlet setTitle:date forState:UIControlStateNormal];
+}
+
+-(void)updateStomaLength:(NSString *)entryNumber{
+    [self.StomaLengthButton setTintColor:[UIColor blackColor]];
+    [self.StomaLengthButton setAttributedTitle: [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",entryNumber]] forState:UIControlStateNormal];
+}
+
+-(void)updateStomaWidth:(NSString *)entryNumber{
+    [self.StomaWidthButton setTintColor:[UIColor blackColor]];
+    [self.StomaWidthButton setAttributedTitle: [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",entryNumber]] forState:UIControlStateNormal];
+}
+
+-(void)updateStomaDepth:(NSString *)entryNumber{
+    [self.StomaDepthButton setTintColor:[UIColor blackColor]];
+    [self.StomaDepthButton setAttributedTitle: [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",entryNumber]] forState:UIControlStateNormal];
+}
+
+-(void)updateFistulaLength:(NSString *)entryNumber{
+    [self.FistulaLengthButton setTintColor:[UIColor blackColor]];
+    [self.FistulaLengthButton setAttributedTitle: [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",entryNumber]] forState:UIControlStateNormal];
+}
+
+-(void)updateFistulaWidth:(NSString *)entryNumber{
+    [self.FistulaWidthButton setTintColor:[UIColor blackColor]];
+    [self.FistulaWidthButton setAttributedTitle: [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",entryNumber]] forState:UIControlStateNormal];
+}
+
+-(void)updateFistulaDepth:(NSString *)entryNumber{
+    [self.FistulaDepthButton setTintColor:[UIColor blackColor]];
+    [self.FistulaDepthButton setAttributedTitle: [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",entryNumber]] forState:UIControlStateNormal];
+}
+
+
+-(void)OkClicked{
+    NSLog(@"dismiss in addassignment popover ");
+    [self.SizeViewPopOver dismissPopoverAnimated:YES];
+}
+
+
+- (IBAction)selectDateButtonAction:(UIButton *)sender {
+    
+    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:Nil];
+    _selectOnsetDateController=[storyBoard instantiateViewControllerWithIdentifier:@"OnsetdatePicker"];
+    _selectOnsetDateController.dataDelegate=self;
+    
+    
+    self.datePickerPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectOnsetDateController];
+    [self.datePickerPopOver setPopoverContentSize:CGSizeMake(300, 300)];
+    
+    _r = [sender frame];
+    _tRect = [sender convertRect:sender.bounds toView:self.view];
+    _tRect.origin.x=_r.origin.x;
+    
+    [self.datePickerPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    
+}
+
+- (IBAction)SelectCategoryAction:(UIButton *)sender {
+    
+    switch (sender.tag) {
+        case 1:
+            self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
+            [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectStomaLocationController.selectedCategory=@"StomaLocation";
+            _SelectStomaLocationController.selectedArray=self.StomaLocationArray;
+            [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            break;
+            
+        case 2:
+            self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
+            [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectStomaLocationController.selectedCategory=@"StomaColor";
+            _SelectStomaLocationController.selectedArray=self.StomaColorArray;
+            
+            [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            break;
+            
+        case 3:
+            self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
+            [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectStomaLocationController.selectedCategory=@"StomaOutputColor";
+            _SelectStomaLocationController.selectedArray=self.StomaOutputColorArray;
+            
+            [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            break;
+            
+        case 4:
+            self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
+            [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectStomaLocationController.selectedCategory=@"FistulaLocation";
+            _SelectStomaLocationController.selectedArray=self.FistulaLocationArray;
+            
+            [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            break;
+            
+        case 5:
+            self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
+            [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectStomaLocationController.selectedCategory=@"FistulaColor";
+            _SelectStomaLocationController.selectedArray=self.FistulaColorArray;
+            
+            [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            break;
+            
+        case 6:
+            self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
+            [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectStomaLocationController.selectedCategory=@"ExudateOdour";
+            _SelectStomaLocationController.selectedArray=self.ExudateOdourArray;
+            
+            [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            break;
+            
+        case 7:
+            self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
+            [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectStomaLocationController.selectedCategory=@"ExudateAmount";
+            _SelectStomaLocationController.selectedArray=self.ExudateAmountArray;
+            
+            [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            break;
+            
+        case 8:
+            self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
+            [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectStomaLocationController.selectedCategory=@"GranulationTissue";
+            _SelectStomaLocationController.selectedArray=self.GranulationTissueArray;
+            
+            [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            break;
+            
+        case 9:
+            self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
+            [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
+    
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectStomaLocationController.selectedCategory=@"Edema";
+            _SelectStomaLocationController.selectedArray=self.EdemaArray;
+            
+            [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            break;
+            
+        case 10:
+            self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
+            [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectStomaLocationController.selectedCategory=@"Condition";
+            _SelectStomaLocationController.selectedArray=self.PeristomalSkinConditionArray;
+            
+            [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            break;
+            
+            case 11:
+             _SizeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"SizeEntryViewController"];
+            
+
+             _SizeViewController.delegate=self;
+            
+            self.SizeViewPopOver=[[UIPopoverController alloc]initWithContentViewController:_SizeViewController];
+            [self.SizeViewPopOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SizeViewController.selectedCategorySize=@"StomaLength";
+            
+            
+            [self.SizeViewPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            
+            break;
+            
+        case 12:
+            _SizeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"SizeEntryViewController"];
+            
+            _SizeViewController.delegate=self;
+            
+            self.SizeViewPopOver=[[UIPopoverController alloc]initWithContentViewController:_SizeViewController];
+            [self.SizeViewPopOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SizeViewController.selectedCategorySize=@"StomaWidth";
+            
+            
+            [self.SizeViewPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            
+            break;
+            
+        case 13:
+            _SizeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"SizeEntryViewController"];
+            
+            _SizeViewController.delegate=self;
+            
+            self.SizeViewPopOver=[[UIPopoverController alloc]initWithContentViewController:_SizeViewController];
+            [self.SizeViewPopOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SizeViewController.selectedCategorySize=@"StomaDepth";
+            
+            
+            [self.SizeViewPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            
+            break;
+            
+        case 14:
+            _SizeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"SizeEntryViewController"];
+            
+            _SizeViewController.delegate=self;
+            
+            self.SizeViewPopOver=[[UIPopoverController alloc]initWithContentViewController:_SizeViewController];
+            [self.SizeViewPopOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SizeViewController.selectedCategorySize=@"FistulaLength";
+            
+            
+            [self.SizeViewPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            
+            break;
+            
+        case 15:
+            _SizeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"SizeEntryViewController"];
+            
+            _SizeViewController.delegate=self;
+            
+            self.SizeViewPopOver=[[UIPopoverController alloc]initWithContentViewController:_SizeViewController];
+            [self.SizeViewPopOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SizeViewController.selectedCategorySize=@"FistulaWidth";
+            
+            
+            [self.SizeViewPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            
+            break;
+            
+        case 16:
+            _SizeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"SizeEntryViewController"];
+            
+            _SizeViewController.delegate=self;
+            
+            self.SizeViewPopOver=[[UIPopoverController alloc]initWithContentViewController:_SizeViewController];
+            [self.SizeViewPopOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SizeViewController.selectedCategorySize=@"FistulaDepth";
+            
+            
+            [self.SizeViewPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            
+            break;
+
+
+
+
+
+
+            
+        default:
+            break;
+    }
+}
+
+
+
+//*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+//*/
+
+- (IBAction)selectButtonAction:(UIButton *)sender {
+
+    switch (sender.tag) {
+            
+        case 1:
+            
+            self.OstomySitePopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectOstomySiteController];
+            [self.OstomySitePopOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            
+            _r = [sender frame];
+            
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectOstomySiteController.selectedArray=_ostomySiteArray;
+            _SelectOstomySiteController.selectedString=@"OstomySite";
+            
+            _SelectOstomySiteController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            
+            [self.OstomySitePopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            
+            
+            break;
+            
+       case 2:
+            self.OstomySitePopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectOstomySiteController];
+            [self.OstomySitePopOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            
+            _r = [sender frame];
+            
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectOstomySiteController.selectedArray=_StomaOutputCharacterArray;
+            _SelectOstomySiteController.selectedString=@"StomaOutputCharacter";
+            
+            _SelectOstomySiteController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            
+            [self.OstomySitePopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            
+            
+            break;
+        case 3:
+            self.OstomySitePopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectOstomySiteController];
+            [self.OstomySitePopOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            
+            _r = [sender frame];
+            
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectOstomySiteController.selectedArray=_PeristomalSkinCharacterArray;
+            _SelectOstomySiteController.selectedString=@"Character";
+            
+            _SelectOstomySiteController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            
+            [self.OstomySitePopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            
+            
+            break;
+        case 4:
+            self.OstomySitePopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectOstomySiteController];
+            [self.OstomySitePopOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            
+            _r = [sender frame];
+            
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            _SelectOstomySiteController.selectedArray=_ExudateCharacterArray;
+            _SelectOstomySiteController.selectedString=@"ExudateCharacter";
+            
+            _SelectOstomySiteController.array= [NSMutableArray arrayWithArray:[sender.titleLabel.text componentsSeparatedByString:@","]];
+            
+            [self.OstomySitePopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+            
+            
+            break;
+
+        default:
+            break;
+    }
+
+}
+
+- (IBAction)RadioButtonAction:(UIButton *)sender {
+    switch (sender.tag) {
+        case 0:
+            [self.StomaSizemmButton setSelected:YES];
+            [self.StomaSizecmButton setSelected:NO];
+            break;
+        
+        case 1:
+            [self.StomaSizecmButton setSelected:YES];
+            [self.StomaSizemmButton setSelected:NO];
+            break;
+            
+        case 2:
+            [self.FistulaSizemmButton setSelected:YES];
+            [self.FistulaSizecmButton setSelected:NO];
+            break;
+            
+        case 3:
+            [self.FistulaSizecmButton setSelected:YES];
+            [self.FistulaSizemmButton setSelected:NO];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender
+{
+    if (sender.contentOffset.x != 0) {
+        CGPoint offset = sender.contentOffset;
+        offset.x = 0;
+        sender.contentOffset = offset;
+    }
+}
+
+- (IBAction)scrollButtonClicked:(id)sender {
+    NSLog(@"clicked");
+}
+@end
+
+
