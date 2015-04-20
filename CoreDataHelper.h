@@ -16,7 +16,7 @@
 #import "PainSave.h"
 #import "EducationSave.h"
 #import "TreatmentSave.h"
-
+#import "Wound.h"
 
 @interface CoreDataHelper : NSObject
 
@@ -36,6 +36,14 @@
 @property(strong,nonatomic)NSArray *treatmentcategory_name;
 @property(strong,nonatomic)NSArray *treatmentselected_value;
 @property(strong,nonatomic)NSArray *treatmentOthervalues;
+//ImageCapture
+@property (strong, nonatomic) NSString *selectedImageTag;
+@property (strong, nonatomic)NSMutableDictionary *imageArr;
+@property (strong,nonatomic)NSMutableDictionary *imageText;
+@property (strong, nonatomic) NSMutableDictionary *woundIdDic;
+@property (strong, nonatomic)NSMutableDictionary *woundName;
+-(void)saveImages;
+-(void)fetchImages;
 
 @property(strong,nonatomic)NSMutableArray *recommendationcategoryid;
 @property(strong,nonatomic)NSArray *recommendationcategory_name;

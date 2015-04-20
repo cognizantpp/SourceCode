@@ -138,8 +138,19 @@ RecommendationHomeViewController *recommendationHomeViewController;
         }
             break;
         case 5:
+        {
+            NSString *str;
             [self.recommendation setBackgroundImage:[UIImage imageNamed:@"icon_recommend.png"] forState:UIControlStateNormal];
-            [CoreDataHelper sharedInstance].treatmentselected_value=[NSArray arrayWithObjects:recommendationHomeViewController.mobilityButtonOutlet.titleLabel.text,nil];
+            [CoreDataHelper sharedInstance].treatmentselected_value=[NSArray arrayWithObjects:recommendationHomeViewController.mobilityButtonOutlet.titleLabel.text,recommendationHomeViewController.activityButtonOutlet.titleLabel.text,recommendationHomeViewController.sensoryPerceptionButtonOutlet.titleLabel.text,recommendationHomeViewController.moistureButtonOutlet.titleLabel.text,recommendationHomeViewController.frictionButtonOutlet.titleLabel.text,recommendationHomeViewController.tissueperfusionButtonOutlet.titleLabel.text,recommendationHomeViewController.labelTypeObtained.text,recommendationHomeViewController.deiticianReferral.text,recommendationHomeViewController.OtherTextfield.text,recommendationHomeViewController.bradenQRiskCategory.text,recommendationHomeViewController.followUpButtonOutlet.titleLabel.text,recommendationHomeViewController.btnrecommendationNumberEntry.titleLabel.text,nil];
+            
+            if([recommendationHomeViewController.followUpButtonOutlet.titleLabel.text containsString:@"Other"]){
+               str= recommendationHomeViewController.followUpOtherTextField.text;
+            }
+            else{
+                str=recommendationHomeViewController.dateButtonOutlet.titleLabel.text;
+            }
+            [CoreDataHelper sharedInstance].recommendationOthervalues=[NSArray arrayWithObjects:@"",@"",@"",@"",@"",@"",str,@"",@"",@"",@"",@"", nil];
+        }
             break;
         case 6:
             [self.human setImage:[UIImage imageNamed:@"human2013.png"] forState:UIControlStateNormal];
@@ -325,7 +336,7 @@ RecommendationHomeViewController *recommendationHomeViewController;
         }
 
         
-        buttonClicked=[sender tag];
+        _buttonClicked=[sender tag];
         self.delete.alpha=0;
         
     }
