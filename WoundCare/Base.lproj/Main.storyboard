@@ -18,12 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="welcome_bg.png" highlightedImage="welcome_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ur9-cP-iU5">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j6T-k6-efZ">
                                 <rect key="frame" x="0.0" y="0.0" width="1064" height="768"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="welcome_bg.png" highlightedImage="welcome_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ur9-cP-iU5">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sample.png" highlightedImage="sample.png" translatesAutoresizingMaskIntoConstraints="NO" id="vXH-zf-evz">
                                         <rect key="frame" x="217" y="84" width="650" height="650"/>
                                     </imageView>
