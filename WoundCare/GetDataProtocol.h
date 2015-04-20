@@ -82,13 +82,13 @@
 -(void)getPeristomalSkinGranulationTissueData:(NSString *)data;
 -(void)getPeristomalSkinEdemaData:(NSString *)data;
 -(void)getPeristomalSkinConditionData:(NSString *)data;
--(void)getDate:(NSString *)date;
+-(void)getOnsetDate:(NSString *)date;
 -(void)updateStomaLength:(NSString*)entryNumber;
 -(void)updateStomaWidth:(NSString*)entryNumber;
 -(void)updateStomaDepth:(NSString*)entryNumber;
 -(void)updateFistulaLength:(NSString*)entryNumber;
 -(void)updateFistulaWidth:(NSString*)entryNumber;
 -(void)updateFistulaDepth:(NSString*)entryNumber;
--(void)OkClicked;
+-(void)OkSizeClicked;
 
 @end
