@@ -115,9 +115,16 @@
 -(void)getOstomySiteData:(NSArray *)data{
     NSString *selectedData=[data componentsJoinedByString:@","];
     NSLog(@"%@",selectedData);
+    
+    if ( [data count] == 0) {
+        [self.OstomySiteButton setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
     _OstomySiteButton.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
     [self.OstomySiteButton setTitle:selectedData forState:UIControlStateNormal];
-    
+    }
     [self.OstomySitePopOver dismissPopoverAnimated: YES];
 }
 
