@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		459886331AE50E25004C0984 /* SelectOnsetDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598862B1AE50E25004C0984 /* SelectOnsetDate.m */; };
+		459886341AE50E25004C0984 /* SelectOstomySiteTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598862D1AE50E25004C0984 /* SelectOstomySiteTVController.m */; };
+		459886351AE50E25004C0984 /* SizeEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598862F1AE50E25004C0984 /* SizeEntryViewController.m */; };
+		459886361AE50E25004C0984 /* stoma.png in Resources */ = {isa = PBXBuildFile; fileRef = 459886301AE50E25004C0984 /* stoma.png */; };
+		459886371AE50E25004C0984 /* StomaLocationTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459886321AE50E25004C0984 /* StomaLocationTVController.m */; };
+		4598863A1AE50E41004C0984 /* fistula.png in Resources */ = {isa = PBXBuildFile; fileRef = 459886381AE50E41004C0984 /* fistula.png */; };
+		4598863B1AE50E41004C0984 /* followup.png in Resources */ = {isa = PBXBuildFile; fileRef = 459886391AE50E41004C0984 /* followup.png */; };
+		4598863D1AE50E54004C0984 /* reason.png in Resources */ = {isa = PBXBuildFile; fileRef = 4598863C1AE50E54004C0984 /* reason.png */; };
+		459886401AE50E67004C0984 /* OstomyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598863F1AE50E67004C0984 /* OstomyViewController.m */; };
+		459886431AE50E9B004C0984 /* wound_peristomal.png in Resources */ = {isa = PBXBuildFile; fileRef = 459886421AE50E9B004C0984 /* wound_peristomal.png */; };
+		459886461AE51017004C0984 /* txtarea.png in Resources */ = {isa = PBXBuildFile; fileRef = 459886451AE51017004C0984 /* txtarea.png */; };
 		9128274A1AD3EA8B00FD2D5F /* PatientInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 912827491AD3EA8B00FD2D5F /* PatientInfoViewController.m */; };
 		9128274C1AD3EE1E00FD2D5F /* patientsattribute.png in Resources */ = {isa = PBXBuildFile; fileRef = 9128274B1AD3EE1E00FD2D5F /* patientsattribute.png */; };
 		9138ED391AD6B03D00B7D64D /* ReviewOfSystemsHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9138ED341AD6B03D00B7D64D /* ReviewOfSystemsHomeViewController.m */; };
@@ -176,6 +187,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4598862A1AE50E25004C0984 /* SelectOnsetDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOnsetDate.h; sourceTree = "<group>"; };
+		4598862B1AE50E25004C0984 /* SelectOnsetDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectOnsetDate.m; sourceTree = "<group>"; };
+		4598862C1AE50E25004C0984 /* SelectOstomySiteTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOstomySiteTVController.h; sourceTree = "<group>"; };
+		4598862D1AE50E25004C0984 /* SelectOstomySiteTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectOstomySiteTVController.m; sourceTree = "<group>"; };
+		4598862E1AE50E25004C0984 /* SizeEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizeEntryViewController.h; sourceTree = "<group>"; };
+		4598862F1AE50E25004C0984 /* SizeEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizeEntryViewController.m; sourceTree = "<group>"; };
+		459886301AE50E25004C0984 /* stoma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stoma.png; sourceTree = "<group>"; };
+		459886311AE50E25004C0984 /* StomaLocationTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StomaLocationTVController.h; sourceTree = "<group>"; };
+		459886321AE50E25004C0984 /* StomaLocationTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StomaLocationTVController.m; sourceTree = "<group>"; };
+		459886381AE50E41004C0984 /* fistula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fistula.png; sourceTree = "<group>"; };
+		459886391AE50E41004C0984 /* followup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = followup.png; sourceTree = "<group>"; };
+		4598863C1AE50E54004C0984 /* reason.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reason.png; sourceTree = "<group>"; };
+		4598863E1AE50E67004C0984 /* OstomyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OstomyViewController.h; sourceTree = "<group>"; };
+		4598863F1AE50E67004C0984 /* OstomyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OstomyViewController.m; sourceTree = "<group>"; };
+		459886421AE50E9B004C0984 /* wound_peristomal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wound_peristomal.png; sourceTree = "<group>"; };
+		459886451AE51017004C0984 /* txtarea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = txtarea.png; path = WoundCare/txtarea.png; sourceTree = "<group>"; };
 		912827481AD3EA8B00FD2D5F /* PatientInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientInfoViewController.h; sourceTree = "<group>"; };
 		912827491AD3EA8B00FD2D5F /* PatientInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientInfoViewController.m; sourceTree = "<group>"; };
 		9128274B1AD3EE1E00FD2D5F /* patientsattribute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patientsattribute.png; sourceTree = "<group>"; };
@@ -417,6 +444,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		459886411AE50E7F004C0984 /* ostomy */ = {
+			isa = PBXGroup;
+			children = (
+				4598863C1AE50E54004C0984 /* reason.png */,
+				459886421AE50E9B004C0984 /* wound_peristomal.png */,
+				459886381AE50E41004C0984 /* fistula.png */,
+				459886391AE50E41004C0984 /* followup.png */,
+				459886301AE50E25004C0984 /* stoma.png */,
+				459886451AE51017004C0984 /* txtarea.png */,
+			);
+			name = ostomy;
+			sourceTree = "<group>";
+		};
+		459886441AE50EDF004C0984 /* Ostomy */ = {
+			isa = PBXGroup;
+			children = (
+				4598863E1AE50E67004C0984 /* OstomyViewController.h */,
+				4598863F1AE50E67004C0984 /* OstomyViewController.m */,
+				4598862A1AE50E25004C0984 /* SelectOnsetDate.h */,
+				4598862B1AE50E25004C0984 /* SelectOnsetDate.m */,
+				4598862C1AE50E25004C0984 /* SelectOstomySiteTVController.h */,
+				4598862D1AE50E25004C0984 /* SelectOstomySiteTVController.m */,
+				4598862E1AE50E25004C0984 /* SizeEntryViewController.h */,
+				4598862F1AE50E25004C0984 /* SizeEntryViewController.m */,
+				459886311AE50E25004C0984 /* StomaLocationTVController.h */,
+				459886321AE50E25004C0984 /* StomaLocationTVController.m */,
+			);
+			name = Ostomy;
+			sourceTree = "<group>";
+		};
 		9138ED321AD6B02B00B7D64D /* ReviewOfSystems */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +578,7 @@
 		91C2286E1ABA983900E389AF = {
 			isa = PBXGroup;
 			children = (
+				459886441AE50EDF004C0984 /* Ostomy */,
 				91C228C31ABA9B0C00E389AF /* images */,
 				91D19C831ACBCD0E0056BD2E /* Delegate */,
 				91C08BFF1ACA8DA600957D66 /* DB */,
@@ -641,6 +699,7 @@
 		91C228C31ABA9B0C00E389AF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				459886411AE50E7F004C0984 /* ostomy */,
 				91BA23451AE4CE8C002CDD10 /* imageCapture */,
 				9138ED3C1AD6B0AD00B7D64D /* reviewOfSystems */,
 				B6E488691ACC1ACD00E356F7 /* woundselection */,
@@ -973,6 +1032,7 @@
 				91C228C91ABA9B1B00E389AF /* welcome_bg.png in Resources */,
 				9497E8991ACAC7F000F8FC12 /* patientname_bg.png in Resources */,
 				91BA234F1AE4CEB7002CDD10 /* addimg.png in Resources */,
+				4598863A1AE50E41004C0984 /* fistula.png in Resources */,
 				91D19C801ACBCCD60056BD2E /* radiobtnimg.png in Resources */,
 				91CD6F191AC150C300F56AE0 /* n4.png in Resources */,
 				B6E4887D1ACC1BA300E356F7 /* w7.png in Resources */,
@@ -995,9 +1055,11 @@
 				91D19C771ACBCCD60056BD2E /* fac1.png in Resources */,
 				91BA235F1AE4DE93002CDD10 /* WoundCare.sqlite-shm in Resources */,
 				91C165AE1ABFFD55007A1B41 /* backgroundlogin.png in Resources */,
+				459886461AE51017004C0984 /* txtarea.png in Resources */,
 				B6E488711ACC1B7B00E356F7 /* button_yes.png in Resources */,
 				B6E488891ACC1BC500E356F7 /* o1.png in Resources */,
 				9497E8611ACAC78400F8FC12 /* cloudpdf.png in Resources */,
+				4598863D1AE50E54004C0984 /* reason.png in Resources */,
 				91C2288E1ABA983900E389AF /* LaunchScreen.xib in Resources */,
 				91BA23471AE4CE9D002CDD10 /* graycircle.png in Resources */,
 				91CD6F1E1AC150C300F56AE0 /* n8.png in Resources */,
@@ -1009,6 +1071,7 @@
 				B6E488851ACC1BB400E356F7 /* w3.png in Resources */,
 				91C165B61ABFFE09007A1B41 /* myassignmentname.png in Resources */,
 				91D48F0D1AC1655F003F8B0A /* checkboxun.png in Resources */,
+				4598863B1AE50E41004C0984 /* followup.png in Resources */,
 				9497E89A1ACAC7F000F8FC12 /* popup.png in Resources */,
 				9497E8961ACAC7F000F8FC12 /* logout2013.png in Resources */,
 				91C228C81ABA9B1B00E389AF /* sample.png in Resources */,
@@ -1027,6 +1090,8 @@
 				91D19C7F1ACBCCD60056BD2E /* button_ok.png in Resources */,
 				91CD6F171AC150C300F56AE0 /* n2a.png in Resources */,
 				91C165B01ABFFD96007A1B41 /* greentick.png in Resources */,
+				459886431AE50E9B004C0984 /* wound_peristomal.png in Resources */,
+				459886361AE50E25004C0984 /* stoma.png in Resources */,
 				91CD6F1C1AC150C300F56AE0 /* n6.png in Resources */,
 				9497E8871ACAC7F000F8FC12 /* icon_logout.png in Resources */,
 				91BA234B1AE4CEA9002CDD10 /* noimage.png in Resources */,
@@ -1072,11 +1137,13 @@
 				9138ED3B1AD6B03D00B7D64D /* ReviewAssessmentTableViewController.m in Sources */,
 				91D48F081AC16441003F8B0A /* AddAssignmentPopOverController.m in Sources */,
 				91C228B21ABA9A5E00E389AF /* Recommendations.m in Sources */,
+				459886341AE50E25004C0984 /* SelectOstomySiteTVController.m in Sources */,
 				9138ED391AD6B03D00B7D64D /* ReviewOfSystemsHomeViewController.m in Sources */,
 				B6E4889E1ACC215300E356F7 /* SelectWoundTypeTableViewController.m in Sources */,
 				91D19CE11ACBD6980056BD2E /* SelectTreatmentTableViewController.m in Sources */,
 				91C228AC1ABA9A5E00E389AF /* ReviewAssessment.m in Sources */,
 				91D19C611ACBCCA30056BD2E /* PainHomeViewController.m in Sources */,
+				459886401AE50E67004C0984 /* OstomyViewController.m in Sources */,
 				9497788B1AD3E46E00257B94 /* EducationSave.m in Sources */,
 				91BA235A1AE4DAE9002CDD10 /* Wound.m in Sources */,
 				B6E4889B1ACC214600E356F7 /* WoundlimitreachedVC.m in Sources */,
@@ -1089,6 +1156,7 @@
 				91C228C21ABA9AF500E389AF /* AssignmentsViewController.m in Sources */,
 				91D19CC51ACBD2CF0056BD2E /* SelectCharacterTableViewController.m in Sources */,
 				91D19CBF1ACBD1DF0056BD2E /* FollowUpTableViewController.m in Sources */,
+				459886371AE50E25004C0984 /* StomaLocationTVController.m in Sources */,
 				91D19C9A1ACBCEEF0056BD2E /* SelectEducationTableViewController.m in Sources */,
 				91C228801ABA983900E389AF /* AppDelegate.m in Sources */,
 				91D19CAA1ACBD19B0056BD2E /* RecommendationHomeViewController.m in Sources */,
@@ -1101,6 +1169,7 @@
 				B6E488901ACC211B00E356F7 /* OstomyalreadyselectedVC.m in Sources */,
 				91BA23421AE4CDB2002CDD10 /* PictureViewController.m in Sources */,
 				91C228A91ABA9A5E00E389AF /* Education.m in Sources */,
+				459886331AE50E25004C0984 /* SelectOnsetDate.m in Sources */,
 				9128274A1AD3EA8B00FD2D5F /* PatientInfoViewController.m in Sources */,
 				91C228BF1ABA9A9600E389AF /* CoreDataHelper.m in Sources */,
 				91C228B51ABA9A5E00E389AF /* PatientDetails.m in Sources */,
@@ -1111,6 +1180,7 @@
 				91D19C651ACBCCA30056BD2E /* SelectFlaccViewController.m in Sources */,
 				9138ED3A1AD6B03D00B7D64D /* SelectReviewOfSystemsTableViewController.m in Sources */,
 				9497E85F1ACAC74100F8FC12 /* AssessmentViewController.m in Sources */,
+				459886351AE50E25004C0984 /* SizeEntryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
