@@ -67,4 +67,28 @@
 -(void)patientInfoOKClicked;
 //dismisswoundIDpopOver
 -(void)dismissWoundPopOver:(UIImage*) imageTag labelName:(NSString *)labelName;
+//Ostomy
+-(void)getOstomySiteData:(NSArray *)data;
+-(void)getStomaLocationData:(NSString *)data;
+-(void)getStomaColorData:(NSString *)data;
+-(void)getStomaOutputColorData:(NSString *)data;
+-(void)getStomaOutputCharacterData:(NSArray *)data;
+-(void)getFistulaLocationData:(NSString *)data;
+-(void)getFistulaColorData:(NSString *)data;
+-(void)getPeristomalSkinCharacterData:(NSArray *)data;
+-(void)getPeristomalSkinExudateCharacterData:(NSArray *)data;
+-(void)getPeristomalSkinExudateOdourData:(NSString *)data;
+-(void)getPeristomalSkinExudateAmountData:(NSString *)data;
+-(void)getPeristomalSkinGranulationTissueData:(NSString *)data;
+-(void)getPeristomalSkinEdemaData:(NSString *)data;
+-(void)getPeristomalSkinConditionData:(NSString *)data;
+-(void)getDate:(NSString *)date;
+-(void)updateStomaLength:(NSString*)entryNumber;
+-(void)updateStomaWidth:(NSString*)entryNumber;
+-(void)updateStomaDepth:(NSString*)entryNumber;
+-(void)updateFistulaLength:(NSString*)entryNumber;
+-(void)updateFistulaWidth:(NSString*)entryNumber;
+-(void)updateFistulaDepth:(NSString*)entryNumber;
+-(void)OkClicked;
+
 @end
