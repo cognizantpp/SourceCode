@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GastrostomyViewController.h"
+#import "OstomyViewController.h"
 
 @interface WouldyouliketousecameraVC : UIViewController
+@property(nonatomic,strong)NSString *data;
+@property(nonatomic,strong)NSString *selectedString;
+@property(nonatomic,strong)GastrostomyViewController *GVC;
+@property(nonatomic,strong)OstomyViewController *OVC;
 
 @end

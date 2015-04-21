@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @protocol selectDataProtocol <NSObject>
--(void)getData:(NSString *)data;
 
+@optional
+-(void)getData:(NSString *)data;
 -(void)getTagId:(NSInteger *)data;
 -(void)getTagId2:(NSInteger *)data;
 -(void)getTagId3:(NSInteger *)data;

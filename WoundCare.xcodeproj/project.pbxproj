@@ -962,17 +962,17 @@
 			children = (
 				B6E4888B1ACC210300E356F7 /* WouldyouliketomarkVC.m */,
 				B6E4888F1ACC211B00E356F7 /* OstomyalreadyselectedVC.m */,
+				B6E4888D1ACC210F00E356F7 /* WoundImageViewController.h */,
 				B6E488911ACC212100E356F7 /* WoundImageViewController.m */,
 				B6E488931ACC212600E356F7 /* GastrocountreachedVC.h */,
-				B6E488961ACC213500E356F7 /* WouldyouliketousecameraVC.h */,
 				B6E4889C1ACC214E00E356F7 /* SelectWoundTypeTableViewController.h */,
 				B6E488991ACC213F00E356F7 /* WoundlimitreachedVC.h */,
 				B6E4889D1ACC215300E356F7 /* SelectWoundTypeTableViewController.m */,
 				B6E4889A1ACC214600E356F7 /* WoundlimitreachedVC.m */,
 				B6E488941ACC212B00E356F7 /* GastrocountreachedVC.m */,
+				B6E488961ACC213500E356F7 /* WouldyouliketousecameraVC.h */,
 				B6E488971ACC213A00E356F7 /* WouldyouliketousecameraVC.m */,
 				B6E4888E1ACC211600E356F7 /* OstomyalreadyselectedVC.h */,
-				B6E4888D1ACC210F00E356F7 /* WoundImageViewController.h */,
 				B6E4888A1ACC20F900E356F7 /* WouldyouliketomarkVC.h */,
 			);
 			name = Wound;
