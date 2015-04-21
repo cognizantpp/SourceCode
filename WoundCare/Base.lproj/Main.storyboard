@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VlN-CQ-Yp0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -622,7 +622,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCH-PQ-AxB">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCH-PQ-AxB">
                                 <rect key="frame" x="0.0" y="0.0" width="1028" height="768"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ineerscreencommon.png" translatesAutoresizingMaskIntoConstraints="NO" id="0VW-hr-KgZ">
@@ -1838,10 +1838,14 @@
                                     <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="GVx-ce-fVF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnQ-Qu-vt4">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dnQ-Qu-vt4">
                                 <rect key="frame" x="197" y="21" width="174" height="46"/>
-                                <state key="normal" image="patientname_bg.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="25" maxY="0.0"/>
+                                <state key="normal" backgroundImage="patientname_bg.png">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
@@ -1851,6 +1855,7 @@
                     <size key="freeformSize" width="1028" height="768"/>
                     <connections>
                         <outlet property="baseView" destination="C8B-I2-nZL" id="10c-UF-VtW"/>
+                        <outlet property="btnCurrentPatient" destination="dnQ-Qu-vt4" id="8Pg-1i-mvu"/>
                         <outlet property="delete" destination="wgD-vJ-BDP" id="vWa-Nq-1ct"/>
                         <outlet property="education" destination="rBD-fM-ifg" id="8Va-GU-7gU"/>
                         <outlet property="gallery" destination="h16-13-Fhc" id="nwC-pj-azg"/>
@@ -2004,6 +2009,18 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DOB" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0D-N8-XNR">
+                                        <rect key="frame" x="314" y="447" width="37" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Age" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cu-3y-1F9">
+                                        <rect key="frame" x="314" y="492" width="31" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Consult Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhU-Uf-4Nj">
                                         <rect key="frame" x="314" y="346" width="100" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -2092,7 +2109,7 @@
                                         <color key="shadowColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGC-an-tJa">
-                                        <rect key="frame" x="491" y="455" width="82" height="44"/>
+                                        <rect key="frame" x="491" y="539" width="82" height="44"/>
                                         <state key="normal" image="button_ok.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -2101,12 +2118,30 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfF-Ol-oNZ">
-                                        <rect key="frame" x="649" y="455" width="82" height="44"/>
+                                        <rect key="frame" x="644" y="539" width="82" height="44"/>
                                         <state key="normal" image="btncancel.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <segue destination="JK7-DF-M32" kind="presentation" identifier="novalidate" id="bpd-oz-JxX"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ij3-EP-czg">
+                                        <rect key="frame" x="446" y="483" width="305" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="btnFacilityClicked:" destination="AxL-hc-tZT" eventType="touchDragInside" id="bTG-C2-BB5"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FrX-fq-4vV">
+                                        <rect key="frame" x="446" y="441" width="157" height="33"/>
+                                        <state key="normal" title="Select" backgroundImage="txtbox.png">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectDateButtonAction:" destination="AxL-hc-tZT" eventType="touchUpInside" id="3fX-ce-xGL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2120,8 +2155,10 @@
                     <size key="freeformSize" width="1024" height="768"/>
                     <connections>
                         <outlet property="btnEntryNumber" destination="5Ds-qH-MuQ" id="r2Z-W5-tTa"/>
+                        <outlet property="dateButtonOutlet" destination="FrX-fq-4vV" id="Jzv-Pm-cU1"/>
                         <outlet property="lblHiddenEntryNumber" destination="fXL-IT-W8V" id="knD-vH-Tu0"/>
                         <outlet property="scrollview" destination="CQm-gb-KIZ" id="uGb-ge-0To"/>
+                        <outlet property="txtAge" destination="Ij3-EP-czg" id="H1i-8U-jll"/>
                         <outlet property="txtConsultType" destination="wIi-Jy-KqA" id="Gr5-DH-pO0"/>
                         <outlet property="txtFacilityName" destination="Mz5-7e-BP2" id="4eU-1d-ugl"/>
                         <outlet property="txtPatientName" destination="kcx-MK-0he" id="E3z-EO-MQR"/>
@@ -2479,7 +2516,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-ix-2uG">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-ix-2uG">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ineerscreencommon.png" translatesAutoresizingMaskIntoConstraints="NO" id="MTl-uV-gSI">

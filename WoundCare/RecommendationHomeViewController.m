@@ -479,6 +479,7 @@
     UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:Nil];
     _selectDateViewController=[storyBoard instantiateViewControllerWithIdentifier:@"datePicker"];
     _selectDateViewController.dataDelegate=self;
+    _selectDateViewController.selectedString=@"Recommendations";
     
 
     self.datePickerPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectDateViewController];

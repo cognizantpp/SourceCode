@@ -147,8 +147,11 @@
     [insertObject setValue:@"fresh" forKey:@"chart_status"];
     [insertObject setValue:[newPatient valueForKey:@"admit_dt"] forKey:@"admit_dt"];
     [insertObject setValue:[newPatient valueForKey:@"facility_name"] forKey:@"facility_name"];
+    [insertObject setValue:[newPatient valueForKey:@"age"] forKey:@"age"];
+    [insertObject setValue:[newPatient valueForKey:@"dob"] forKey:@"dob"];
     [insertObject setValue:coreDataHelper.gblstaffId forKey:@"staff_userid"];//coreDataHelper.gblstaffId
     [insertObject setValue:coreDataHelper.gblstaffName forKey:@"staff_name"];//coreDataHelper.gblstaffName
+    
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
@@ -196,9 +199,7 @@
     else{
         
         
-        for (PatientDetails *patients in fetchedObjects) {
-            NSLog(@"user %@",patients.patient_name);
-            
+        for (PatientDetails *patients in fetchedObjects) {            
             NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"NewPatient" inManagedObjectContext:self.managedObjectContext];
             [insertObject setValue:patients.entry_number forKey:@"entry_number"];
             [insertObject setValue:patients.patient_name forKey:@"patient_name"];

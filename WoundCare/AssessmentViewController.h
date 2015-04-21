@@ -19,4 +19,5 @@
 @interface AssessmentViewController : UIViewController<GetDataProtocol>
 @property (strong, nonatomic) PatientInfoViewController *patientInfoViewController;
 @property (nonatomic)long buttonClicked;
+@property (weak, nonatomic) IBOutlet UIButton *btnCurrentPatient;
 @end

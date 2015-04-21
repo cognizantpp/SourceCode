@@ -33,6 +33,8 @@ TreatmentHomeViewController *treatmentHomeViewController;
 RecommendationHomeViewController *recommendationHomeViewController;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString *pName = [[[[[[[patientsDetails valueForKey:@"patient_name"]objectAtIndex:selectedPatientIndex] stringByAppendingString:@", DOB : "] stringByAppendingString:[[patientsDetails valueForKey:@"dob"]objectAtIndex:selectedPatientIndex] ] stringByAppendingString:@" ("] stringByAppendingString:[[patientsDetails valueForKey:@"age" ]objectAtIndex:selectedPatientIndex]] stringByAppendingString:@" Y)"];
+    [self.btnCurrentPatient setTitle:pName forState:UIControlStateNormal];
     NSLog(@"button clicked value %ld",_buttonClicked);
     if(_buttonClicked != 7){
         _buttonClicked=6;
