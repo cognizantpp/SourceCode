@@ -53,7 +53,6 @@ NSArray *recommendationarray;
     _selectRecommendationsController.dataDelegate=self;
     
     CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
-    [cdh fetchRecommendationsSaved];
     self.mobilityArray= [cdh fetchTheRecommendationsFields:@"1"];
     self.activityArray= [cdh fetchTheRecommendationsFields:@"2"];
     self.sensoryArray= [cdh fetchTheRecommendationsFields:@"3"];
