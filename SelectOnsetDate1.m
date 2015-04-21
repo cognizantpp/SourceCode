@@ -6,13 +6,13 @@
 //  Copyright (c) 2015 keerthana. All rights reserved.
 //
 
-#import "SelectOnsetDate.h"
+#import "SelectOnsetDate1.h"
 
-@interface SelectOnsetDate ()
+@interface SelectOnsetDate1 ()
 
 @end
 
-@implementation SelectOnsetDate
+@implementation SelectOnsetDate1
 {
         NSDate *date1;
         NSDateFormatter *dateFormat;
@@ -36,12 +36,14 @@
     
     [dateFormat setDateFormat:@"dd-MM-yyyy"];
     NSLog(@"%@",[dateFormat stringFromDate:date1]);
-        
+    
+    //   [self.selectDateButtonOutlet setTitle:[dateFormat stringFromDate:date1] forState:UIControlStateNormal]  ;
+    
 }
 
 - (IBAction)doneButtonAction:(UIBarButtonItem *)sender {
     
-    [self.dataDelegate getOnsetDate:[dateFormat stringFromDate:date1]];
+    [self.dataDelegate getDate:[dateFormat stringFromDate:date1]];
     
     [self dismissViewControllerAnimated:YES completion:Nil];
 }

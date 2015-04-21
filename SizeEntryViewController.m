@@ -79,13 +79,13 @@
     //CoreDataHelper *coreDataHelper = [CoreDataHelper sharedInstance];
     BOOL valid = YES;//[coreDataHelper validateEntryNumber:_entryData];
     if (valid) {
-        [self.delegate OkClicked];
+        [self.delegate OkSizeClicked];
     }
     else{
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Alert" message:@"Entry number should be unique" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertView show];
     }
-    [self.delegate OkClicked];
+    [self.delegate OkSizeClicked];
 }
 
 

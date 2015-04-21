@@ -115,9 +115,16 @@
 -(void)getOstomySiteData:(NSArray *)data{
     NSString *selectedData=[data componentsJoinedByString:@","];
     NSLog(@"%@",selectedData);
+    
+    if ( [data count] == 0) {
+        [self.OstomySiteButton setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    else
+    {
     _OstomySiteButton.titleLabel.lineBreakMode=NSLineBreakByTruncatingTail;
     [self.OstomySiteButton setTitle:selectedData forState:UIControlStateNormal];
-    
+    }
     [self.OstomySitePopOver dismissPopoverAnimated: YES];
 }
 
@@ -433,7 +440,7 @@
     [self.StomaPopOver dismissPopoverAnimated: YES];
 }
 
--(void)getDate:(NSString *)date
+-(void)getOnsetDate:(NSString *)date
 {
     [self.dateButtonOutlet setTitle:date forState:UIControlStateNormal];
 }
@@ -469,7 +476,7 @@
 }
 
 
--(void)OkClicked{
+-(void)OkSizeClicked{
     NSLog(@"dismiss in addassignment popover ");
     [self.SizeViewPopOver dismissPopoverAnimated:YES];
 }
@@ -880,9 +887,7 @@
     }
 }
 
-- (IBAction)scrollButtonClicked:(id)sender {
-    NSLog(@"clicked");
-}
+
 @end
 
 
