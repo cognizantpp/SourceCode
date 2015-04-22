@@ -18,6 +18,7 @@
 #import "TreatmentSave.h"
 #import "RecommendationsSave.h"
 #import "Wound.h"
+#import "ReviewSaveBase.h"
 
 @interface CoreDataHelper : NSObject
 
@@ -27,6 +28,12 @@
 @property(strong,nonatomic)NSArray *paincategoryid;
 @property(strong,nonatomic)NSArray *paincategory_name;
 @property(strong,nonatomic)NSArray *painselected_value;
+
+@property(strong,nonatomic)NSArray *reviewbasecategoryid;
+@property(strong,nonatomic)NSArray *reviewbasecategory_name;
+@property(strong,nonatomic)NSArray *reviewbaseselected_value;
+@property(strong,nonatomic)NSArray *reviewbaseOthervalues;
+
 
 @property(strong,nonatomic)NSArray *educationcategoryid;
 @property(strong,nonatomic)NSArray *educationcategory_name;
@@ -90,6 +97,9 @@
 
 -(void)saveRecommendation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
 -(NSArray *)setRecommendationFields:(NSString *)entryNo ;
+
+-(void)saveReviewbase:(NSString *)entryNo;
+-(NSArray *)setReviewbaseFields:(NSString *)entryNo;
 
 -(void)fetchRecommendationsSaved;
 @end
