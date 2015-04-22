@@ -48,6 +48,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.ostomySiteArray=[cdh fetchTheOstomyFields:@"1"];
+    self.StomaLocationArray= [cdh fetchTheOstomyFields:@"2"];
+    self.StomaColorArray= [cdh fetchTheOstomyFields:@"3"];
+     self.StomaOutputColorArray= [cdh fetchTheOstomyFields:@"4"];
+     self.StomaOutputCharacterArray= [cdh fetchTheOstomyFields:@"5"];
+     self.FistulaLocationArray= [cdh fetchTheOstomyFields:@"6"];
+     self.FistulaColorArray= [cdh fetchTheOstomyFields:@"7"];
+    self.PeristomalSkinCharacterArray= [cdh fetchTheOstomyFields:@"8"];
+    self.ExudateCharacterArray= [cdh fetchTheOstomyFields:@"9"];
+    self.ExudateOdourArray= [cdh fetchTheOstomyFields:@"10"];
+    self.ExudateAmountArray= [cdh fetchTheOstomyFields:@"11"];
+    self.GranulationTissueArray= [cdh fetchTheOstomyFields:@"12"];
+    self.EdemaArray= [cdh fetchTheOstomyFields:@"13"];
+    self.PeristomalSkinConditionArray= [cdh fetchTheOstomyFields:@"14"];
+
+    
     _scrollView.delegate=self;
     _scrollView.contentSize=CGSizeMake(1024, 1020);
     
@@ -58,12 +75,7 @@
     _PeristomalSkinCharacterCount=0;
     _ExudateCharacterCount=0;
     
-    _ostomySiteArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
-     _StomaOutputCharacterArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut",@"Other", nil];
-    _PeristomalSkinCharacterArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut",@"Other", nil];
-    _ExudateCharacterArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut",@"Other", nil];
-    
-    
+
     _SelectStomaLocationController=[[StomaLocationTVController alloc]init];
     _SelectStomaLocationController.dataDelegate=self;
     
@@ -74,19 +86,7 @@
     _FistulaColorCount=0;
     _ExudateOdourCount=0;
     _GranulationTissueCount=0;
-    
-    _StomaLocationArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-    _StomaColorArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-     _StomaOutputColorArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-    _FistulaLocationArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-    _FistulaColorArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-    _ExudateOdourArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-     _ExudateAmountArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
-     _GranulationTissueArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-    _EdemaArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
-    _PeristomalSkinConditionArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
-
-    
+   
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -503,7 +503,7 @@
 - (IBAction)SelectCategoryAction:(UIButton *)sender {
     
     switch (sender.tag) {
-        case 1:
+        case 2:
             self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
             [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
             
@@ -515,7 +515,7 @@
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 2:
+        case 3:
             self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
             [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
             
@@ -528,7 +528,7 @@
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 3:
+        case 4:
             self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
             [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
             
@@ -541,7 +541,7 @@
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 4:
+        case 6:
             self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
             [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
             
@@ -554,7 +554,7 @@
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 5:
+        case 7:
             self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
             [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
             
@@ -567,7 +567,7 @@
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 6:
+        case 10:
             self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
             [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
             
@@ -580,7 +580,7 @@
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 7:
+        case 11:
             self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
             [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
             
@@ -593,7 +593,7 @@
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 8:
+        case 12:
             self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
             [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
             
@@ -606,7 +606,7 @@
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 9:
+        case 13:
             self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
             [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
     
@@ -619,7 +619,7 @@
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 10:
+        case 14:
             self.StomaPopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectStomaLocationController];
             [self.StomaPopOver setPopoverContentSize:CGSizeMake(300, 200)];
             
@@ -632,7 +632,7 @@
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-            case 11:
+            case 15:
              _SizeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"SizeEntryViewController"];
             
 
@@ -651,7 +651,7 @@
             
             break;
             
-        case 12:
+        case 16:
             _SizeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"SizeEntryViewController"];
             
             _SizeViewController.delegate=self;
@@ -669,7 +669,7 @@
             
             break;
             
-        case 13:
+        case 17:
             _SizeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"SizeEntryViewController"];
             
             _SizeViewController.delegate=self;
@@ -687,7 +687,7 @@
             
             break;
             
-        case 14:
+        case 18:
             _SizeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"SizeEntryViewController"];
             
             _SizeViewController.delegate=self;
@@ -705,7 +705,7 @@
             
             break;
             
-        case 15:
+        case 19:
             _SizeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"SizeEntryViewController"];
             
             _SizeViewController.delegate=self;
@@ -723,7 +723,7 @@
             
             break;
             
-        case 16:
+        case 20:
             _SizeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"SizeEntryViewController"];
             
             _SizeViewController.delegate=self;
@@ -788,7 +788,7 @@
             
             break;
             
-       case 2:
+       case 5:
             self.OstomySitePopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectOstomySiteController];
             [self.OstomySitePopOver setPopoverContentSize:CGSizeMake(300, 300)];
             
@@ -806,7 +806,7 @@
             
             
             break;
-        case 3:
+        case 8:
             self.OstomySitePopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectOstomySiteController];
             [self.OstomySitePopOver setPopoverContentSize:CGSizeMake(300, 300)];
             
@@ -824,7 +824,7 @@
             
             
             break;
-        case 4:
+        case 9:
             self.OstomySitePopOver=[[UIPopoverController alloc]initWithContentViewController:_SelectOstomySiteController];
             [self.OstomySitePopOver setPopoverContentSize:CGSizeMake(300, 300)];
             

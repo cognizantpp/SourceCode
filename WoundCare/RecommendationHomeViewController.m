@@ -37,7 +37,7 @@
 
 @end
 
-
+NSArray *recommendationarray;
 @implementation RecommendationHomeViewController
 
 
@@ -48,7 +48,7 @@
 -(void)viewDidLoad{
     
     [super viewDidLoad];
-    
+
     _selectRecommendationsController=[[SelectRecommendationsTableViewController alloc]init];
     _selectRecommendationsController.dataDelegate=self;
     
@@ -60,8 +60,33 @@
     self.frictionArray= [cdh fetchTheRecommendationsFields:@"5"];
     self.tissueArray= [cdh fetchTheRecommendationsFields:@"6"];
     
-
     
+    recommendationarray=[cdh setRecommendationFields:entry_no];
+    NSLog(@"%@",recommendationarray);
+    if(recommendationarray.count>0){
+        [self.mobilityButtonOutlet setTitle:[recommendationarray objectAtIndex:0] forState:UIControlStateNormal];
+        [self.activityButtonOutlet setTitle:[recommendationarray objectAtIndex:4] forState:UIControlStateNormal];
+        [self.sensoryPerceptionButtonOutlet setTitle:[recommendationarray objectAtIndex:5] forState:UIControlStateNormal];
+        [self.moistureButtonOutlet setTitle:[recommendationarray objectAtIndex:6] forState:UIControlStateNormal];
+        [self.frictionButtonOutlet setTitle:[recommendationarray objectAtIndex:7] forState:UIControlStateNormal];
+        [self.tissueperfusionButtonOutlet setTitle:[recommendationarray objectAtIndex:8] forState:UIControlStateNormal];
+        [self.labelTypeObtained setText:[recommendationarray objectAtIndex:11]];
+        [self.deiticianReferral setText:[recommendationarray objectAtIndex:1]];
+        [self.OtherTextfield setText:[recommendationarray objectAtIndex:2]];
+        [self.bradenQRiskCategory setText:[recommendationarray objectAtIndex:3]];
+        [self.followUpButtonOutlet setTitle:[recommendationarray objectAtIndex:9] forState:UIControlStateNormal];
+        [self.btnrecommendationNumberEntry setTitle:[recommendationarray objectAtIndex:10] forState:UIControlStateNormal];
+        if([[recommendationarray objectAtIndex:9]containsString:@"Other"]){
+            self.followUpOtherTextField.hidden=NO;
+            [self.followUpOtherTextField setText:[recommendationarray objectAtIndex:23]];
+        }
+        if([[recommendationarray objectAtIndex:9]containsString:@"Appointment Made For The Date"]){
+            self.dateButtonOutlet.hidden=NO;
+            [self.dateButtonOutlet setTitle:[recommendationarray objectAtIndex:23] forState:UIControlStateNormal];
+        }
+        
+
+    }
     
     _followUpController=[[FollowUpTableViewController alloc]init];
     _followUpController.dataDelegate=self;
@@ -97,8 +122,8 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    self.followUpOtherTextField.hidden=YES;
-    _dateButtonOutlet.hidden=YES;
+    //self.followUpOtherTextField.hidden=YES;
+    //_dateButtonOutlet.hidden=YES;
   
     
  
@@ -317,7 +342,7 @@
 - (IBAction)selectButtonAction:(UIButton *)sender {
     
     switch (sender.tag) {
-        case 0:
+        case 1:
             
             self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectRecommendationsController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -333,7 +358,7 @@
             [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 1:
+        case 2:
             
             self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectRecommendationsController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -348,7 +373,7 @@
             
             [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
-        case 2:
+        case 3:
             
             self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectRecommendationsController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -365,7 +390,7 @@
             break;
             
             
-        case 3:
+        case 4:
             
             self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectRecommendationsController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -381,7 +406,7 @@
             [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 4:
+        case 5:
             
             self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectRecommendationsController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -397,7 +422,7 @@
             [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
-        case 5:
+        case 6:
             
             self.popOver=[[UIPopoverController alloc]initWithContentViewController:_selectRecommendationsController];
             [self.popOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -413,7 +438,7 @@
             [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             
             break;
-        case 6:
+        case 7:
             
             
             
@@ -494,6 +519,7 @@
 }
 
 -(void)OkRecommendationsClicked{
+    
     [self.popOver dismissPopoverAnimated:YES];
 }
 

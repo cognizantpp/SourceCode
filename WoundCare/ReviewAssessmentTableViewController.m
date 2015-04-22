@@ -18,15 +18,16 @@
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
-    self.mobilityArray= [NSArray arrayWithObjects:@"immobile",@"very",@"Slightly",@"No", nil];
-    self.activityArray=[NSArray arrayWithObjects:@"Bed",@"Chair",@"Walks",@"All", nil];
-     self.sensoryArray=[NSArray arrayWithObjects:@"Completely",@"linited",@"slightly",@"impairment", nil];
-    self.moistureArray=[NSArray arrayWithObjects:@"Constantly",@"Very",@"Occasionally",@"Rarely", nil];
-    self.frictionArray=[NSArray arrayWithObjects:@"Significant",@"Problem",@"Potential",@"Apparent", nil];
-    self.nutritionArray=[NSArray arrayWithObjects:@"Very",@"Inadequate",@"Adequate",@"Excellent", nil];
-    self.tissueArray=[NSArray arrayWithObjects:@"Extremely",@"Compromised",@"Adequate",@"Excellent", nil];
-
-    self.ScoreArray=[NSArray arrayWithObjects:@"1",@"2",@"3",@"4", nil];
+     CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    
+    self.mobilityArray=[cdh fetchTheReviewAssessmentFields:@"4"];
+    self.activityArray=[cdh fetchTheReviewAssessmentFields:@"5"];
+    self.sensoryArray=[cdh fetchTheReviewAssessmentFields:@"6"];
+    self.moistureArray=[cdh fetchTheReviewAssessmentFields:@"7"];
+    self.frictionArray=[cdh fetchTheReviewAssessmentFields:@"8"];
+    self.nutritionArray=[cdh fetchTheReviewAssessmentFields:@"9"];
+    self.tissueArray=[cdh fetchTheReviewAssessmentFields:@"10"];
+    
     
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup.png"]];
     
@@ -46,7 +47,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.ScoreArray.count;
+    return self.mobilityArray.count;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     

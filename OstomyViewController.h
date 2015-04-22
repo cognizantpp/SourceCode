@@ -11,6 +11,7 @@
 #import "StomaLocationTVController.h"
 #import "SelectOnsetDate.h"
 #import "SizeEntryViewController.h"
+#import "CoreDataHelper.h"
 
 
 @interface OstomyViewController : UIViewController<UIScrollViewDelegate,GetDataProtocol,UITextFieldDelegate>

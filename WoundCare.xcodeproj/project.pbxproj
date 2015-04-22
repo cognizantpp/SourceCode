@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4597AA901AE62F0F008730A3 /* OstomySave.m in Sources */ = {isa = PBXBuildFile; fileRef = 4597AA8F1AE62F0F008730A3 /* OstomySave.m */; };
+		4597AA931AE62F11008730A3 /* Ostomy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4597AA921AE62F11008730A3 /* Ostomy.m */; };
 		459886331AE50E25004C0984 /* SelectOnsetDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598862B1AE50E25004C0984 /* SelectOnsetDate.m */; };
 		459886341AE50E25004C0984 /* SelectOstomySiteTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598862D1AE50E25004C0984 /* SelectOstomySiteTVController.m */; };
 		459886351AE50E25004C0984 /* SizeEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4598862F1AE50E25004C0984 /* SizeEntryViewController.m */; };
@@ -199,6 +201,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4597AA8E1AE62F0F008730A3 /* OstomySave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OstomySave.h; path = WoundCare/OstomySave.h; sourceTree = "<group>"; };
+		4597AA8F1AE62F0F008730A3 /* OstomySave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OstomySave.m; path = WoundCare/OstomySave.m; sourceTree = "<group>"; };
+		4597AA911AE62F11008730A3 /* Ostomy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ostomy.h; path = WoundCare/Ostomy.h; sourceTree = "<group>"; };
+		4597AA921AE62F11008730A3 /* Ostomy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ostomy.m; path = WoundCare/Ostomy.m; sourceTree = "<group>"; };
 		4598862A1AE50E25004C0984 /* SelectOnsetDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOnsetDate.h; sourceTree = "<group>"; };
 		4598862B1AE50E25004C0984 /* SelectOnsetDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectOnsetDate.m; sourceTree = "<group>"; };
 		4598862C1AE50E25004C0984 /* SelectOstomySiteTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOstomySiteTVController.h; sourceTree = "<group>"; };
@@ -507,6 +513,7 @@
 				459886321AE50E25004C0984 /* StomaLocationTVController.m */,
 			);
 			name = Ostomy;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		9138ED321AD6B02B00B7D64D /* ReviewOfSystems */ = {
@@ -619,8 +626,6 @@
 		91C2286E1ABA983900E389AF = {
 			isa = PBXGroup;
 			children = (
-				B6AF16CC1AE52D05008FC7C0 /* Gastrostomy */,
-				459886441AE50EDF004C0984 /* Ostomy */,
 				91C228C31ABA9B0C00E389AF /* images */,
 				91D19C831ACBCD0E0056BD2E /* Delegate */,
 				91C08BFF1ACA8DA600957D66 /* DB */,
@@ -644,6 +649,7 @@
 		91C228791ABA983900E389AF /* WoundCare */ = {
 			isa = PBXGroup;
 			children = (
+				459886441AE50EDF004C0984 /* Ostomy */,
 				91BA233B1AE4CDA3002CDD10 /* ImageCapture */,
 				9138ED321AD6B02B00B7D64D /* ReviewOfSystems */,
 				91A2F6B31AD2C2880000A0CA /* Login */,
@@ -725,6 +731,10 @@
 				91C228A51ABA9A5D00E389AF /* Pain.m */,
 				91BA23581AE4DAE9002CDD10 /* Wound.h */,
 				91BA23591AE4DAE9002CDD10 /* Wound.m */,
+				4597AA911AE62F11008730A3 /* Ostomy.h */,
+				4597AA921AE62F11008730A3 /* Ostomy.m */,
+				4597AA8E1AE62F0F008730A3 /* OstomySave.h */,
+				4597AA8F1AE62F0F008730A3 /* OstomySave.m */,
 			);
 			name = DataModels;
 			sourceTree = "<group>";
@@ -1210,6 +1220,7 @@
 				B6AF16D81AE52D47008FC7C0 /* WidthViewController.m in Sources */,
 				949778821AD3E46E00257B94 /* RecommendationsSave.m in Sources */,
 				91C165BB1AC01821007A1B41 /* AssignmentsCell.m in Sources */,
+				4597AA931AE62F11008730A3 /* Ostomy.m in Sources */,
 				B6E4888C1ACC210300E356F7 /* WouldyouliketomarkVC.m in Sources */,
 				949778881AD3E46E00257B94 /* TreatmentSave.m in Sources */,
 				9138ED3B1AD6B03D00B7D64D /* ReviewAssessmentTableViewController.m in Sources */,
@@ -1257,6 +1268,7 @@
 				91C228A91ABA9A5E00E389AF /* Education.m in Sources */,
 				459886331AE50E25004C0984 /* SelectOnsetDate.m in Sources */,
 				9128274A1AD3EA8B00FD2D5F /* PatientInfoViewController.m in Sources */,
+				4597AA901AE62F0F008730A3 /* OstomySave.m in Sources */,
 				91C228BF1ABA9A9600E389AF /* CoreDataHelper.m in Sources */,
 				91C228B51ABA9A5E00E389AF /* PatientDetails.m in Sources */,
 				B6E488951ACC212B00E356F7 /* GastrocountreachedVC.m in Sources */,

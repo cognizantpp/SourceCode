@@ -16,7 +16,9 @@
 #import "PainSave.h"
 #import "EducationSave.h"
 #import "TreatmentSave.h"
+#import "RecommendationsSave.h"
 #import "Wound.h"
+#import "ReviewSaveBase.h"
 
 @interface CoreDataHelper : NSObject
 
@@ -26,6 +28,12 @@
 @property(strong,nonatomic)NSArray *paincategoryid;
 @property(strong,nonatomic)NSArray *paincategory_name;
 @property(strong,nonatomic)NSArray *painselected_value;
+
+@property(strong,nonatomic)NSArray *reviewbasecategoryid;
+@property(strong,nonatomic)NSArray *reviewbasecategory_name;
+@property(strong,nonatomic)NSArray *reviewbaseselected_value;
+@property(strong,nonatomic)NSArray *reviewbaseOthervalues;
+
 
 @property(strong,nonatomic)NSArray *educationcategoryid;
 @property(strong,nonatomic)NSArray *educationcategory_name;
@@ -60,6 +68,12 @@
 @property(strong,nonatomic)NSArray *recommendationselected_value;
 @property(strong,nonatomic)NSArray *recommendationOthervalues;
 
+//ostomy
+@property(strong,nonatomic)NSMutableArray *ostomycategoryid;
+@property(strong,nonatomic)NSArray *ostomycategory_name;
+@property(strong,nonatomic)NSArray *ostomyselected_value;
+@property(strong,nonatomic)NSArray *ostomyOthervalues;
+
 
 
 
@@ -77,6 +91,12 @@
 -(NSMutableArray *)fetchTheEducationFields:(NSString *)categoryId;
 -(NSMutableArray *)fetchTheTreatmentFields:(NSString *)categoryId;
 -(NSMutableArray *)fetchTheRecommendationsFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheOstomyFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheReviewBaseFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheReviewAssessmentFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheReviewAssessmentSubFields:(NSString *)categoryId;
+
+
 
 -(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value;
 -(NSArray *)setPainFields:(NSString *)entryNo;
@@ -86,4 +106,12 @@
 
 -(void)saveTreatment:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
 -(NSArray *)setTreatmentFields:(NSString *)entryNo ;
+
+-(void)saveRecommendation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
+-(NSArray *)setRecommendationFields:(NSString *)entryNo ;
+
+-(void)saveReviewbase:(NSString *)entryNo;
+-(NSArray *)setReviewbaseFields:(NSString *)entryNo;
+
+-(void)fetchRecommendationsSaved;
 @end

@@ -375,12 +375,140 @@
         
         for (Recommendations *theRecommendations in fetchedObjects) {
             
-            //NSLog(@"Pain ID: %@ Name: %@ Fields:%@ Score:%@",theEdu.category_id,theEdu.category_name,theEdu.category_fields);
+            //NSLog(@"Ostomy ID: %@ Name: %@ Fields:%@ Score:%@",theEdu.category_id,theEdu.category_name,theEdu.category_fields);
             [categoryFields addObject:theRecommendations.category_fields];
         }
     }
     return  categoryFields;
 }
+
+-(NSMutableArray *)fetchTheOstomyFields:(NSString *)categoryId{
+    NSMutableArray *categoryFields=[[NSMutableArray alloc]init];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Ostomy" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Specify criteria for filtering which objects to fetch
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"category_id",categoryId];
+    [fetchRequest setPredicate:predicate];
+    
+    // Specify how the fetched objects should be sorted
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (Ostomy *theOstomy in fetchedObjects) {
+            
+//            NSLog(@"Ostomy ID: %@ Name: %@ Fields:%@ Score:%@",theOstomy.category_id,theOstomy.category_name,theOstomy.category_fields);
+            [categoryFields addObject:theOstomy.category_fields];
+        }
+    }
+    return  categoryFields;
+}
+
+-(NSMutableArray *)fetchTheReviewBaseFields:(NSString *)categoryId{
+    NSMutableArray *categoryFields=[[NSMutableArray alloc]init];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ReviewBase" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Specify criteria for filtering which objects to fetch
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"category_id",categoryId];
+    [fetchRequest setPredicate:predicate];
+    
+    // Specify how the fetched objects should be sorted
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (ReviewBase *theReviewBase in fetchedObjects) {
+            
+            //            NSLog(@"Ostomy ID: %@ Name: %@ Fields:%@ Score:%@",theOstomy.category_id,theOstomy.category_name,theOstomy.category_fields);
+            [categoryFields addObject:theReviewBase.category_fields];
+        }
+    }
+    return  categoryFields;
+}
+
+-(NSMutableArray *)fetchTheReviewAssessmentFields:(NSString *)categoryId{
+    NSMutableArray *categoryFields=[[NSMutableArray alloc]init];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ReviewAssessment" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Specify criteria for filtering which objects to fetch
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"category_id",categoryId];
+    [fetchRequest setPredicate:predicate];
+    
+    // Specify how the fetched objects should be sorted
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (ReviewAssessment *theReviewAssesssment in fetchedObjects) {
+            
+            //            NSLog(@"Ostomy ID: %@ Name: %@ Fields:%@ Score:%@",theOstomy.category_id,theOstomy.category_name,theOstomy.category_fields);
+            [categoryFields addObject:theReviewAssesssment.category_fields];
+            
+        }
+    }
+    return  categoryFields;
+
+}
+
+-(NSMutableArray *)fetchTheReviewAssessmentSubFields:(NSString *)categoryId{
+    
+    NSMutableArray *categorySubFields=[[NSMutableArray alloc]init];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ReviewAssessment" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Specify criteria for filtering which objects to fetch
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"category_id",categoryId];
+    [fetchRequest setPredicate:predicate];
+    
+    // Specify how the fetched objects should be sorted
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (ReviewAssessment *theReviewAssesssment in fetchedObjects) {
+            
+            //            NSLog(@"Ostomy ID: %@ Name: %@ Fields:%@ Score:%@",theOstomy.category_id,theOstomy.category_name,theOstomy.category_fields);
+            [categorySubFields addObject:theReviewAssesssment.category_subfield];
+            
+        }
+    }
+    return  categorySubFields;
+
+}
+
+
+
 -(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value{
     
     
@@ -468,6 +596,104 @@
         }
     }
 }
+
+-(void)saveReviewbase:(NSString *)entryNo{
+    
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ReviewSaveBase" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSManagedObject *matches = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (ReviewSaveBase *theReview in fetchedObjects) {
+            matches = theReview;
+            [self.managedObjectContext deleteObject:matches];
+            [self saveContext];
+        }
+    }
+    for (int i=0;i<self.reviewbasecategoryid.count;i++) {
+        NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"ReviewSaveBase" inManagedObjectContext:self.managedObjectContext];
+        [insertObject setValue:entryNo forKey:@"entry_number"];
+        [insertObject setValue:self.reviewbasecategoryid[i] forKey:@"category_id"];
+        [insertObject setValue:self.reviewbasecategory_name[i] forKey:@"category_name"];
+        [insertObject setValue:self.reviewbaseselected_value[i] forKey:@"selected_value"];
+        [insertObject setValue:self.reviewbaseOthervalues[i] forKey:@"other_value"];
+        [self saveContext];
+        
+    }
+    
+    [self fetchReviewbaseSaved];
+    
+}
+
+-(NSArray *)setReviewbaseFields:(NSString *)entryNo {
+    NSMutableArray *reviewArr=[[NSMutableArray alloc]init];
+    //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ReviewSaveBase" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (ReviewSaveBase *theReview in fetchedObjects) {
+            [reviewArr addObject:theReview.selected_value];
+        }
+        for (ReviewSaveBase *theReview in fetchedObjects) {
+            [reviewArr addObject:theReview.other_value];
+        }
+        
+    }
+    NSLog(@"%@",reviewArr);
+    return reviewArr;
+}
+-( void)fetchReviewbaseSaved{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ReviewSaveBase" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (ReviewSaveBase *theReview in fetchedObjects) {
+            
+            NSLog(@"category ID: %@ Name: %@ entry_no:%@ selected_value:%@ other:%@",theReview.category_id,theReview.category_name,theReview.entry_number,theReview.selected_value,theReview.other_value);
+        }
+    }
+}
+
+
 
 -(void)saveEducation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other{
     
@@ -661,6 +887,108 @@
         }
     }
 }
+
+-(void)saveRecommendation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other{
+    
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"RecommendationsSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSManagedObject *matches = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (RecommendationsSave *theRecommend in fetchedObjects) {
+            matches =theRecommend;
+            [self.managedObjectContext deleteObject:matches];
+            [self saveContext];
+        }
+    }
+    for (int i=0;i<category_id.count;i++) {
+        NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"RecommendationsSave" inManagedObjectContext:self.managedObjectContext];
+        NSLog(@"selected value %@",Selected_value[i]);
+        [insertObject setValue:entryNo forKey:@"entry_number"];
+        [insertObject setValue:category_id[i] forKey:@"category_id"];
+      
+       [insertObject setValue:Category_name[i] forKey:@"category_name"];
+        
+       
+        [insertObject setValue:Selected_value[i] forKey:@"selected_value"];
+       
+        [insertObject setValue:other[i] forKey:@"other_value"];
+        [self saveContext];
+        
+    }
+    
+    [self fetchRecommendationsSaved];
+    
+}
+
+-(NSArray *)setRecommendationFields:(NSString *)entryNo{
+NSMutableArray *recommendarr=[[NSMutableArray alloc]init];
+    //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"RecommendationsSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (RecommendationsSave *recommend in fetchedObjects) {
+            [recommendarr addObject:recommend.selected_value];
+        }
+        for (RecommendationsSave *recommend in fetchedObjects) {
+            [recommendarr addObject:recommend.other_value];
+        }
+        
+    }
+    NSLog(@"%@",recommendarr);
+    return recommendarr;
+}
+-( void)fetchRecommendationsSaved{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"RecommendationsSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (RecommendationsSave *theRecommend in fetchedObjects) {
+            
+            NSLog(@"category ID: %@ Name: %@ entry_no:%@ selected_value:%@ other:%@",theRecommend.category_id,theRecommend.category_name,theRecommend.entry_number,theRecommend.selected_value,theRecommend.other_value);
+        }
+    }
+}
+
 
 
 - (void)saveContext {

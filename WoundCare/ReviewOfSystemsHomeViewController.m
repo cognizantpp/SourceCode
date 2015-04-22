@@ -31,6 +31,14 @@
 @property(nonatomic,strong)NSArray *nutritionAssessmentArray;
 @property(nonatomic,strong)NSArray *tissueAssessmentArray;
 
+@property(nonatomic,strong)NSArray *mobilityAssessmentSubFieldArray;
+@property(nonatomic,strong)NSArray *activityAssessmentSubFieldArray;
+@property(nonatomic,strong)NSArray *sensoryAssessmentSubFieldArray;
+@property(nonatomic,strong)NSArray *moistureAssessmentSubFieldArray;
+@property(nonatomic,strong)NSArray *frictionAssessmentSubFieldArray;
+@property(nonatomic,strong)NSArray *nutritionAssessmentSubFieldArray;
+@property(nonatomic,strong)NSArray *tissueAssessmentSubFieldArray;
+
 
 @end
 
@@ -58,37 +66,32 @@
     _rosViewController.dataDelegate=self;
     
     
-    self.riskFactorArray = [NSMutableArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"Other", nil];
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.riskFactorArray=[cdh fetchTheReviewBaseFields:@"1"];
+    self.consultArray=[cdh fetchTheReviewBaseFields:@"2"];
+    self.testsArray=[cdh fetchTheReviewBaseFields:@"3"];
+    
+    self.mobilityAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"4"];
+    self.activityAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"5"];
+    self.sensoryAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"6"];
+    self.moistureAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"7"];
+    self.frictionAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"8"];
+    self.nutritionAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"9"];
+    self.tissueAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"10"];
 
-    
-    _consultArray=[NSMutableArray arrayWithObjects:@"1st selected",@"2nd selected",@"3rd selected",@"4th selected", nil];
-    
-    _testsArray=[NSMutableArray arrayWithObjects:@"extremely selected", @"compromised selected",@"adequate selected",@"excellent selected",nil];
-    
-
-    
-    
-    
-
-    
-    _mobilityAssessmentArray=[NSArray arrayWithObjects:@"1st selected",@"2nd selected",@"3rd selected",@"4th selected", nil];
-    
-    _activityAssessmentArray=[NSArray arrayWithObjects:@"Bed selected",@"Chair selected",@"Walks selected",@"All selected", nil];
-    _sensoryAssessmentArray=[NSArray arrayWithObjects:@"Com selected",@"limited selected",@"Slightly selected",@"No selected", nil];
-    _moistureAssessmentArray=[NSArray arrayWithObjects:@"Constantly selected",@"Very selected",@"occasionally selected",@"raraely selected", nil];
-    _frictionAssessmentArray=[NSArray arrayWithObjects:@"significant selected",@"problem selected",@"potentioal selected",@"no sleected", nil];
-    _nutritionAssessmentArray=[NSArray arrayWithObjects:@"very selected",@"inadequate selected",@"adequate seleected",@"excellent selected", nil];
-    _tissueAssessmentArray=[NSArray arrayWithObjects:@"extremely selected", @"compromised selected",@"adequate selected",@"excellent selected",nil];
-    
+    self.mobilityAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"4"];
+    self.activityAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"5"];
+    self.sensoryAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"6"];
+    self.moistureAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"7"];
+    self.frictionAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"8"];
+    self.nutritionAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"9"];
+    self.tissueAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"10"];
     
     _mobilityAssessmentOutlet.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15, 20)];
     _mobilityAssessmentOutlet.leftViewMode = UITextFieldViewModeAlways;
 
     _scrollView.delegate=self;
           [_scrollView setContentSize:CGSizeMake(1024, 900)];
-    
-    
-    
     
 }
 
@@ -235,7 +238,7 @@
 
   
     _mobilityScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _mobilityAssessmentOutlet.text=[_mobilityAssessmentArray objectAtIndex:painScore];
+    _mobilityAssessmentOutlet.text=[_mobilityAssessmentSubFieldArray objectAtIndex:painScore];
     
     [self updateTotal];
 
@@ -249,7 +252,7 @@
 
     
     _activityScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _activityAssessmentOutlet.text=[_activityAssessmentArray objectAtIndex:painScore];
+    _activityAssessmentOutlet.text=[_activityAssessmentSubFieldArray objectAtIndex:painScore];
     [self updateTotal];
 
 }
@@ -262,7 +265,7 @@
   
     
     _sensoryPerceptionScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _sensoryPerceptionAssessmentOutlet.text=[_sensoryAssessmentArray objectAtIndex:painScore];
+    _sensoryPerceptionAssessmentOutlet.text=[_sensoryAssessmentSubFieldArray objectAtIndex:painScore];
     [self updateTotal];
 }
 -(void)getROSMoistureString:(NSString *)data andScore:(NSInteger)painScore
@@ -274,7 +277,7 @@
     
     
     _moistureScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _moistureAsessmentOutlet.text=[_moistureAssessmentArray objectAtIndex:painScore];
+    _moistureAsessmentOutlet.text=[_moistureAssessmentSubFieldArray objectAtIndex:painScore];
     [self updateTotal];
 
     
@@ -288,7 +291,7 @@
     
     
     _frictionScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _frictionAssessmentOutlet.text=[_frictionAssessmentArray objectAtIndex:painScore];
+    _frictionAssessmentOutlet.text=[_frictionAssessmentSubFieldArray objectAtIndex:painScore];
     [self updateTotal];
 
 }
@@ -301,7 +304,7 @@
     
     
     _nutritionScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _nutritionAssessmentOutlet.text=[_nutritionAssessmentArray objectAtIndex:painScore];
+    _nutritionAssessmentOutlet.text=[_nutritionAssessmentSubFieldArray objectAtIndex:painScore];
     [self updateTotal];
 
 }
@@ -314,7 +317,7 @@
     
     
     _tissueScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _tissueAssessmentOutlet.text=[_tissueAssessmentArray objectAtIndex:painScore];
+    _tissueAssessmentOutlet.text=[_tissueAssessmentSubFieldArray objectAtIndex:painScore];
     [self updateTotal];
 
 }
@@ -326,7 +329,7 @@
     switch (sender.tag)
     {
             
-        case 0:
+        case 1:
             
             self.riskConsultTestPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectReviewViewController];
             [self.riskConsultTestPopOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -347,7 +350,7 @@
             
             
             break;
-        case 1:
+        case 2:
         {
  
             
@@ -376,7 +379,7 @@
         }
           
             break;
-        case 2:
+        case 3:
             
             self.riskConsultTestPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectReviewViewController];
             [self.riskConsultTestPopOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -416,7 +419,7 @@
     switch (sender.tag)
     {
             
-        case 0:
+        case 4:
            
             self.rosPopOver=[[UIPopoverController alloc]initWithContentViewController:_rosViewController];
             [self.rosPopOver setPopoverContentSize:CGSizeMake(300, 200)];
@@ -438,7 +441,7 @@
             break;
             
             
-        case 1:
+        case 5:
             
             self.rosPopOver=[[UIPopoverController alloc]initWithContentViewController:_rosViewController];
             [self.rosPopOver setPopoverContentSize:CGSizeMake(300, 200)];
@@ -458,7 +461,7 @@
             
             break;
             
-        case 2:
+        case 6:
             
             self.rosPopOver=[[UIPopoverController alloc]initWithContentViewController:_rosViewController];
             [self.rosPopOver setPopoverContentSize:CGSizeMake(300, 200)];
@@ -480,7 +483,7 @@
             
 
             
-        case 3:
+        case 7:
             
             self.rosPopOver=[[UIPopoverController alloc]initWithContentViewController:_rosViewController];
             [self.rosPopOver setPopoverContentSize:CGSizeMake(300, 200)];
@@ -500,7 +503,7 @@
             
             break;
             
-        case 4:
+        case 8:
             
             self.rosPopOver=[[UIPopoverController alloc]initWithContentViewController:_rosViewController];
             [self.rosPopOver setPopoverContentSize:CGSizeMake(300, 200)];
@@ -521,7 +524,7 @@
             break;
             
             
-        case 5:
+        case 9:
             
             self.rosPopOver=[[UIPopoverController alloc]initWithContentViewController:_rosViewController];
             [self.rosPopOver setPopoverContentSize:CGSizeMake(300, 200)];
@@ -541,7 +544,7 @@
             
             break;
             
-        case 6:
+        case 10:
             
             self.rosPopOver=[[UIPopoverController alloc]initWithContentViewController:_rosViewController];
             [self.rosPopOver setPopoverContentSize:CGSizeMake(300, 200)];
@@ -555,20 +558,9 @@
             _tRect.origin.x=_r.origin.x;
             _rosViewController.selectedCategory=@"Tissue";
             [self.rosPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-            
-            
-            
-            
             break;
-            
-
-            
-
-
-
 
             default:
-    
             break;
 }
 

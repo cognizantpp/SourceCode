@@ -33,6 +33,7 @@ PainHomeViewController *painController;
 EducationHomeViewController *educationHomeviewcontroller;
 TreatmentHomeViewController *treatmentHomeViewController;
 RecommendationHomeViewController *recommendationHomeViewController;
+ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSString *pName = [[[[[[[patientsDetails valueForKey:@"patient_name"]objectAtIndex:selectedPatientIndex] stringByAppendingString:@", DOB : "] stringByAppendingString:[[patientsDetails valueForKey:@"dob"]objectAtIndex:selectedPatientIndex] ] stringByAppendingString:@" ("] stringByAppendingString:[[patientsDetails valueForKey:@"age" ]objectAtIndex:selectedPatientIndex]] stringByAppendingString:@" Y)"];
@@ -83,10 +84,21 @@ RecommendationHomeViewController *recommendationHomeViewController;
             break;
         }
         case 2:
+        {
         
             [self.review setBackgroundImage:[UIImage imageNamed:@"icon_risk.png"] forState:UIControlStateNormal];
+             CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+            NSString *riskselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.riskFactorButtonOutlet.titleLabel.text];
+            NSString *consultselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.consultButtonOutlet.titleLabel.text];
+            NSString *testselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.testsButtonOutlet.titleLabel.text];
+            NSString *riskother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.riskFactorOtherTextField.text];
+             NSString *consultother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.consultOtherTextField.text];
+             NSString *testother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.testsOtherTextField.text];
+            [CoreDataHelper sharedInstance].reviewbaseselected_value=[NSArray arrayWithObjects:riskselected_value,consultselected_value,testselected_value, nil];
+            [CoreDataHelper sharedInstance].reviewbaseOthervalues=[NSArray arrayWithObjects:riskother_value,consultother_value,testother_value, nil];
+            [cdh saveReviewbase:entry_no];
                         break;
-        
+        }
         case 3:
         {
             [self.education setBackgroundImage:[UIImage imageNamed:@"icon_education.png"] forState:UIControlStateNormal];
@@ -144,8 +156,24 @@ RecommendationHomeViewController *recommendationHomeViewController;
         case 5:
         {
             NSString *str;
+            CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
             [self.recommendation setBackgroundImage:[UIImage imageNamed:@"icon_recommend.png"] forState:UIControlStateNormal];
-            [CoreDataHelper sharedInstance].treatmentselected_value=[NSArray arrayWithObjects:recommendationHomeViewController.mobilityButtonOutlet.titleLabel.text,recommendationHomeViewController.activityButtonOutlet.titleLabel.text,recommendationHomeViewController.sensoryPerceptionButtonOutlet.titleLabel.text,recommendationHomeViewController.moistureButtonOutlet.titleLabel.text,recommendationHomeViewController.frictionButtonOutlet.titleLabel.text,recommendationHomeViewController.tissueperfusionButtonOutlet.titleLabel.text,recommendationHomeViewController.labelTypeObtained.text,recommendationHomeViewController.deiticianReferral.text,recommendationHomeViewController.OtherTextfield.text,recommendationHomeViewController.bradenQRiskCategory.text,recommendationHomeViewController.followUpButtonOutlet.titleLabel.text,recommendationHomeViewController.btnrecommendationNumberEntry.titleLabel.text,nil];
+            NSString *mobilityselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.mobilityButtonOutlet.titleLabel.text];
+            NSString *activityselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.activityButtonOutlet.titleLabel.text];
+            NSString *sensorselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.sensoryPerceptionButtonOutlet.titleLabel.text];
+            NSString *moistureselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.moistureButtonOutlet.titleLabel.text];
+            NSString *frictionselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.frictionButtonOutlet.titleLabel.text];
+            NSString *tissueselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.tissueperfusionButtonOutlet.titleLabel.text];
+            NSString *labeltypeselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.labelTypeObtained.text];
+            NSString *deitricialselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.deiticianReferral.text];
+            NSString *otherselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.OtherTextfield.text];
+            NSString *bradenselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.bradenQRiskCategory.text];
+            NSString *followselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.followUpButtonOutlet.titleLabel.text];
+            NSString *timespentselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.btnrecommendationNumberEntry.titleLabel.text];
+            
+            [CoreDataHelper sharedInstance].recommendationselected_value=[NSArray arrayWithObjects:mobilityselected_value,activityselected_value,sensorselected_value,moistureselected_value,frictionselected_value,tissueselected_value,labeltypeselected_value,deitricialselected_value,otherselected_value,bradenselected_value,followselected_value,timespentselected_value,nil];
+            NSLog(@"%@",[CoreDataHelper sharedInstance].recommendationselected_value);
+            //[CoreDataHelper sharedInstance].treatmentselected_value=[NSArray arrayWithObjects:recommendationHomeViewController.mobilityButtonOutlet.titleLabel.text,recommendationHomeViewController.activityButtonOutlet.titleLabel.text,recommendationHomeViewController.sensoryPerceptionButtonOutlet.titleLabel.text,recommendationHomeViewController.moistureButtonOutlet.titleLabel.text,recommendationHomeViewController.frictionButtonOutlet.titleLabel.text,recommendationHomeViewController.tissueperfusionButtonOutlet.titleLabel.text,recommendationHomeViewController.labelTypeObtained.text,recommendationHomeViewController.deiticianReferral.text,recommendationHomeViewController.OtherTextfield.text,recommendationHomeViewController.bradenQRiskCategory.text,recommendationHomeViewController.followUpButtonOutlet.titleLabel.text,recommendationHomeViewController.btnrecommendationNumberEntry.titleLabel.text,nil];
             
             if([recommendationHomeViewController.followUpButtonOutlet.titleLabel.text containsString:@"Other"]){
                str= recommendationHomeViewController.followUpOtherTextField.text;
@@ -154,6 +182,9 @@ RecommendationHomeViewController *recommendationHomeViewController;
                 str=recommendationHomeViewController.dateButtonOutlet.titleLabel.text;
             }
             [CoreDataHelper sharedInstance].recommendationOthervalues=[NSArray arrayWithObjects:@"",@"",@"",@"",@"",@"",str,@"",@"",@"",@"",@"", nil];
+            
+            [cdh saveRecommendation:entry_no andCategoryid:cdh.recommendationcategoryid andCategoryname:cdh.recommendationcategory_name andSelectedvalue:cdh.recommendationselected_value andOther:cdh.recommendationOthervalues];
+            
         }
             break;
         case 6:
@@ -184,20 +215,21 @@ RecommendationHomeViewController *recommendationHomeViewController;
         [CoreDataHelper sharedInstance].paincategory_name=[NSArray arrayWithObjects:@"Character",@"score", nil];
                _buttonClicked=[sender tag];
         self.delete.alpha=0;
-        if([CoreDataHelper sharedInstance].painselected_value.count != 0){
-            NSLog(@"[selected_value objectAtIndex:0] %@",[[CoreDataHelper sharedInstance].painselected_value objectAtIndex:0]);
-            [painController.characterButtonOutlet setTitle:[[CoreDataHelper sharedInstance].painselected_value objectAtIndex:0] forState:UIControlStateNormal];
-            [painController.scoreButtonOutlet setTitle:[[CoreDataHelper sharedInstance].painselected_value objectAtIndex:1] forState:UIControlStateNormal];
-            
-        }
         
     }
     if([sender tag]==2){
         [sender setBackgroundImage:[UIImage imageNamed:@"visited.png"] forState:UIControlStateNormal];
         [self setButtonBackground];
-        ReviewOfSystemsHomeViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"ReviewOfSystemsHomeViewController"];
-        [self.initialview addSubview:tvc.view];
-        [self addChildViewController:tvc];
+        reviewOfSystemsHomeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"ReviewOfSystemsHomeViewController"];
+        [self.initialview addSubview:reviewOfSystemsHomeViewController.view];
+        [self addChildViewController:reviewOfSystemsHomeViewController];
+        NSString *riskid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.riskFactorButtonOutlet.tag];
+        NSString *consultid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.consultButtonOutlet.tag];
+        NSString *testid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.testsButtonOutlet.tag];
+        [CoreDataHelper sharedInstance].reviewbasecategoryid=[NSArray arrayWithObjects:riskid,consultid,testid,nil];
+        [CoreDataHelper sharedInstance].reviewbasecategory_name=[NSArray arrayWithObjects:@"Risk Factor",@"Consult",@"Tests", nil];
+        
+        
         _buttonClicked=[sender tag];
         self.delete.alpha=0;
         
@@ -224,51 +256,6 @@ RecommendationHomeViewController *recommendationHomeViewController;
 
         _buttonClicked=[sender tag];
         self.delete.alpha=0;
-        if([[CoreDataHelper sharedInstance].educationselected_value count] != 0){
-            [educationHomeviewcontroller.discussedButtonOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:0] forState:UIControlStateNormal];
-            [educationHomeviewcontroller.methodUsedOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:1] forState:UIControlStateNormal];
-             [educationHomeviewcontroller.handoutOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:2] forState:UIControlStateNormal];
-             [educationHomeviewcontroller.personTaughtOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:3] forState:UIControlStateNormal];
-             [educationHomeviewcontroller.comprehensionOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:4] forState:UIControlStateNormal];
-             [educationHomeviewcontroller.teachingAssessmentOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:5] forState:UIControlStateNormal];
-             [educationHomeviewcontroller.btnEducationNumber setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:6] forState:UIControlStateNormal];
-            NSString *str=[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:7];
-            [educationHomeviewcontroller.otherTextField setText:str];
-            //[eduarr objectAtIndex:0]containsString:@"other"]
-            if([[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:0]containsString:@"Other"])
-            {
-                educationHomeviewcontroller.discussedOtherTextField.hidden=NO;
-                NSString *str=[[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:0];
-                [educationHomeviewcontroller.discussedOtherTextField setText:str];
-            }
-            if([[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:1]containsString:@"Other"]){
-                educationHomeviewcontroller.methodUsedOtherTextField.hidden=NO;
-                NSString *str=[[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:1];
-                [educationHomeviewcontroller.methodUsedOtherTextField setText:str];
-            }
-            if([[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:2]containsString:@"Other"]){
-                educationHomeviewcontroller.handOutOtherTextField.hidden=NO;
-                NSString *str=[[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:2];
-                [educationHomeviewcontroller.handOutOtherTextField setText:str];
-            }
-            if([[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:3]containsString:@"Other"]){
-                educationHomeviewcontroller.personTaughtOtherTextField.hidden=NO;
-                NSString *str=[[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:3];
-                [educationHomeviewcontroller.personTaughtOtherTextField setText:str];
-           }
-            if([[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:5]containsString:@"Other"]){
-                educationHomeviewcontroller.teachingAssessmentOtherTextField.hidden=NO;
-                NSString *str=[[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:5];
-                [educationHomeviewcontroller.teachingAssessmentOtherTextField setText:str];
-            }
-            if([[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:6]){
-                NSString *str=[[CoreDataHelper sharedInstance].educationOthervalues objectAtIndex:6];
-                if([str isEqualToString:@"min"])
-                [educationHomeviewcontroller.minButtonOutlet setSelected:YES];
-                else if([str isEqualToString:@"hr"])
-                    [educationHomeviewcontroller.hrButtonOutlet setSelected:YES];
-            }
-        }
 
         
     }
@@ -298,32 +285,7 @@ RecommendationHomeViewController *recommendationHomeViewController;
 
         _buttonClicked=[sender tag];
         self.delete.alpha=0;
-        if([[CoreDataHelper sharedInstance].treatmentselected_value count] != 0){
-            [treatmentHomeViewController.cleansingButtonOutlet setTitle:[[CoreDataHelper sharedInstance].treatmentselected_value objectAtIndex:0] forState:UIControlStateNormal];
-            [treatmentHomeViewController.dressingButtonOutlet setTitle:[[CoreDataHelper sharedInstance].treatmentselected_value objectAtIndex:1] forState:UIControlStateNormal];
-            [treatmentHomeViewController.negativePressureWoundButtonOutlet setTitle:[[CoreDataHelper sharedInstance].treatmentselected_value objectAtIndex:2] forState:UIControlStateNormal];
-            NSString *str=[[CoreDataHelper sharedInstance].treatmentselected_value objectAtIndex:3];
-                if([str isEqualToString:@"Yes"])
-                    [treatmentHomeViewController.yesButtonOutlet setSelected:YES];
-                else if([str isEqualToString:@"No"])
-                    [treatmentHomeViewController.noButtonOutlet setSelected:YES];
-            [treatmentHomeViewController.skinCareButtonOutlet setTitle:[[CoreDataHelper sharedInstance].treatmentselected_value objectAtIndex:4] forState:UIControlStateNormal];
-            NSString *otherstr=[[CoreDataHelper sharedInstance].treatmentselected_value objectAtIndex:5];
-            [educationHomeviewcontroller.otherTextField setText:otherstr];
-            if([[[CoreDataHelper sharedInstance].treatmentselected_value objectAtIndex:0]containsString:@"Other"])
-            {
-                treatmentHomeViewController.CleansingOtherTextField.hidden=NO;
-                NSString *str=[[CoreDataHelper sharedInstance].treatmentOthervalues objectAtIndex:0];
-                [treatmentHomeViewController.CleansingOtherTextField setText:str];
-            }
-            if([[[CoreDataHelper sharedInstance].treatmentselected_value objectAtIndex:1]containsString:@"Other"]){
-                treatmentHomeViewController.dressingOtherTextField.hidden=NO;
-                NSString *str=[[CoreDataHelper sharedInstance].treatmentOthervalues objectAtIndex:1];
-                [treatmentHomeViewController.dressingOtherTextField setText:str];
-            }
 
-            
-        }
     }
     if([sender tag]==5){
         [sender setBackgroundImage:[UIImage imageNamed:@"visited.png"] forState:UIControlStateNormal];
@@ -331,14 +293,23 @@ RecommendationHomeViewController *recommendationHomeViewController;
        recommendationHomeViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"RecommendationHomeViewController"];
         [self.initialview addSubview:recommendationHomeViewController.view];
         [self addChildViewController:recommendationHomeViewController];
-        [CoreDataHelper sharedInstance].recommendationcategoryid=[NSMutableArray arrayWithObjects:[NSNumber numberWithInt: recommendationHomeViewController.mobilityButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.activityButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.sensoryPerceptionButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.moistureButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.frictionButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.tissueperfusionButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.labelTypeObtained.tag],[NSNumber numberWithInt: recommendationHomeViewController.deiticianReferral.tag],[NSNumber numberWithInt: recommendationHomeViewController.OtherTextfield.tag],[NSNumber numberWithInt: recommendationHomeViewController.bradenQRiskCategory.tag],[NSNumber numberWithInt: recommendationHomeViewController.followUpButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.btnrecommendationNumberEntry.tag],nil];
-        
-        [CoreDataHelper sharedInstance].recommendationcategory_name=[NSArray arrayWithObjects:@"Mobility",@"Activity",@"Sensory Perception",@"Moisture",@"Friction and Shear",@"Tissue Perfusion and Oxygenation",@"Label Type Obtained From",@"Deitician Referral",@"Other",@"Braden Q Risk Category",@"Follow Up,"@"Time Spent with Patient", nil];
-        
-        if([[CoreDataHelper sharedInstance].recommendationselected_value count] != 0){
-            [educationHomeviewcontroller.discussedButtonOutlet setTitle:[[CoreDataHelper sharedInstance].educationselected_value objectAtIndex:0] forState:UIControlStateNormal];
-            
-        }
+        NSString *mobilityid=[NSString stringWithFormat:@"%ld",(long)recommendationHomeViewController.mobilityButtonOutlet.tag];
+         NSString *activityid=[NSString stringWithFormat:@"%ld",(long)recommendationHomeViewController.activityButtonOutlet.tag];
+         NSString *sensorid=[NSString stringWithFormat:@"%ld",(long)recommendationHomeViewController.sensoryPerceptionButtonOutlet.tag];
+         NSString *moistureid=[NSString stringWithFormat:@"%ld",(long)recommendationHomeViewController.moistureButtonOutlet.tag];
+         NSString *frictionid=[NSString stringWithFormat:@"%ld",(long)recommendationHomeViewController.frictionButtonOutlet.tag];
+         NSString *tissueid=[NSString stringWithFormat:@"%ld",(long)recommendationHomeViewController.tissueperfusionButtonOutlet.tag];
+         NSString *labelid=[NSString stringWithFormat:@"%ld",(long)recommendationHomeViewController.labelTypeObtained.tag];
+         NSString *deiticianid=[NSString stringWithFormat:@"%ld",(long)recommendationHomeViewController.deiticianReferral.tag];
+         NSString *otherid=[NSString stringWithFormat:@"%ld",(long)recommendationHomeViewController.OtherTextfield.tag];
+         NSString *bradenid=[NSString stringWithFormat:@"%ld",(long)recommendationHomeViewController.bradenQRiskCategory.tag];
+         NSString *follwupid=[NSString stringWithFormat:@"%ld",(long)recommendationHomeViewController.followUpButtonOutlet.tag];
+         NSString *timespentid=[NSString stringWithFormat:@"%ld",(long)recommendationHomeViewController.btnrecommendationNumberEntry.tag];
+        //[CoreDataHelper sharedInstance].recommendationcategoryid=[NSMutableArray arrayWithObjects:[NSNumber numberWithInt: recommendationHomeViewController.mobilityButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.activityButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.sensoryPerceptionButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.moistureButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.frictionButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.tissueperfusionButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.labelTypeObtained.tag],[NSNumber numberWithInt: recommendationHomeViewController.deiticianReferral.tag],[NSNumber numberWithInt: recommendationHomeViewController.OtherTextfield.tag],[NSNumber numberWithInt: recommendationHomeViewController.bradenQRiskCategory.tag],[NSNumber numberWithInt: recommendationHomeViewController.followUpButtonOutlet.tag],[NSNumber numberWithInt: recommendationHomeViewController.btnrecommendationNumberEntry.tag],nil];
+        [CoreDataHelper sharedInstance].recommendationcategoryid=[NSMutableArray arrayWithObjects:mobilityid,activityid,sensorid,moistureid,frictionid,tissueid,labelid,deiticianid,otherid,bradenid,follwupid,timespentid,nil];
+                                                                  
+        [CoreDataHelper sharedInstance].recommendationcategory_name=[NSArray arrayWithObjects:@"Mobility",@"Activity",@"Sensory Perception",@"Moisture",@"Friction and Shear",@"Tissue Perfusion and Oxygenation",@"Label Type Obtained From",@"Deitician Referral",@"Other",@"Braden Q Risk Category",@"Follow Up",@"Time Spent with Patient", nil];
+        NSLog(@"%@",[CoreDataHelper sharedInstance].recommendationcategory_name);
 
         
         _buttonClicked=[sender tag];
@@ -352,7 +323,7 @@ RecommendationHomeViewController *recommendationHomeViewController;
        WoundImageViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"WoundImageViewController"];
         [self.initialview addSubview:tvc.view];
         [self addChildViewController:tvc];
-//        NSLog(@"%d",buttonClicked);
+
         _buttonClicked=[sender tag];
         
     }
