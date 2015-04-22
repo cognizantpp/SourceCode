@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GetDataProtocol.h"
+#import "CoreDataHelper.h"
 //#import "OstomyViewController.h"
 
 @interface StomaLocationTVController : UITableViewController<UITableViewDataSource,UITableViewDelegate>

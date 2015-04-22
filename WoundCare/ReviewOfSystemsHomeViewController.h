@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "SelectReviewOfSystemsTableViewController.h"
-
 #import "ReviewAssessmentTableViewController.h"
+#import "CoreDataHelper.h"
 
 @interface ReviewOfSystemsHomeViewController : UIViewController<UIScrollViewDelegate,GetDataProtocol>
 
@@ -60,16 +60,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *testsOtherTextField;
 
 
-
-
 @property(nonatomic,strong)SelectReviewOfSystemsTableViewController *selectReviewViewController;
 
 @property(nonatomic,strong)ReviewAssessmentTableViewController *rosViewController;
-
-
-
-
-
 
 
 @property(nonatomic)int riskFactorCount;
