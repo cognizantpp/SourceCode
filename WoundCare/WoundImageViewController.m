@@ -47,6 +47,9 @@
     self.WoundCordinateArray = [[NSMutableArray alloc] init];
     self.GastroCordinateArray = [[NSMutableArray alloc] init];
     self.OstoCordinateArray = [[NSMutableArray alloc] init];
+ //   self.captureImage=[[WouldyouliketousecameraVC alloc]init];
+
+    // Do any additional setup after loading the view, typically from a nib.
     
     [self setSelectedCoordinates];
 }
@@ -111,11 +114,20 @@
 {
     self.woundtype=data;
     
+    //_captureImage.selectedString=data;
+    //NSLog(@"self.....%@",self.woundtypetoebepassed);
+    
+    
     CGRect rect=[_imageV frame];
+    
+    
+    
+    
     rect.origin.x=521;
     rect.origin.y=221;
-    NSLog(@"%@",data);
-    NSLog(@"%@",self.woundtype);
+
+    
+  
     //[self.myButtonOutlet setTitle:selectedData forState:UIControlStateNormal];
     [self.popOver dismissPopoverAnimated: YES];
     
@@ -208,15 +220,18 @@
 
 -(void)getTagId2:(NSInteger *)data
 {
+    //NSLog(@"data is %d",data);
     [self.popOver3 dismissPopoverAnimated: YES];
 }
 
 -(void)getTagId3:(NSInteger *)data
 {
+    //NSLog(@"data is %d",data);
     [self.popOver4 dismissPopoverAnimated: YES];
 }
 -(void)getTagId4:(NSInteger *)data
 {
+    //NSLog(@"data is %d",data);
     [self.popOver5 dismissPopoverAnimated: YES];
 }
 
@@ -238,11 +253,13 @@
             if(self.wc < 7)
             {   //NSLog(@"wc=%d",self.wc);
                 UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:Nil];
-                
-                WouldyouliketousecameraVC *popViewController2=[storyBoard instantiateViewControllerWithIdentifier:@"thirdviewcontroller"];
-                
-                self.popOver2=[[UIPopoverController alloc]initWithContentViewController:popViewController2];
-                [self.popOver2 setPopoverContentSize:CGSizeMake(300, 150)];
+            
+            WouldyouliketousecameraVC *popViewController2=[storyBoard instantiateViewControllerWithIdentifier:@"thirdviewcontroller"];
+                popViewController2.selectedString = self.woundtype;
+        
+            
+            self.popOver2=[[UIPopoverController alloc]initWithContentViewController:popViewController2];
+            [self.popOver2 setPopoverContentSize:CGSizeMake(300, 150)];
                 [self.popOver2 presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];}
             
             if ([self.woundtype  isEqualToString:@"Wound"]  ) {

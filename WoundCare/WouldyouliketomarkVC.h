@@ -13,5 +13,4 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageV1;
 @property(nonatomic,weak)id<selectDataProtocol>dataDelegate;
 @property(nonatomic)NSInteger *tagtobepassed;
-
 @end

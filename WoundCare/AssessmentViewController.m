@@ -8,10 +8,11 @@
 
 #import "AssessmentViewController.h"
 #import "PictureViewController.h"
+#import "WoundImageViewController.h"
+
 @interface AssessmentViewController ()
 - (IBAction)buttonClciked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *baseView;
-@property (weak, nonatomic) IBOutlet UIView *initialview;
 @property (weak, nonatomic) IBOutlet UIButton *pain;
 @property (weak, nonatomic) IBOutlet UIButton *review;
 @property (weak, nonatomic) IBOutlet UIButton *education;
@@ -22,7 +23,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *gallery;
 @property (weak, nonatomic) IBOutlet UIButton *logout;
 @property (strong, nonatomic) UIPopoverController *popOver;
+@property (strong, nonatomic) UIPopoverController *patientListPopOver;
 - (IBAction)btnPatientInfoClicked:(id)sender;
+- (IBAction)showPatientListPopup:(UIButton *)sender;
 
 @end
 NSString *timespentother;
@@ -37,6 +40,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
     NSString *pName = [[[[[[[patientsDetails valueForKey:@"patient_name"]objectAtIndex:selectedPatientIndex] stringByAppendingString:@", DOB : "] stringByAppendingString:[[patientsDetails valueForKey:@"dob"]objectAtIndex:selectedPatientIndex] ] stringByAppendingString:@" ("] stringByAppendingString:[[patientsDetails valueForKey:@"age" ]objectAtIndex:selectedPatientIndex]] stringByAppendingString:@" Y)"];
     [self.btnCurrentPatient setTitle:pName forState:UIControlStateNormal];
     NSLog(@"button clicked value %ld",_buttonClicked);
+   
     if(_buttonClicked != 7){
         _buttonClicked=6;
         [self.human setImage:[UIImage imageNamed:@"homanhover2013.png"] forState:UIControlStateNormal];
@@ -49,7 +53,8 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         [self addChildViewController:picVw];
         self.delete.alpha=0;
     }
-    
+    assessmentGlobalView = self.initialview;
+    assessmentglobalviewcontroller=self;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -385,7 +390,18 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
     self.popOver =  [[UIPopoverController alloc]initWithContentViewController:self.patientInfoViewController];
     [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
+
+- (IBAction)showPatientListPopup:(UIButton *)sender {
+    self.patientListTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PatientListTableViewController"];
+    _patientListPopOver = [[UIPopoverController alloc]initWithContentViewController:self.patientListTableViewController];
+    [_patientListPopOver setPopoverContentSize:CGSizeMake(400, 150)];
+    [_patientListPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+}
 -(void)patientInfoOKClicked{
     [self.popOver dismissPopoverAnimated:YES];
 }
+
+
+
 @end
