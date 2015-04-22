@@ -154,11 +154,11 @@
 		9497E89C1ACAC7F000F8FC12 /* testimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E87F1ACAC7F000F8FC12 /* testimg.png */; };
 		9497E89D1ACAC7F000F8FC12 /* txtbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 9497E8801ACAC7F000F8FC12 /* txtbox.png */; };
 		949BAA9F1AE7AD60001935A8 /* ReviewAssessmentSave.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAA9E1AE7AD60001935A8 /* ReviewAssessmentSave.m */; };
-		949BAAAB1AE7CB2E001935A8 /* OstomyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAAA21AE7CB2E001935A8 /* OstomyViewController.m */; };
-		949BAAAC1AE7CB2E001935A8 /* SelectOnsetDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAAA41AE7CB2E001935A8 /* SelectOnsetDate.m */; };
-		949BAAAD1AE7CB2E001935A8 /* SelectOstomySiteTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAAA61AE7CB2E001935A8 /* SelectOstomySiteTVController.m */; };
-		949BAAAE1AE7CB2E001935A8 /* SizeEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAAA81AE7CB2E001935A8 /* SizeEntryViewController.m */; };
-		949BAAAF1AE7CB2E001935A8 /* StomaLocationTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAAAA1AE7CB2E001935A8 /* StomaLocationTVController.m */; };
+		949BAABB1AE7D0E9001935A8 /* OstomyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAAB21AE7D0E9001935A8 /* OstomyViewController.m */; };
+		949BAABC1AE7D0E9001935A8 /* SelectOnsetDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAAB41AE7D0E9001935A8 /* SelectOnsetDate.m */; };
+		949BAABD1AE7D0E9001935A8 /* SelectOstomySiteTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAAB61AE7D0E9001935A8 /* SelectOstomySiteTVController.m */; };
+		949BAABE1AE7D0E9001935A8 /* SizeEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAAB81AE7D0E9001935A8 /* SizeEntryViewController.m */; };
+		949BAABF1AE7D0E9001935A8 /* StomaLocationTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAABA1AE7D0E9001935A8 /* StomaLocationTVController.m */; };
 		B61B335C1AE77AF3007DBB69 /* WoundViewHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61B334F1AE77AF3007DBB69 /* WoundViewHomeViewController.m */; };
 		B61B335D1AE77AF3007DBB69 /* RadioPopUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B61B33511AE77AF3007DBB69 /* RadioPopUpCell.m */; };
 		B61B335E1AE77AF3007DBB69 /* RadioPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61B33541AE77AF3007DBB69 /* RadioPopUpViewController.m */; };
@@ -419,16 +419,16 @@
 		949BAA9D1AE7AD60001935A8 /* ReviewAssessmentSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewAssessmentSave.h; path = WoundCare/ReviewAssessmentSave.h; sourceTree = "<group>"; };
 		949BAA9E1AE7AD60001935A8 /* ReviewAssessmentSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewAssessmentSave.m; path = WoundCare/ReviewAssessmentSave.m; sourceTree = "<group>"; };
 		949BAAA01AE7C9D0001935A8 /* GastrostomyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GastrostomyViewController.h; sourceTree = "<group>"; };
-		949BAAA11AE7CB2E001935A8 /* OstomyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OstomyViewController.h; sourceTree = "<group>"; };
-		949BAAA21AE7CB2E001935A8 /* OstomyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OstomyViewController.m; sourceTree = "<group>"; };
-		949BAAA31AE7CB2E001935A8 /* SelectOnsetDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOnsetDate.h; sourceTree = "<group>"; };
-		949BAAA41AE7CB2E001935A8 /* SelectOnsetDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectOnsetDate.m; sourceTree = "<group>"; };
-		949BAAA51AE7CB2E001935A8 /* SelectOstomySiteTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOstomySiteTVController.h; sourceTree = "<group>"; };
-		949BAAA61AE7CB2E001935A8 /* SelectOstomySiteTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectOstomySiteTVController.m; sourceTree = "<group>"; };
-		949BAAA71AE7CB2E001935A8 /* SizeEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizeEntryViewController.h; sourceTree = "<group>"; };
-		949BAAA81AE7CB2E001935A8 /* SizeEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizeEntryViewController.m; sourceTree = "<group>"; };
-		949BAAA91AE7CB2E001935A8 /* StomaLocationTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StomaLocationTVController.h; sourceTree = "<group>"; };
-		949BAAAA1AE7CB2E001935A8 /* StomaLocationTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StomaLocationTVController.m; sourceTree = "<group>"; };
+		949BAAB11AE7D0E9001935A8 /* OstomyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OstomyViewController.h; sourceTree = "<group>"; };
+		949BAAB21AE7D0E9001935A8 /* OstomyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OstomyViewController.m; sourceTree = "<group>"; };
+		949BAAB31AE7D0E9001935A8 /* SelectOnsetDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOnsetDate.h; sourceTree = "<group>"; };
+		949BAAB41AE7D0E9001935A8 /* SelectOnsetDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectOnsetDate.m; sourceTree = "<group>"; };
+		949BAAB51AE7D0E9001935A8 /* SelectOstomySiteTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOstomySiteTVController.h; sourceTree = "<group>"; };
+		949BAAB61AE7D0E9001935A8 /* SelectOstomySiteTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectOstomySiteTVController.m; sourceTree = "<group>"; };
+		949BAAB71AE7D0E9001935A8 /* SizeEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SizeEntryViewController.h; sourceTree = "<group>"; };
+		949BAAB81AE7D0E9001935A8 /* SizeEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizeEntryViewController.m; sourceTree = "<group>"; };
+		949BAAB91AE7D0E9001935A8 /* StomaLocationTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StomaLocationTVController.h; sourceTree = "<group>"; };
+		949BAABA1AE7D0E9001935A8 /* StomaLocationTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StomaLocationTVController.m; sourceTree = "<group>"; };
 		B61B334E1AE77AF3007DBB69 /* WoundViewHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoundViewHomeViewController.h; sourceTree = "<group>"; };
 		B61B334F1AE77AF3007DBB69 /* WoundViewHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoundViewHomeViewController.m; sourceTree = "<group>"; };
 		B61B33501AE77AF3007DBB69 /* RadioPopUpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioPopUpCell.h; sourceTree = "<group>"; };
@@ -514,24 +514,6 @@
 				459886451AE51017004C0984 /* txtarea.png */,
 			);
 			name = ostomy;
-			sourceTree = "<group>";
-		};
-		459886441AE50EDF004C0984 /* Ostomy */ = {
-			isa = PBXGroup;
-			children = (
-				949BAAA11AE7CB2E001935A8 /* OstomyViewController.h */,
-				949BAAA21AE7CB2E001935A8 /* OstomyViewController.m */,
-				949BAAA31AE7CB2E001935A8 /* SelectOnsetDate.h */,
-				949BAAA41AE7CB2E001935A8 /* SelectOnsetDate.m */,
-				949BAAA51AE7CB2E001935A8 /* SelectOstomySiteTVController.h */,
-				949BAAA61AE7CB2E001935A8 /* SelectOstomySiteTVController.m */,
-				949BAAA71AE7CB2E001935A8 /* SizeEntryViewController.h */,
-				949BAAA81AE7CB2E001935A8 /* SizeEntryViewController.m */,
-				949BAAA91AE7CB2E001935A8 /* StomaLocationTVController.h */,
-				949BAAAA1AE7CB2E001935A8 /* StomaLocationTVController.m */,
-			);
-			name = Ostomy;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		9138ED321AD6B02B00B7D64D /* ReviewOfSystems */ = {
@@ -646,7 +628,6 @@
 			children = (
 				B61B334D1AE77A7E007DBB69 /* WoundReason */,
 				B6AF16CC1AE52D05008FC7C0 /* Gastrostomy */,
-				459886441AE50EDF004C0984 /* Ostomy */,
 				91C228C31ABA9B0C00E389AF /* images */,
 				91D19C831ACBCD0E0056BD2E /* Delegate */,
 				91C08BFF1ACA8DA600957D66 /* DB */,
@@ -670,6 +651,7 @@
 		91C228791ABA983900E389AF /* WoundCare */ = {
 			isa = PBXGroup;
 			children = (
+				949BAAB01AE7D0AB001935A8 /* Ostomy reason */,
 				91BA233B1AE4CDA3002CDD10 /* ImageCapture */,
 				9138ED321AD6B02B00B7D64D /* ReviewOfSystems */,
 				91A2F6B31AD2C2880000A0CA /* Login */,
@@ -950,6 +932,24 @@
 				9497E8801ACAC7F000F8FC12 /* txtbox.png */,
 			);
 			name = assessment;
+			sourceTree = "<group>";
+		};
+		949BAAB01AE7D0AB001935A8 /* Ostomy reason */ = {
+			isa = PBXGroup;
+			children = (
+				949BAAB11AE7D0E9001935A8 /* OstomyViewController.h */,
+				949BAAB21AE7D0E9001935A8 /* OstomyViewController.m */,
+				949BAAB31AE7D0E9001935A8 /* SelectOnsetDate.h */,
+				949BAAB41AE7D0E9001935A8 /* SelectOnsetDate.m */,
+				949BAAB51AE7D0E9001935A8 /* SelectOstomySiteTVController.h */,
+				949BAAB61AE7D0E9001935A8 /* SelectOstomySiteTVController.m */,
+				949BAAB71AE7D0E9001935A8 /* SizeEntryViewController.h */,
+				949BAAB81AE7D0E9001935A8 /* SizeEntryViewController.m */,
+				949BAAB91AE7D0E9001935A8 /* StomaLocationTVController.h */,
+				949BAABA1AE7D0E9001935A8 /* StomaLocationTVController.m */,
+			);
+			name = "Ostomy reason";
+			path = ..;
 			sourceTree = "<group>";
 		};
 		B61B334D1AE77A7E007DBB69 /* WoundReason */ = {
@@ -1256,21 +1256,21 @@
 				91D19C991ACBCEEF0056BD2E /* EducationHomeViewController.m in Sources */,
 				91CC03D71AD3B9E700A4B2B6 /* EducationNumberEntryViewController.m in Sources */,
 				B6AF16D81AE52D47008FC7C0 /* WidthViewController.m in Sources */,
+				949BAABD1AE7D0E9001935A8 /* SelectOstomySiteTVController.m in Sources */,
 				949778821AD3E46E00257B94 /* RecommendationsSave.m in Sources */,
 				91C165BB1AC01821007A1B41 /* AssignmentsCell.m in Sources */,
 				4597AA931AE62F11008730A3 /* Ostomy.m in Sources */,
 				B6E4888C1ACC210300E356F7 /* WouldyouliketomarkVC.m in Sources */,
 				949778881AD3E46E00257B94 /* TreatmentSave.m in Sources */,
 				9138ED3B1AD6B03D00B7D64D /* ReviewAssessmentTableViewController.m in Sources */,
+				949BAABE1AE7D0E9001935A8 /* SizeEntryViewController.m in Sources */,
 				91D48F081AC16441003F8B0A /* AddAssignmentPopOverController.m in Sources */,
 				91C228B21ABA9A5E00E389AF /* Recommendations.m in Sources */,
-				949BAAAC1AE7CB2E001935A8 /* SelectOnsetDate.m in Sources */,
 				9138ED391AD6B03D00B7D64D /* ReviewOfSystemsHomeViewController.m in Sources */,
 				B61B335F1AE77AF3007DBB69 /* MultipleSelectionTableViewController.m in Sources */,
 				B6E4889E1ACC215300E356F7 /* SelectWoundTypeTableViewController.m in Sources */,
 				91D19CE11ACBD6980056BD2E /* SelectTreatmentTableViewController.m in Sources */,
 				91C228AC1ABA9A5E00E389AF /* ReviewAssessment.m in Sources */,
-				949BAAAB1AE7CB2E001935A8 /* OstomyViewController.m in Sources */,
 				91D19C611ACBCCA30056BD2E /* PainHomeViewController.m in Sources */,
 				B6AF16E41AE52D7E008FC7C0 /* SelectGastrostomySiteTableViewController.m in Sources */,
 				B61B335D1AE77AF3007DBB69 /* RadioPopUpCell.m in Sources */,
@@ -1287,12 +1287,12 @@
 				91BA23441AE4CDB2002CDD10 /* WoundIdPopupViewController.m in Sources */,
 				91C228C21ABA9AF500E389AF /* AssignmentsViewController.m in Sources */,
 				B61B335E1AE77AF3007DBB69 /* RadioPopUpViewController.m in Sources */,
+				949BAABC1AE7D0E9001935A8 /* SelectOnsetDate.m in Sources */,
 				B6AF16E21AE52D7E008FC7C0 /* NumberEntryViewController1.m in Sources */,
 				91D19CC51ACBD2CF0056BD2E /* SelectCharacterTableViewController.m in Sources */,
 				B6AF16D61AE52D47008FC7C0 /* SelectOnsetDate1.m in Sources */,
 				91D19CBF1ACBD1DF0056BD2E /* FollowUpTableViewController.m in Sources */,
 				91D19C9A1ACBCEEF0056BD2E /* SelectEducationTableViewController.m in Sources */,
-				949BAAAF1AE7CB2E001935A8 /* StomaLocationTVController.m in Sources */,
 				B6AF16DB1AE52D5E008FC7C0 /* GastrostomyViewController.m in Sources */,
 				91C228801ABA983900E389AF /* AppDelegate.m in Sources */,
 				91D19CAA1ACBD19B0056BD2E /* RecommendationHomeViewController.m in Sources */,
@@ -1303,14 +1303,15 @@
 				B6E488921ACC212100E356F7 /* WoundImageViewController.m in Sources */,
 				91C228B81ABA9A5E00E389AF /* Treatment.m in Sources */,
 				B61B33601AE77AF3007DBB69 /* SingleSelectionTableViewController.m in Sources */,
+				949BAABF1AE7D0E9001935A8 /* StomaLocationTVController.m in Sources */,
 				91BCB0491AE75EC20065565E /* PatientListTableViewController.m in Sources */,
+				949BAABB1AE7D0E9001935A8 /* OstomyViewController.m in Sources */,
 				949778851AD3E46E00257B94 /* ReviewSaveBase.m in Sources */,
 				9497787F1AD3E46D00257B94 /* PainSave.m in Sources */,
 				B6E488901ACC211B00E356F7 /* OstomyalreadyselectedVC.m in Sources */,
 				91BCB0461AE75E6A0065565E /* PatientListCell.m in Sources */,
 				91BA23421AE4CDB2002CDD10 /* PictureViewController.m in Sources */,
 				91C228A91ABA9A5E00E389AF /* Education.m in Sources */,
-				949BAAAD1AE7CB2E001935A8 /* SelectOstomySiteTVController.m in Sources */,
 				9128274A1AD3EA8B00FD2D5F /* PatientInfoViewController.m in Sources */,
 				4597AA901AE62F0F008730A3 /* OstomySave.m in Sources */,
 				91C228BF1ABA9A9600E389AF /* CoreDataHelper.m in Sources */,
@@ -1320,7 +1321,6 @@
 				91C2287D1ABA983900E389AF /* main.m in Sources */,
 				91BA23431AE4CDB2002CDD10 /* CropImageViewController.m in Sources */,
 				91D19CE01ACBD6980056BD2E /* TreatmentHomeViewController.m in Sources */,
-				949BAAAE1AE7CB2E001935A8 /* SizeEntryViewController.m in Sources */,
 				91D19C651ACBCCA30056BD2E /* SelectFlaccViewController.m in Sources */,
 				9138ED3A1AD6B03D00B7D64D /* SelectReviewOfSystemsTableViewController.m in Sources */,
 				9497E85F1ACAC74100F8FC12 /* AssessmentViewController.m in Sources */,
