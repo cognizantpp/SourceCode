@@ -19,7 +19,13 @@
     [super viewDidLoad];
     [self.datePicker addTarget:self action:@selector(datePickerChanged:) forControlEvents:UIControlEventValueChanged];
     
-    [self.datePicker setMinimumDate: [NSDate date]];
+    [self.datePicker setDatePickerMode:UIDatePickerModeDate];
+    if([self.selectedString isEqualToString:@"Recommendations"]){
+        [self.datePicker setMinimumDate: [NSDate date]];
+    }
+    else{
+        [self.datePicker setMaximumDate: [NSDate date]];
+    }
     _datePicker.backgroundColor=[UIColor clearColor];
 
 
@@ -34,7 +40,7 @@
     dateFormat = [[NSDateFormatter alloc] init];
     
     [dateFormat setDateFormat:@"dd-MM-yyyy"];
-    NSLog(@"%@",[dateFormat stringFromDate:date1]);
+    //NSLog(@"%@",[dateFormat stringFromDate:date1]);
     
         //   [self.selectDateButtonOutlet setTitle:[dateFormat stringFromDate:date1] forState:UIControlStateNormal]  ;
     
@@ -45,7 +51,15 @@
 
 - (IBAction)doneButtonAction:(UIBarButtonItem *)sender {
     
-    [self.dataDelegate getDate:[dateFormat stringFromDate:date1]];
+    if ([_selectedString isEqualToString:@"Recommendations"]) {
+        [self.dataDelegate getDate:[dateFormat stringFromDate:date1]];
+
+    }
+    else if ([_selectedString isEqualToString:@"Assignment"])
+    {
+        [self.dataDelegate getAssignmentDate:date1];
+
+    }
     
     [self dismissViewControllerAnimated:YES completion:Nil];
 }

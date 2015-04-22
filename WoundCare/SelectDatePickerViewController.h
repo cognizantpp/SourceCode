@@ -15,7 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet id toolBarOutlet;
 
-
+@property(nonatomic,strong)NSString *selectedString;
 
 @property(nonatomic,assign)id<GetDataProtocol>dataDelegate;
 

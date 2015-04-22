@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SelectRecommendationsTableViewController.h"
-
+#import "AssignmentsViewController.h"
 #import "FollowUpTableViewController.h"
 #import "SelectDatePickerViewController.h"
 #import "RecommendationsNumberEntryViewController.h"

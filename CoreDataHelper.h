@@ -16,6 +16,7 @@
 #import "PainSave.h"
 #import "EducationSave.h"
 #import "TreatmentSave.h"
+#import "RecommendationsSave.h"
 #import "Wound.h"
 #import "Ostomy.h"
 #import "OstomySave.h"
@@ -48,6 +49,16 @@
 @property (strong, nonatomic)NSMutableDictionary *woundName;
 -(void)saveImages;
 -(void)fetchImages;
+
+
+//WoundCapture
+@property (strong, nonatomic) NSMutableArray *woundCoordinates;
+@property (strong, nonatomic) NSMutableArray *woundNumber;
+@property (strong, nonatomic) NSMutableArray *woundImageName;
+-(void)fetchWoundCoordinates;
+-(void)saveWoundCoordinates;
+-(void)deleteWoundCoordinates:(NSString *)woundnum;
+
 
 @property(strong,nonatomic)NSMutableArray *recommendationcategoryid;
 @property(strong,nonatomic)NSArray *recommendationcategory_name;
@@ -92,4 +103,9 @@
 
 -(void)saveTreatment:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
 -(NSArray *)setTreatmentFields:(NSString *)entryNo ;
+
+-(void)saveRecommendation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
+-(NSArray *)setRecommendationFields:(NSString *)entryNo ;
+
+-(void)fetchRecommendationsSaved;
 @end

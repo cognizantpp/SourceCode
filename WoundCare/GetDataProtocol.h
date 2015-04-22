@@ -90,5 +90,26 @@
 -(void)updateFistulaWidth:(NSString*)entryNumber;
 -(void)updateFistulaDepth:(NSString*)entryNumber;
 -(void)OkSizeClicked;
+//gastrostomy
+-(void)getGastrostomySite:(NSArray *)data;
+-(void)getGastrostomyTubeType:(NSArray *)data;
+-(void)getCharacter:(NSArray *)data;
+-(void)getRetentionDisk:(NSArray *)data;
+-(void)getPeristomalSkinCharacter:(NSArray *)data;
+-(void)getExudateCharacter:(NSArray *)data;
+
+
+-(void)getExudateOdor:(NSString *)data;
+-(void)getExudateAmount:(NSString *)data;
+-(void)getGranulationTissue:(NSString *)data;
+-(void)getEdema:(NSString *)data;
+-(void)getCondition:(NSString *)data;
+-(void)getDate1:(NSString *)date;
+
+
+
+-(void)getAssignmentDate:(NSDate *)date;
+
+
 
 @end

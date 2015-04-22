@@ -173,7 +173,7 @@
         <attribute name="wound_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wound_name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="WoundSelection" syncable="YES">
+    <entity name="WoundSelection" representedClassName="WoundSelection" syncable="YES">
         <attribute name="entry_number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wound_coordinates" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="wound_number" optional="YES" attributeType="String" syncable="YES"/>
