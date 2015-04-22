@@ -22,7 +22,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *gallery;
 @property (weak, nonatomic) IBOutlet UIButton *logout;
 @property (strong, nonatomic) UIPopoverController *popOver;
+@property (strong, nonatomic) UIPopoverController *patientListPopOver;
 - (IBAction)btnPatientInfoClicked:(id)sender;
+- (IBAction)showPatientListPopup:(UIButton *)sender;
 
 @end
 NSString *timespentother;
@@ -374,7 +376,18 @@ RecommendationHomeViewController *recommendationHomeViewController;
     self.popOver =  [[UIPopoverController alloc]initWithContentViewController:self.patientInfoViewController];
     [self.popOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
 }
+
+- (IBAction)showPatientListPopup:(UIButton *)sender {
+    self.patientListTableViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PatientListTableViewController"];
+    _patientListPopOver = [[UIPopoverController alloc]initWithContentViewController:self.patientListTableViewController];
+    [_patientListPopOver setPopoverContentSize:CGSizeMake(400, 150)];
+    [_patientListPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+}
 -(void)patientInfoOKClicked{
     [self.popOver dismissPopoverAnimated:YES];
 }
+
+
+
 @end
