@@ -23,6 +23,9 @@
 #import "ReviewAssessment.h"
 #import "ReviewBase.h"
 #import "ReviewSaveBase.h"
+#import "ReviewAssessment.h"
+#import "Ostomy.h"
+#import "ReviewBase.h"
 #import "ReviewAssessmentSave.h"
 
 @interface CoreDataHelper : NSObject
