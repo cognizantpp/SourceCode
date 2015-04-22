@@ -105,6 +105,29 @@
 -(void)getEdema:(NSString *)data;
 -(void)getCondition:(NSString *)data;
 -(void)getDate1:(NSString *)date;
+//woundreason
+
+-(void)getInfiltrateNewbornData:(NSString *)data ;
+-(void)getInfiltratePediatricData:(NSString *)data ;
+-(void)getPhlebitisData:(NSString *)data ;
+-(void)getUlcerData:(NSString *)data;
+-(void)getOtherData:(NSArray *)data;
+-(void)getWoundThicknessData:(NSString *)data;
+-(void)getWoundBedColorData:(NSArray *)data;
+-(void)getWoundBedData:(NSArray *)data;
+-(void)getPeriWoundData:(NSArray *)data;
+-(void)getExudateCharacterData:(NSArray *)data;
+-(void)getExudateOdorData:(NSString *)data;
+-(void)getExudateAmountData:(NSString *)data;
+
+-(void)getConditionData:(NSString *)data;
+-(void)getOtherWoundsData:(NSString *)data;
+
+-(void)updateLengthEntryNumber:(NSString *)data;
+-(void)OkLengthClicked;
+-(void)updateWoundBed:(NSString*)granulationStr andEpithel:(NSString*)epithel andEschar:(NSString*)eschar andSlough:(NSString*)slough;
+-(void)getEdemaData:(NSString *)data;
+
 
 
 @end

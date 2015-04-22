@@ -85,13 +85,13 @@
 -(void)OkClicked;
 -(void)OkClickedW;
 -(void)updateEntryNumber:(NSString *)entryNumber;
-- (IBAction)numberClicked:(UIButton*)sender;
+//- (IBAction)numberClicked:(UIButton*)sender;
 
 -(void)updateEntryNumberW:(NSString *)entryNumberW;
 
 
 
-- (IBAction)btnGoClicked:(id)sender;
+//- (IBAction)btnGoClicked:(id)sender;
 
 
 

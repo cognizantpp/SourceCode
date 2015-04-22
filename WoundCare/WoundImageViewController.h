@@ -36,7 +36,6 @@
 
 
 
-@property(nonatomic,strong)WouldyouliketousecameraVC *captureImage;
 
 
 

@@ -47,7 +47,7 @@
     self.WoundCordinateArray = [[NSMutableArray alloc] init];
     self.GastroCordinateArray = [[NSMutableArray alloc] init];
     self.OstoCordinateArray = [[NSMutableArray alloc] init];
-    self.captureImage=[[WouldyouliketousecameraVC alloc]init];
+ //   self.captureImage=[[WouldyouliketousecameraVC alloc]init];
 
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -339,6 +339,7 @@
     //NSLog(@"data is %d",data);
     [self.popOver5 dismissPopoverAnimated: YES];
 }
+
 
 
 

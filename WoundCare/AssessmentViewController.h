@@ -12,11 +12,17 @@
 #import "EducationHomeViewController.h"
 #import "RecommendationHomeViewController.h"
 #import "TreatmentHomeViewController.h"
-#import "WoundImageViewController.h"
 #import "PatientInfoViewController.h"
 #import "ReviewOfSystemsHomeViewController.h"
 #import "CoreDataHelper.h"
+
+@class WoundImageViewController;
+
+UIView *assessmentGlobalView;
+UIViewController *assessmentglobalviewcontroller;
 @interface AssessmentViewController : UIViewController<GetDataProtocol>
 @property (strong, nonatomic) PatientInfoViewController *patientInfoViewController;
 @property (nonatomic)long buttonClicked;
+@property (weak, nonatomic) IBOutlet UIView *initialview;
+
 @end

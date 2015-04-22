@@ -15,6 +15,6 @@
 -(void)OkClickedW;
 -(void)updateEntryNumber:(NSString*)entryNumber;
 -(void)updateEntryNumberW:(NSString*)entryNumberW;
-
+-(void)getDismissed;
 
 @end

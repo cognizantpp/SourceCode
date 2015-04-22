@@ -8,10 +8,11 @@
 
 #import "AssessmentViewController.h"
 #import "PictureViewController.h"
+#import "WoundImageViewController.h"
+
 @interface AssessmentViewController ()
 - (IBAction)buttonClciked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *baseView;
-@property (weak, nonatomic) IBOutlet UIView *initialview;
 @property (weak, nonatomic) IBOutlet UIButton *pain;
 @property (weak, nonatomic) IBOutlet UIButton *review;
 @property (weak, nonatomic) IBOutlet UIButton *education;
@@ -34,6 +35,7 @@ RecommendationHomeViewController *recommendationHomeViewController;
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"button clicked value %ld",_buttonClicked);
+   
     if(_buttonClicked != 7){
         _buttonClicked=6;
         [self.human setImage:[UIImage imageNamed:@"homanhover2013.png"] forState:UIControlStateNormal];
@@ -46,7 +48,8 @@ RecommendationHomeViewController *recommendationHomeViewController;
         [self addChildViewController:picVw];
         self.delete.alpha=0;
     }
-    
+    assessmentGlobalView = self.initialview;
+    assessmentglobalviewcontroller=self;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
