@@ -18,7 +18,12 @@
 #import "TreatmentSave.h"
 #import "RecommendationsSave.h"
 #import "Wound.h"
+#import "Ostomy.h"
+#import "OstomySave.h"
+#import "ReviewAssessment.h"
+#import "ReviewBase.h"
 #import "ReviewSaveBase.h"
+#import "ReviewAssessmentSave.h"
 
 @interface CoreDataHelper : NSObject
 
@@ -34,6 +39,11 @@
 @property(strong,nonatomic)NSArray *reviewbaseselected_value;
 @property(strong,nonatomic)NSArray *reviewbaseOthervalues;
 
+@property(strong,nonatomic)NSArray *reviewassesscategoryid;
+@property(strong,nonatomic)NSArray *reviewassesscategory_name;
+@property(strong,nonatomic)NSArray *reviewassessselected_value;
+@property(strong,nonatomic)NSArray *reviewassessOthervalues;
+@property(strong,nonatomic)NSArray *reviewassessScorevalues;
 
 @property(strong,nonatomic)NSArray *educationcategoryid;
 @property(strong,nonatomic)NSArray *educationcategory_name;
@@ -112,6 +122,8 @@
 
 -(void)saveReviewbase:(NSString *)entryNo;
 -(NSArray *)setReviewbaseFields:(NSString *)entryNo;
+-(void)saveReviewAssess:(NSString *)entryNo;
+-(NSArray *)setReviewassessFields:(NSString *)entryNo;
 
 -(void)fetchRecommendationsSaved;
 @end

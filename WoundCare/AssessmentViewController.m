@@ -94,7 +94,37 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
              NSString *testother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.testsOtherTextField.text];
             [CoreDataHelper sharedInstance].reviewbaseselected_value=[NSArray arrayWithObjects:riskselected_value,consultselected_value,testselected_value, nil];
             [CoreDataHelper sharedInstance].reviewbaseOthervalues=[NSArray arrayWithObjects:riskother_value,consultother_value,testother_value, nil];
+            NSString *mobilityselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.mobilityButtonOutlet.titleLabel.text];
+            NSString *activityselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.activityButtonOutlet.titleLabel.text];
+            NSString *sensoryselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.sensoryPerceptionButtonOutlet.titleLabel.text];
+            NSString *moistureselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.moistureButtonOutlet.titleLabel.text];
+            NSString *frictionselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.frictionAndShearButtonOutlet.titleLabel.text];
+            NSString *nutritionselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.nutritionButtonOutlet.titleLabel.text];
+            NSString *tissueselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.tissuePerfusionOutlet.titleLabel.text];
+            
+            NSString *mobilityother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.mobilityAssessmentOutlet.text];
+            NSString *activityother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.activityAssessmentOutlet.text];
+            NSString *sensoryother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.sensoryPerceptionAssessmentOutlet.text];
+            NSString *moistureother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.moistureAsessmentOutlet.text];
+            NSString *frictionother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.frictionAssessmentOutlet.text];
+            NSString *nutritionother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.nutritionAssessmentOutlet.text];
+            NSString *tissueother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.tissueAssessmentOutlet.text];
+            
+            
+            NSString *mobilityscore=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.mobilityScore.text];
+            NSString *activityscore=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.activityScore.text];
+            NSString *sensoryscore=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.sensoryPerceptionScore.text];
+            NSString *moisturescore=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.moistureScore.text];
+            NSString *frictionscore=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.frictionScore.text];
+            NSString *nutritionscore=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.nutritionScore.text];
+            NSString *tissuescore=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.tissueScore.text];
+            
+            [CoreDataHelper sharedInstance].reviewassessselected_value=[NSArray arrayWithObjects:mobilityselected_value,activityselected_value,sensoryselected_value,moistureselected_value,frictionselected_value,nutritionselected_value,tissueselected_value, nil];
+            [CoreDataHelper sharedInstance].reviewassessOthervalues=[NSArray arrayWithObjects:mobilityother_value,activityother_value,sensoryother_value,moistureother_value,frictionother_value,nutritionother_value,tissueother_value, nil];
+            [CoreDataHelper sharedInstance].reviewassessScorevalues=[NSArray arrayWithObjects:mobilityscore,activityscore,sensoryscore,moisturescore,frictionscore,nutritionscore,tissuescore,nil];
+            
             [cdh saveReviewbase:entry_no];
+            [cdh saveReviewAssess:entry_no];
                         break;
         }
         case 3:
@@ -226,6 +256,16 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         NSString *testid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.testsButtonOutlet.tag];
         [CoreDataHelper sharedInstance].reviewbasecategoryid=[NSArray arrayWithObjects:riskid,consultid,testid,nil];
         [CoreDataHelper sharedInstance].reviewbasecategory_name=[NSArray arrayWithObjects:@"Risk Factor",@"Consult",@"Tests", nil];
+        
+        NSString *mobilityid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.mobilityButtonOutlet.tag];
+        NSString *activityid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.activityButtonOutlet.tag];
+        NSString *sensorid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.sensoryPerceptionButtonOutlet.tag];
+        NSString *moistureid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.moistureButtonOutlet.tag];
+        NSString *frictionid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.frictionAndShearButtonOutlet.tag];
+        NSString *nutritionid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.nutritionButtonOutlet.tag];
+        NSString *tissueid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.tissuePerfusionOutlet.tag];
+        [CoreDataHelper sharedInstance].reviewassesscategoryid=[NSArray arrayWithObjects:mobilityid,activityid,sensorid,moistureid,frictionid,nutritionid,tissueid,nil];
+        [CoreDataHelper sharedInstance].reviewassesscategory_name=[NSArray arrayWithObjects:@"Mobility",@"Activity",@"Sensory Perception",@"Moisture",@"Friction and Shear",@"Nutrition",@"Tissue Perfusion&oxygenation",nil];
         
         
         _buttonClicked=[sender tag];

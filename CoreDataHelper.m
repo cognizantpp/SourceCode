@@ -693,6 +693,105 @@
     }
 }
 
+-(void)saveReviewAssess:(NSString *)entryNo{
+    
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ReviewAssessmentSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSManagedObject *matches = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (ReviewAssessmentSave *theReview in fetchedObjects) {
+            matches = theReview;
+            [self.managedObjectContext deleteObject:matches];
+            [self saveContext];
+        }
+    }
+    for (int i=0;i<self.reviewassesscategoryid.count;i++) {
+        NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"ReviewAssessmentSave" inManagedObjectContext:self.managedObjectContext];
+        [insertObject setValue:entryNo forKey:@"entry_number"];
+        [insertObject setValue:self.reviewassesscategoryid[i] forKey:@"category_id"];
+        [insertObject setValue:self.reviewassesscategory_name[i] forKey:@"category_name"];
+        [insertObject setValue:self.reviewassessselected_value[i] forKey:@"selected_value"];
+        [insertObject setValue:self.reviewassessOthervalues[i] forKey:@"other_value"];
+        [insertObject setValue:self.reviewassessScorevalues[i] forKey:@"score"];
+
+        [self saveContext];
+        
+    }
+    
+    [self fetchReviewassessSaved];
+    
+}
+
+-(NSArray *)setReviewassessFields:(NSString *)entryNo {
+    NSMutableArray *reviewArr=[[NSMutableArray alloc]init];
+    //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ReviewAssessmentSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (ReviewAssessmentSave *theReview in fetchedObjects) {
+            [reviewArr addObject:theReview.selected_value];
+        }
+        for (ReviewAssessmentSave *theReview in fetchedObjects) {
+            [reviewArr addObject:theReview.other_value];
+        }
+        for (ReviewAssessmentSave *theReview in fetchedObjects) {
+            [reviewArr addObject:theReview.score];
+        }
+    }
+    NSLog(@"%@",reviewArr);
+    return reviewArr;
+}
+-( void)fetchReviewassessSaved{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"ReviewAssessmentSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (ReviewAssessmentSave *theReview in fetchedObjects) {
+            
+            NSLog(@"category ID: %@ Name: %@ entry_no:%@ selected_value:%@ other:%@",theReview.category_id,theReview.category_name,theReview.entry_number,theReview.selected_value,theReview.other_value);
+        }
+    }
+}
 
 
 -(void)saveEducation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other{
