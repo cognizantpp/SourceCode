@@ -19,6 +19,9 @@
 #import "RecommendationsSave.h"
 #import "Wound.h"
 #import "ReviewSaveBase.h"
+#import "ReviewAssessment.h"
+#import "Ostomy.h"
+#import "ReviewBase.h"
 
 @interface CoreDataHelper : NSObject
 

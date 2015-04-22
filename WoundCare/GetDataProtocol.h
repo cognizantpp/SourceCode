@@ -127,10 +127,6 @@
 -(void)OkLengthClicked;
 -(void)updateWoundBed:(NSString*)granulationStr andEpithel:(NSString*)epithel andEschar:(NSString*)eschar andSlough:(NSString*)slough;
 -(void)getEdemaData:(NSString *)data;
-
-
-
-
 -(void)getAssignmentDate:(NSDate *)date;
 
 

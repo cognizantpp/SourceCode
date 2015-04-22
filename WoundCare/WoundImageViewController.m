@@ -51,22 +51,6 @@
 
     // Do any additional setup after loading the view, typically from a nib.
     
-    
-    
-//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDetected:)];
-//    tapGesture.numberOfTapsRequired = 1;
-//    tapGesture.numberOfTouchesRequired = 1;
-//    
-    //_imageV=[[UIImageView alloc]init];
-//    UIImage *mapImage = [UIImage imageNamed:@"humanbodywithimg.png"];
-//    _imageV = [[UIImageView alloc] initWithImage:mapImage];
-   // _scrollV.contentSize = CGSizeMake(_imageV.frame.size.width, _imageV.frame.size.height);
-   // _scrollV.backgroundColor=[UIColor blueColor];
-    
-    
-     //_imageV.delegate = self;
-   // [_imageV addGestureRecognizer:tapGesture];
-    
     [self setSelectedCoordinates];
 }
 
