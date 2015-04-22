@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "GetDataProtocol.h"
 #import "NumberEntryViewController.h"
+#import "SelectDatePickerViewController.h"
 
 
 @interface AddAssignmentPopOverController : UIViewController<GetDataProtocol,UITextFieldDelegate,UIScrollViewDelegate>
@@ -24,7 +25,16 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtRoomNumber;
 @property (strong, nonatomic) IBOutlet UITextField *txtFacilityName;
 @property (strong, nonatomic) IBOutlet UITextField *txtPatientName;
+@property (strong, nonatomic) IBOutlet UITextField *txtDOB;
+@property (strong, nonatomic) IBOutlet UITextField *txtAge;
 
 @property (nonatomic, weak)id <GetDataProtocol> delegate;
 @property (strong, nonatomic) NumberEntryViewController *numberEntryViewController;
+
+@property (weak, nonatomic) IBOutlet UIButton *dateButtonOutlet;
+- (IBAction)selectDateButtonAction:(UIButton *)sender;
+
+@property(nonatomic,strong)SelectDatePickerViewController *selectDateViewController;
+
+
 @end

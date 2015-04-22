@@ -26,16 +26,19 @@
     //_itemsToBePassed=[[NSMutableArray alloc]init];
     //self.tableView.backgroundColor = [UIColor clearColor];
     //self.tableView.opaque = NO;
-    self.stomaLocationArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-    self.stomaColorArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-    self.stomaOutputColorArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-    self.fistulaLocationArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-     self.fistulaColorArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-    self.exudateOdourArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-    self.exudateAmountArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
-    self.granulationTissueArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
-    self.edemaArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
-    self.peristomalSkinConditionArray=[NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", nil];
+    
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.StomaLocationArray= [cdh fetchTheOstomyFields:@"2"];
+    self.StomaColorArray= [cdh fetchTheOstomyFields:@"3"];
+    self.StomaOutputColorArray= [cdh fetchTheOstomyFields:@"4"];
+    self.FistulaLocationArray= [cdh fetchTheOstomyFields:@"6"];
+    self.FistulaColorArray= [cdh fetchTheOstomyFields:@"7"];
+    self.ExudateOdourArray= [cdh fetchTheOstomyFields:@"10"];
+    self.ExudateAmountArray= [cdh fetchTheOstomyFields:@"11"];
+    self.GranulationTissueArray= [cdh fetchTheOstomyFields:@"12"];
+    self.EdemaArray= [cdh fetchTheOstomyFields:@"13"];
+    self.PeristomalSkinConditionArray= [cdh fetchTheOstomyFields:@"14"];
+    
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup.png"]];
     
 

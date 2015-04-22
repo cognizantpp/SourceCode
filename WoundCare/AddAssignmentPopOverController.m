@@ -18,6 +18,9 @@
 
 @property (strong, nonatomic)UIPopoverController *popOver;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
+@property(nonatomic,strong)UIPopoverController *datePickerPopOver;
+@property(nonatomic)CGRect r;
+@property(nonatomic)CGRect tRect;
 
 @end
 
@@ -29,6 +32,9 @@
     self.txtPatientName.delegate = self;
     self.txtConsultType.delegate = self;
     self.txtRoomNumber.delegate = self;
+    self.txtAge.delegate = self;
+    self.txtDOB.delegate =self;
+    [self.txtAge setUserInteractionEnabled:NO];
     // Do any additional setup after loading the view.
 }
 
@@ -90,6 +96,8 @@
         [newPatient setObject:self.txtFacilityName.text forKey:@"facility_name"];
         [newPatient setObject:self.btnEntryNumber.titleLabel.text forKey:@"entry_number"];
         [newPatient setObject:(NSString*)datestring forKey:@"admit_dt"];
+        [newPatient setObject:self.dateButtonOutlet.titleLabel.text forKey:@"dob"];
+        [newPatient setObject:self.txtAge.text forKey:@"age"];
         [[CoreDataHelper sharedInstance]insertNewPatients:newPatient];
     }
 }
@@ -119,6 +127,16 @@
             canPerform = NO;
             alertString = @"Room number is required";
         }
+        else if ([self.dateButtonOutlet.titleLabel.text isEqualToString:@""] || [self.dateButtonOutlet.titleLabel.text isEqualToString:@"Select"]){
+            canPerform = NO;
+            alertString = @"DOB is required";
+        }
+        
+        else if ([self.txtAge.text isEqualToString:@""]){
+            canPerform = NO;
+            alertString = @"Age is required";
+        }
+        
         
         if (canPerform) {
             //if(![roomNoPredicate evaluateWithObject:self.txtRoomNumber.text])
@@ -129,6 +147,12 @@
                 return NO;
             }
             else{
+                if([self.txtAge.text rangeOfCharacterFromSet:[[NSCharacterSet decimalDigitCharacterSet]invertedSet]].location != NSNotFound)
+                {
+                    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Age Field" message:@"Should contain only numbers" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+                    return NO;
+                }
                 return YES;
             }
         }
@@ -155,5 +179,42 @@
     if(textField.tag == 4){
         self.scrollview.contentOffset =p;
     }
+}
+- (IBAction)selectDateButtonAction:(UIButton *)sender {
+    
+    UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:Nil];
+    _selectDateViewController=[storyBoard instantiateViewControllerWithIdentifier:@"datePicker"];
+    _selectDateViewController.dataDelegate=self;
+    _selectDateViewController.selectedString=@"Assignment";
+    
+    
+    self.datePickerPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectDateViewController];
+    [self.datePickerPopOver setPopoverContentSize:CGSizeMake(300, 300)];
+    
+    _r = [sender frame];
+    _tRect = [sender convertRect:sender.bounds toView:self.view];
+    _tRect.origin.x=_r.origin.x;
+    
+    [self.datePickerPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    
+}
+
+
+-(void)getAssignmentDate:(NSDate *)date
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"dd-MM-yyyy"];
+    
+    [self.dateButtonOutlet setTitle:[dateFormat stringFromDate:date] forState:UIControlStateNormal];
+    
+    NSDate *currentdate = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSUInteger unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;
+    NSDateComponents *components = [calendar components:unitFlags fromDate:date toDate:currentdate options:0];
+    
+    NSInteger year  = [components year];
+    NSLog(@"year %ld",(long)year);
+    self.txtAge.text = [NSString stringWithFormat:@"%ld",(long)year];
+    
 }
 @end
