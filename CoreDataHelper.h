@@ -17,6 +17,10 @@
 #import "EducationSave.h"
 #import "TreatmentSave.h"
 #import "Wound.h"
+#import "Ostomy.h"
+#import "OstomySave.h"
+#import "ReviewAssessment.h"
+#import "ReviewBase.h"
 
 @interface CoreDataHelper : NSObject
 
@@ -50,6 +54,12 @@
 @property(strong,nonatomic)NSArray *recommendationselected_value;
 @property(strong,nonatomic)NSArray *recommendationOthervalues;
 
+//ostomy
+@property(strong,nonatomic)NSMutableArray *ostomycategoryid;
+@property(strong,nonatomic)NSArray *ostomycategory_name;
+@property(strong,nonatomic)NSArray *ostomyselected_value;
+@property(strong,nonatomic)NSArray *ostomyOthervalues;
+
 
 
 
@@ -67,6 +77,12 @@
 -(NSMutableArray *)fetchTheEducationFields:(NSString *)categoryId;
 -(NSMutableArray *)fetchTheTreatmentFields:(NSString *)categoryId;
 -(NSMutableArray *)fetchTheRecommendationsFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheOstomyFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheReviewBaseFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheReviewAssessmentFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheReviewAssessmentSubFields:(NSString *)categoryId;
+
+
 
 -(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value;
 -(NSArray *)setPainFields:(NSString *)entryNo;

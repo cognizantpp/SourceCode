@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GetDataProtocol.h"
+#import "CoreDataHelper.h"
 
 @interface ReviewAssessmentTableViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>
 
@@ -19,6 +20,8 @@
 @property(nonatomic,strong)NSArray *frictionArray;
 @property(nonatomic,strong)NSArray *nutritionArray;
 @property(nonatomic,strong)NSArray *tissueArray;
+
+@property(nonatomic,strong)NSArray *selectedArray;
 
 
 
