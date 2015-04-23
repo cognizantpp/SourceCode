@@ -7,7 +7,7 @@
 //
 
 #import "ReviewAssessmentTableViewController.h"
-
+NSArray *reviewassessarray;
 @implementation ReviewAssessmentTableViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -19,6 +19,8 @@
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
      CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+
+
     
     self.mobilityArray=[cdh fetchTheReviewAssessmentFields:@"4"];
     self.activityArray=[cdh fetchTheReviewAssessmentFields:@"5"];

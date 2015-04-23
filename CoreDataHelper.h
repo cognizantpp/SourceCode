@@ -30,6 +30,9 @@
 
 @interface CoreDataHelper : NSObject
 
+@property (nonatomic)long buttonClicked;
+
+
 +(instancetype)sharedInstance;
 @property(strong,nonatomic)NSManagedObjectContext *managedObjectContext;
 @property(strong,nonatomic)NSString *gblstaffName,*gblstaffId;

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A20E9F31AE8D1B20070189A /* measurements.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A20E9F01AE8D1B20070189A /* measurements.png */; };
+		0A20E9F41AE8D1B20070189A /* wound_wound.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A20E9F11AE8D1B20070189A /* wound_wound.png */; };
+		0A20E9F51AE8D1B20070189A /* wound.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A20E9F21AE8D1B20070189A /* wound.png */; };
+		0A20E9F91AE8D2350070189A /* others.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A20E9F81AE8D2350070189A /* others.png */; };
+		0A20E9FB1AE8D2990070189A /* wound_reason.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A20E9FA1AE8D2990070189A /* wound_reason.png */; };
 		4597AA901AE62F0F008730A3 /* OstomySave.m in Sources */ = {isa = PBXBuildFile; fileRef = 4597AA8F1AE62F0F008730A3 /* OstomySave.m */; };
 		4597AA931AE62F11008730A3 /* Ostomy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4597AA921AE62F11008730A3 /* Ostomy.m */; };
 		459886361AE50E25004C0984 /* stoma.png in Resources */ = {isa = PBXBuildFile; fileRef = 459886301AE50E25004C0984 /* stoma.png */; };
@@ -209,6 +214,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A20E9F01AE8D1B20070189A /* measurements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = measurements.png; sourceTree = "<group>"; };
+		0A20E9F11AE8D1B20070189A /* wound_wound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wound_wound.png; sourceTree = "<group>"; };
+		0A20E9F21AE8D1B20070189A /* wound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wound.png; sourceTree = "<group>"; };
+		0A20E9F81AE8D2350070189A /* others.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = others.png; sourceTree = "<group>"; };
+		0A20E9FA1AE8D2990070189A /* wound_reason.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wound_reason.png; sourceTree = "<group>"; };
 		4597AA8E1AE62F0F008730A3 /* OstomySave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OstomySave.h; path = WoundCare/OstomySave.h; sourceTree = "<group>"; };
 		4597AA8F1AE62F0F008730A3 /* OstomySave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OstomySave.m; path = WoundCare/OstomySave.m; sourceTree = "<group>"; };
 		4597AA911AE62F11008730A3 /* Ostomy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ostomy.h; path = WoundCare/Ostomy.h; sourceTree = "<group>"; };
@@ -418,7 +428,7 @@
 		9497E8801ACAC7F000F8FC12 /* txtbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = txtbox.png; path = WoundCare/txtbox.png; sourceTree = "<group>"; };
 		949BAA9D1AE7AD60001935A8 /* ReviewAssessmentSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewAssessmentSave.h; path = WoundCare/ReviewAssessmentSave.h; sourceTree = "<group>"; };
 		949BAA9E1AE7AD60001935A8 /* ReviewAssessmentSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReviewAssessmentSave.m; path = WoundCare/ReviewAssessmentSave.m; sourceTree = "<group>"; };
-		949BAAA01AE7C9D0001935A8 /* GastrostomyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GastrostomyViewController.h; sourceTree = "<group>"; };
+		949BAAA01AE7C9D0001935A8 /* GastrostomyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GastrostomyViewController.h; path = ../GastrostomyViewController.h; sourceTree = "<group>"; };
 		949BAAB11AE7D0E9001935A8 /* OstomyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OstomyViewController.h; sourceTree = "<group>"; };
 		949BAAB21AE7D0E9001935A8 /* OstomyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OstomyViewController.m; sourceTree = "<group>"; };
 		949BAAB31AE7D0E9001935A8 /* SelectOnsetDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOnsetDate.h; sourceTree = "<group>"; };
@@ -444,14 +454,20 @@
 		B61B335A1AE77AF3007DBB69 /* WoundBedPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoundBedPopUpViewController.h; sourceTree = "<group>"; };
 		B61B335B1AE77AF3007DBB69 /* WoundBedPopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoundBedPopUpViewController.m; sourceTree = "<group>"; };
 		B6450EE71AE536F5009D1E6E /* textsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textsmall.png; sourceTree = "<group>"; };
+		B670CA961AE7D6EC00B510DF /* NumberEntryViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberEntryViewController1.h; sourceTree = "<group>"; };
+		B670CA971AE7D6F500B510DF /* OklessGastroTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OklessGastroTableViewController.h; sourceTree = "<group>"; };
+		B670CA981AE7D6FE00B510DF /* SelectGastrostomySiteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectGastrostomySiteTableViewController.h; sourceTree = "<group>"; };
+		B670CA991AE7D70500B510DF /* SelectOnsetDate1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectOnsetDate1.h; sourceTree = "<group>"; };
+		B670CA9A1AE7D70C00B510DF /* WidthNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidthNumberViewController.h; sourceTree = "<group>"; };
+		B670CA9B1AE7D71300B510DF /* WidthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidthViewController.h; sourceTree = "<group>"; };
 		B6AF16CE1AE52D2C008FC7C0 /* gtube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gtube.png; sourceTree = "<group>"; };
-		B6AF16D11AE52D47008FC7C0 /* SelectOnsetDate1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectOnsetDate1.m; sourceTree = "<group>"; };
-		B6AF16D31AE52D47008FC7C0 /* WidthNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidthNumberViewController.m; sourceTree = "<group>"; };
-		B6AF16D51AE52D47008FC7C0 /* WidthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidthViewController.m; sourceTree = "<group>"; };
-		B6AF16DA1AE52D5E008FC7C0 /* GastrostomyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GastrostomyViewController.m; sourceTree = "<group>"; };
-		B6AF16DD1AE52D7E008FC7C0 /* NumberEntryViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberEntryViewController1.m; sourceTree = "<group>"; };
-		B6AF16DF1AE52D7E008FC7C0 /* OklessGastroTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OklessGastroTableViewController.m; sourceTree = "<group>"; };
-		B6AF16E11AE52D7E008FC7C0 /* SelectGastrostomySiteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectGastrostomySiteTableViewController.m; sourceTree = "<group>"; };
+		B6AF16D11AE52D47008FC7C0 /* SelectOnsetDate1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectOnsetDate1.m; path = ../SelectOnsetDate1.m; sourceTree = "<group>"; };
+		B6AF16D31AE52D47008FC7C0 /* WidthNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WidthNumberViewController.m; path = ../WidthNumberViewController.m; sourceTree = "<group>"; };
+		B6AF16D51AE52D47008FC7C0 /* WidthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WidthViewController.m; path = ../WidthViewController.m; sourceTree = "<group>"; };
+		B6AF16DA1AE52D5E008FC7C0 /* GastrostomyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GastrostomyViewController.m; path = ../GastrostomyViewController.m; sourceTree = "<group>"; };
+		B6AF16DD1AE52D7E008FC7C0 /* NumberEntryViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NumberEntryViewController1.m; path = ../NumberEntryViewController1.m; sourceTree = "<group>"; };
+		B6AF16DF1AE52D7E008FC7C0 /* OklessGastroTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OklessGastroTableViewController.m; path = ../OklessGastroTableViewController.m; sourceTree = "<group>"; };
+		B6AF16E11AE52D7E008FC7C0 /* SelectGastrostomySiteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectGastrostomySiteTableViewController.m; path = ../SelectGastrostomySiteTableViewController.m; sourceTree = "<group>"; };
 		B6AF16E51AE52E9E008FC7C0 /* DismissPopOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DismissPopOver.h; sourceTree = "<group>"; };
 		B6E4886A1ACC1AF000E356F7 /* w1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = w1.png; sourceTree = "<group>"; };
 		B6E4886C1ACC1AFB00E356F7 /* poppupsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = poppupsmall.png; sourceTree = "<group>"; };
@@ -503,6 +519,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A20E9F71AE8D1E80070189A /* Wound Reason */ = {
+			isa = PBXGroup;
+			children = (
+				0A20E9F01AE8D1B20070189A /* measurements.png */,
+				0A20E9FA1AE8D2990070189A /* wound_reason.png */,
+				0A20E9F11AE8D1B20070189A /* wound_wound.png */,
+				0A20E9F81AE8D2350070189A /* others.png */,
+				0A20E9F21AE8D1B20070189A /* wound.png */,
+			);
+			name = "Wound Reason";
+			sourceTree = "<group>";
+		};
 		459886411AE50E7F004C0984 /* ostomy */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,7 +655,6 @@
 			isa = PBXGroup;
 			children = (
 				B61B334D1AE77A7E007DBB69 /* WoundReason */,
-				B6AF16CC1AE52D05008FC7C0 /* Gastrostomy */,
 				91C228C31ABA9B0C00E389AF /* images */,
 				91D19C831ACBCD0E0056BD2E /* Delegate */,
 				91C08BFF1ACA8DA600957D66 /* DB */,
@@ -651,6 +678,7 @@
 		91C228791ABA983900E389AF /* WoundCare */ = {
 			isa = PBXGroup;
 			children = (
+				B670CA951AE7D6CD00B510DF /* Gastrostomy Reason */,
 				949BAAB01AE7D0AB001935A8 /* Ostomy reason */,
 				91BA233B1AE4CDA3002CDD10 /* ImageCapture */,
 				9138ED321AD6B02B00B7D64D /* ReviewOfSystems */,
@@ -755,6 +783,7 @@
 		91C228C31ABA9B0C00E389AF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0A20E9F71AE8D1E80070189A /* Wound Reason */,
 				B6AF16CD1AE52D10008FC7C0 /* gastrostomy */,
 				459886411AE50E7F004C0984 /* ostomy */,
 				91BA23451AE4CE8C002CDD10 /* imageCapture */,
@@ -973,7 +1002,7 @@
 			name = WoundReason;
 			sourceTree = "<group>";
 		};
-		B6AF16CC1AE52D05008FC7C0 /* Gastrostomy */ = {
+		B670CA951AE7D6CD00B510DF /* Gastrostomy Reason */ = {
 			isa = PBXGroup;
 			children = (
 				B6AF16DD1AE52D7E008FC7C0 /* NumberEntryViewController1.m */,
@@ -984,8 +1013,14 @@
 				B6AF16D11AE52D47008FC7C0 /* SelectOnsetDate1.m */,
 				B6AF16D31AE52D47008FC7C0 /* WidthNumberViewController.m */,
 				B6AF16D51AE52D47008FC7C0 /* WidthViewController.m */,
+				B670CA9B1AE7D71300B510DF /* WidthViewController.h */,
+				B670CA9A1AE7D70C00B510DF /* WidthNumberViewController.h */,
+				B670CA991AE7D70500B510DF /* SelectOnsetDate1.h */,
+				B670CA981AE7D6FE00B510DF /* SelectGastrostomySiteTableViewController.h */,
+				B670CA971AE7D6F500B510DF /* OklessGastroTableViewController.h */,
+				B670CA961AE7D6EC00B510DF /* NumberEntryViewController1.h */,
 			);
-			name = Gastrostomy;
+			name = "Gastrostomy Reason";
 			sourceTree = "<group>";
 		};
 		B6AF16CD1AE52D10008FC7C0 /* gastrostomy */ = {
@@ -1144,11 +1179,13 @@
 				91D19C791ACBCCD60056BD2E /* fac3.png in Resources */,
 				91BA235E1AE4DE93002CDD10 /* WoundCare.sqlite in Resources */,
 				9497E88C1ACAC7F000F8FC12 /* hoverimage.png in Resources */,
+				0A20E9F51AE8D1B20070189A /* wound.png in Resources */,
 				91BA23601AE4DE93002CDD10 /* WoundCare.sqlite-wal in Resources */,
 				B6E488791ACC1B9400E356F7 /* button_no.png in Resources */,
 				91CD6F201AC150C300F56AE0 /* n9.png in Resources */,
 				91CD6F1A1AC150C300F56AE0 /* n5.png in Resources */,
 				91CD6F1B1AC150C300F56AE0 /* n5a.png in Resources */,
+				0A20E9FB1AE8D2990070189A /* wound_reason.png in Resources */,
 				91CD6F261AC150D500F56AE0 /* backspace.png in Resources */,
 				91C228C91ABA9B1B00E389AF /* welcome_bg.png in Resources */,
 				9497E8991ACAC7F000F8FC12 /* patientname_bg.png in Resources */,
@@ -1201,10 +1238,12 @@
 				91BA23491AE4CEA3002CDD10 /* btnassessment.png in Resources */,
 				9497E89C1ACAC7F000F8FC12 /* testimg.png in Resources */,
 				9497E8901ACAC7F000F8FC12 /* icon_education_hover.png in Resources */,
+				0A20E9F31AE8D1B20070189A /* measurements.png in Resources */,
 				B6E488811ACC1BAC00E356F7 /* w5.png in Resources */,
 				9138ED401AD6B0C200B7D64D /* woundros.png in Resources */,
 				91BA23551AE4CEC5002CDD10 /* checkboxmark.png in Resources */,
 				B6E4887B1ACC1B9A00E356F7 /* w2.png in Resources */,
+				0A20E9F41AE8D1B20070189A /* wound_wound.png in Resources */,
 				B6E4886B1ACC1AF000E356F7 /* w1.png in Resources */,
 				91D19C7A1ACBCCD60056BD2E /* fac4.png in Resources */,
 				91CD6F161AC150C300F56AE0 /* n2.png in Resources */,
@@ -1219,6 +1258,7 @@
 				91BA234B1AE4CEA9002CDD10 /* noimage.png in Resources */,
 				B6450EE81AE536F5009D1E6E /* textsmall.png in Resources */,
 				9497E88D1ACAC7F000F8FC12 /* logouthover.png in Resources */,
+				0A20E9F91AE8D2350070189A /* others.png in Resources */,
 				91BA23531AE4CEC0002CDD10 /* btncrop.png in Resources */,
 				9138ED3E1AD6B0BB00B7D64D /* branqheading.png in Resources */,
 				9497E88F1ACAC7F000F8FC12 /* imggalleryhover2013.png in Resources */,
