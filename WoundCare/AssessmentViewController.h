@@ -24,8 +24,8 @@ UIViewController *assessmentglobalviewcontroller;
 @interface AssessmentViewController : UIViewController<GetDataProtocol>
 @property (strong, nonatomic) PatientInfoViewController *patientInfoViewController;
 @property (strong, nonatomic) PatientListTableViewController *patientListTableViewController;
-@property (nonatomic)long buttonClicked;
+//@property (nonatomic)long buttonClicked;
 @property (weak, nonatomic) IBOutlet UIView *initialview;
-
+@property(weak,nonatomic)CoreDataHelper *btnclickobj;
 @property (weak, nonatomic) IBOutlet UIButton *btnCurrentPatient;
 @end

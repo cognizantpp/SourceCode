@@ -7,7 +7,7 @@
 //
 
 #import "ReviewAssessmentTableViewController.h"
-
+NSArray *reviewassessarray;
 @implementation ReviewAssessmentTableViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -19,6 +19,8 @@
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 
      CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+
+
     
     self.mobilityArray=[cdh fetchTheReviewAssessmentFields:@"4"];
     self.activityArray=[cdh fetchTheReviewAssessmentFields:@"5"];
@@ -28,6 +30,7 @@
     self.nutritionArray=[cdh fetchTheReviewAssessmentFields:@"9"];
     self.tissueArray=[cdh fetchTheReviewAssessmentFields:@"10"];
     
+    self.ScoreArray=[cdh fetchTheReviewScoreFields:@"4"];
     
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup.png"]];
     
