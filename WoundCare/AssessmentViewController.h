@@ -16,6 +16,7 @@
 #import "ReviewOfSystemsHomeViewController.h"
 #import "CoreDataHelper.h"
 #import "PatientListTableViewController.h"
+#import "GastrostomyViewController.h"
 @class WoundImageViewController;
 
 UIView *assessmentGlobalView;

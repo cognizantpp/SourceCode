@@ -164,6 +164,7 @@
 		949BAABD1AE7D0E9001935A8 /* SelectOstomySiteTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAAB61AE7D0E9001935A8 /* SelectOstomySiteTVController.m */; };
 		949BAABE1AE7D0E9001935A8 /* SizeEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAAB81AE7D0E9001935A8 /* SizeEntryViewController.m */; };
 		949BAABF1AE7D0E9001935A8 /* StomaLocationTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 949BAABA1AE7D0E9001935A8 /* StomaLocationTVController.m */; };
+		B605DB061AE9257500308FA8 /* GastrostomySave.m in Sources */ = {isa = PBXBuildFile; fileRef = B605DB051AE9257500308FA8 /* GastrostomySave.m */; };
 		B61B335C1AE77AF3007DBB69 /* WoundViewHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61B334F1AE77AF3007DBB69 /* WoundViewHomeViewController.m */; };
 		B61B335D1AE77AF3007DBB69 /* RadioPopUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B61B33511AE77AF3007DBB69 /* RadioPopUpCell.m */; };
 		B61B335E1AE77AF3007DBB69 /* RadioPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61B33541AE77AF3007DBB69 /* RadioPopUpViewController.m */; };
@@ -439,6 +440,8 @@
 		949BAAB81AE7D0E9001935A8 /* SizeEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SizeEntryViewController.m; sourceTree = "<group>"; };
 		949BAAB91AE7D0E9001935A8 /* StomaLocationTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StomaLocationTVController.h; sourceTree = "<group>"; };
 		949BAABA1AE7D0E9001935A8 /* StomaLocationTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StomaLocationTVController.m; sourceTree = "<group>"; };
+		B605DB041AE9257500308FA8 /* GastrostomySave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GastrostomySave.h; path = WoundCare/GastrostomySave.h; sourceTree = "<group>"; };
+		B605DB051AE9257500308FA8 /* GastrostomySave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GastrostomySave.m; path = WoundCare/GastrostomySave.m; sourceTree = "<group>"; };
 		B61B334E1AE77AF3007DBB69 /* WoundViewHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoundViewHomeViewController.h; sourceTree = "<group>"; };
 		B61B334F1AE77AF3007DBB69 /* WoundViewHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoundViewHomeViewController.m; sourceTree = "<group>"; };
 		B61B33501AE77AF3007DBB69 /* RadioPopUpCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioPopUpCell.h; sourceTree = "<group>"; };
@@ -765,6 +768,8 @@
 				4597AA921AE62F11008730A3 /* Ostomy.m */,
 				949BAA9D1AE7AD60001935A8 /* ReviewAssessmentSave.h */,
 				949BAA9E1AE7AD60001935A8 /* ReviewAssessmentSave.m */,
+				B605DB051AE9257500308FA8 /* GastrostomySave.m */,
+				B605DB041AE9257500308FA8 /* GastrostomySave.h */,
 				4597AA8E1AE62F0F008730A3 /* OstomySave.h */,
 				4597AA8F1AE62F0F008730A3 /* OstomySave.m */,
 			);
@@ -1356,6 +1361,7 @@
 				4597AA901AE62F0F008730A3 /* OstomySave.m in Sources */,
 				91C228BF1ABA9A9600E389AF /* CoreDataHelper.m in Sources */,
 				91C228B51ABA9A5E00E389AF /* PatientDetails.m in Sources */,
+				B605DB061AE9257500308FA8 /* GastrostomySave.m in Sources */,
 				B61B33621AE77AF3007DBB69 /* WoundBedPopUpViewController.m in Sources */,
 				B6E488951ACC212B00E356F7 /* GastrocountreachedVC.m in Sources */,
 				91C2287D1ABA983900E389AF /* main.m in Sources */,

@@ -27,7 +27,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *GastrostomyTubeTypeOutlet;
 
-@property (strong, nonatomic) IBOutlet UIButton *AtypicalOutlet;
+//@property (strong, nonatomic) IBOutlet UIButton *AtypicalOutlet;
 @property (strong, nonatomic) IBOutlet UIButton *SizeLengthOutlet;
 @property (strong, nonatomic) IBOutlet UIButton *SizeWidthOutlet;
 @property (strong, nonatomic) IBOutlet UIButton *CharacterOutlet;

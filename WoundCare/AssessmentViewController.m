@@ -29,12 +29,14 @@
 
 @end
 NSString *timespentother;
+NSString *unit;
 @implementation AssessmentViewController
 PainHomeViewController *painController;
 EducationHomeViewController *educationHomeviewcontroller;
 TreatmentHomeViewController *treatmentHomeViewController;
 RecommendationHomeViewController *recommendationHomeViewController;
 ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
+GastrostomyViewController *gastroVC;
 - (void)viewDidLoad {
     [super viewDidLoad];
   _btnclickobj=[CoreDataHelper sharedInstance];
@@ -231,6 +233,97 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
             [[CoreDataHelper sharedInstance]saveImages];
             break;
         }
+            
+            
+            case 12:
+        {
+            
+            
+            
+            NSString *GastrostomySiteId=[NSString stringWithFormat:@"%ld",(long)gastroVC.GastrostomySiteOutlet.tag];
+            NSString *GastrostomyTubeTypeId=[NSString stringWithFormat:@"%ld",(long)gastroVC.GastrostomyTubeTypeOutlet.tag];
+            NSString *AtypicalId=[NSString stringWithFormat:@"%ld",(long)gastroVC.atypicaltextview.tag];            NSString *SizeLengthId=[NSString stringWithFormat:@"%ld",(long)gastroVC.SizeLengthOutlet.tag];
+            NSString *SizeWidthId=[NSString stringWithFormat:@"%ld",(long)gastroVC.SizeWidthOutlet.tag];
+            NSString *CharacterId=[NSString stringWithFormat:@"%ld",(long)gastroVC.CharacterOutlet.tag];            NSString *RetentionDiskId=[NSString stringWithFormat:@"%ld",(long)gastroVC.RetentionDiskOutlet.tag];            NSString *PeristomalSkinCharacterId=[NSString stringWithFormat:@"%ld",(long)gastroVC.PeristomalSkinCharacterOutlet.tag];
+            NSString *ExudateCharacterId=[NSString stringWithFormat:@"%ld",(long)gastroVC.ExudateCharacterOutlet.tag];
+            NSString *ExudateOdorId=[NSString stringWithFormat:@"%ld",(long)gastroVC.ExudateOdorOutlet.tag];
+            NSString *ExudateAmountId=[NSString stringWithFormat:@"%ld",(long)gastroVC.ExudateAmountOutlet.tag];
+            NSString *GranulationTissueId=[NSString stringWithFormat:@"%ld",(long)gastroVC.GranulationTissueOutlet.tag];
+            NSString *EdemaId=[NSString stringWithFormat:@"%ld",(long)gastroVC.EdemaOutlet.tag];
+            NSString *ConditionId=[NSString stringWithFormat:@"%ld",(long)gastroVC.ConditionOutlet.tag];
+            NSString *OnsetId=[NSString stringWithFormat:@"%ld",(long)gastroVC.dateButtonOutlet.tag];
+            NSString *CommentsId=[NSString stringWithFormat:@"%ld",(long)gastroVC.commentstextview.tag];
+            [CoreDataHelper sharedInstance].gastrostomycategoryid=[NSArray arrayWithObjects:GastrostomySiteId,GastrostomyTubeTypeId,AtypicalId,SizeLengthId,SizeWidthId,CharacterId,RetentionDiskId,PeristomalSkinCharacterId,ExudateCharacterId,ExudateOdorId,ExudateAmountId,GranulationTissueId,EdemaId,ConditionId,OnsetId,CommentsId,nil];
+            
+            [CoreDataHelper sharedInstance].gastrostomycategory_name=[NSArray arrayWithObjects:@"Gastrostomy Site",@"GastrostomyTubeType",@"Atypical",@"Size Length",@"Size Width",@"Character",@"Retention Disk",@"Peristomal Skin Character",@"Exudate Character",@"Exudate Odor",@"Exudate Amount",@"Granulation Tissue",@"Edema",@"Condition",@"Onset",@"Comments", nil];
+            
+
+            
+            
+            
+            
+            CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+            NSString *GastrostomySiteSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.GastrostomySiteOutlet.titleLabel.text];
+            NSString *GastrostomyTubeTypeSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.GastrostomySiteOutlet.titleLabel.text];
+            NSString *AtypicalSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.atypicaltextview.text];            NSString *SizeLengthSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.SizeLengthOutlet.titleLabel.text];
+            
+            NSString *SizeWidthSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.SizeWidthOutlet.titleLabel.text];
+            NSString *CharacterSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.CharacterOutlet.titleLabel.text];
+            NSString *RetentionDiskSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.RetentionDiskOutlet.titleLabel.text];
+            NSString *PeristomalSkinCharacterSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.PeristomalSkinCharacterOutlet.titleLabel.text];
+            NSString *ExudateCharacterSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.ExudateCharacterOutlet.titleLabel.text];
+            NSString *ExudateOdorSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.ExudateOdorOutlet.titleLabel.text];
+            
+            NSString *ExudateAmountSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.ExudateAmountOutlet.titleLabel.text];
+            NSString *GranulationTissueSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.GranulationTissueOutlet.titleLabel.text];
+            NSString *EdemaSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.EdemaOutlet.titleLabel.text];
+            NSString *ConditionSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.ConditionOutlet.titleLabel.text];
+            NSString *OnsetSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.dateButtonOutlet.titleLabel.text];
+            NSString *CommentsSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.commentstextview.text];
+            
+            
+            
+            NSString *CharacterOtherSelected_value=[NSString stringWithFormat:@"%@",gastroVC.CharacterOtherTextField.text];
+            NSString *RetentionDiskOtherSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.RetentionDiskOtherTextField.text];
+            NSString *PeristomalSkinCharacterOtherSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.PeristomalSkinCharacterOtherTextField.text];
+            NSString *ExudateCharacterOtherSelected_value=[NSString stringWithFormat:@"%@",gastroVC.ExudateCharacterOtherTextField.text];
+            NSString *GranulationTissueOtherSelected_Value=[NSString stringWithFormat:@"%@",gastroVC.GranulationTissueOtherTextField.text];
+            
+            
+            
+            
+            
+            
+            if([gastroVC.cmbtnoutlet isSelected])
+                unit=@"cm";
+            else
+                unit=@"mm";
+            
+            
+            
+            [CoreDataHelper sharedInstance].gastrostomyselected_value=[NSArray arrayWithObjects:GastrostomySiteSelected_Value,GastrostomyTubeTypeSelected_Value,AtypicalSelected_Value,SizeLengthSelected_Value,SizeWidthSelected_Value,CharacterSelected_Value,RetentionDiskSelected_Value,PeristomalSkinCharacterSelected_Value,ExudateCharacterSelected_Value,ExudateOdorSelected_Value,ExudateAmountSelected_Value,GranulationTissueSelected_Value,EdemaSelected_Value,ConditionSelected_Value,OnsetSelected_Value,CommentsSelected_Value,nil];
+            
+            
+            [CoreDataHelper sharedInstance].gastrostomyOthervalues=[NSArray arrayWithObjects:@"",@"",@"",@"",@"",CharacterOtherSelected_value,RetentionDiskOtherSelected_Value,PeristomalSkinCharacterOtherSelected_Value,ExudateCharacterOtherSelected_value,@"",@"",GranulationTissueOtherSelected_Value,@"",@"",@"",@"",nil];
+            
+            
+            
+            
+            [cdh saveGastrostomy:entry_no andCategoryid:cdh.gastrostomycategoryid andCategoryname:cdh.gastrostomycategory_name andSelectedvalue:cdh.gastrostomyselected_value andOther:cdh.gastrostomyOthervalues];
+
+            
+            
+                    }
+            break;
+
+            
+            
+            
+            
+          
+            
+           
+        
         default:
             break;
     }
@@ -243,6 +336,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         painController=[self.storyboard instantiateViewControllerWithIdentifier:@"PainHomeViewController"];
         [self.initialview addSubview:painController.view];
         [self addChildViewController:painController];
+        
         NSString *charstring=[NSString stringWithFormat:@"%ld",(long)painController.characterButtonOutlet.tag];
         NSString *scorestring=[NSString stringWithFormat:@"%ld",(long)painController.scoreButtonOutlet.tag];
         [CoreDataHelper sharedInstance].paincategoryid=[NSArray arrayWithObjects:charstring,scorestring,nil];
@@ -382,6 +476,14 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         _btnclickobj.buttonClicked=[sender tag];
         
     }
+    
+    if([sender tag]==13){
+        NSLog(@"yaaay.......");
+    }
+
+    
+    
+    
 }
 - (IBAction)btnPatientInfoClicked:(id)sender {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

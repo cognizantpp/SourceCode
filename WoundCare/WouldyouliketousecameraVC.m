@@ -40,7 +40,7 @@
 
       if ([_selectedString isEqualToString: @"Gastrostomy"])
     {
-        
+         [CoreDataHelper sharedInstance].buttonClicked=12;
         [self dismissViewControllerAnimated:NO completion:nil];
          NSLog(@"hey.......");
        
@@ -58,6 +58,8 @@
     
     else if ([_selectedString isEqualToString: @"Ostomy"])
     {
+        
+        [CoreDataHelper sharedInstance].buttonClicked=13;
         NSLog(@"hey.......");
         [self dismissViewControllerAnimated:NO completion:nil];
           _OVC=[self.storyboard instantiateViewControllerWithIdentifier:@"osto"];

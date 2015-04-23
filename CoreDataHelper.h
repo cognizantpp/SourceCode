@@ -27,6 +27,8 @@
 #import "Ostomy.h"
 #import "ReviewBase.h"
 #import "ReviewAssessmentSave.h"
+#import "GastrostomySave.h"
+
 
 @interface CoreDataHelper : NSObject
 
@@ -132,4 +134,13 @@
 -(NSArray *)setReviewassessFields:(NSString *)entryNo;
 
 -(void)fetchRecommendationsSaved;
+
+//GastrostomyReason
+
+@property(strong,nonatomic)NSArray *gastrostomycategoryid;
+@property(strong,nonatomic)NSArray *gastrostomycategory_name;
+@property(strong,nonatomic)NSArray *gastrostomyselected_value;
+@property(strong,nonatomic)NSArray *gastrostomyOthervalues;
+-(void)saveGastrostomy:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
+-( void)fetchGastrostomySaved;
 @end
