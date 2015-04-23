@@ -15,9 +15,6 @@
 @property(nonatomic,weak)id<GetDataProtocol>dataDelegate;
 
 
-@property(nonatomic,strong)NSArray *selectedArray;
-
-
 @property(nonatomic,strong)NSArray *stomaLocationArray;
 @property(nonatomic,strong)NSArray *stomaColorArray;
 @property(nonatomic,strong)NSArray *stomaOutputColorArray;

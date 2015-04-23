@@ -542,6 +542,36 @@
 
 }
 
+-(NSMutableArray *)fetchTheWoundReasonFields:(NSString *)categoryId{
+    NSMutableArray *categoryFields=[[NSMutableArray alloc]init];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WoundReason" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Specify criteria for filtering which objects to fetch
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"category_id",categoryId];
+    [fetchRequest setPredicate:predicate];
+    
+    // Specify how the fetched objects should be sorted
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (WoundReason *theWoundReason in fetchedObjects) {
+            
+            //            NSLog(@"Ostomy ID: %@ Name: %@ Fields:%@ Score:%@",theOstomy.category_id,theOstomy.category_name,theOstomy.category_fields);
+            [categoryFields addObject:theWoundReason.category_fields];
+            
+        }
+    }
+    return  categoryFields;
+}
 
 
 -(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value{
