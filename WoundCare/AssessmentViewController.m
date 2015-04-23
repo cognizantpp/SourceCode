@@ -37,12 +37,13 @@ RecommendationHomeViewController *recommendationHomeViewController;
 ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
 - (void)viewDidLoad {
     [super viewDidLoad];
+  _btnclickobj=[CoreDataHelper sharedInstance];
     NSString *pName = [[[[[[[patientsDetails valueForKey:@"patient_name"]objectAtIndex:selectedPatientIndex] stringByAppendingString:@", DOB : "] stringByAppendingString:[[patientsDetails valueForKey:@"dob"]objectAtIndex:selectedPatientIndex] ] stringByAppendingString:@" ("] stringByAppendingString:[[patientsDetails valueForKey:@"age" ]objectAtIndex:selectedPatientIndex]] stringByAppendingString:@" Y)"];
     [self.btnCurrentPatient setTitle:pName forState:UIControlStateNormal];
-    NSLog(@"button clicked value %ld",_buttonClicked);
+    NSLog(@"button clicked value %ld",_btnclickobj.buttonClicked);
    
-    if(_buttonClicked != 7){
-        _buttonClicked=6;
+    if(_btnclickobj.buttonClicked != 7){
+        _btnclickobj.buttonClicked=6;
         [self.human setImage:[UIImage imageNamed:@"homanhover2013.png"] forState:UIControlStateNormal];
     }
     else{
@@ -58,7 +59,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    if(_buttonClicked != 7){
+    if(_btnclickobj.buttonClicked != 7){
         WoundImageViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"WoundImageViewController"];
         [self.initialview addSubview:tvc.view];
         [self addChildViewController:tvc];
@@ -71,7 +72,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
 }
 -(void)setButtonBackground{
     
-    switch (_buttonClicked) {
+    switch (_btnclickobj.buttonClicked) {
             
         case 1:
         {
@@ -246,7 +247,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         NSString *scorestring=[NSString stringWithFormat:@"%ld",(long)painController.scoreButtonOutlet.tag];
         [CoreDataHelper sharedInstance].paincategoryid=[NSArray arrayWithObjects:charstring,scorestring,nil];
         [CoreDataHelper sharedInstance].paincategory_name=[NSArray arrayWithObjects:@"Character",@"score", nil];
-               _buttonClicked=[sender tag];
+               _btnclickobj.buttonClicked=[sender tag];
         self.delete.alpha=0;
         
     }
@@ -273,7 +274,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         [CoreDataHelper sharedInstance].reviewassesscategory_name=[NSArray arrayWithObjects:@"Mobility",@"Activity",@"Sensory Perception",@"Moisture",@"Friction and Shear",@"Nutrition",@"Tissue Perfusion&oxygenation",nil];
         
         
-        _buttonClicked=[sender tag];
+        _btnclickobj.buttonClicked=[sender tag];
         self.delete.alpha=0;
         
         
@@ -297,7 +298,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         [CoreDataHelper sharedInstance].educationcategory_name=[NSArray arrayWithObjects:@"Discussed",@"Method Used",@"Handout",@"Person Taught",@"Comprehension",@"Teaching Assessment",@"Time Spent Teaching",@"Other", nil];
         //buttonClicked=[sender tag];
 
-        _buttonClicked=[sender tag];
+        _btnclickobj.buttonClicked=[sender tag];
         self.delete.alpha=0;
 
         
@@ -326,7 +327,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         [CoreDataHelper sharedInstance].treatmentcategoryid=[NSArray arrayWithObjects:cleansingid,dressingid,pressureid,debridementid,skincareid,otherid,nil];
         [CoreDataHelper sharedInstance].treatmentcategory_name=[NSArray arrayWithObjects:@"Cleansing/Irregation",@"Dressing/Care",@"Negative Pressure Wound",@"Debridement",@"Skin Care",@"Other", nil];
 
-        _buttonClicked=[sender tag];
+        _btnclickobj.buttonClicked=[sender tag];
         self.delete.alpha=0;
 
     }
@@ -355,7 +356,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         NSLog(@"%@",[CoreDataHelper sharedInstance].recommendationcategory_name);
 
         
-        _buttonClicked=[sender tag];
+        _btnclickobj.buttonClicked=[sender tag];
         self.delete.alpha=0;
         
     }
@@ -367,7 +368,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         [self.initialview addSubview:tvc.view];
         [self addChildViewController:tvc];
 
-        _buttonClicked=[sender tag];
+        _btnclickobj.buttonClicked=[sender tag];
         
     }
     if([sender tag]==7){
@@ -378,7 +379,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         [self.initialview addSubview:picVw.view];
         [self addChildViewController:picVw];
         self.delete.alpha=0;
-        _buttonClicked=[sender tag];
+        _btnclickobj.buttonClicked=[sender tag];
         
     }
 }

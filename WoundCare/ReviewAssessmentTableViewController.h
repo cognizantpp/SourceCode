@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GetDataProtocol.h"
 #import "CoreDataHelper.h"
+#import "AssignmentsViewController.h"
 
 @interface ReviewAssessmentTableViewController : UITableViewController<UITableViewDataSource,UITableViewDelegate>
 

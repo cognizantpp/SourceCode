@@ -761,13 +761,15 @@
         
         for (ReviewAssessmentSave *theReview in fetchedObjects) {
             [reviewArr addObject:theReview.selected_value];
-        }
-        for (ReviewAssessmentSave *theReview in fetchedObjects) {
             [reviewArr addObject:theReview.other_value];
-        }
-        for (ReviewAssessmentSave *theReview in fetchedObjects) {
             [reviewArr addObject:theReview.score];
         }
+//        for (ReviewAssessmentSave *theReview in fetchedObjects) {
+//            
+//        }
+//        for (ReviewAssessmentSave *theReview in fetchedObjects) {
+//            
+//        }
     }
     NSLog(@"%@",reviewArr);
     return reviewArr;

@@ -112,7 +112,7 @@ UIImage *finalImage;
 
 - (IBAction)btnCropClicked:(id)sender {
     AssessmentViewController *pictureView = [self.storyboard instantiateViewControllerWithIdentifier:@"AssessmentViewController"];
-    pictureView.buttonClicked = 7;
+    [CoreDataHelper sharedInstance].buttonClicked = 7;
     [self presentViewController:pictureView animated:YES completion:nil];
 }
 
