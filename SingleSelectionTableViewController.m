@@ -18,14 +18,13 @@
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.woundThicknessArray= [NSArray arrayWithObjects:@"immobile",@"very",@"Slightly",@"No", nil];
-    self.exudateOdor= [NSArray arrayWithObjects:@"None",@"Present",@"Other", nil];
-    self.exudateAmount= [NSArray arrayWithObjects:@"None",@"Minimal",@"Moderate",@"Copious",@"Estimated Amount",@"Canister Amount", nil];
-    self.edema= [NSArray arrayWithObjects:@"None",@"1+Edema",@"2+Edema",@"3+Edema",@"4+Edema",nil];
-    self.conditionArray= [NSArray arrayWithObjects:@"Acute",@"Recurrent",@"Chronic",nil];
-    self.otherWoundsArray= [NSArray arrayWithObjects:@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",nil];
-
-
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.woundThicknessArray=[cdh fetchTheWoundReasonFields:@"2"];
+    self.exudateOdor=[cdh fetchTheWoundReasonFields:@"8"];
+    self.exudateAmount=[cdh fetchTheWoundReasonFields:@"9"];
+    self.edema=[cdh fetchTheWoundReasonFields:@"10"];
+    self.conditionArray=[cdh fetchTheWoundReasonFields:@"11"];
+    self.otherWoundsArray=[cdh fetchTheWoundReasonFields:@"12"];
 
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup.png"]];
     
