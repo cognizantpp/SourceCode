@@ -4314,16 +4314,6 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" background="txtarea.png" translatesAutoresizingMaskIntoConstraints="NO" id="yMg-Pn-MDs">
-                                                <rect key="frame" x="281" y="117" width="130" height="61"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" background="txtarea.png" translatesAutoresizingMaskIntoConstraints="NO" id="edy-uZ-PhE">
-                                                <rect key="frame" x="281" y="835" width="130" height="61"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pJ-wY-bHi">
                                                 <rect key="frame" x="627" y="465" width="25" height="22"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4336,6 +4326,18 @@
                                                     <action selector="RadioButtonAction:" destination="cTu-Ly-Amy" eventType="touchUpInside" id="3x8-YH-zna"/>
                                                 </connections>
                                             </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Qp-yB-Bfc">
+                                                <rect key="frame" x="281" y="124" width="130" height="46"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FOX-QB-P7l">
+                                                <rect key="frame" x="281" y="848" width="130" height="46"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <variation key="heightClass=regular" fixedFrame="YES">
@@ -4353,7 +4355,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="768"/>
                     <connections>
+                        <outlet property="AtypicalTextView" destination="2Qp-yB-Bfc" id="oiO-ZS-T0V"/>
                         <outlet property="CharacterOtherTextField" destination="Qup-Tw-5dm" id="MXl-wG-CUb"/>
+                        <outlet property="CommentsTextView" destination="FOX-QB-P7l" id="GcR-Vc-PGU"/>
                         <outlet property="EdemaButton" destination="lnI-q8-OoO" id="M0n-vP-jL5"/>
                         <outlet property="ExudateAmountButton" destination="bOT-FA-tfB" id="BEL-Gg-tD0"/>
                         <outlet property="ExudateCharacterButton" destination="22O-ou-kSL" id="Gsk-EI-408"/>
@@ -5899,7 +5903,7 @@
                                                     <action selector="multipleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="1ej-bw-3qf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mu7-bS-hZu">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mu7-bS-hZu">
                                                 <rect key="frame" x="370" y="460" width="133" height="33"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -5909,7 +5913,7 @@
                                                     <action selector="singleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="xjD-YX-W3H"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbC-zV-Ok1">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbC-zV-Ok1">
                                                 <rect key="frame" x="370" y="850" width="133" height="33"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -5919,7 +5923,7 @@
                                                     <action selector="multipleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="ueU-WX-HgN"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8j-dc-FJU">
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8j-dc-FJU">
                                                 <rect key="frame" x="370" y="950" width="133" height="33"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -5939,7 +5943,7 @@
                                                     <action selector="lengthButtonClicked:" destination="eVb-6X-G5z" eventType="touchUpInside" id="7nq-cP-2w4"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrW-bR-kGf">
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrW-bR-kGf">
                                                 <rect key="frame" x="370" y="1100" width="133" height="33"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -5949,7 +5953,7 @@
                                                     <action selector="multipleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="bUQ-cb-6Pa"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pM1-Yd-p9R">
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pM1-Yd-p9R">
                                                 <rect key="frame" x="370" y="1150" width="133" height="33"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -5959,7 +5963,7 @@
                                                     <action selector="singleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="ulC-13-Lc0"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsN-xi-Rfe">
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsN-xi-Rfe">
                                                 <rect key="frame" x="370" y="1200" width="133" height="33"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -5969,7 +5973,7 @@
                                                     <action selector="singleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="Cr2-Bd-fua"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPt-l7-tTh">
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPt-l7-tTh">
                                                 <rect key="frame" x="370" y="1250" width="133" height="33"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -5977,16 +5981,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="singleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="cpg-lh-bjS"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxj-Fz-xMG">
-                                                <rect key="frame" x="370" y="900" width="133" height="33"/>
-                                                <state key="normal" title="Select" backgroundImage="txtbox.png">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="singleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="t38-Mc-7vL"/>
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="37N-ha-NTD">
@@ -6281,7 +6275,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oG-xM-dKa">
+                                            <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oG-xM-dKa">
                                                 <rect key="frame" x="370" y="1300" width="133" height="33"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -6320,7 +6314,7 @@
                                                     <action selector="singleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="GYq-aO-TIp"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKE-1K-qNj">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKE-1K-qNj">
                                                 <rect key="frame" x="370" y="800" width="133" height="33"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -6340,7 +6334,7 @@
                                                     <action selector="lengthButtonClicked:" destination="eVb-6X-G5z" eventType="touchUpInside" id="f2e-Az-Qof"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYH-VH-CJS">
+                                            <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYH-VH-CJS">
                                                 <rect key="frame" x="370" y="1417" width="133" height="33"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -6348,6 +6342,16 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="singleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="0wq-dj-lZ1"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxj-Fz-xMG">
+                                                <rect key="frame" x="370" y="900" width="133" height="33"/>
+                                                <state key="normal" title="Select" backgroundImage="txtbox.png">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="singleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="t38-Mc-7vL"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -6586,7 +6590,7 @@
         <image name="left.png" width="60" height="1368"/>
         <image name="loginbutton.png" width="122" height="44"/>
         <image name="logout2013.png" width="52" height="64"/>
-        <image name="measurements.png" width="1024" height="685"/>
+        <image name="measurements.png" width="349" height="70"/>
         <image name="mmi_bg.png" width="162" height="46"/>
         <image name="myassignmentname.png" width="320" height="78"/>
         <image name="n0.png" width="107" height="55"/>
@@ -6601,7 +6605,7 @@
         <image name="n9.png" width="105" height="54"/>
         <image name="noimage.png" width="219" height="219"/>
         <image name="o1.png" width="30" height="30"/>
-        <image name="others.png" width="1024" height="685"/>
+        <image name="others.png" width="349" height="70"/>
         <image name="patientname_bg.png" width="177" height="55"/>
         <image name="patientsattribute.png" width="42" height="42"/>
         <image name="poppupsmall.png" width="295" height="162"/>
@@ -6614,7 +6618,6 @@
         <image name="testimg.png" width="900" height="600"/>
         <image name="textboxbig.png" width="300" height="37"/>
         <image name="textsmall.png" width="84" height="37"/>
-        <image name="txtarea.png" width="178" height="102"/>
         <image name="txtbox.png" width="133" height="33"/>
         <image name="w1.png" width="30" height="30"/>
         <image name="w2.png" width="30" height="30"/>
@@ -6624,9 +6627,9 @@
         <image name="w6.png" width="30" height="30"/>
         <image name="w7.png" width="30" height="30"/>
         <image name="welcome_bg.png" width="1024" height="685"/>
-        <image name="wound.png" width="1024" height="685"/>
+        <image name="wound.png" width="349" height="70"/>
         <image name="wound_peristomal.png" width="349" height="70"/>
-        <image name="wound_reason.png" width="1024" height="685"/>
+        <image name="wound_reason.png" width="349" height="70"/>
         <image name="woundros.png" width="349" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>

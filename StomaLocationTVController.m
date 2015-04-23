@@ -66,9 +66,48 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    
-    return [self.selectedArray count];
-    
+    if([self.selectedCategory isEqualToString:@"StomaLocation"])
+    {
+        return self.stomaLocationArray.count;
+    }
+    else if ([self.selectedCategory isEqualToString:@"StomaColor"])
+    {
+        return self.stomaColorArray.count;
+    }
+    else if ([self.selectedCategory isEqualToString:@"StomaOutputColor"])
+    {
+        return self.stomaOutputColorArray.count;
+    }
+    else if ([self.selectedCategory isEqualToString:@"FistulaLocation"])
+    {
+        return self.fistulaLocationArray.count;
+    }
+    else if ([self.selectedCategory isEqualToString:@"FistulaColor"])
+    {
+        return self.fistulaColorArray.count;
+    }
+    else if ([self.selectedCategory isEqualToString:@"ExudateOdour"])
+    {
+        return self.exudateOdourArray.count;
+    }
+    else if ([self.selectedCategory isEqualToString:@"ExudateAmount"])
+    {
+        return self.exudateAmountArray.count;
+    }
+    else if ([self.selectedCategory isEqualToString:@"GranulationTissue"])
+    {
+        return self.granulationTissueArray.count;
+    }
+    else if ([self.selectedCategory isEqualToString:@"Edema"])
+    {
+        return self.edemaArray.count;
+    }
+
+    else
+    {
+        return self.peristomalSkinConditionArray.count;
+    }
+
 }
 
 
@@ -87,8 +126,6 @@
     if([self.selectedCategory isEqualToString:@"StomaLocation"])
     {
         _selectedString = [self.stomaLocationArray objectAtIndex:indexPath.row];
-        
-        
     }
     else if ([self.selectedCategory isEqualToString:@"StomaColor"])
     {

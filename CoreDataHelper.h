@@ -27,8 +27,12 @@
 #import "Ostomy.h"
 #import "ReviewBase.h"
 #import "ReviewAssessmentSave.h"
+#import "WoundReason.h"
 
 @interface CoreDataHelper : NSObject
+
+@property (nonatomic)long buttonClicked;
+
 
 +(instancetype)sharedInstance;
 @property(strong,nonatomic)NSManagedObjectContext *managedObjectContext;
@@ -108,6 +112,8 @@
 -(NSMutableArray *)fetchTheReviewBaseFields:(NSString *)categoryId;
 -(NSMutableArray *)fetchTheReviewAssessmentFields:(NSString *)categoryId;
 -(NSMutableArray *)fetchTheReviewAssessmentSubFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheReviewScoreFields:(NSString *)categoryId;
+-(NSMutableArray *)fetchTheWoundReasonFields:(NSString *)categoryId;
 
 
 

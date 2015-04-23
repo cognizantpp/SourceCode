@@ -31,14 +31,6 @@
 @property(nonatomic,strong)NSArray *nutritionAssessmentArray;
 @property(nonatomic,strong)NSArray *tissueAssessmentArray;
 
-@property(nonatomic,strong)NSArray *mobilityAssessmentSubFieldArray;
-@property(nonatomic,strong)NSArray *activityAssessmentSubFieldArray;
-@property(nonatomic,strong)NSArray *sensoryAssessmentSubFieldArray;
-@property(nonatomic,strong)NSArray *moistureAssessmentSubFieldArray;
-@property(nonatomic,strong)NSArray *frictionAssessmentSubFieldArray;
-@property(nonatomic,strong)NSArray *nutritionAssessmentSubFieldArray;
-@property(nonatomic,strong)NSArray *tissueAssessmentSubFieldArray;
-
 
 @end
 NSArray *reviewbasearray;
@@ -91,20 +83,19 @@ NSArray *reviewassessarray;
             [self.testsOtherTextField setText:othertext];
         }
          }
-    
     reviewassessarray=[cdh setReviewassessFields:entry_no];
     if(reviewassessarray.count>0){
-        [self.mobilityButtonOutlet setTitle:[reviewassessarray objectAtIndex:0] forState:UIControlStateNormal];
-        [self.activityButtonOutlet setTitle:[reviewassessarray objectAtIndex:1] forState:UIControlStateNormal];
-        [self.sensoryPerceptionButtonOutlet setTitle:[reviewassessarray objectAtIndex:2] forState:UIControlStateNormal];
-        [self.moistureButtonOutlet setTitle:[reviewassessarray objectAtIndex:3] forState:UIControlStateNormal];
-        [self.frictionAndShearButtonOutlet setTitle:[reviewassessarray objectAtIndex:4] forState:UIControlStateNormal];
-        [self.nutritionButtonOutlet setTitle:[reviewassessarray objectAtIndex:5] forState:UIControlStateNormal];
-        [self.tissuePerfusionOutlet setTitle:[reviewassessarray objectAtIndex:6] forState:UIControlStateNormal];
-        [self.mobilityAssessmentOutlet setText:[reviewassessarray objectAtIndex:7]];
-        [self.activityAssessmentOutlet setText:[reviewassessarray objectAtIndex:8]];
-        [self.sensoryPerceptionAssessmentOutlet setText:[reviewassessarray objectAtIndex:9]];
-        [self.moistureAsessmentOutlet setText:[reviewassessarray objectAtIndex:10]];
+        [self.mobilityButtonOutlet setTitle:[reviewassessarray objectAtIndex:1] forState:UIControlStateNormal];
+        [self.activityButtonOutlet setTitle:[reviewassessarray objectAtIndex:2] forState:UIControlStateNormal];
+        [self.sensoryPerceptionButtonOutlet setTitle:[reviewassessarray objectAtIndex:3] forState:UIControlStateNormal];
+        [self.moistureButtonOutlet setTitle:[reviewassessarray objectAtIndex:4] forState:UIControlStateNormal];
+        [self.frictionAndShearButtonOutlet setTitle:[reviewassessarray objectAtIndex:5] forState:UIControlStateNormal];
+        [self.nutritionButtonOutlet setTitle:[reviewassessarray objectAtIndex:6] forState:UIControlStateNormal];
+        [self.tissuePerfusionOutlet setTitle:[reviewassessarray objectAtIndex:7] forState:UIControlStateNormal];
+        [self.mobilityAssessmentOutlet setText:[reviewassessarray objectAtIndex:8]];
+        [self.activityAssessmentOutlet setText:[reviewassessarray objectAtIndex:9]];
+        [self.sensoryPerceptionAssessmentOutlet setText:[reviewassessarray objectAtIndex:10]];
+        [self.moistureAsessmentOutlet setText:[reviewassessarray objectAtIndex:0]];
         [self.frictionAssessmentOutlet setText:[reviewassessarray objectAtIndex:11]];
         [self.nutritionAssessmentOutlet setText:[reviewassessarray objectAtIndex:12]];
         [self.tissueAssessmentOutlet setText:[reviewassessarray objectAtIndex:13]];
@@ -115,29 +106,23 @@ NSArray *reviewassessarray;
         [self.frictionScore setText:[reviewassessarray objectAtIndex:18]];
         [self.nutritionScore setText:[reviewassessarray objectAtIndex:19]];
         [self.tissueScore setText:[reviewassessarray objectAtIndex:20]];
-
         
-
+        
+        
     }
-    self.riskFactorArray=[cdh fetchTheReviewBaseFields:@"1"];
+    
+        self.riskFactorArray=[cdh fetchTheReviewBaseFields:@"1"];
     self.consultArray=[cdh fetchTheReviewBaseFields:@"2"];
     self.testsArray=[cdh fetchTheReviewBaseFields:@"3"];
     
-    self.mobilityAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"4"];
-    self.activityAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"5"];
-    self.sensoryAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"6"];
-    self.moistureAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"7"];
-    self.frictionAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"8"];
-    self.nutritionAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"9"];
-    self.tissueAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"10"];
-
-    self.mobilityAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"4"];
-    self.activityAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"5"];
-    self.sensoryAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"6"];
-    self.moistureAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"7"];
-    self.frictionAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"8"];
-    self.nutritionAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"9"];
-    self.tissueAssessmentSubFieldArray=[cdh fetchTheReviewAssessmentSubFields:@"10"];
+    self.mobilityAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"4"];
+    self.activityAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"5"];
+    self.sensoryAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"6"];
+    self.moistureAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"7"];
+    self.frictionAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"8"];
+    self.nutritionAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"9"];
+    self.tissueAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"10"];
+    
     
     _mobilityAssessmentOutlet.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15, 20)];
     _mobilityAssessmentOutlet.leftViewMode = UITextFieldViewModeAlways;
@@ -290,7 +275,7 @@ NSArray *reviewassessarray;
 
   
     _mobilityScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _mobilityAssessmentOutlet.text=[_mobilityAssessmentSubFieldArray objectAtIndex:painScore];
+    _mobilityAssessmentOutlet.text=[_mobilityAssessmentArray objectAtIndex:painScore];
     
     [self updateTotal];
 
@@ -304,7 +289,7 @@ NSArray *reviewassessarray;
 
     
     _activityScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _activityAssessmentOutlet.text=[_activityAssessmentSubFieldArray objectAtIndex:painScore];
+    _activityAssessmentOutlet.text=[_activityAssessmentArray objectAtIndex:painScore];
     [self updateTotal];
 
 }
@@ -317,7 +302,7 @@ NSArray *reviewassessarray;
   
     
     _sensoryPerceptionScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _sensoryPerceptionAssessmentOutlet.text=[_sensoryAssessmentSubFieldArray objectAtIndex:painScore];
+    _sensoryPerceptionAssessmentOutlet.text=[_sensoryAssessmentArray objectAtIndex:painScore];
     [self updateTotal];
 }
 -(void)getROSMoistureString:(NSString *)data andScore:(NSInteger)painScore
@@ -329,7 +314,7 @@ NSArray *reviewassessarray;
     
     
     _moistureScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _moistureAsessmentOutlet.text=[_moistureAssessmentSubFieldArray objectAtIndex:painScore];
+    _moistureAsessmentOutlet.text=[_moistureAssessmentArray objectAtIndex:painScore];
     [self updateTotal];
 
     
@@ -343,7 +328,7 @@ NSArray *reviewassessarray;
     
     
     _frictionScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _frictionAssessmentOutlet.text=[_frictionAssessmentSubFieldArray objectAtIndex:painScore];
+    _frictionAssessmentOutlet.text=[_frictionAssessmentArray objectAtIndex:painScore];
     [self updateTotal];
 
 }
@@ -356,7 +341,7 @@ NSArray *reviewassessarray;
     
     
     _nutritionScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _nutritionAssessmentOutlet.text=[_nutritionAssessmentSubFieldArray objectAtIndex:painScore];
+    _nutritionAssessmentOutlet.text=[_nutritionAssessmentArray objectAtIndex:painScore];
     [self updateTotal];
 
 }
@@ -369,7 +354,7 @@ NSArray *reviewassessarray;
     
     
     _tissueScore.text= [NSString stringWithFormat: @"%ld", (long)painScore+1];
-    _tissueAssessmentOutlet.text=[_tissueAssessmentSubFieldArray objectAtIndex:painScore];
+    _tissueAssessmentOutlet.text=[_tissueAssessmentArray objectAtIndex:painScore];
     [self updateTotal];
 
 }

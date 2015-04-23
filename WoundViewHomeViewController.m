@@ -63,12 +63,14 @@ NSInteger selectedEntryButton;
     _multipleSelectionViewController=[[MultipleSelectionTableViewController alloc]init];
     _multipleSelectionViewController.dataDelegate=self;
     
-    _otherArray=[NSMutableArray arrayWithObjects:@"Abrasion",@"Avulsion",@" Burn",@" Cellulitis",@"Rash",@"Trauma",@"Vascular",@"Petechia",@"Neuropathic",@"Erythema",@"Wound",nil];
-    _woundBedColorArray=[NSMutableArray arrayWithObjects:@"red",@"Blue",@"Pink",@"Black",@"White",@"Other" ,nil];
-    _woundBedArray=[NSMutableArray arrayWithObjects:@"Exposed bone",@"Exposed tendon",@"Hardware",@"Sutures",@"Other", nil];
-    _periWoundArray=[NSMutableArray arrayWithObjects:@"Intact",@"Blister ",@"Ruptured",@"Erythema",@"Rash",@"Other", nil];
-    _exudateCharacterArray=[NSMutableArray arrayWithObjects:@"None",@"Serous",@"Purulent",@"Bloody",@"Green",@"Other", nil];
     
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.otherArray=[cdh fetchTheWoundReasonFields:@"1"];
+    self.woundBedColorArray=[cdh fetchTheWoundReasonFields:@"3"];
+    self.woundBedArray=[cdh fetchTheWoundReasonFields:@"4"];
+    self.periWoundArray=[cdh fetchTheWoundReasonFields:@"6"];
+    self.exudateCharacterArray=[cdh fetchTheWoundReasonFields:@"7"];
+
     
     _singleSelectionViewController=[[SingleSelectionTableViewController alloc]init];
     _singleSelectionViewController.dataDelegate=self;
@@ -631,7 +633,7 @@ NSInteger selectedEntryButton;
             
             break;
             
-        case 1:
+        case 2:
             
             self.multipleSeectionPopOver=[[UIPopoverController alloc]initWithContentViewController:_multipleSelectionViewController];
             [self.multipleSeectionPopOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -653,7 +655,7 @@ NSInteger selectedEntryButton;
             
             break;
             
-        case 2:
+        case 3:
             
             self.multipleSeectionPopOver=[[UIPopoverController alloc]initWithContentViewController:_multipleSelectionViewController];
             [self.multipleSeectionPopOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -674,7 +676,7 @@ NSInteger selectedEntryButton;
             
             
             break;
-        case 3:
+        case 5:
             
             self.multipleSeectionPopOver=[[UIPopoverController alloc]initWithContentViewController:_multipleSelectionViewController];
             [self.multipleSeectionPopOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -695,7 +697,7 @@ NSInteger selectedEntryButton;
             
             
             break;
-        case 4:
+        case 6:
             
             self.multipleSeectionPopOver=[[UIPopoverController alloc]initWithContentViewController:_multipleSelectionViewController];
             [self.multipleSeectionPopOver setPopoverContentSize:CGSizeMake(300, 300)];
@@ -738,7 +740,7 @@ NSInteger selectedEntryButton;
     switch (sender.tag)
     {
             
-        case 0:
+        case 1:
             
             self.singleSelectionPopOver=[[UIPopoverController alloc]initWithContentViewController:_singleSelectionViewController];
             [self.singleSelectionPopOver setPopoverContentSize:CGSizeMake(300, 200)];
@@ -759,7 +761,7 @@ NSInteger selectedEntryButton;
             
             break;
             
-            case 1:
+            case 4:
         {
             selectedEntryButton = [sender tag];
             LengthNumberEntryViewController *lengthNumberEntryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PercentageNumberEntryViewController"];
@@ -778,7 +780,7 @@ NSInteger selectedEntryButton;
         }
             
           
-        case 2:
+        case 7:
             
             self.singleSelectionPopOver=[[UIPopoverController alloc]initWithContentViewController:_singleSelectionViewController];
             [self.singleSelectionPopOver setPopoverContentSize:CGSizeMake(300, 150)];
@@ -799,7 +801,7 @@ NSInteger selectedEntryButton;
             
             break;
             
-        case 3:
+        case 8:
             
             self.singleSelectionPopOver=[[UIPopoverController alloc]initWithContentViewController:_singleSelectionViewController];
             [self.singleSelectionPopOver setPopoverContentSize:CGSizeMake(300, 200)];
@@ -822,7 +824,7 @@ NSInteger selectedEntryButton;
             
  
             
-        case 4:
+        case 9:
             
             self.singleSelectionPopOver=[[UIPopoverController alloc]initWithContentViewController:_singleSelectionViewController];
             [self.singleSelectionPopOver setPopoverContentSize:CGSizeMake(300, 200)];
@@ -845,7 +847,7 @@ NSInteger selectedEntryButton;
             
             
             
-        case 5:
+        case 10:
             
             self.singleSelectionPopOver=[[UIPopoverController alloc]initWithContentViewController:_singleSelectionViewController];
             [self.singleSelectionPopOver setPopoverContentSize:CGSizeMake(300, 150)];
@@ -866,7 +868,7 @@ NSInteger selectedEntryButton;
             
             break;
             
-        case 6:
+        case 11:
             
             self.singleSelectionPopOver=[[UIPopoverController alloc]initWithContentViewController:_singleSelectionViewController];
             [self.singleSelectionPopOver setPopoverContentSize:CGSizeMake(300, 400)];
