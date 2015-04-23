@@ -85,26 +85,26 @@ NSArray *reviewassessarray;
          }
     reviewassessarray=[cdh setReviewassessFields:entry_no];
     if(reviewassessarray.count>0){
-        [self.mobilityButtonOutlet setTitle:[reviewassessarray objectAtIndex:1] forState:UIControlStateNormal];
-        [self.activityButtonOutlet setTitle:[reviewassessarray objectAtIndex:2] forState:UIControlStateNormal];
-        [self.sensoryPerceptionButtonOutlet setTitle:[reviewassessarray objectAtIndex:3] forState:UIControlStateNormal];
-        [self.moistureButtonOutlet setTitle:[reviewassessarray objectAtIndex:4] forState:UIControlStateNormal];
-        [self.frictionAndShearButtonOutlet setTitle:[reviewassessarray objectAtIndex:5] forState:UIControlStateNormal];
-        [self.nutritionButtonOutlet setTitle:[reviewassessarray objectAtIndex:6] forState:UIControlStateNormal];
-        [self.tissuePerfusionOutlet setTitle:[reviewassessarray objectAtIndex:7] forState:UIControlStateNormal];
-        [self.mobilityAssessmentOutlet setText:[reviewassessarray objectAtIndex:8]];
-        [self.activityAssessmentOutlet setText:[reviewassessarray objectAtIndex:9]];
-        [self.sensoryPerceptionAssessmentOutlet setText:[reviewassessarray objectAtIndex:10]];
-        [self.moistureAsessmentOutlet setText:[reviewassessarray objectAtIndex:0]];
-        [self.frictionAssessmentOutlet setText:[reviewassessarray objectAtIndex:11]];
-        [self.nutritionAssessmentOutlet setText:[reviewassessarray objectAtIndex:12]];
-        [self.tissueAssessmentOutlet setText:[reviewassessarray objectAtIndex:13]];
-        [self.mobilityScore setText:[reviewassessarray objectAtIndex:14]];
-        [self.activityScore setText:[reviewassessarray objectAtIndex:15]];
-        [self.sensoryPerceptionScore setText:[reviewassessarray objectAtIndex:16]];
-        [self.moistureScore setText:[reviewassessarray objectAtIndex:17]];
-        [self.frictionScore setText:[reviewassessarray objectAtIndex:18]];
-        [self.nutritionScore setText:[reviewassessarray objectAtIndex:19]];
+        [self.mobilityButtonOutlet setTitle:[reviewassessarray objectAtIndex:0] forState:UIControlStateNormal];
+        [self.activityButtonOutlet setTitle:[reviewassessarray objectAtIndex:3] forState:UIControlStateNormal];
+        [self.sensoryPerceptionButtonOutlet setTitle:[reviewassessarray objectAtIndex:6] forState:UIControlStateNormal];
+        [self.moistureButtonOutlet setTitle:[reviewassessarray objectAtIndex:9] forState:UIControlStateNormal];
+        [self.frictionAndShearButtonOutlet setTitle:[reviewassessarray objectAtIndex:12] forState:UIControlStateNormal];
+        [self.nutritionButtonOutlet setTitle:[reviewassessarray objectAtIndex:15] forState:UIControlStateNormal];
+        [self.tissuePerfusionOutlet setTitle:[reviewassessarray objectAtIndex:18] forState:UIControlStateNormal];
+        [self.mobilityAssessmentOutlet setText:[reviewassessarray objectAtIndex:1]];
+        [self.activityAssessmentOutlet setText:[reviewassessarray objectAtIndex:4]];
+        [self.sensoryPerceptionAssessmentOutlet setText:[reviewassessarray objectAtIndex:7]];
+        [self.moistureAsessmentOutlet setText:[reviewassessarray objectAtIndex:10]];
+        [self.frictionAssessmentOutlet setText:[reviewassessarray objectAtIndex:13]];
+        [self.nutritionAssessmentOutlet setText:[reviewassessarray objectAtIndex:16]];
+        [self.tissueAssessmentOutlet setText:[reviewassessarray objectAtIndex:19]];
+        [self.mobilityScore setText:[reviewassessarray objectAtIndex:2]];
+        [self.activityScore setText:[reviewassessarray objectAtIndex:5]];
+        [self.sensoryPerceptionScore setText:[reviewassessarray objectAtIndex:8]];
+        [self.moistureScore setText:[reviewassessarray objectAtIndex:11]];
+        [self.frictionScore setText:[reviewassessarray objectAtIndex:14]];
+        [self.nutritionScore setText:[reviewassessarray objectAtIndex:17]];
         [self.tissueScore setText:[reviewassessarray objectAtIndex:20]];
         
         

@@ -784,10 +784,10 @@
     [fetchRequest setPredicate:predicate];
     
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
-                                                                   ascending:YES];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
-    
+//    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+//                                                                   ascending:YES];
+//    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+//    
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     if (fetchedObjects == nil) {
