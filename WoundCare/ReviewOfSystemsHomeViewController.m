@@ -31,14 +31,6 @@
 @property(nonatomic,strong)NSArray *nutritionAssessmentArray;
 @property(nonatomic,strong)NSArray *tissueAssessmentArray;
 
-//@property(nonatomic,strong)NSArray *mobilityAssessmentSubFieldArray;
-//@property(nonatomic,strong)NSArray *activityAssessmentSubFieldArray;
-//@property(nonatomic,strong)NSArray *sensoryAssessmentSubFieldArray;
-//@property(nonatomic,strong)NSArray *moistureAssessmentSubFieldArray;
-//@property(nonatomic,strong)NSArray *frictionAssessmentSubFieldArray;
-//@property(nonatomic,strong)NSArray *nutritionAssessmentSubFieldArray;
-//@property(nonatomic,strong)NSArray *tissueAssessmentSubFieldArray;
-
 
 @end
 NSArray *reviewbasearray;
@@ -127,7 +119,7 @@ NSArray *reviewassessarray;
     self.activityAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"5"];
     self.sensoryAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"6"];
     self.moistureAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"7"];
-    self.frictionAssessmentArray=[cdh fetchTheReviewAssessmentFields:@"8"];
+    self.frictionAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"8"];
     self.nutritionAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"9"];
     self.tissueAssessmentArray=[cdh fetchTheReviewAssessmentSubFields:@"10"];
     
