@@ -67,11 +67,13 @@
 @property (strong, nonatomic) IBOutlet UIButton *FistulaSizemmButton;
 @property (strong, nonatomic) IBOutlet UIButton *FistulaSizecmButton;
 
+@property (strong, nonatomic) IBOutlet UITextView *AtypicalTextView;
+@property (strong, nonatomic) IBOutlet UITextView *CommentsTextView;
 
 
 
 @property (nonatomic, strong)NSMutableString *entryData;
-@property (nonatomic, strong)NSMutableString *entryDataW;
+
 
 
 @property (weak, nonatomic) IBOutlet UIView *subVView;

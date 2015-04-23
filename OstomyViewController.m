@@ -48,6 +48,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [_AtypicalTextView.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
+    [_AtypicalTextView.layer setBorderColor: [[UIColor grayColor] CGColor]];
+    [_AtypicalTextView.layer setBorderWidth: 1.0];
+    [_AtypicalTextView.layer setCornerRadius:8.0f];
+    [_AtypicalTextView.layer setMasksToBounds:YES];
+    
+    [_CommentsTextView.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
+    [_CommentsTextView.layer setBorderColor: [[UIColor grayColor] CGColor]];
+    [_CommentsTextView.layer setBorderWidth: 1.0];
+    [_CommentsTextView.layer setCornerRadius:8.0f];
+    [_CommentsTextView.layer setMasksToBounds:YES];
+    
+    
     CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
     self.ostomySiteArray=[cdh fetchTheOstomyFields:@"1"];
     self.StomaLocationArray= [cdh fetchTheOstomyFields:@"2"];

@@ -108,7 +108,7 @@
 -(NSMutableArray *)fetchTheReviewBaseFields:(NSString *)categoryId;
 -(NSMutableArray *)fetchTheReviewAssessmentFields:(NSString *)categoryId;
 -(NSMutableArray *)fetchTheReviewAssessmentSubFields:(NSString *)categoryId;
-
+-(NSMutableArray *)fetchTheReviewScoreFields:(NSString *)categoryId;
 
 
 -(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cTu-Ly-Amy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -4314,16 +4314,6 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" background="txtarea.png" translatesAutoresizingMaskIntoConstraints="NO" id="yMg-Pn-MDs">
-                                                <rect key="frame" x="281" y="117" width="130" height="61"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" background="txtarea.png" translatesAutoresizingMaskIntoConstraints="NO" id="edy-uZ-PhE">
-                                                <rect key="frame" x="281" y="835" width="130" height="61"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pJ-wY-bHi">
                                                 <rect key="frame" x="627" y="465" width="25" height="22"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4336,6 +4326,18 @@
                                                     <action selector="RadioButtonAction:" destination="cTu-Ly-Amy" eventType="touchUpInside" id="3x8-YH-zna"/>
                                                 </connections>
                                             </button>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Qp-yB-Bfc">
+                                                <rect key="frame" x="281" y="124" width="130" height="46"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FOX-QB-P7l">
+                                                <rect key="frame" x="281" y="848" width="130" height="46"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <variation key="heightClass=regular" fixedFrame="YES">
@@ -4353,7 +4355,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="1024" height="768"/>
                     <connections>
+                        <outlet property="AtypicalTextView" destination="2Qp-yB-Bfc" id="oiO-ZS-T0V"/>
                         <outlet property="CharacterOtherTextField" destination="Qup-Tw-5dm" id="MXl-wG-CUb"/>
+                        <outlet property="CommentsTextView" destination="FOX-QB-P7l" id="GcR-Vc-PGU"/>
                         <outlet property="EdemaButton" destination="lnI-q8-OoO" id="M0n-vP-jL5"/>
                         <outlet property="ExudateAmountButton" destination="bOT-FA-tfB" id="BEL-Gg-tD0"/>
                         <outlet property="ExudateCharacterButton" destination="22O-ou-kSL" id="Gsk-EI-408"/>
@@ -6614,7 +6618,6 @@
         <image name="testimg.png" width="900" height="600"/>
         <image name="textboxbig.png" width="300" height="37"/>
         <image name="textsmall.png" width="84" height="37"/>
-        <image name="txtarea.png" width="178" height="102"/>
         <image name="txtbox.png" width="133" height="33"/>
         <image name="w1.png" width="30" height="30"/>
         <image name="w2.png" width="30" height="30"/>
