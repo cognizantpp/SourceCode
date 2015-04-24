@@ -44,11 +44,11 @@
         [self dismissViewControllerAnimated:NO completion:nil];
          NSLog(@"hey.......");
        
-        _GVC=[self.storyboard instantiateViewControllerWithIdentifier:@"gastro"];
+        GVC=[self.storyboard instantiateViewControllerWithIdentifier:@"gastro"];
         
-        [assessmentGlobalView addSubview:_GVC.view];
+        [assessmentGlobalView addSubview:GVC.view];
         
-        [assessmentglobalviewcontroller addChildViewController:_GVC];
+        [assessmentglobalviewcontroller addChildViewController:GVC];
 
              //[self presentViewController:_GVC animated:YES completion:nil];
       //  _GVC.dataDelegate=self;

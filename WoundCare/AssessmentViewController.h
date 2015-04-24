@@ -29,4 +29,5 @@ UIViewController *assessmentglobalviewcontroller;
 @property (weak, nonatomic) IBOutlet UIView *initialview;
 @property(weak,nonatomic)CoreDataHelper *btnclickobj;
 @property (weak, nonatomic) IBOutlet UIButton *btnCurrentPatient;
+
 @end

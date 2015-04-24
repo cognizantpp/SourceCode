@@ -14,6 +14,7 @@
 #import "WidthViewController.h"
 #import "DismissPopOver.h"
 #import "SelectOnsetDate1.h"
+#import "CoreDataHelper.h"
 @interface GastrostomyViewController : UIViewController<UIScrollViewDelegate,GetDataProtocol,DismissPopOver>
 @property (nonatomic, strong)id<DismissPopOver> delegate;
 //@property (nonatomic, strong)id<DismissPopOver> ddelegate;
@@ -23,9 +24,9 @@
 @property (strong, nonatomic)WidthNumberViewController *widthController;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
-@property (strong, nonatomic) IBOutlet UIButton *GastrostomySiteOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *GastrostomySiteOutlet;
 
-@property (strong, nonatomic) IBOutlet UIButton *GastrostomyTubeTypeOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *GastrostomyTubeTypeOutlet;
 
 //@property (strong, nonatomic) IBOutlet UIButton *AtypicalOutlet;
 @property (strong, nonatomic) IBOutlet UIButton *SizeLengthOutlet;
