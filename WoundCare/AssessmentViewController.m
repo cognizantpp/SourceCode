@@ -384,6 +384,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         
     }
     if([sender tag]==8){
+        [self setButtonBackground];
         UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main"
                                                              bundle:nil];
         ViewController *add =
@@ -391,7 +392,8 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         
         [self presentViewController:add
                            animated:YES
-                         completion:nil];    }
+                         completion:nil];
+    }
 }
 - (IBAction)btnPatientInfoClicked:(id)sender {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
