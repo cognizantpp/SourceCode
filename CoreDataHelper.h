@@ -117,16 +117,16 @@
 
 
 
--(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value;
+-(void)savePain:(NSString *)entryNo ;
 -(NSArray *)setPainFields:(NSString *)entryNo;
 
--(void)saveEducation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
+-(void)saveEducation:(NSString *)entryNo ;
 -(NSArray *)setEducationFields:(NSString *)entryNo ;
 
--(void)saveTreatment:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
+-(void)saveTreatment:(NSString *)entryNo ;
 -(NSArray *)setTreatmentFields:(NSString *)entryNo ;
 
--(void)saveRecommendation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
+-(void)saveRecommendation:(NSString *)entryNo ;
 -(NSArray *)setRecommendationFields:(NSString *)entryNo ;
 
 -(void)saveReviewbase:(NSString *)entryNo;

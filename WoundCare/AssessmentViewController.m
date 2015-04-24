@@ -84,7 +84,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
             [CoreDataHelper sharedInstance].painselected_value=[NSArray arrayWithObjects:charselected_value,scoreselected_value,nil];
 
             NSLog(@"_assignmentsViewController.entry_no   %@",entry_no );
-            [cdh savePain:entry_no andCategoryid:[CoreDataHelper sharedInstance].paincategoryid andCategoryname:[CoreDataHelper sharedInstance].paincategory_name andSelectedvalue:[CoreDataHelper sharedInstance].painselected_value];
+            [cdh savePain:entry_no];
             break;
         }
         case 2:
@@ -107,6 +107,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
             NSString *frictionselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.frictionAndShearButtonOutlet.titleLabel.text];
             NSString *nutritionselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.nutritionButtonOutlet.titleLabel.text];
             NSString *tissueselected_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.tissuePerfusionOutlet.titleLabel.text];
+            NSString *score_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.totalScoreTextField.text];
             
             NSString *mobilityother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.mobilityAssessmentOutlet.text];
             NSString *activityother_value=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.activityAssessmentOutlet.text];
@@ -125,9 +126,9 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
             NSString *nutritionscore=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.nutritionScore.text];
             NSString *tissuescore=[NSString stringWithFormat:@"%@",reviewOfSystemsHomeViewController.tissueScore.text];
             
-            [CoreDataHelper sharedInstance].reviewassessselected_value=[NSArray arrayWithObjects:mobilityselected_value,activityselected_value,sensoryselected_value,moistureselected_value,frictionselected_value,nutritionselected_value,tissueselected_value, nil];
-            [CoreDataHelper sharedInstance].reviewassessOthervalues=[NSArray arrayWithObjects:mobilityother_value,activityother_value,sensoryother_value,moistureother_value,frictionother_value,nutritionother_value,tissueother_value, nil];
-            [CoreDataHelper sharedInstance].reviewassessScorevalues=[NSArray arrayWithObjects:mobilityscore,activityscore,sensoryscore,moisturescore,frictionscore,nutritionscore,tissuescore,nil];
+            [CoreDataHelper sharedInstance].reviewassessselected_value=[NSArray arrayWithObjects:mobilityselected_value,activityselected_value,sensoryselected_value,moistureselected_value,frictionselected_value,nutritionselected_value,tissueselected_value,score_value ,nil];
+            [CoreDataHelper sharedInstance].reviewassessOthervalues=[NSArray arrayWithObjects:mobilityother_value,activityother_value,sensoryother_value,moistureother_value,frictionother_value,nutritionother_value,tissueother_value,@"", nil];
+            [CoreDataHelper sharedInstance].reviewassessScorevalues=[NSArray arrayWithObjects:mobilityscore,activityscore,sensoryscore,moisturescore,frictionscore,nutritionscore,tissuescore,@"",nil];
             
             [cdh saveReviewbase:entry_no];
             [cdh saveReviewAssess:entry_no];
@@ -158,7 +159,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
             
             
             [CoreDataHelper sharedInstance].educationOthervalues=[NSArray arrayWithObjects:discussedother_value,methodusedother_value,handoutother_value,persontaughtother_value,@"",teachingassessother_value,timespentother,@"",nil];
-            [cdh saveEducation:entry_no andCategoryid:cdh.educationcategoryid andCategoryname:cdh.educationcategory_name andSelectedvalue:cdh.educationselected_value andOther:cdh.educationOthervalues];
+            [cdh saveEducation:entry_no];
             }
             break;
         case 4:
@@ -184,8 +185,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
             [CoreDataHelper sharedInstance].treatmentselected_value=[NSArray arrayWithObjects:cleansingselected_value,dressingselected_value,pressureselected_value,debridementselected_value,skincareselected_value,other,nil];
             [CoreDataHelper sharedInstance].treatmentOthervalues=[NSArray arrayWithObjects:cleansingother_value,dressingother_value,@"",@"",@"",@"",nil];
             
-             [cdh saveTreatment:entry_no andCategoryid:cdh.treatmentcategoryid andCategoryname:cdh.treatmentcategory_name andSelectedvalue:cdh.treatmentselected_value andOther:cdh.treatmentOthervalues];
-        }
+            [cdh saveTreatment:entry_no];        }
             break;
         case 5:
         {
@@ -217,7 +217,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
             }
             [CoreDataHelper sharedInstance].recommendationOthervalues=[NSArray arrayWithObjects:@"",@"",@"",@"",@"",@"",str,@"",@"",@"",@"",@"", nil];
             
-            [cdh saveRecommendation:entry_no andCategoryid:cdh.recommendationcategoryid andCategoryname:cdh.recommendationcategory_name andSelectedvalue:cdh.recommendationselected_value andOther:cdh.recommendationOthervalues];
+            [cdh saveRecommendation:entry_no];
             
         }
             break;
@@ -270,8 +270,9 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         NSString *frictionid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.frictionAndShearButtonOutlet.tag];
         NSString *nutritionid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.nutritionButtonOutlet.tag];
         NSString *tissueid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.tissuePerfusionOutlet.tag];
-        [CoreDataHelper sharedInstance].reviewassesscategoryid=[NSArray arrayWithObjects:mobilityid,activityid,sensorid,moistureid,frictionid,nutritionid,tissueid,nil];
-        [CoreDataHelper sharedInstance].reviewassesscategory_name=[NSArray arrayWithObjects:@"Mobility",@"Activity",@"Sensory Perception",@"Moisture",@"Friction and Shear",@"Nutrition",@"Tissue Perfusion&oxygenation",nil];
+         NSString *scoreid=[NSString stringWithFormat:@"%ld",(long)reviewOfSystemsHomeViewController.tissuePerfusionOutlet.tag];
+        [CoreDataHelper sharedInstance].reviewassesscategoryid=[NSArray arrayWithObjects:mobilityid,activityid,sensorid,moistureid,frictionid,nutritionid,tissueid,scoreid,nil];
+        [CoreDataHelper sharedInstance].reviewassesscategory_name=[NSArray arrayWithObjects:@"Mobility",@"Activity",@"Sensory Perception",@"Moisture",@"Friction and Shear",@"Nutrition",@"Tissue Perfusion&oxygenation",@"Score",nil];
         
         
         _btnclickobj.buttonClicked=[sender tag];
@@ -382,6 +383,15 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         _btnclickobj.buttonClicked=[sender tag];
         
     }
+    if([sender tag]==8){
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle:nil];
+        ViewController *add =
+        [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+        
+        [self presentViewController:add
+                           animated:YES
+                         completion:nil];    }
 }
 - (IBAction)btnPatientInfoClicked:(id)sender {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

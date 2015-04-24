@@ -574,7 +574,7 @@
 }
 
 
--(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value{
+-(void)savePain:(NSString *)entryNo{
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -602,12 +602,12 @@
             [self saveContext];
         }
     }
-    for (int i=0;i<category_id.count;i++) {
+    for (int i=0;i<self.paincategoryid.count;i++) {
         NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"PainSave" inManagedObjectContext:self.managedObjectContext];
         [insertObject setValue:entryNo forKey:@"entry_number"];
-        [insertObject setValue:category_id[i] forKey:@"category_id"];
-        [insertObject setValue:Category_name[i] forKey:@"category_name"];
-        [insertObject setValue:Selected_value[i] forKey:@"selected_value"];
+        [insertObject setValue:self.paincategoryid[i] forKey:@"category_id"];
+        [insertObject setValue:self.paincategory_name[i] forKey:@"category_name"];
+        [insertObject setValue:self.painselected_value[i] forKey:@"selected_value"];
         
         [self saveContext];
         
@@ -861,7 +861,7 @@
 }
 
 
--(void)saveEducation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other{
+-(void)saveEducation:(NSString *)entryNo{
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -889,13 +889,13 @@
             [self saveContext];
         }
     }
-    for (int i=0;i<category_id.count;i++) {
+    for (int i=0;i<self.educationcategoryid.count;i++) {
         NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"EducationSave" inManagedObjectContext:self.managedObjectContext];
         [insertObject setValue:entryNo forKey:@"entry_number"];
-        [insertObject setValue:category_id[i] forKey:@"category_id"];
-        [insertObject setValue:Category_name[i] forKey:@"category_name"];
-        [insertObject setValue:Selected_value[i] forKey:@"selected_value"];
-        [insertObject setValue:other[i] forKey:@"other_value"];
+        [insertObject setValue:self.educationcategoryid[i] forKey:@"category_id"];
+        [insertObject setValue:self.educationcategory_name[i] forKey:@"category_name"];
+        [insertObject setValue:self.educationselected_value[i] forKey:@"selected_value"];
+        [insertObject setValue:self.educationOthervalues[i] forKey:@"other_value"];
         [self saveContext];
         
     }
@@ -958,7 +958,7 @@
 }
 
 
--(void)saveTreatment:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other{
+-(void)saveTreatment:(NSString *)entryNo {
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -986,13 +986,13 @@
             [self saveContext];
         }
     }
-    for (int i=0;i<category_id.count;i++) {
+    for (int i=0;i<self.treatmentcategoryid.count;i++) {
         NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"TreatmentSave" inManagedObjectContext:self.managedObjectContext];
         [insertObject setValue:entryNo forKey:@"entry_number"];
-        [insertObject setValue:category_id[i] forKey:@"category_id"];
-        [insertObject setValue:Category_name[i] forKey:@"category_name"];
-        [insertObject setValue:Selected_value[i] forKey:@"selected_value"];
-        [insertObject setValue:other[i] forKey:@"other_value"];
+        [insertObject setValue:self.treatmentcategoryid[i] forKey:@"category_id"];
+        [insertObject setValue:self.treatmentcategory_name[i] forKey:@"category_name"];
+        [insertObject setValue:self.treatmentselected_value[i] forKey:@"selected_value"];
+        [insertObject setValue:self.treatmentOthervalues[i] forKey:@"other_value"];
         [self saveContext];
         
     }
@@ -1054,7 +1054,7 @@
     }
 }
 
--(void)saveRecommendation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other{
+-(void)saveRecommendation:(NSString *)entryNo {
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -1082,18 +1082,17 @@
             [self saveContext];
         }
     }
-    for (int i=0;i<category_id.count;i++) {
+    for (int i=0;i<self.recommendationcategoryid.count;i++) {
         NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"RecommendationsSave" inManagedObjectContext:self.managedObjectContext];
-        NSLog(@"selected value %@",Selected_value[i]);
-        [insertObject setValue:entryNo forKey:@"entry_number"];
-        [insertObject setValue:category_id[i] forKey:@"category_id"];
+               [insertObject setValue:entryNo forKey:@"entry_number"];
+        [insertObject setValue:self.recommendationcategoryid[i] forKey:@"category_id"];
         
-        [insertObject setValue:Category_name[i] forKey:@"category_name"];
+        [insertObject setValue:self.recommendationcategory_name[i] forKey:@"category_name"];
         
         
-        [insertObject setValue:Selected_value[i] forKey:@"selected_value"];
+        [insertObject setValue:self.recommendationselected_value[i] forKey:@"selected_value"];
         
-        [insertObject setValue:other[i] forKey:@"other_value"];
+        [insertObject setValue:self.recommendationOthervalues[i] forKey:@"other_value"];
         [self saveContext];
         
     }

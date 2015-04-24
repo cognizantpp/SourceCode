@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ViewController" storyboardIdentifier="ViewController" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MN7-lh-fhh"/>
                         <viewControllerLayoutGuide type="bottom" id="gf5-pH-a8r"/>
@@ -1787,6 +1787,9 @@
                                 <variation key="heightClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="6" y="649" width="45" height="58"/>
                                 </variation>
+                                <connections>
+                                    <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="Htw-sO-dW3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O13-6Y-wTA">
                                 <rect key="frame" x="9" y="556" width="45" height="64"/>

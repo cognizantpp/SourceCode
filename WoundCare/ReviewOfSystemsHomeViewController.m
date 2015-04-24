@@ -106,7 +106,7 @@ NSArray *reviewassessarray;
         [self.frictionScore setText:[reviewassessarray objectAtIndex:14]];
         [self.nutritionScore setText:[reviewassessarray objectAtIndex:17]];
         [self.tissueScore setText:[reviewassessarray objectAtIndex:20]];
-        
+        [self.totalScoreTextField setText:[reviewassessarray objectAtIndex:21]];
         
         
     }
