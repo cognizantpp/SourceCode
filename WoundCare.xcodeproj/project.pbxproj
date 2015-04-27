@@ -15,6 +15,7 @@
 		4597AA901AE62F0F008730A3 /* OstomySave.m in Sources */ = {isa = PBXBuildFile; fileRef = 4597AA8F1AE62F0F008730A3 /* OstomySave.m */; };
 		4597AA931AE62F11008730A3 /* Ostomy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4597AA921AE62F11008730A3 /* Ostomy.m */; };
 		4597CDD31AE8F45500BA4F51 /* WoundReason.m in Sources */ = {isa = PBXBuildFile; fileRef = 4597CDD21AE8F45500BA4F51 /* WoundReason.m */; };
+		4597D6601AEE2337003389F4 /* WoundAssessmentTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4597D65F1AEE2337003389F4 /* WoundAssessmentTVController.m */; };
 		459886361AE50E25004C0984 /* stoma.png in Resources */ = {isa = PBXBuildFile; fileRef = 459886301AE50E25004C0984 /* stoma.png */; };
 		4598863A1AE50E41004C0984 /* fistula.png in Resources */ = {isa = PBXBuildFile; fileRef = 459886381AE50E41004C0984 /* fistula.png */; };
 		4598863B1AE50E41004C0984 /* followup.png in Resources */ = {isa = PBXBuildFile; fileRef = 459886391AE50E41004C0984 /* followup.png */; };
@@ -227,6 +228,8 @@
 		4597AA921AE62F11008730A3 /* Ostomy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ostomy.m; path = WoundCare/Ostomy.m; sourceTree = "<group>"; };
 		4597CDD11AE8F45500BA4F51 /* WoundReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WoundReason.h; path = WoundCare/WoundReason.h; sourceTree = "<group>"; };
 		4597CDD21AE8F45500BA4F51 /* WoundReason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WoundReason.m; path = WoundCare/WoundReason.m; sourceTree = "<group>"; };
+		4597D65E1AEE2337003389F4 /* WoundAssessmentTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoundAssessmentTVController.h; sourceTree = "<group>"; };
+		4597D65F1AEE2337003389F4 /* WoundAssessmentTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoundAssessmentTVController.m; sourceTree = "<group>"; };
 		459886301AE50E25004C0984 /* stoma.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stoma.png; sourceTree = "<group>"; };
 		459886381AE50E41004C0984 /* fistula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fistula.png; sourceTree = "<group>"; };
 		459886391AE50E41004C0984 /* followup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = followup.png; sourceTree = "<group>"; };
@@ -700,6 +703,8 @@
 				91C2287E1ABA983900E389AF /* AppDelegate.h */,
 				91C2287F1ABA983900E389AF /* AppDelegate.m */,
 				91C228871ABA983900E389AF /* Main.storyboard */,
+				4597D65E1AEE2337003389F4 /* WoundAssessmentTVController.h */,
+				4597D65F1AEE2337003389F4 /* WoundAssessmentTVController.m */,
 				91C2288A1ABA983900E389AF /* Images.xcassets */,
 				91C2288C1ABA983900E389AF /* LaunchScreen.xib */,
 				91C228811ABA983900E389AF /* WoundCare.xcdatamodeld */,
@@ -1308,6 +1313,7 @@
 				B6AF16D81AE52D47008FC7C0 /* WidthViewController.m in Sources */,
 				949BAABD1AE7D0E9001935A8 /* SelectOstomySiteTVController.m in Sources */,
 				949778821AD3E46E00257B94 /* RecommendationsSave.m in Sources */,
+				4597D6601AEE2337003389F4 /* WoundAssessmentTVController.m in Sources */,
 				91C165BB1AC01821007A1B41 /* AssignmentsCell.m in Sources */,
 				4597AA931AE62F11008730A3 /* Ostomy.m in Sources */,
 				B6E4888C1ACC210300E356F7 /* WouldyouliketomarkVC.m in Sources */,

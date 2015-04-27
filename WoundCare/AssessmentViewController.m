@@ -396,18 +396,9 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         self.delete.alpha=0;
         _btnclickobj.buttonClicked=[sender tag];
         
-    }
-    if([sender tag]==8){
-        [self setButtonBackground];
-        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main"
-                                                             bundle:nil];
-        ViewController *add =
-        [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
         
-        [self presentViewController:add
-                           animated:YES
-                         completion:nil];
     }
+   
 }
 - (IBAction)btnPatientInfoClicked:(id)sender {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -425,6 +416,14 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
     [_patientListPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
 }
+- (IBAction)showWoundAssessmentListPopup:(UIButton *)sender {
+    self.woundAssessmentTVController = [self.storyboard instantiateViewControllerWithIdentifier:@"WoundAssessmentTVController"];
+    _WoundAssessmentPopOver = [[UIPopoverController alloc]initWithContentViewController:self.woundAssessmentTVController];
+    [_WoundAssessmentPopOver setPopoverContentSize:CGSizeMake(400, 150)];
+    [_WoundAssessmentPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+}
+
+
 -(void)patientInfoOKClicked{
     [self.popOver dismissPopoverAnimated:YES];
 }
