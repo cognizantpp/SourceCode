@@ -498,14 +498,17 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         _btnclickobj.buttonClicked=[sender tag];
         
     }
-    
-    if([sender tag]==13){
-        NSLog(@"yaaay.......");
+    if([sender tag]==8){
+        [self setButtonBackground];
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                                             bundle:nil];
+        ViewController *add =
+        [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+        
+        [self presentViewController:add
+                           animated:YES
+                         completion:nil];
     }
-
-    
-    
-    
 }
 - (IBAction)btnPatientInfoClicked:(id)sender {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

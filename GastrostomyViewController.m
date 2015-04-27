@@ -162,7 +162,7 @@ NSArray *gastroarr;
 //    self.OnsetArray1= [cdh setGastroFields:@"14"];
 //    self.CommentsArray1= [cdh setGastroFields:@"15"];
 //    
-    gastroarr=[cdh setGastroFields:entry_no];
+   // gastroarr=[cdh setGastroFields:entry_no];
     NSLog(@"gastro array is...%@",gastroarr);
     if(gastroarr.count>0){
         [self.GastrostomySiteOutlet setTitle:[gastroarr objectAtIndex:0] forState:UIControlStateNormal];

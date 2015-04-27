@@ -28,6 +28,7 @@
 #import "ReviewBase.h"
 #import "ReviewAssessmentSave.h"
 #import "GastrostomySave.h"
+#import "WoundReason.h"
 
 
 @interface CoreDataHelper : NSObject
