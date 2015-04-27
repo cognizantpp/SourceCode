@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ViewController" storyboardIdentifier="ViewController" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MN7-lh-fhh"/>
                         <viewControllerLayoutGuide type="bottom" id="gf5-pH-a8r"/>
@@ -1209,7 +1209,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" background="txtbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="vYC-po-BAO">
+                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" background="txtbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="vYC-po-BAO">
                                                 <rect key="frame" x="910" y="760" width="47" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -1694,15 +1694,6 @@
                                     <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="MmD-iM-Fx7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgD-vJ-BDP">
-                                <rect key="frame" x="-4" y="423" width="65" height="38"/>
-                                <state key="normal" image="deletion.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="DVi-jD-lxm"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h16-13-Fhc">
                                 <rect key="frame" x="10" y="617" width="45" height="62"/>
                                 <state key="normal" image="imggallery2013.png">
@@ -1752,7 +1743,7 @@
                                     <action selector="showWoundAssessmentListPopup:" destination="LfV-4f-rmT" eventType="touchUpInside" id="4bv-ih-4hy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5WQ-nQ-916">
+                            <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5WQ-nQ-916">
                                 <rect key="frame" x="865" y="21" width="44" height="42"/>
                                 <state key="normal" image="icon_home.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1785,13 +1776,13 @@
                                     <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="x1b-bT-Hh2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJM-sc-v6l">
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJM-sc-v6l">
                                 <rect key="frame" x="34" y="19" width="155" height="46"/>
                                 <state key="normal" image="mmi_bg.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PD-QL-FH7">
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PD-QL-FH7">
                                 <rect key="frame" x="10" y="678" width="45" height="58"/>
                                 <state key="normal" image="logout2013.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1799,6 +1790,9 @@
                                 <variation key="heightClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="6" y="649" width="45" height="58"/>
                                 </variation>
+                                <connections>
+                                    <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="Htw-sO-dW3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O13-6Y-wTA">
                                 <rect key="frame" x="9" y="556" width="45" height="64"/>
@@ -1815,7 +1809,7 @@
                                     <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="GVx-ce-fVF"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dnQ-Qu-vt4">
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="dnQ-Qu-vt4">
                                 <rect key="frame" x="197" y="21" width="174" height="46"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -1826,6 +1820,15 @@
                                 </state>
                                 <connections>
                                     <action selector="showPatientListPopup:" destination="LfV-4f-rmT" eventType="touchUpInside" id="bQf-3c-9KA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="15" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgD-vJ-BDP">
+                                <rect key="frame" x="-4" y="422" width="65" height="40"/>
+                                <state key="normal" image="deletion.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="DVi-jD-lxm"/>
                                 </connections>
                             </button>
                         </subviews>
