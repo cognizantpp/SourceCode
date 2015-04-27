@@ -16,6 +16,8 @@
 #import "ReviewOfSystemsHomeViewController.h"
 #import "CoreDataHelper.h"
 #import "PatientListTableViewController.h"
+#import "OstomyViewController.h"
+#import "WoundAssessmentTVController.h"
 #import "GastrostomyViewController.h"
 @class WoundImageViewController;
 
