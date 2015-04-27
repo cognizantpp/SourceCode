@@ -43,7 +43,7 @@
 
 - (IBAction)doneButtonAction:(UIBarButtonItem *)sender {
     
-    [self.dataDelegate getDate:[dateFormat stringFromDate:date1]];
+    [self.dataDelegate getDate1:[dateFormat stringFromDate:date1]];
     
     [self dismissViewControllerAnimated:YES completion:Nil];
 }

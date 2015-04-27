@@ -27,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *logout;
 @property (strong, nonatomic) UIPopoverController *popOver;
 @property (strong, nonatomic) UIPopoverController *patientListPopOver;
-@property (strong,nonatomic)  UIStoryboard *storybrd;
 - (IBAction)btnPatientInfoClicked:(id)sender;
 - (IBAction)showPatientListPopup:(UIButton *)sender;
 
@@ -326,7 +325,7 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
             [CoreDataHelper sharedInstance].gastrostomyselected_value=[NSArray arrayWithObjects:GastrostomySiteSelected_Value,GastrostomyTubeTypeSelected_Value,AtypicalSelected_Value,SizeLengthSelected_Value,SizeWidthSelected_Value,CharacterSelected_Value,RetentionDiskSelected_Value,PeristomalSkinCharacterSelected_Value,ExudateCharacterSelected_Value,ExudateOdorSelected_Value,ExudateAmountSelected_Value,GranulationTissueSelected_Value,EdemaSelected_Value,ConditionSelected_Value,OnsetSelected_Value,CommentsSelected_Value,nil];
             NSLog(@"value= %@",GastrostomySiteSelected_Value);
             
-            [CoreDataHelper sharedInstance].gastrostomyOthervalues=[NSArray arrayWithObjects:@"",@"",@"",@"",@"",CharacterOtherSelected_value,RetentionDiskOtherSelected_Value,PeristomalSkinCharacterOtherSelected_Value,ExudateCharacterOtherSelected_value,@"",@"",GranulationTissueOtherSelected_Value,@"",@"",@"",@"",nil];
+            [CoreDataHelper sharedInstance].gastrostomyOthervalues=[NSArray arrayWithObjects:unit,@"",@"",@"",@"",CharacterOtherSelected_value,RetentionDiskOtherSelected_Value,PeristomalSkinCharacterOtherSelected_Value,ExudateCharacterOtherSelected_value,@"",@"",GranulationTissueOtherSelected_Value,@"",@"",@"",@"",nil];
             
             
             
