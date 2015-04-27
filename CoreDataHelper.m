@@ -199,7 +199,7 @@
     else{
         
         
-        for (PatientDetails *patients in fetchedObjects) {            
+        for (PatientDetails *patients in fetchedObjects) {
             NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"NewPatient" inManagedObjectContext:self.managedObjectContext];
             [insertObject setValue:patients.entry_number forKey:@"entry_number"];
             [insertObject setValue:patients.patient_name forKey:@"patient_name"];
@@ -405,7 +405,7 @@
         
         for (Ostomy *theOstomy in fetchedObjects) {
             
-//            NSLog(@"Ostomy ID: %@ Name: %@ Fields:%@ Score:%@",theOstomy.category_id,theOstomy.category_name,theOstomy.category_fields);
+            //            NSLog(@"Ostomy ID: %@ Name: %@ Fields:%@ Score:%@",theOstomy.category_id,theOstomy.category_name,theOstomy.category_fields);
             [categoryFields addObject:theOstomy.category_fields];
         }
     }
@@ -472,7 +472,7 @@
         }
     }
     return  categoryFields;
-
+    
 }
 
 
@@ -539,12 +539,42 @@
         }
     }
     return  categorySubFields;
+    
+}
 
+-(NSMutableArray *)fetchTheWoundReasonFields:(NSString *)categoryId{
+    NSMutableArray *categoryFields=[[NSMutableArray alloc]init];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WoundReason" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Specify criteria for filtering which objects to fetch
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"category_id",categoryId];
+    [fetchRequest setPredicate:predicate];
+    
+    // Specify how the fetched objects should be sorted
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (WoundReason *theWoundReason in fetchedObjects) {
+            
+            //            NSLog(@"Ostomy ID: %@ Name: %@ Fields:%@ Score:%@",theOstomy.category_id,theOstomy.category_name,theOstomy.category_fields);
+            [categoryFields addObject:theWoundReason.category_fields];
+            
+        }
+    }
+    return  categoryFields;
 }
 
 
-
--(void)savePain:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value{
+-(void)savePain:(NSString *)entryNo{
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -572,12 +602,12 @@
             [self saveContext];
         }
     }
-    for (int i=0;i<category_id.count;i++) {
+    for (int i=0;i<self.paincategoryid.count;i++) {
         NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"PainSave" inManagedObjectContext:self.managedObjectContext];
         [insertObject setValue:entryNo forKey:@"entry_number"];
-        [insertObject setValue:category_id[i] forKey:@"category_id"];
-        [insertObject setValue:Category_name[i] forKey:@"category_name"];
-        [insertObject setValue:Selected_value[i] forKey:@"selected_value"];
+        [insertObject setValue:self.paincategoryid[i] forKey:@"category_id"];
+        [insertObject setValue:self.paincategory_name[i] forKey:@"category_name"];
+        [insertObject setValue:self.painselected_value[i] forKey:@"selected_value"];
         
         [self saveContext];
         
@@ -764,7 +794,7 @@
         [insertObject setValue:self.reviewassessselected_value[i] forKey:@"selected_value"];
         [insertObject setValue:self.reviewassessOthervalues[i] forKey:@"other_value"];
         [insertObject setValue:self.reviewassessScorevalues[i] forKey:@"score"];
-
+        
         [self saveContext];
         
     }
@@ -784,10 +814,10 @@
     [fetchRequest setPredicate:predicate];
     
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
-                                                                   ascending:YES];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
-    
+//    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+//                                                                   ascending:YES];
+//    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+//    
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     if (fetchedObjects == nil) {
@@ -831,7 +861,7 @@
 }
 
 
--(void)saveEducation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other{
+-(void)saveEducation:(NSString *)entryNo{
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -859,13 +889,13 @@
             [self saveContext];
         }
     }
-    for (int i=0;i<category_id.count;i++) {
+    for (int i=0;i<self.educationcategoryid.count;i++) {
         NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"EducationSave" inManagedObjectContext:self.managedObjectContext];
         [insertObject setValue:entryNo forKey:@"entry_number"];
-        [insertObject setValue:category_id[i] forKey:@"category_id"];
-        [insertObject setValue:Category_name[i] forKey:@"category_name"];
-        [insertObject setValue:Selected_value[i] forKey:@"selected_value"];
-        [insertObject setValue:other[i] forKey:@"other_value"];
+        [insertObject setValue:self.educationcategoryid[i] forKey:@"category_id"];
+        [insertObject setValue:self.educationcategory_name[i] forKey:@"category_name"];
+        [insertObject setValue:self.educationselected_value[i] forKey:@"selected_value"];
+        [insertObject setValue:self.educationOthervalues[i] forKey:@"other_value"];
         [self saveContext];
         
     }
@@ -928,7 +958,7 @@
 }
 
 
--(void)saveTreatment:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other{
+-(void)saveTreatment:(NSString *)entryNo {
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -956,13 +986,13 @@
             [self saveContext];
         }
     }
-    for (int i=0;i<category_id.count;i++) {
+    for (int i=0;i<self.treatmentcategoryid.count;i++) {
         NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"TreatmentSave" inManagedObjectContext:self.managedObjectContext];
         [insertObject setValue:entryNo forKey:@"entry_number"];
-        [insertObject setValue:category_id[i] forKey:@"category_id"];
-        [insertObject setValue:Category_name[i] forKey:@"category_name"];
-        [insertObject setValue:Selected_value[i] forKey:@"selected_value"];
-        [insertObject setValue:other[i] forKey:@"other_value"];
+        [insertObject setValue:self.treatmentcategoryid[i] forKey:@"category_id"];
+        [insertObject setValue:self.treatmentcategory_name[i] forKey:@"category_name"];
+        [insertObject setValue:self.treatmentselected_value[i] forKey:@"selected_value"];
+        [insertObject setValue:self.treatmentOthervalues[i] forKey:@"other_value"];
         [self saveContext];
         
     }
@@ -1024,7 +1054,7 @@
     }
 }
 
--(void)saveRecommendation:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other{
+-(void)saveRecommendation:(NSString *)entryNo {
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -1052,18 +1082,17 @@
             [self saveContext];
         }
     }
-    for (int i=0;i<category_id.count;i++) {
+    for (int i=0;i<self.recommendationcategoryid.count;i++) {
         NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"RecommendationsSave" inManagedObjectContext:self.managedObjectContext];
-        NSLog(@"selected value %@",Selected_value[i]);
-        [insertObject setValue:entryNo forKey:@"entry_number"];
-        [insertObject setValue:category_id[i] forKey:@"category_id"];
-      
-       [insertObject setValue:Category_name[i] forKey:@"category_name"];
+               [insertObject setValue:entryNo forKey:@"entry_number"];
+        [insertObject setValue:self.recommendationcategoryid[i] forKey:@"category_id"];
         
-       
-        [insertObject setValue:Selected_value[i] forKey:@"selected_value"];
-       
-        [insertObject setValue:other[i] forKey:@"other_value"];
+        [insertObject setValue:self.recommendationcategory_name[i] forKey:@"category_name"];
+        
+        
+        [insertObject setValue:self.recommendationselected_value[i] forKey:@"selected_value"];
+        
+        [insertObject setValue:self.recommendationOthervalues[i] forKey:@"other_value"];
         [self saveContext];
         
     }
@@ -1073,7 +1102,7 @@
 }
 
 -(NSArray *)setRecommendationFields:(NSString *)entryNo{
-NSMutableArray *recommendarr=[[NSMutableArray alloc]init];
+    NSMutableArray *recommendarr=[[NSMutableArray alloc]init];
     //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -1151,12 +1180,20 @@ NSMutableArray *recommendarr=[[NSMutableArray alloc]init];
     NSArray *imageKeys = [self.imageArr allKeys];
     NSArray *imageTextKeys = [self.imageText allKeys];
     NSArray *imageWoundKeys = [self.woundName allKeys];
+    imageKeys = [imageKeys sortedArrayUsingDescriptors:
+                 @[[NSSortDescriptor sortDescriptorWithKey:@"doubleValue"
+                                                 ascending:YES]]];
     
+    imageTextKeys = [imageTextKeys sortedArrayUsingDescriptors:
+                     @[[NSSortDescriptor sortDescriptorWithKey:@"doubleValue"
+                                                     ascending:YES]]];
     
-    
+    imageWoundKeys = [imageWoundKeys sortedArrayUsingDescriptors:
+                      @[[NSSortDescriptor sortDescriptorWithKey:@"doubleValue"
+                                                      ascending:YES]]];
+    [self deleteImages];
     for(int i=0;i<[imageKeys count];i++){
-        NSLog(@"saving iamge id %@",imageKeys[i]);
-        [self deleteImages:[NSString stringWithFormat:@"%@",imageKeys[i]]];
+        NSLog(@"saving image id %@",imageKeys[i]);
         NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"Wound" inManagedObjectContext:self.managedObjectContext];
         UIImage *img  = [self.imageArr valueForKey:imageKeys[i]];
         NSData *imageData = UIImagePNGRepresentation(img);
@@ -1184,35 +1221,27 @@ NSMutableArray *recommendarr=[[NSMutableArray alloc]init];
     }
 }
 
--(void)deleteImages:(NSString*)woundid{
+-(void)deleteImages{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Wound" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
-    
-    // Specify criteria for filtering which objects to fetch
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@ AND wound_id like %@", @"entry_number",[[patientsDetails valueForKey:@"entry_number"]objectAtIndex:selectedPatientIndex],woundid];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entry_no];
     [fetchRequest setPredicate:predicate];
-    
-    // Specify how the fetched objects should be sorted
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"wound_id"
-                                                                   ascending:YES];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
-    
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     if (fetchedObjects == nil || [fetchedObjects count]==0) {
         // NSLog(@"There was an error in fetching");
     }
     else{
-        NSLog(@"deleting iamge id %@",woundid);
-        NSManagedObject *managedObject = fetchedObjects[0];
-        [self.managedObjectContext deleteObject:managedObject];
-        
+        NSLog(@"deleting iamge id %@",entry_no);
+        for(int i=0;i<[fetchedObjects count];i++){
+            NSManagedObject *managedObject = fetchedObjects[i];
+            [self.managedObjectContext deleteObject:managedObject];
+        }
     }
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Error in saving new Patient : %@",[error localizedDescription]);
     }
-    //[self fetchImages];
 }
 
 -(void)fetchImages{
@@ -1224,11 +1253,6 @@ NSMutableArray *recommendarr=[[NSMutableArray alloc]init];
     // Specify criteria for filtering which objects to fetch
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",[[patientsDetails valueForKey:@"entry_number"]objectAtIndex:selectedPatientIndex]];
     [fetchRequest setPredicate:predicate];
-    
-    // Specify how the fetched objects should be sorted
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"wound_id"
-                                                                   ascending:YES];
-    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
     
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];

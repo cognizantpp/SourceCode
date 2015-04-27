@@ -63,12 +63,14 @@ NSInteger selectedEntryButton;
     _multipleSelectionViewController=[[MultipleSelectionTableViewController alloc]init];
     _multipleSelectionViewController.dataDelegate=self;
     
-    _otherArray=[NSMutableArray arrayWithObjects:@"Abrasion",@"Avulsion",@" Burn",@" Cellulitis",@"Rash",@"Trauma",@"Vascular",@"Petechia",@"Neuropathic",@"Erythema",@"Wound",nil];
-    _woundBedColorArray=[NSMutableArray arrayWithObjects:@"red",@"Blue",@"Pink",@"Black",@"White",@"Other" ,nil];
-    _woundBedArray=[NSMutableArray arrayWithObjects:@"Exposed bone",@"Exposed tendon",@"Hardware",@"Sutures",@"Other", nil];
-    _periWoundArray=[NSMutableArray arrayWithObjects:@"Intact",@"Blister ",@"Ruptured",@"Erythema",@"Rash",@"Other", nil];
-    _exudateCharacterArray=[NSMutableArray arrayWithObjects:@"None",@"Serous",@"Purulent",@"Bloody",@"Green",@"Other", nil];
     
+    CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+    self.otherArray=[cdh fetchTheWoundReasonFields:@"1"];
+    self.woundBedColorArray=[cdh fetchTheWoundReasonFields:@"3"];
+    self.woundBedArray=[cdh fetchTheWoundReasonFields:@"4"];
+    self.periWoundArray=[cdh fetchTheWoundReasonFields:@"6"];
+    self.exudateCharacterArray=[cdh fetchTheWoundReasonFields:@"7"];
+
     
     _singleSelectionViewController=[[SingleSelectionTableViewController alloc]init];
     _singleSelectionViewController.dataDelegate=self;

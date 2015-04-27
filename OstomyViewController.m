@@ -28,19 +28,6 @@
 @property(nonatomic,strong)NSArray *ExudateCharacterArray;
 
 
-
-
-@property(nonatomic,strong)NSArray *StomaLocationArray;
-@property(nonatomic,strong)NSArray *StomaColorArray;
-@property(nonatomic,strong)NSArray *StomaOutputColorArray;
-@property(nonatomic,strong)NSArray *FistulaLocationArray;
-@property(nonatomic,strong)NSArray *FistulaColorArray;
-@property(nonatomic,strong)NSArray *ExudateOdourArray;
-@property(nonatomic,strong)NSArray *ExudateAmountArray;
-@property(nonatomic,strong)NSArray *GranulationTissueArray;
-@property(nonatomic,strong)NSArray *EdemaArray;
-@property(nonatomic,strong)NSArray *PeristomalSkinConditionArray;
-
 @end
 
 @implementation OstomyViewController
@@ -64,19 +51,9 @@
     
     CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
     self.ostomySiteArray=[cdh fetchTheOstomyFields:@"1"];
-    self.StomaLocationArray= [cdh fetchTheOstomyFields:@"2"];
-    self.StomaColorArray= [cdh fetchTheOstomyFields:@"3"];
-     self.StomaOutputColorArray= [cdh fetchTheOstomyFields:@"4"];
-     self.StomaOutputCharacterArray= [cdh fetchTheOstomyFields:@"5"];
-     self.FistulaLocationArray= [cdh fetchTheOstomyFields:@"6"];
-     self.FistulaColorArray= [cdh fetchTheOstomyFields:@"7"];
+    self.StomaOutputCharacterArray= [cdh fetchTheOstomyFields:@"5"];
     self.PeristomalSkinCharacterArray= [cdh fetchTheOstomyFields:@"8"];
     self.ExudateCharacterArray= [cdh fetchTheOstomyFields:@"9"];
-    self.ExudateOdourArray= [cdh fetchTheOstomyFields:@"10"];
-    self.ExudateAmountArray= [cdh fetchTheOstomyFields:@"11"];
-    self.GranulationTissueArray= [cdh fetchTheOstomyFields:@"12"];
-    self.EdemaArray= [cdh fetchTheOstomyFields:@"13"];
-    self.PeristomalSkinConditionArray= [cdh fetchTheOstomyFields:@"14"];
 
     
     _scrollView.delegate=self;
@@ -525,7 +502,6 @@
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             _SelectStomaLocationController.selectedCategory=@"StomaLocation";
-            _SelectStomaLocationController.selectedArray=self.StomaLocationArray;
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
@@ -537,7 +513,6 @@
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             _SelectStomaLocationController.selectedCategory=@"StomaColor";
-            _SelectStomaLocationController.selectedArray=self.StomaColorArray;
             
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
@@ -550,7 +525,6 @@
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             _SelectStomaLocationController.selectedCategory=@"StomaOutputColor";
-            _SelectStomaLocationController.selectedArray=self.StomaOutputColorArray;
             
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
@@ -563,8 +537,6 @@
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             _SelectStomaLocationController.selectedCategory=@"FistulaLocation";
-            _SelectStomaLocationController.selectedArray=self.FistulaLocationArray;
-            
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
             
@@ -576,7 +548,6 @@
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             _SelectStomaLocationController.selectedCategory=@"FistulaColor";
-            _SelectStomaLocationController.selectedArray=self.FistulaColorArray;
             
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
@@ -589,7 +560,6 @@
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             _SelectStomaLocationController.selectedCategory=@"ExudateOdour";
-            _SelectStomaLocationController.selectedArray=self.ExudateOdourArray;
             
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
@@ -602,7 +572,6 @@
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             _SelectStomaLocationController.selectedCategory=@"ExudateAmount";
-            _SelectStomaLocationController.selectedArray=self.ExudateAmountArray;
             
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
@@ -615,7 +584,6 @@
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             _SelectStomaLocationController.selectedCategory=@"GranulationTissue";
-            _SelectStomaLocationController.selectedArray=self.GranulationTissueArray;
             
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
@@ -628,7 +596,6 @@
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             _SelectStomaLocationController.selectedCategory=@"Edema";
-            _SelectStomaLocationController.selectedArray=self.EdemaArray;
             
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;
@@ -641,7 +608,6 @@
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
             _SelectStomaLocationController.selectedCategory=@"Condition";
-            _SelectStomaLocationController.selectedArray=self.PeristomalSkinConditionArray;
             
             [self.StomaPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
             break;

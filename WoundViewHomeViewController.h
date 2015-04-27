@@ -11,6 +11,7 @@
 #import "RadioPopUpViewController.h"
 #import "MultipleSelectionTableViewController.h"
 #import "SingleSelectionTableViewController.h"
+#import "CoreDataHelper.h"
 
 @interface WoundViewHomeViewController : UIViewController<GetDataProtocol,UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
