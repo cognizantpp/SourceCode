@@ -11,14 +11,15 @@
 #import "OstomyViewController.h"
 #import "WoundViewHomeViewController.h"
 #import "WoundImageViewController.h"
-
+#import "CoreDataHelper.h"
+OstomyViewController *OVC;
 @class AssessmentViewController;
 @interface WouldyouliketousecameraVC : UIViewController
 
 @property(nonatomic,strong)NSString *data;
 @property(nonatomic,strong)NSString *selectedString;
 @property(nonatomic,strong)GastrostomyViewController *GVC;
-@property(nonatomic,strong)OstomyViewController *OVC;
+//@property(nonatomic,strong)OstomyViewController *OVC;
 @property(nonatomic,strong)WoundViewHomeViewController *WVC;
 
 @end

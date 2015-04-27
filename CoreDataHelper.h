@@ -25,6 +25,7 @@
 #import "ReviewSaveBase.h"
 #import "ReviewAssessment.h"
 #import "Ostomy.h"
+#import "OstomySave.h"
 #import "ReviewBase.h"
 #import "ReviewAssessmentSave.h"
 #import "WoundReason.h"
@@ -86,7 +87,7 @@
 @property(strong,nonatomic)NSArray *recommendationOthervalues;
 
 //ostomy
-@property(strong,nonatomic)NSMutableArray *ostomycategoryid;
+@property(strong,nonatomic)NSArray *ostomycategoryid;
 @property(strong,nonatomic)NSArray *ostomycategory_name;
 @property(strong,nonatomic)NSArray *ostomyselected_value;
 @property(strong,nonatomic)NSArray *ostomyOthervalues;
@@ -133,6 +134,10 @@
 -(NSArray *)setReviewbaseFields:(NSString *)entryNo;
 -(void)saveReviewAssess:(NSString *)entryNo;
 -(NSArray *)setReviewassessFields:(NSString *)entryNo;
+
+-(void)saveOstomy:(NSString *)entryNo;
+-(NSArray *)setOstomyFields:(NSString *)entryNo;
+-( void)fetchOstomySaved;
 
 -(void)fetchRecommendationsSaved;
 @end

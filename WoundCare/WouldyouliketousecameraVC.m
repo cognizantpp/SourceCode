@@ -60,11 +60,11 @@
     {
         NSLog(@"hey.......");
         [self dismissViewControllerAnimated:NO completion:nil];
-          _OVC=[self.storyboard instantiateViewControllerWithIdentifier:@"osto"];
-        [assessmentGlobalView addSubview:_OVC.view];
-        [assessmentglobalviewcontroller addChildViewController:_OVC];
-
-        //[self presentViewController:_OVC animated:YES completion:nil];
+          OVC=[self.storyboard instantiateViewControllerWithIdentifier:@"OstomyViewController"];
+        [assessmentGlobalView addSubview:OVC.view];
+        [assessmentglobalviewcontroller addChildViewController:OVC];
+        [CoreDataHelper sharedInstance].buttonClicked=13;
+        //[self presentViewController:OVC animated:YES completion:nil];
         //  _GVC.dataDelegate=self;
     }
     
