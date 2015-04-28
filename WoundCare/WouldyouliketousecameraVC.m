@@ -46,9 +46,9 @@
        
         GVC=[self.storyboard instantiateViewControllerWithIdentifier:@"gastro"];
         
-        [assessmentGlobalView addSubview:GVC.view];
+        [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:GVC.view];
         
-        [assessmentglobalviewcontroller addChildViewController:GVC];
+        [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:GVC];
 
              //[self presentViewController:_GVC animated:YES completion:nil];
       //  _GVC.dataDelegate=self;
@@ -63,8 +63,8 @@
         NSLog(@"hey.......");
         [self dismissViewControllerAnimated:NO completion:nil];
           OVC=[self.storyboard instantiateViewControllerWithIdentifier:@"OstomyViewController"];
-        [assessmentGlobalView addSubview:OVC.view];
-        [assessmentglobalviewcontroller addChildViewController:OVC];
+        [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:OVC.view];
+        [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:OVC];
         [CoreDataHelper sharedInstance].buttonClicked=13;
         //[self presentViewController:OVC animated:YES completion:nil];
         //  _GVC.dataDelegate=self;
@@ -76,8 +76,8 @@
         [self dismissViewControllerAnimated:NO completion:nil];
 
         _WVC=[self.storyboard instantiateViewControllerWithIdentifier:@"woundreason"];
-        [assessmentGlobalView addSubview:_WVC.view];
-        [assessmentglobalviewcontroller addChildViewController:_WVC];
+        [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:_WVC.view];
+        [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:_WVC];
 
        // [assessmentGlobal addChildViewController:_WVC];
        // [assessmentGlobal.childViewControllers[0] removeFromSuperview];
