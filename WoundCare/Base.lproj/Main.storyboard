@@ -3602,6 +3602,9 @@
                                         <state key="normal" image="btnassessment.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="assessClick:" destination="JUf-Gn-TdI" eventType="touchUpInside" id="yVE-AW-Hm2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18y-A1-ZWv">
                                         <rect key="frame" x="737" y="644" width="82" height="44"/>
@@ -3638,6 +3641,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="950" height="768"/>
                     <connections>
+                        <outlet property="assessment" destination="iD0-VC-Yfw" id="8Mp-JW-2sl"/>
                         <outlet property="btn1" destination="RWo-gr-Ds7" id="gyR-YW-QvE"/>
                         <outlet property="btn2" destination="W4c-wf-N9e" id="4qh-nP-nIG"/>
                         <outlet property="btn3" destination="jFd-Ad-s5g" id="ENO-br-6ef"/>

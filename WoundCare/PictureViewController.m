@@ -52,10 +52,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtField6;
 @property (weak, nonatomic) IBOutlet UITextField *txtField7;
 - (IBAction)textEditDone:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *assessment;
 
 @end
 int tagValue;
-
+int flagvalue;
 @implementation PictureViewController
 int selectedbtn;
 int woundImageCount = 0;
@@ -308,9 +309,13 @@ UIButton *btn;
 - (IBAction)checkboxClicked:(id)sender {
     UIButton *chckbtn =(UIButton*)sender;
     if([chckbtn.currentImage isEqual:[UIImage imageNamed:@"checkboxmark.png"]]){
+        if(flagvalue>0){
+        flagvalue--;
+        }
         [chckbtn setImage:[UIImage imageNamed:@"checkboxun.png"] forState:UIControlStateNormal];
     }
     else{
+        flagvalue++;
         [chckbtn setImage:[UIImage imageNamed:@"checkboxmark.png"] forState:UIControlStateNormal];
     }
 }
@@ -363,6 +368,17 @@ UIButton *btn;
     [[CoreDataHelper sharedInstance].imageText setValue:[txtFild text] forKey:[NSString stringWithFormat:@"%d",[txtFild tag]]];
 }
 
+- (IBAction)assessClick:(id)sender {
+    if(flagvalue>0){
+       _woundvc =[self.storyboard instantiateViewControllerWithIdentifier:@"woundreason"];
+        [assessmentGlobalView addSubview:_woundvc.view];
+        [assessmentglobalviewcontroller addChildViewController:_woundvc];
+        
+
+    }
+}
+
+    
 
 
 @end

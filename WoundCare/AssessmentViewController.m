@@ -79,11 +79,8 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
             [self.pain setBackgroundImage:[UIImage imageNamed:@"icon_pain.png"] forState:UIControlStateNormal];
             CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
             NSString *charselected_value=[NSString stringWithFormat:@"%@",painController.characterButtonOutlet.titleLabel.text];
-            NSLog(@"charbutton:........ %@",painController.characterButtonOutlet.titleLabel.text);
             NSString *scoreselected_value=[NSString stringWithFormat:@"%@",painController.scoreButtonOutlet.titleLabel.text];
             [CoreDataHelper sharedInstance].painselected_value=[NSArray arrayWithObjects:charselected_value,scoreselected_value,nil];
-
-            NSLog(@"_assignmentsViewController.entry_no   %@",entry_no );
             [cdh savePain:entry_no];
             break;
         }
@@ -206,7 +203,6 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
             NSString *timespentselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.btnrecommendationNumberEntry.titleLabel.text];
             
             [CoreDataHelper sharedInstance].recommendationselected_value=[NSArray arrayWithObjects:mobilityselected_value,activityselected_value,sensorselected_value,moistureselected_value,frictionselected_value,tissueselected_value,labeltypeselected_value,deitricialselected_value,otherselected_value,bradenselected_value,followselected_value,timespentselected_value,nil];
-            NSLog(@"%@",[CoreDataHelper sharedInstance].recommendationselected_value);
             //[CoreDataHelper sharedInstance].treatmentselected_value=[NSArray arrayWithObjects:recommendationHomeViewController.mobilityButtonOutlet.titleLabel.text,recommendationHomeViewController.activityButtonOutlet.titleLabel.text,recommendationHomeViewController.sensoryPerceptionButtonOutlet.titleLabel.text,recommendationHomeViewController.moistureButtonOutlet.titleLabel.text,recommendationHomeViewController.frictionButtonOutlet.titleLabel.text,recommendationHomeViewController.tissueperfusionButtonOutlet.titleLabel.text,recommendationHomeViewController.labelTypeObtained.text,recommendationHomeViewController.deiticianReferral.text,recommendationHomeViewController.OtherTextfield.text,recommendationHomeViewController.bradenQRiskCategory.text,recommendationHomeViewController.followUpButtonOutlet.titleLabel.text,recommendationHomeViewController.btnrecommendationNumberEntry.titleLabel.text,nil];
             
             if([recommendationHomeViewController.followUpButtonOutlet.titleLabel.text containsString:@"Other"]){
@@ -297,7 +293,6 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         
         [CoreDataHelper sharedInstance].educationcategoryid=[NSArray arrayWithObjects:discussedid,methodid,handoutid,persontaughtid,comprehensionid,teachingassessid,timespentid,otherid,nil];
         [CoreDataHelper sharedInstance].educationcategory_name=[NSArray arrayWithObjects:@"Discussed",@"Method Used",@"Handout",@"Person Taught",@"Comprehension",@"Teaching Assessment",@"Time Spent Teaching",@"Other", nil];
-        //buttonClicked=[sender tag];
 
         _btnclickobj.buttonClicked=[sender tag];
         self.delete.alpha=0;
@@ -354,9 +349,6 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
         [CoreDataHelper sharedInstance].recommendationcategoryid=[NSMutableArray arrayWithObjects:mobilityid,activityid,sensorid,moistureid,frictionid,tissueid,labelid,deiticianid,otherid,bradenid,follwupid,timespentid,nil];
                                                                   
         [CoreDataHelper sharedInstance].recommendationcategory_name=[NSArray arrayWithObjects:@"Mobility",@"Activity",@"Sensory Perception",@"Moisture",@"Friction and Shear",@"Tissue Perfusion and Oxygenation",@"Label Type Obtained From",@"Deitician Referral",@"Other",@"Braden Q Risk Category",@"Follow Up",@"Time Spent with Patient", nil];
-        NSLog(@"%@",[CoreDataHelper sharedInstance].recommendationcategory_name);
-
-        
         _btnclickobj.buttonClicked=[sender tag];
         self.delete.alpha=0;
         
