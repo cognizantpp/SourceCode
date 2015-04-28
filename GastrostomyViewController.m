@@ -9,6 +9,7 @@
 #import "GastrostomyViewController.h"
 #import "NumberEntryViewController1.h"
 #import "WidthNumberViewController.h"
+#import "AssignmentsViewController.h"
 
 @interface GastrostomyViewController ()
 
@@ -25,6 +26,12 @@
 @property(nonatomic)CGRect tRect;
 @property(nonatomic,strong)NSMutableArray *GastrostomySiteArray;
 @property(nonatomic,strong)NSMutableArray *GastrostomyTubeTypeArray;
+@property(nonatomic,strong)NSMutableArray *AtypicalArray;
+@property(nonatomic,strong)NSMutableArray *SizeLengthArray;
+@property(nonatomic,strong)NSMutableArray *SizeWidthArray;
+
+
+
 @property(nonatomic,strong)NSMutableArray *CharacterArray;
 @property(nonatomic,strong)NSMutableArray *RetentionDiskArray;
 @property(nonatomic,strong)NSMutableArray *PeristomalCharacterArray;
@@ -35,6 +42,29 @@
 @property(nonatomic,strong)NSMutableArray *EdemaArray;
 @property(nonatomic,strong)NSMutableArray *ConditionArray;
 @property(nonatomic,strong)NSMutableArray *CommentsArray;
+@property(nonatomic,strong)NSMutableArray *OnsetArray;
+
+
+
+
+
+@property(nonatomic,strong)NSArray *GastrostomySiteArray1;
+@property(nonatomic,strong)NSArray *GastrostomyTubeTypeArray1;
+@property(nonatomic,strong)NSArray *AtypicalArray1;
+@property(nonatomic,strong)NSArray *SizeLengthArray1;
+@property(nonatomic,strong)NSArray *SizeWidthArray1;
+@property(nonatomic,strong)NSArray *CharacterArray1;
+@property(nonatomic,strong)NSArray *RetentionDiskArray1;
+@property(nonatomic,strong)NSArray *PeristomalCharacterArray1;
+@property(nonatomic,strong)NSArray *ExudateCharacterArray1;
+@property(nonatomic,strong)NSArray *ExudateOdorArray1;
+@property(nonatomic,strong)NSArray *ExudateAmountArray1;
+@property(nonatomic,strong)NSArray *GranulationTissueArray1;
+@property(nonatomic,strong)NSArray *EdemaArray1;
+@property(nonatomic,strong)NSArray *ConditionArray1;
+@property(nonatomic,strong)NSArray *CommentsArray1;
+@property(nonatomic,strong)NSArray *OnsetArray1;
+
 
 
 @property (strong, nonatomic) IBOutlet UIButton *SizeLengthButton;
@@ -43,15 +73,32 @@
 
 
 @end
-
+NSArray *gastroarr;
 @implementation GastrostomyViewController
+
+
+-(void)viewDidAppear:(BOOL)animated{
+    //self.OstomySiteOtherTextField.hidden=YES;
+    [super viewWillAppear:YES];
+    
+//    self.CharacterOtherTextField.hidden=YES;
+//    
+//    self.RetentionDiskOtherTextField.hidden=YES;
+//    self.PeristomalSkinCharacterOtherTextField.hidden=YES;
+//    self.ExudateCharacterOtherTextField.hidden=YES;
+//    self.ExudateOdorOtherTextField.hidden=YES;
+//    self.GranulationTissueOtherTextField.hidden=YES;
+    //
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     _scrollView.delegate=self;
-    _scrollView.contentSize=CGSizeMake(1024, 950);
+    _scrollView.contentSize=CGSizeMake(1024, 1200);
     
+
     
     _selectGastrostomySiteViewController=[[SelectGastrostomySiteTableViewController alloc]init];
     _selectGastrostomySiteViewController.dataDelegate=self;
@@ -89,25 +136,106 @@
     
     
     _scrollView.delegate=self;
-    [_scrollView setContentSize:CGSizeMake(1024, 968)];
-
-
-}
-
-
--(void)viewDidAppear:(BOOL)animated{
-    //self.OstomySiteOtherTextField.hidden=YES;
-    [super viewWillAppear:YES];
+    [_scrollView setContentSize:CGSizeMake(1024, 1200)];
     
-    self.CharacterOtherTextField.hidden=YES;
     
-    self.RetentionDiskOtherTextField.hidden=YES;
-   self.PeristomalSkinCharacterOtherTextField.hidden=YES;
-    self.ExudateCharacterOtherTextField.hidden=YES;
-    self.ExudateOdorOtherTextField.hidden=YES;
-    self.GranulationTissueOtherTextField.hidden=YES;
+    
+    
+    
+    
+    //fetch
+ CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+//    self.GastrostomySiteArray1=[cdh setGastroFields:@"0"];
+//    self.GastrostomyTubeTypeArray1= [cdh setGastroFields:@"1"];
+//    self.AtypicalArray1= [cdh setGastroFields:@"2"];
+//    self.SizeLengthArray1= [cdh setGastroFields:@"3"];
+//    self.SizeWidthArray1= [cdh setGastroFields:@"4"];
+//    self.CharacterArray1= [cdh setGastroFields:@"5"];
+//    self.RetentionDiskArray1= [cdh setGastroFields:@"6"];
+//    self.PeristomalCharacterArray1= [cdh setGastroFields:@"7"];
+//    self.ExudateCharacterArray1= [cdh setGastroFields:@"8"];
+//    self.ExudateOdorArray1= [cdh setGastroFields:@"9"];
+//    self.ExudateAmountArray1= [cdh setGastroFields:@"10"];
+//    self.GranulationTissueArray1= [cdh setGastroFields:@"11"];
+//    self.EdemaArray1= [cdh setGastroFields:@"12"];
+//    self.ConditionArray1= [cdh setGastroFields:@"13"];
+//    self.OnsetArray1= [cdh setGastroFields:@"14"];
+//    self.CommentsArray1= [cdh setGastroFields:@"15"];
 //    
+   // gastroarr=[cdh setGastroFields:entry_no];
+    NSLog(@"gastro array is...%@",gastroarr);
+    if(gastroarr.count>0){
+        [self.GastrostomySiteOutlet setTitle:[gastroarr objectAtIndex:0] forState:UIControlStateNormal];
+        [self.GastrostomyTubeTypeOutlet setTitle:[gastroarr objectAtIndex:1] forState:UIControlStateNormal];
+        NSString *atypicalStr=[gastroarr objectAtIndex:2];
+        [self.atypicaltextview setText:atypicalStr];
+        [self.SizeLengthOutlet setTitle:[gastroarr objectAtIndex:3] forState:UIControlStateNormal];
+        [self.SizeWidthOutlet setTitle:[gastroarr objectAtIndex:4] forState:UIControlStateNormal];
+        [self.CharacterOutlet setTitle:[gastroarr objectAtIndex:5] forState:UIControlStateNormal];
+        [self.RetentionDiskOutlet setTitle:[gastroarr objectAtIndex:6] forState:UIControlStateNormal];
+        [self.PeristomalSkinCharacterOutlet setTitle:[gastroarr objectAtIndex:7] forState:UIControlStateNormal];
+        [self.ExudateCharacterOutlet setTitle:[gastroarr objectAtIndex:8] forState:UIControlStateNormal];
+        [self.ExudateOdorOutlet setTitle:[gastroarr objectAtIndex:9] forState:UIControlStateNormal];
+        [self.ExudateAmountOutlet setTitle:[gastroarr objectAtIndex:10] forState:UIControlStateNormal];
+        [self.GranulationTissueOutlet setTitle:[gastroarr objectAtIndex:11] forState:UIControlStateNormal];
+        [self.EdemaOutlet setTitle:[gastroarr objectAtIndex:12] forState:UIControlStateNormal];
+        [self.ConditionOutlet setTitle:[gastroarr objectAtIndex:13] forState:UIControlStateNormal];
+        [self.dateButtonOutlet setTitle:[gastroarr objectAtIndex:14] forState:UIControlStateNormal];
+        NSString *commentsStr=[gastroarr objectAtIndex:15];
+        [self.commentstextview setText:commentsStr];
+        
+        
+        
+        if([[gastroarr objectAtIndex:5]containsString:@"Other"]){
+            self.CharacterOtherTextField.hidden=NO;
+            NSString *characterothertext=[gastroarr objectAtIndex:21] ;
+            [self.CharacterOtherTextField setText:characterothertext];
+        }
+        if([[gastroarr objectAtIndex:6]containsString:@"Other"]){
+            self.RetentionDiskOtherTextField.hidden=NO;
+            NSString *retentiondiskothertext=[gastroarr objectAtIndex:22] ;
+            [self.RetentionDiskOtherTextField setText:retentiondiskothertext];
+        }
+        if([[gastroarr objectAtIndex:7]containsString:@"Other"]){
+            self.PeristomalSkinCharacterOtherTextField.hidden=NO;
+            NSString *peristomalskincharacterothertext=[gastroarr objectAtIndex:23] ;
+            [self.PeristomalSkinCharacterOtherTextField setText:peristomalskincharacterothertext];
+        }
+        if([[gastroarr objectAtIndex:8]containsString:@"Other"]){
+            self.ExudateCharacterOtherTextField.hidden=NO;
+            NSString *exudatecharacterothertext=[gastroarr objectAtIndex:24] ;
+            [self.ExudateCharacterOtherTextField setText:exudatecharacterothertext];
+        }
+        if([[gastroarr objectAtIndex:9]containsString:@"Other"]){
+            self.ExudateOdorOtherTextField.hidden=NO;
+            NSString *exudateodorothertext=[gastroarr objectAtIndex:25] ;
+            [self.ExudateOdorOtherTextField setText:exudateodorothertext];
+        }
+        if([[gastroarr objectAtIndex:10]containsString:@"Other"]){
+            self.GranulationTissueOtherTextField.hidden=NO;
+            NSString *granulationtissueothertext=[gastroarr objectAtIndex:26] ;
+            [self.GranulationTissueOtherTextField setText:granulationtissueothertext];
+        }
+        
+        if([gastroarr objectAtIndex:16]){
+           // self.minButtonOutlet.hidden=NO;
+           // self.cmbtnoutlet.hidden=YES;
+            NSString *othertextunit=[gastroarr objectAtIndex:16] ;
+            if([othertextunit isEqualToString:@"cm"])
+                [self.cmbtnoutlet setSelected:YES];
+                //[self.minButtonOutlet setSelected:YES];
+            else if([othertextunit isEqualToString:@"mm"])
+                [self.mmbtnoutlet setSelected:YES];
+        }
+
+
+
+
+  //  }
 }
+
+}
+
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender

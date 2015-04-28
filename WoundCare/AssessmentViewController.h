@@ -16,7 +16,9 @@
 #import "ReviewOfSystemsHomeViewController.h"
 #import "CoreDataHelper.h"
 #import "PatientListTableViewController.h"
-#import "ViewController.h"
+#import "OstomyViewController.h"
+#import "WoundAssessmentTVController.h"
+#import "GastrostomyViewController.h"
 @class WoundImageViewController;
 
 UIView *assessmentGlobalView;
@@ -26,6 +28,7 @@ UIView *leftViewPanel,*topViewPanel;
 @interface AssessmentViewController : UIViewController<GetDataProtocol>
 @property (strong, nonatomic) PatientInfoViewController *patientInfoViewController;
 @property (strong, nonatomic) PatientListTableViewController *patientListTableViewController;
+@property (strong, nonatomic) WoundAssessmentTVController *woundAssessmentTVController;
 //@property (nonatomic)long buttonClicked;
 @property (weak, nonatomic) IBOutlet UIView *initialview;
 @property(weak,nonatomic)CoreDataHelper *btnclickobj;
