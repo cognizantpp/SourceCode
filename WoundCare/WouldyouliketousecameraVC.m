@@ -40,15 +40,15 @@
 
       if ([_selectedString isEqualToString: @"Gastrostomy"])
     {
-        
+         [CoreDataHelper sharedInstance].buttonClicked=12;
         [self dismissViewControllerAnimated:NO completion:nil];
          NSLog(@"hey.......");
        
-        _GVC=[self.storyboard instantiateViewControllerWithIdentifier:@"gastro"];
+        GVC=[self.storyboard instantiateViewControllerWithIdentifier:@"gastro"];
         
-        [assessmentGlobalView addSubview:_GVC.view];
+        [assessmentGlobalView addSubview:GVC.view];
         
-        [assessmentglobalviewcontroller addChildViewController:_GVC];
+        [assessmentglobalviewcontroller addChildViewController:GVC];
 
              //[self presentViewController:_GVC animated:YES completion:nil];
       //  _GVC.dataDelegate=self;
@@ -58,13 +58,15 @@
     
     else if ([_selectedString isEqualToString: @"Ostomy"])
     {
+        
+        [CoreDataHelper sharedInstance].buttonClicked=13;
         NSLog(@"hey.......");
         [self dismissViewControllerAnimated:NO completion:nil];
-          _OVC=[self.storyboard instantiateViewControllerWithIdentifier:@"osto"];
-        [assessmentGlobalView addSubview:_OVC.view];
-        [assessmentglobalviewcontroller addChildViewController:_OVC];
-
-        //[self presentViewController:_OVC animated:YES completion:nil];
+          OVC=[self.storyboard instantiateViewControllerWithIdentifier:@"OstomyViewController"];
+        [assessmentGlobalView addSubview:OVC.view];
+        [assessmentglobalviewcontroller addChildViewController:OVC];
+        [CoreDataHelper sharedInstance].buttonClicked=13;
+        //[self presentViewController:OVC animated:YES completion:nil];
         //  _GVC.dataDelegate=self;
     }
     
