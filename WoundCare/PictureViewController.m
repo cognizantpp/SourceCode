@@ -9,8 +9,7 @@
 #import "PictureViewController.h"
 #import "CropImageViewController.h"
 #import "CoreDataHelper.h"
-
-
+#import "AssessmentViewController.h"
 
 @interface PictureViewController ()
 {
@@ -204,8 +203,11 @@ UIButton *btn;
         [_pickerController.view setFrame:CGRectMake(0, 0, 950, 725)];
         _pickerController.delegate = self;
         _pickerController.allowsEditing = YES;
-        _pickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        _pickerController.sourceType =UIImagePickerControllerSourceTypeSavedPhotosAlbum;// UIImagePickerControllerSourceTypeCamera;//
+        [leftViewPanel setHidden:YES];
+        [topViewPanel setHidden:YES];
         [self.view addSubview:_pickerController.view];
+        
     }
     else{
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Wound Image" message:@"Count reached maximum" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -271,7 +273,12 @@ UIButton *btn;
             break;
     }
     [self enableUserAccess];
+    
     [_pickerController.view removeFromSuperview];
+    [leftViewPanel setHidden:NO];
+    [topViewPanel setHidden:NO];
+   // [le setHidden:NO];
+   // [assessmentViewControllerGlobal.topView setHidden:NO];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {

@@ -123,6 +123,10 @@
 -(void)getConditionData:(NSString *)data;
 -(void)getOtherWoundsData:(NSString *)data;
 
+-(void)getWoundReasonDate:(NSString *)date;
+
+
+
 -(void)updateLengthEntryNumber:(NSString *)data;
 -(void)OkLengthClicked;
 -(void)updateWoundBed:(NSString*)granulationStr andEpithel:(NSString*)epithel andEschar:(NSString*)eschar andSlough:(NSString*)slough;

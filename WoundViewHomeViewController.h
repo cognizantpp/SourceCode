@@ -12,9 +12,11 @@
 #import "MultipleSelectionTableViewController.h"
 #import "SingleSelectionTableViewController.h"
 #import "CoreDataHelper.h"
+#import "SelectDatePickerViewController.h"
 
-@interface WoundViewHomeViewController : UIViewController<GetDataProtocol,UIScrollViewDelegate>
+@interface WoundViewHomeViewController : UIViewController<GetDataProtocol,UIScrollViewDelegate,UITextFieldDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *onsetButtonOutlet;
 
 
 - (IBAction)radioButtonAction:(UIButton *)sender;
@@ -44,6 +46,7 @@
 @property(nonatomic,strong)RadioPopUpViewController *radioViewController;
 @property(nonatomic,strong)MultipleSelectionTableViewController *multipleSelectionViewController;
 @property(nonatomic,strong)SingleSelectionTableViewController *singleSelectionViewController;
+@property(nonatomic,strong)SelectDatePickerViewController *selectDateViewController;
 
 
 

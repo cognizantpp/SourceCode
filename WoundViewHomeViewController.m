@@ -9,12 +9,16 @@
 #import "WoundViewHomeViewController.h"
 #import "LengthNumberEntryViewController.h"
 @interface WoundViewHomeViewController()
-
+{
+    CGPoint p;
+}
 
 @property(nonatomic,strong)UIPopoverController *radioPopOver;
 @property(nonatomic,strong)UIPopoverController *multipleSeectionPopOver;
 @property(nonatomic,strong)UIPopoverController *singleSelectionPopOver;
 @property(nonatomic,strong)UIPopoverController *woundBedPopOver;
+@property(nonatomic,strong)UIPopoverController *datePickerPopOver;
+
 @property(nonatomic)CGRect r;
 @property(nonatomic)CGRect tRect;
 
@@ -92,7 +96,22 @@ NSInteger selectedEntryButton;
     self.amountButtonOutlet.hidden=YES;
     
     
+    self.woundBedColorOtherTextField.delegate = self;
+    self.woundBedOtherTextField.delegate=self;
+    self.periwoundOtherTextField.delegate=self;
+    self.exudateCharacterOtherTextField.delegate=self;
+    self.exudateOdorOtherTextField.delegate=self;
+    self.OtherWoundsTextField.delegate=self;
+    
+    self.woundBedColorOtherTextField.layer.cornerRadius=15.0f;
+    self.woundBedOtherTextField.layer.cornerRadius=15.0f;
+    self.periwoundOtherTextField.layer.cornerRadius=15.0f;
+    self.exudateCharacterOtherTextField.layer.cornerRadius=15.0f;
+    self.exudateOdorOtherTextField.layer.cornerRadius=15.0f;
 
+    self.atypicalTextViewOutlet.delegate=self;
+    self.commentsTextViewOutlet.delegate=self;
+    
     
     
 }
@@ -743,7 +762,7 @@ NSInteger selectedEntryButton;
         case 1:
             
             self.singleSelectionPopOver=[[UIPopoverController alloc]initWithContentViewController:_singleSelectionViewController];
-            [self.singleSelectionPopOver setPopoverContentSize:CGSizeMake(300, 200)];
+            [self.singleSelectionPopOver setPopoverContentSize:CGSizeMake(300, 80)];
             
             
             _r = [sender frame];
@@ -888,7 +907,29 @@ NSInteger selectedEntryButton;
             
             
             break;
+            case 12:
+        {
+            UIStoryboard *storyBoard=[UIStoryboard storyboardWithName:@"Main" bundle:Nil];
+            
+            _selectDateViewController=[storyBoard instantiateViewControllerWithIdentifier:@"datePicker"];
+            _selectDateViewController.dataDelegate=self;
+            _selectDateViewController.selectedString=@"WoundReason";
+            
+            
+            self.datePickerPopOver=[[UIPopoverController alloc]initWithContentViewController:_selectDateViewController];
+            [self.datePickerPopOver setPopoverContentSize:CGSizeMake(300, 300)];
+            
+            _r = [sender frame];
+            _tRect = [sender convertRect:sender.bounds toView:self.view];
+            _tRect.origin.x=_r.origin.x;
+            
+            [self.datePickerPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+            
+            
+            break;
+            
 
+        }
             
             
             default:
@@ -909,7 +950,7 @@ NSInteger selectedEntryButton;
     
     _tRect = [sender convertRect:sender.bounds toView:self.view];
     _tRect.origin.x=_r.origin.x;
-    [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
     
 }
 -(void)updateLengthEntryNumber:(NSString *)data{
@@ -962,5 +1003,84 @@ NSInteger selectedEntryButton;
     [self.woundBedPopOver dismissPopoverAnimated:YES];
 }
 
+
+-(void)getWoundReasonDate:(NSString *)date
+{
+    [self.onsetButtonOutlet setTitle:date forState:UIControlStateNormal];
+
+}
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    if (textField==_woundBedColorOtherTextField) {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 500)];
+    }
+    else if (textField==_woundBedOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 550)];
+
+    }
+    else if (textField==_periwoundOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 650)];
+        
+    }
+    else if (textField==_exudateCharacterOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 800)];
+        
+    }
+    else if (textField==_exudateOdorOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 850)];
+        
+    }
+    
+    else if (textField==_OtherWoundsTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 1200)];
+        
+    }
+   
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    self.scrollView.contentOffset =p;
+    
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if (textView==_atypicalTextViewOutlet) {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 100)];
+
+    }
+    else if (textView==_commentsTextViewOutlet)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 1000)];
+
+    }
+    
+   }
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    self.scrollView.contentOffset =p;
+
+}
 
 @end

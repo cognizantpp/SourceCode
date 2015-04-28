@@ -28,6 +28,7 @@
 		9138ED3B1AD6B03D00B7D64D /* ReviewAssessmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9138ED381AD6B03D00B7D64D /* ReviewAssessmentTableViewController.m */; };
 		9138ED3E1AD6B0BB00B7D64D /* branqheading.png in Resources */ = {isa = PBXBuildFile; fileRef = 9138ED3D1AD6B0BB00B7D64D /* branqheading.png */; };
 		9138ED401AD6B0C200B7D64D /* woundros.png in Resources */ = {isa = PBXBuildFile; fileRef = 9138ED3F1AD6B0C200B7D64D /* woundros.png */; };
+		91B99AEB1AEF515D00A99F4A /* WoundViewHomeViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = B61B334E1AE77AF3007DBB69 /* WoundViewHomeViewController.h */; };
 		91BA23421AE4CDB2002CDD10 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BA233D1AE4CDB2002CDD10 /* PictureViewController.m */; };
 		91BA23431AE4CDB2002CDD10 /* CropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BA233F1AE4CDB2002CDD10 /* CropImageViewController.m */; };
 		91BA23441AE4CDB2002CDD10 /* WoundIdPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BA23411AE4CDB2002CDD10 /* WoundIdPopupViewController.m */; };
@@ -1290,6 +1291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91B99AEB1AEF515D00A99F4A /* WoundViewHomeViewController.h in Sources */,
 				91D19C631ACBCCA30056BD2E /* selectMethodTableViewController.m in Sources */,
 				B6E488981ACC213A00E356F7 /* WouldyouliketousecameraVC.m in Sources */,
 				91CD6F2B1AC151A400F56AE0 /* NumberEntryViewController.m in Sources */,

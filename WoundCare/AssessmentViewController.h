@@ -21,6 +21,7 @@
 
 UIView *assessmentGlobalView;
 UIViewController *assessmentglobalviewcontroller;
+UIView *leftViewPanel,*topViewPanel;
 
 @interface AssessmentViewController : UIViewController<GetDataProtocol>
 @property (strong, nonatomic) PatientInfoViewController *patientInfoViewController;
@@ -29,4 +30,6 @@ UIViewController *assessmentglobalviewcontroller;
 @property (weak, nonatomic) IBOutlet UIView *initialview;
 @property(weak,nonatomic)CoreDataHelper *btnclickobj;
 @property (weak, nonatomic) IBOutlet UIButton *btnCurrentPatient;
+@property (weak, nonatomic) IBOutlet UIView *leftView;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 @end

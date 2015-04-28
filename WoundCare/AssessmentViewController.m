@@ -56,6 +56,8 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
     }
     assessmentGlobalView = self.initialview;
     assessmentglobalviewcontroller=self;
+    leftViewPanel = self.leftView;
+    topViewPanel = self.topView;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -83,7 +85,6 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
             NSString *scoreselected_value=[NSString stringWithFormat:@"%@",painController.scoreButtonOutlet.titleLabel.text];
             [CoreDataHelper sharedInstance].painselected_value=[NSArray arrayWithObjects:charselected_value,scoreselected_value,nil];
 
-            NSLog(@"_assignmentsViewController.entry_no   %@",entry_no );
             [cdh savePain:entry_no];
             break;
         }
