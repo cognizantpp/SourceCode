@@ -233,7 +233,7 @@ OstomyViewController *ostomy;
         }
             break;
         case 6:
-            [[CoreDataHelper sharedInstance]saveWoundCoordinates];
+            //[[CoreDataHelper sharedInstance]saveWoundCoordinates]; commented since save will be done at the time of marking a coordinate
             [self.human setImage:[UIImage imageNamed:@"human2013.png"] forState:UIControlStateNormal];
             break;
         case 7:

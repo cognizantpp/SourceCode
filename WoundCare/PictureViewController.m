@@ -88,34 +88,70 @@ UIButton *btn;
     }
     NSLog(@"wound count %d",woundImageCount);
     if([helper.woundName count ] > 0 ){
+        UIImage *imageReal = [UIImage imageNamed:@"graycircle.png"];
         if([helper.woundName valueForKey:@"8"]){
             UIImage *image = [UIImage imageNamed:[helper.woundName valueForKey:@"8"]];
-            [self.btn1 setImage:image forState:UIControlStateNormal];
+            if(image != nil)
+                [self.btn1 setImage:image forState:UIControlStateNormal];
+            else{
+                [self.btn1 setImage:imageReal forState:UIControlStateNormal];
+            }
         }
+        
         if([helper.woundName valueForKey:@"9"]){
             UIImage *image = [UIImage imageNamed:[helper.woundName valueForKey:@"9"]];
-            [self.btn2 setImage:image forState:UIControlStateNormal];
+            if (image!= nil) {
+                [self.btn2 setImage:image forState:UIControlStateNormal];
+            }
+            else{
+                [self.btn2 setImage:imageReal forState:UIControlStateNormal];
+            }
         }
+        
         if([helper.woundName valueForKey:@"10"]){
             UIImage *image = [UIImage imageNamed:[helper.woundName valueForKey:@"10"]];
-            [self.btn3 setImage:image forState:UIControlStateNormal];
+            if(image != nil)
+                [self.btn3 setImage:image forState:UIControlStateNormal];
+            else{
+                [self.btn3 setImage:imageReal forState:UIControlStateNormal];
+            }
         }
+        
         if([helper.woundName valueForKey:@"11"]){
             UIImage *image = [UIImage imageNamed:[helper.woundName valueForKey:@"11"]];
-            [self.btn4 setImage:image forState:UIControlStateNormal];
+            if(image != nil)
+                [self.btn4 setImage:image forState:UIControlStateNormal];
+        }
+        else{
+            [self.btn4 setImage:imageReal forState:UIControlStateNormal];
         }
         if([helper.woundName valueForKey:@"12"]){
             UIImage *image = [UIImage imageNamed:[helper.woundName valueForKey:@"12"]];
-            [self.btn5 setImage:image forState:UIControlStateNormal];
+            if(image != nil)
+                [self.btn5 setImage:image forState:UIControlStateNormal];
+            else{
+                [self.btn5 setImage:imageReal forState:UIControlStateNormal];
+            }
         }
+        
         if([helper.woundName valueForKey:@"13"]){
             UIImage *image = [UIImage imageNamed:[helper.woundName valueForKey:@"13"]];
-            [self.btn6 setImage:image forState:UIControlStateNormal];
+            if(image != nil)
+                [self.btn6 setImage:image forState:UIControlStateNormal];
+            else{
+                [self.btn6 setImage:imageReal forState:UIControlStateNormal];
+            }
         }
+        
         if([helper.woundName valueForKey:@"14"]){
             UIImage *image = [UIImage imageNamed:[helper.woundName valueForKey:@"14"]];
-            [self.btn7 setImage:image forState:UIControlStateNormal];
+            if(image != nil)
+                [self.btn7 setImage:image forState:UIControlStateNormal];
+            else{
+                [self.btn7 setImage:imageReal forState:UIControlStateNormal];
+            }
         }
+        
         
     }
     
@@ -231,7 +267,7 @@ UIButton *btn;
 }
 
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField{
-     self.scrollView.contentOffset =p;
+    self.scrollView.contentOffset =p;
     return YES;
 }
 
@@ -278,12 +314,14 @@ UIButton *btn;
     [_pickerController.view removeFromSuperview];
     [leftViewPanel setHidden:NO];
     [topViewPanel setHidden:NO];
-   // [le setHidden:NO];
-   // [assessmentViewControllerGlobal.topView setHidden:NO];
+    // [le setHidden:NO];
+    // [assessmentViewControllerGlobal.topView setHidden:NO];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     NSLog(@"imagePickerControllerDidCancel");
+    [leftViewPanel setHidden:NO];
+    [topViewPanel setHidden:NO];
     [_pickerController.view removeFromSuperview];
     
 }
@@ -317,7 +355,7 @@ UIButton *btn;
     UIButton *chckbtn =(UIButton*)sender;
     if([chckbtn.currentImage isEqual:[UIImage imageNamed:@"checkboxmark.png"]]){
         if(flagvalue>0){
-        flagvalue--;
+            flagvalue--;
         }
         [chckbtn setImage:[UIImage imageNamed:@"checkboxun.png"] forState:UIControlStateNormal];
     }
@@ -377,15 +415,15 @@ UIButton *btn;
 
 - (IBAction)assessClick:(id)sender {
     if(flagvalue>0){
-       _woundvc =[self.storyboard instantiateViewControllerWithIdentifier:@"woundreason"];
+        _woundvc =[self.storyboard instantiateViewControllerWithIdentifier:@"woundreason"];
         [assessmentGlobalView addSubview:_woundvc.view];
         [assessmentglobalviewcontroller addChildViewController:_woundvc];
         
-
+        
     }
 }
 
-    
+
 
 
 @end
