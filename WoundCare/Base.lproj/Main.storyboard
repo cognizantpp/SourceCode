@@ -1977,7 +1977,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="55" height="1402"/>
                                         </variation>
                                     </imageView>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afp-QW-Ywo">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afp-QW-Ywo">
                                         <rect key="frame" x="3" y="110" width="51" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="72" id="UN1-qM-ffG"/>
@@ -2004,7 +2004,7 @@
                                             <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="Ltq-4r-Ygw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBD-fM-ifg">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBD-fM-ifg">
                                         <rect key="frame" x="3" y="171" width="48" height="39"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="48" id="1Ls-rT-vqK">
@@ -2058,7 +2058,7 @@
                                             <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="MmD-iM-Fx7"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbj-GZ-hRb">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbj-GZ-hRb">
                                         <rect key="frame" x="0.0" y="282" width="47" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="47" id="Snv-r1-xLv">
@@ -2112,7 +2112,7 @@
                                             <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="DVi-jD-lxm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="6" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O13-6Y-wTA">
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O13-6Y-wTA">
                                         <rect key="frame" x="5" y="486" width="45" height="64"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="64" id="g08-uV-kkE"/>
@@ -2145,7 +2145,7 @@
                                             <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="GVx-ce-fVF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="7" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h16-13-Fhc">
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h16-13-Fhc">
                                         <rect key="frame" x="5" y="550" width="45" height="62"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="cEC-hv-UrU">
@@ -2194,7 +2194,7 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <button opaque="NO" tag="8" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PD-QL-FH7">
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3PD-QL-FH7">
                                         <rect key="frame" x="5" y="612" width="45" height="58"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="58" id="TML-gp-9eq"/>
