@@ -32,5 +32,6 @@
 @property (weak, nonatomic) IBOutlet UIView *initialview;
 @property(weak,nonatomic)CoreDataHelper *btnclickobj;
 @property (weak, nonatomic) IBOutlet UIButton *btnCurrentPatient;
-
+@property (weak, nonatomic) IBOutlet UIView *leftView;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 @end

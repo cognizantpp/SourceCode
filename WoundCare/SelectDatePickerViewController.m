@@ -20,11 +20,12 @@
     [self.datePicker addTarget:self action:@selector(datePickerChanged:) forControlEvents:UIControlEventValueChanged];
     
     [self.datePicker setDatePickerMode:UIDatePickerModeDate];
-    if([self.selectedString isEqualToString:@"Recommendations"]){
-        [self.datePicker setMinimumDate: [NSDate date]];
+    if([self.selectedString isEqualToString:@"Assignment"]){
+        [self.datePicker setMaximumDate: [NSDate date]];
+
     }
     else{
-        [self.datePicker setMaximumDate: [NSDate date]];
+        [self.datePicker setMinimumDate: [NSDate date]];
     }
     _datePicker.backgroundColor=[UIColor clearColor];
 
@@ -59,6 +60,10 @@
     {
         [self.dataDelegate getAssignmentDate:date1];
 
+    }
+    else if ([_selectedString isEqualToString:@"WoundReason"])
+    {
+        [self.dataDelegate getWoundReasonDate:[dateFormat stringFromDate:date1]];
     }
     
     [self dismissViewControllerAnimated:YES completion:Nil];

@@ -79,9 +79,9 @@
     selectedPatientIndex = indexPath.row;
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     entry_no=[[patientsDetails valueForKey:@"entry_number"] objectAtIndex:indexPath.row];
-    AssessmentViewController *tvc=[storyBoard instantiateViewControllerWithIdentifier:@"AssessmentViewController"];
-           [self.view addSubview:tvc.view];
-            [self addChildViewController:tvc];
+    AssessmentViewController *assessmentViewController=[storyBoard instantiateViewControllerWithIdentifier:@"AssessmentViewController"];
+           [self.view addSubview:assessmentViewController.view];
+            [self addChildViewController:assessmentViewController];
 
 
    
