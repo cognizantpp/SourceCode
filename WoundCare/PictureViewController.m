@@ -415,9 +415,11 @@ UIButton *btn;
 
 - (IBAction)assessClick:(id)sender {
     if(flagvalue>0){
-        _woundvc =[self.storyboard instantiateViewControllerWithIdentifier:@"woundreason"];
-        [assessmentGlobalView addSubview:_woundvc.view];
-        [assessmentglobalviewcontroller addChildViewController:_woundvc];
+        [CoreDataHelper sharedInstance].buttonClicked=12;
+
+       _woundvc =[self.storyboard instantiateViewControllerWithIdentifier:@"woundreason"];
+        [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:_woundvc.view];
+        [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:_woundvc];
         
         
     }
