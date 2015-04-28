@@ -36,6 +36,8 @@
 
 @property (nonatomic)long buttonClicked;
 
+@property(weak,nonatomic)UIView *assessmentGlobalView;
+@property(weak,nonatomic)UIViewController *assessmentglobalviewcontroller;
 
 +(instancetype)sharedInstance;
 @property(strong,nonatomic)NSManagedObjectContext *managedObjectContext;

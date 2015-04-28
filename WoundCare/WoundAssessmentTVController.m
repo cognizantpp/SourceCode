@@ -11,34 +11,46 @@
 @interface WoundAssessmentTVController ()
 
 @end
-NSArray *selectedArray;
+NSMutableArray *selectedArray;
+int count=0;
+NSString *str=@"Wound";
 @implementation WoundAssessmentTVController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    selectedArray=[[NSArray alloc]init];
+    
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"poppupsmall.png"]];
     [self.tableView setBackgroundView:imageView];
+    
+    selectedArray=[[NSMutableArray alloc]init];
+       NSLog(@"%@",[CoreDataHelper sharedInstance].woundNumber);
+    
     for(int i=0;i<[CoreDataHelper sharedInstance].woundNumber.count;i++)
     {
         if([[CoreDataHelper sharedInstance].woundNumber[i] containsString:@"w"]){
-            selectedArray =[NSArray arrayWithObject:@"Wound"];
+            count++;
+             NSString *str1=[NSString stringWithFormat:@"%d",count];
+             NSString *res=[NSString stringWithFormat:@"%@ %@",str,str1];
+            NSLog(@"%@",str);
+            [selectedArray addObject:res];
+            
         }
         if([[CoreDataHelper sharedInstance].woundNumber[i] containsString:@"g"]){
-            selectedArray =[NSArray arrayWithObject:@"Gastrostomy"];
+             [selectedArray addObject:@"Gastrostomy"];
         }
         if([[CoreDataHelper sharedInstance].woundNumber[i] containsString:@"o"]){
-            selectedArray =[NSArray arrayWithObject:@"Ostomy"];
+            [selectedArray addObject:@"Ostomy"];
         }
 
-
-            
+        
     }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSLog(@"%@",selectedArray);
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,7 +67,7 @@ NSArray *selectedArray;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.selectedArray.count;
+    return selectedArray.count;
 }
 
 
@@ -65,20 +77,11 @@ NSArray *selectedArray;
     static NSString *CellIdentifier =@"myCell";
     UITableViewCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    cell.textLabel.text=[self.selectedArray objectAtIndex:indexPath.row];
+    cell.backgroundColor = [UIColor clearColor];//[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup.png"]];
+
+    cell.textLabel.text=[selectedArray objectAtIndex:indexPath.row];
     
     return cell;
-//    static NSString *simpleTableIdentifier = @"myCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-//        cell.accessoryType = UITableViewCellAccessoryNone;
-//    }
-//    else
-//        _selectedArray=[CoreDataHelper sharedInstance].woundNumber;
-
     
     // Configure the cell...
     
@@ -87,7 +90,59 @@ NSArray *selectedArray;
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+        NSString *str=[selectedArray objectAtIndex:indexPath.row];
+    if ([str isEqualToString:@"Gastrostomy"])
+    {
+        [CoreDataHelper sharedInstance].buttonClicked=13;
+        [self dismissViewControllerAnimated:NO completion:nil];
+        NSLog(@"hey.......");
+        
+        _GVC1=[self.storyboard instantiateViewControllerWithIdentifier:@"gastro"];
+        
+        [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:_GVC1.view];
+        
+        [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:_GVC1];
     
+        
+        //[self presentViewController:_GVC animated:YES completion:nil];
+        //  _GVC.dataDelegate=self;
+        
+    }
+    
+    
+    else if ([str isEqualToString: @"Ostomy"])
+    {
+        
+        [CoreDataHelper sharedInstance].buttonClicked=14;
+        NSLog(@"hey.......");
+        [self dismissViewControllerAnimated:NO completion:nil];
+        _OVC1=[self.storyboard instantiateViewControllerWithIdentifier:@"OstomyViewController"];
+        [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:_OVC1.view];
+        [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:_OVC1];
+        [CoreDataHelper sharedInstance].buttonClicked=13;
+        //[self presentViewController:OVC animated:YES completion:nil];
+        //  _GVC.dataDelegate=self;
+    }
+    
+    else if ([str containsString : @"Wound"])
+    {
+        [CoreDataHelper sharedInstance].buttonClicked=12;
+
+        NSLog(@"hey.......");
+        [self dismissViewControllerAnimated:NO completion:nil];
+        
+        _WVC1=[self.storyboard instantiateViewControllerWithIdentifier:@"woundreason"];
+        [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:_WVC1.view];
+        [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:_WVC1];
+        
+        // [assessmentGlobal addChildViewController:_WVC];
+        // [assessmentGlobal.childViewControllers[0] removeFromSuperview];
+        
+        
+        
+        
+    }
+
 }
 
 /*

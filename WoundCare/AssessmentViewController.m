@@ -66,8 +66,8 @@ OstomyViewController *ostomy;
         [self addChildViewController:picVw];
         self.delete.alpha=0;
     }
-    assessmentGlobalView = self.initialview;
-    assessmentglobalviewcontroller=self;
+    [CoreDataHelper sharedInstance].assessmentGlobalView = self.initialview;
+    [CoreDataHelper sharedInstance].assessmentglobalviewcontroller=self;
 }
 
 -(void)viewDidAppear:(BOOL)animated{

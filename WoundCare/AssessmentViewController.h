@@ -21,8 +21,8 @@
 #import "GastrostomyViewController.h"
 @class WoundImageViewController;
 
-UIView *assessmentGlobalView;
-UIViewController *assessmentglobalviewcontroller;
+//UIView *assessmentGlobalView;
+
 
 @interface AssessmentViewController : UIViewController<GetDataProtocol>
 @property (strong, nonatomic) PatientInfoViewController *patientInfoViewController;
