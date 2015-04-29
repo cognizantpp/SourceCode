@@ -629,7 +629,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCH-PQ-AxB">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCH-PQ-AxB">
                                 <rect key="frame" x="0.0" y="0.0" width="1028" height="768"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ineerscreencommon.png" translatesAutoresizingMaskIntoConstraints="NO" id="0VW-hr-KgZ">
@@ -1767,7 +1767,6 @@
                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="282" y="21" width="42" height="42"/>
                                         </variation>
-                                        <variation key="heightClass=regular-widthClass=regular"/>
                                         <connections>
                                             <action selector="showWoundAssessmentListPopup:" destination="LfV-4f-rmT" eventType="touchUpInside" id="yj0-Ij-5xs"/>
                                         </connections>
@@ -2690,7 +2689,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-ix-2uG">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M2Q-ix-2uG">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ineerscreencommon.png" translatesAutoresizingMaskIntoConstraints="NO" id="MTl-uV-gSI">
