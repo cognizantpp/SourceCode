@@ -16,7 +16,10 @@
 
 -(void)viewDidLoad
 {
+    
     [super viewDidLoad];
+    self.datePicker.datePickerMode = UIDatePickerModeTime;
+
     [self.datePicker addTarget:self action:@selector(datePickerChanged:) forControlEvents:UIControlEventValueChanged];
     
     [self.datePicker setDatePickerMode:UIDatePickerModeDate];
