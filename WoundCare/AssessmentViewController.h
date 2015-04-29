@@ -21,6 +21,9 @@
 #import "GastrostomyViewController.h"
 @class WoundImageViewController;
 
+//UIView *assessmentGlobalView;
+UIView *leftViewPanel;
+UIView *topViewPanel;
 
 
 
