@@ -11,6 +11,13 @@
 
 
 @interface OstomyViewController ()
+{
+    
+        CGPoint p;
+    
+    
+
+}
 
 @property(nonatomic)CGRect r;
 @property(nonatomic)CGRect tRect;
@@ -57,7 +64,9 @@ NSArray *ostomyarr;
     self.PeristomalSkinCharacterArray= [cdh fetchTheOstomyFields:@"8"];
     self.ExudateCharacterArray= [cdh fetchTheOstomyFields:@"9"];
 
-    ostomyarr=[cdh setOstomyFields:entry_no];//@"11111"
+        //  ostomyarr=[cdh setOstomyFields:entry_no];//@"11111"
+          ostomyarr=[cdh setOstomyFields:@"11111"];
+
     if(ostomyarr.count>0){
         [self.OstomySiteButton setTitle:[ostomyarr objectAtIndex:0] forState:UIControlStateNormal];
         [self.StomaLocationButton setTitle:[ostomyarr objectAtIndex:1] forState:UIControlStateNormal];
@@ -157,7 +166,7 @@ NSArray *ostomyarr;
         
     }
     _scrollView.delegate=self;
-    _scrollView.contentSize=CGSizeMake(1024, 1020);
+    _scrollView.contentSize=CGSizeMake(1024, 1250);
     
     _SelectOstomySiteController=[[SelectOstomySiteTVController alloc]init];
     _SelectOstomySiteController.dataDelegate=self;
@@ -196,7 +205,24 @@ NSArray *ostomyarr;
     self.FistulaColorOtherTextField.hidden=YES;
     self.ExudateOdourOtherTextField.hidden=YES;
     self.GranulationTissueOtherTextField.hidden=YES;
+    
+    
+    self.StomaColorOtherTextField.delegate=self;
+    self.StomaOutputColorOtherTextField.delegate=self;
+    self.StomaOutputCharacterOtherTextField.delegate=self;
+    self.FistulaLocationOtherTextField.delegate=self;
+    self.FistulaColorOtherTextField.delegate=self;
+    self.CharacterOtherTextField.delegate=self;
+    self.ExudateCharacterOtherTextField.delegate=self;
+    self.ExudateOdourOtherTextField.delegate=self;
+    self.GranulationTissueOtherTextField.delegate=self;
+    self.CommentsTextView.delegate=self;
 
+
+    
+
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -968,7 +994,91 @@ NSArray *ostomyarr;
     }
 }
 
-
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    if (textField==_StomaColorOtherTextField) {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 100)];
+    }
+    else if (textField==_StomaOutputColorOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 150)];
+        
+    }
+    else if (textField==_StomaOutputCharacterOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 200)];
+        
+    }
+    else if (textField==_FistulaLocationOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 250)];
+        
+    }
+    else if (textField==_FistulaColorOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 350)];
+        
+    }
+    else if (textField==_CharacterOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 400)];
+        
+    }
+    else if (textField==_ExudateCharacterOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 550)];
+        
+    }
+    else if (textField==_ExudateOdourOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 600)];
+        
+    }
+    else if (textField==_GranulationTissueOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 700)];
+        
+    }
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    self.scrollView.contentOffset =p;
+    
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if (textView==_CommentsTextView) {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 900)];
+        
+    }
+    
+}
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    self.scrollView.contentOffset =p;
+    
+}
 @end
 
 
