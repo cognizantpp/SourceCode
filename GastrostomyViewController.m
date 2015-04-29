@@ -182,7 +182,7 @@ NSArray *gastroarr;
     
     
     //fetch
- CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+ //CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
 //    self.GastrostomySiteArray1=[cdh setGastroFields:@"0"];
 //    self.GastrostomyTubeTypeArray1= [cdh setGastroFields:@"1"];
 //    self.AtypicalArray1= [cdh setGastroFields:@"2"];

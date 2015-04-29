@@ -49,7 +49,7 @@
         [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:GVC.view];
         
         [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:GVC];
-        AssessmentViewController *assessment=[[AssessmentViewController alloc]init];
+       // AssessmentViewController *assessment=[[AssessmentViewController alloc]init];
        // [assessment setButtonBackground];
 
 
@@ -68,7 +68,7 @@
           OVC=[self.storyboard instantiateViewControllerWithIdentifier:@"OstomyViewController"];
         [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:OVC.view];
         [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:OVC];
-        AssessmentViewController *assessment=[[AssessmentViewController alloc]init];
+        //AssessmentViewController *assessment=[[AssessmentViewController alloc]init];
         //[assessment setButtonBackground];
         
         //[self presentViewController:OVC animated:YES completion:nil];

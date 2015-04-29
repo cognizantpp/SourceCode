@@ -31,7 +31,7 @@
      patientsDetails = [coreDatahelper getAssignmentsList:@"user1"];
     NSLog(@"staff %@  ::: %@",coreDatahelper.gblstaffName,coreDatahelper.gblstaffId);
     self.lblUserName.text = coreDatahelper.gblstaffName;
-    self.lblPatientsCount.text = [NSString stringWithFormat:@"%d", [[patientsDetails valueForKey:@"patient_name"] count]];
+    self.lblPatientsCount.text = [NSString stringWithFormat:@"%d", (int)[[patientsDetails valueForKey:@"patient_name"] count]];
     
     
     
@@ -76,7 +76,7 @@
     helper.woundCoordinates = [[NSMutableArray alloc]init];
     helper.woundNumber = [[NSMutableArray alloc]init];
     
-    selectedPatientIndex = indexPath.row;
+    selectedPatientIndex = (int)indexPath.row;
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     entry_no=[[patientsDetails valueForKey:@"entry_number"] objectAtIndex:indexPath.row];
     AssessmentViewController *assessmentViewController=[storyBoard instantiateViewControllerWithIdentifier:@"AssessmentViewController"];
@@ -91,7 +91,7 @@
 -(void)OkClicked{
     CoreDataHelper *coreDataHelper = [CoreDataHelper sharedInstance];
     patientsDetails = [coreDataHelper getAssignmentsList:coreDataHelper.gblstaffId];
-    self.lblPatientsCount.text = [NSString stringWithFormat:@"%d", [[patientsDetails valueForKey:@"patient_name"] count]];
+    self.lblPatientsCount.text = [NSString stringWithFormat:@"%d", (int)[[patientsDetails valueForKey:@"patient_name"] count]];
     [self.tableView reloadData];
     
     

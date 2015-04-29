@@ -121,10 +121,11 @@ UIButton *btn;
             UIImage *image = [UIImage imageNamed:[helper.woundName valueForKey:@"11"]];
             if(image != nil)
                 [self.btn4 setImage:image forState:UIControlStateNormal];
+            else{
+                [self.btn4 setImage:imageReal forState:UIControlStateNormal];
+            }
         }
-        else{
-            [self.btn4 setImage:imageReal forState:UIControlStateNormal];
-        }
+        
         if([helper.woundName valueForKey:@"12"]){
             UIImage *image = [UIImage imageNamed:[helper.woundName valueForKey:@"12"]];
             if(image != nil)
@@ -240,7 +241,7 @@ UIButton *btn;
         [_pickerController.view setFrame:CGRectMake(0, 0, 1024, 768)];
         _pickerController.delegate = self;
         _pickerController.allowsEditing = YES;
-        _pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;//UIImagePickerControllerSourceTypeSavedPhotosAlbum;// UIImagePickerControllerSourceTypeCamera;//
+        _pickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;//UIImagePickerControllerSourceTypeSavedPhotosAlbum;// UIImagePickerControllerSourceTypeCamera;//
         [leftViewPanel setHidden:YES];
         [topViewPanel setHidden:YES];
         [self.view addSubview:_pickerController.view];

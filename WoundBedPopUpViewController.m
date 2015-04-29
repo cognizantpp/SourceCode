@@ -42,7 +42,7 @@ int selectedEntryButton;
 }
 
 - (IBAction)percentButtonClicked:(UIButton *)sender {
-    selectedEntryButton = [sender tag];
+    selectedEntryButton = (int)[sender tag];
     LengthNumberEntryViewController *lengthNumberEntryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"LengthNumberEntryViewController"];
     self.popOver = [[UIPopoverController alloc]initWithContentViewController:lengthNumberEntryViewController];
     lengthNumberEntryViewController.delegate = self;

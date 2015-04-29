@@ -15,6 +15,8 @@
     UIStoryboard *storybrd;
 }
 - (IBAction)buttonClciked:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *txtSearchEntryNumber;
 @property (weak, nonatomic) IBOutlet UIImageView *baseView;
 @property (weak, nonatomic) IBOutlet UIButton *pain;
 @property (weak, nonatomic) IBOutlet UIButton *review;
@@ -259,7 +261,6 @@ OstomyViewController *ostomy;
             
             NSString *GastrostomySiteId=[NSString stringWithFormat:@"%ld",(long)GVC.GastrostomySiteOutlet.tag];
             NSString *GastrostomyTubeTypeId=[NSString stringWithFormat:@"%ld",(long)GVC.GastrostomyTubeTypeOutlet.tag];
-            NSLog(@"%d",GVC.GastrostomyTubeTypeOutlet.tag);
             NSString *AtypicalId=[NSString stringWithFormat:@"%ld",(long)GVC.atypicaltextview.tag];            NSString *SizeLengthId=[NSString stringWithFormat:@"%ld",(long)GVC.SizeLengthOutlet.tag];
             NSString *SizeWidthId=[NSString stringWithFormat:@"%ld",(long)GVC.SizeWidthOutlet.tag];
             NSString *CharacterId=[NSString stringWithFormat:@"%ld",(long)GVC.CharacterOutlet.tag];            NSString *RetentionDiskId=[NSString stringWithFormat:@"%ld",(long)GVC.RetentionDiskOutlet.tag];            NSString *PeristomalSkinCharacterId=[NSString stringWithFormat:@"%ld",(long)GVC.PeristomalSkinCharacterOutlet.tag];
@@ -339,11 +340,11 @@ OstomyViewController *ostomy;
         {
             NSLog(@"Case 14");
             CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
-             NSString *ostomyselected_value=[NSString stringWithFormat:@"%@",OVC.OstomySiteButton.titleLabel.text];
+            NSString *ostomyselected_value=[NSString stringWithFormat:@"%@",OVC.OstomySiteButton.titleLabel.text];
             NSString *stomaLocationselected_value=[NSString stringWithFormat:@"%@",OVC.StomaLocationButton.titleLabel.text];
             NSString *stomacolorselected_value=[NSString stringWithFormat:@"%@",OVC.StomaColorButton.titleLabel.text];
             NSString *stomaOutputColorselected_value=[NSString stringWithFormat:@"%@",OVC.StomaOutputColorButton.titleLabel.text];
-             NSString *stomaOutputCharacterselected_value=[NSString stringWithFormat:@"%@",OVC.StomaOutputCharacterButton.titleLabel.text];
+            NSString *stomaOutputCharacterselected_value=[NSString stringWithFormat:@"%@",OVC.StomaOutputCharacterButton.titleLabel.text];
             NSString *fistulaLocationselected_value=[NSString stringWithFormat:@"%@",OVC.FistulaLengthButton.titleLabel.text];
             NSString *fistulaColorselected_value=[NSString stringWithFormat:@"%@",OVC.FistulaColorButton.titleLabel.text];
             NSString *characterselected_value=[NSString stringWithFormat:@"%@",OVC.PeristomalSkinButton.titleLabel.text];
@@ -355,8 +356,8 @@ OstomyViewController *ostomy;
             NSString *conditionselected_value=[NSString stringWithFormat:@"%@",OVC.PeristomalSkinConditionButton.titleLabel.text];
             
             NSString *stomaLengthselected_value=[NSString stringWithFormat:@"%@",OVC.StomaLengthButton.titleLabel.text];
-             NSString *stomaWidthselected_value=[NSString stringWithFormat:@"%@",OVC.StomaWidthButton.titleLabel.text];
-             NSString *stomaDepthselected_value=[NSString stringWithFormat:@"%@",OVC.StomaDepthButton.titleLabel.text];
+            NSString *stomaWidthselected_value=[NSString stringWithFormat:@"%@",OVC.StomaWidthButton.titleLabel.text];
+            NSString *stomaDepthselected_value=[NSString stringWithFormat:@"%@",OVC.StomaDepthButton.titleLabel.text];
             NSString *fistulaLengthselected_value=[NSString stringWithFormat:@"%@",OVC.FistulaLengthButton.titleLabel.text];
             NSString *fistulaWidthselected_value=[NSString stringWithFormat:@"%@",OVC.FistulaWidthButton.titleLabel.text];
             NSString *fistulaDepthselected_value=[NSString stringWithFormat:@"%@",OVC.FistulaDepthButton.titleLabel.text];
@@ -364,7 +365,7 @@ OstomyViewController *ostomy;
             NSString *atypical=[NSString stringWithFormat:@"%@",OVC.AtypicalTextView.text];
             NSString *comments=[NSString stringWithFormat:@"%@",OVC.CommentsTextView.text];
             
-             NSString *onsetDateselected_value=[NSString stringWithFormat:@"%@",OVC.dateButtonOutlet.titleLabel.text];
+            NSString *onsetDateselected_value=[NSString stringWithFormat:@"%@",OVC.dateButtonOutlet.titleLabel.text];
             
             NSString *stomaLocationother_value=[NSString stringWithFormat:@"%@",OVC.StomaLocationOtherTextField.text];
             NSString *stomaColorother_value=[NSString stringWithFormat:@"%@",OVC.StomaColorOtherTextField.text];
@@ -390,40 +391,39 @@ OstomyViewController *ostomy;
             
             [CoreDataHelper sharedInstance].ostomyOthervalues=[NSArray arrayWithObjects:@"",stomaLocationother_value,stomaColorother_value,stomaOutputColorother_value,stomaOutputCharacterother_value,fistulaLocationother_value,fistulaColorother_value,characterother_value,exudateCharacterother_value,exudateOdourother_value,@"",granulationTissueother_value,@"",@"",StomaSize,@"",@"",FistulaSize,@"",@"",@"",@"",@"",nil];
             
-          
-
             
-             NSString *ostomyid=[NSString stringWithFormat:@"%ld",(long)OVC.OstomySiteButton.tag];
-             NSString *stomaLocationid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaLocationButton.tag];
-             NSString *stomaColorid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaColorButton.tag];
-             NSString *stomaOutputColorid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaOutputColorButton.tag];
-             NSString *stomaOutputCharacterid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaOutputCharacterButton.tag];
-             NSString *fistulaLocationid=[NSString stringWithFormat:@"%ld",(long)OVC.FistulaLocationButton.tag];
-             NSString *fistulaColorid=[NSString stringWithFormat:@"%ld",(long)OVC.FistulaColorButton.tag];
-             NSString *Characterid=[NSString stringWithFormat:@"%ld",(long)OVC.PeristomalSkinButton.tag];
-             NSString *exudateCharacterid=[NSString stringWithFormat:@"%ld",(long)OVC.ExudateCharacterButton.tag];
-             NSString *exudateOdourid=[NSString stringWithFormat:@"%ld",(long)OVC.ExudateOdourButton.tag];
-             NSString *exudateAmountid=[NSString stringWithFormat:@"%ld",(long)OVC.ExudateAmountButton.tag];
-             NSString *granulationTissueid=[NSString stringWithFormat:@"%ld",(long)OVC.GranulationTissueButton.tag];
-             NSString *edemaid=[NSString stringWithFormat:@"%ld",(long)OVC.EdemaButton.tag];
-             NSString *conditionid=[NSString stringWithFormat:@"%ld",(long)OVC.PeristomalSkinConditionButton.tag];
-             NSString *stomaLengthid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaLengthButton.tag];
-             NSString *stomaWidthid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaWidthButton.tag];
-             NSString *stomaDepthid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaDepthButton.tag];
+            
+            
+            NSString *ostomyid=[NSString stringWithFormat:@"%ld",(long)OVC.OstomySiteButton.tag];
+            NSString *stomaLocationid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaLocationButton.tag];
+            NSString *stomaColorid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaColorButton.tag];
+            NSString *stomaOutputColorid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaOutputColorButton.tag];
+            NSString *stomaOutputCharacterid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaOutputCharacterButton.tag];
+            NSString *fistulaLocationid=[NSString stringWithFormat:@"%ld",(long)OVC.FistulaLocationButton.tag];
+            NSString *fistulaColorid=[NSString stringWithFormat:@"%ld",(long)OVC.FistulaColorButton.tag];
+            NSString *Characterid=[NSString stringWithFormat:@"%ld",(long)OVC.PeristomalSkinButton.tag];
+            NSString *exudateCharacterid=[NSString stringWithFormat:@"%ld",(long)OVC.ExudateCharacterButton.tag];
+            NSString *exudateOdourid=[NSString stringWithFormat:@"%ld",(long)OVC.ExudateOdourButton.tag];
+            NSString *exudateAmountid=[NSString stringWithFormat:@"%ld",(long)OVC.ExudateAmountButton.tag];
+            NSString *granulationTissueid=[NSString stringWithFormat:@"%ld",(long)OVC.GranulationTissueButton.tag];
+            NSString *edemaid=[NSString stringWithFormat:@"%ld",(long)OVC.EdemaButton.tag];
+            NSString *conditionid=[NSString stringWithFormat:@"%ld",(long)OVC.PeristomalSkinConditionButton.tag];
+            NSString *stomaLengthid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaLengthButton.tag];
+            NSString *stomaWidthid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaWidthButton.tag];
+            NSString *stomaDepthid=[NSString stringWithFormat:@"%ld",(long)OVC.StomaDepthButton.tag];
             NSString *fistulaLengthid=[NSString stringWithFormat:@"%ld",(long)OVC.FistulaLengthButton.tag];
             NSString *fistulaWidthid=[NSString stringWithFormat:@"%ld",(long)OVC.FistulaWidthButton.tag];
             NSString *fistulaDepthid=[NSString stringWithFormat:@"%ld",(long)OVC.FistulaDepthButton.tag];
             NSString *atypicalid=[NSString stringWithFormat:@"%ld",(long)OVC.AtypicalTextView.tag];
             NSString *commentsid=[NSString stringWithFormat:@"%ld",(long)OVC.CommentsTextView.tag];
-             NSString *onsetDateid=[NSString stringWithFormat:@"%ld",(long)OVC.dateButtonOutlet.tag];
+            NSString *onsetDateid=[NSString stringWithFormat:@"%ld",(long)OVC.dateButtonOutlet.tag];
             
             [CoreDataHelper sharedInstance].ostomycategoryid=[NSArray arrayWithObjects:ostomyid,stomaLocationid,stomaColorid,stomaOutputColorid,stomaOutputCharacterid,fistulaLocationid,fistulaColorid,Characterid,exudateCharacterid,exudateOdourid,exudateAmountid,granulationTissueid,edemaid,conditionid,stomaLengthid,stomaWidthid,stomaDepthid,fistulaLengthid,fistulaWidthid,fistulaDepthid,atypicalid,commentsid,onsetDateid,nil];
             [CoreDataHelper sharedInstance].ostomycategory_name=[NSArray arrayWithObjects:@"Ostomy Site",@"Stoma Location",@"Stoma Color",@"Stoma Output Color",@"Stoma Output Character",@"Fistula Location",@"Fistula Color",@"Character",@"Exudate Character",@"Exudate Odor",@"Exudate Amount",@"Granulation Tissue",@"Edema",@"Condition",@"Stoma Length",@"Stoma Width",@"Stoma Depth",@"Fistula Length",@"Fistula Width",@"Fistula Depth",@"Atypical",@"Comments",@"Onset Date" ,nil];
             
-            NSLog(@"%d",OVC.OstomySiteButton.tag);
-            NSLog(@"%d",OVC.StomaLocationButton.tag);
             
-              [cdh saveOstomy:entry_no];
+            
+            [cdh saveOstomy:entry_no];
             break;
         }
         default:
@@ -618,6 +618,45 @@ OstomyViewController *ostomy;
     [_patientListPopOver setPopoverContentSize:CGSizeMake(400, 150)];
     [_patientListPopOver presentPopoverFromRect:[sender frame] inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
+}
+- (IBAction)searchEntryNumber:(UIButton *)sender {
+    BOOL found = NO;
+    if([self.txtSearchEntryNumber.text intValue] > 0){
+        for(int i=0;i<[[patientsDetails valueForKey:@"entry_number"]count];i++ ){
+            if ([[[patientsDetails valueForKey:@"entry_number"] objectAtIndex:i] isEqualToString:self.txtSearchEntryNumber.text]) {
+                found = YES;
+                CoreDataHelper *helper = [CoreDataHelper sharedInstance];
+                helper.imageArr = [[NSMutableDictionary alloc]init];
+                helper.imageText = [[NSMutableDictionary alloc]init];
+                helper.woundIdDic = [[NSMutableDictionary alloc]init];
+                helper.woundName = [[NSMutableDictionary alloc]init];
+                helper.woundImageName = [[NSMutableArray alloc]init];
+                helper.woundCoordinates = [[NSMutableArray alloc]init];
+                helper.woundNumber = [[NSMutableArray alloc]init];
+                [self setButtonBackground]; //saves currently selected screen
+                selectedPatientIndex = i;
+                entry_no=[[patientsDetails valueForKey:@"entry_number"] objectAtIndex:i];
+                self.delete.alpha=1;
+                [self.human setImage:[UIImage imageNamed:@"homanhover2013.png"] forState:UIControlStateNormal];
+                WoundImageViewController *tvc=[self.storyboard instantiateViewControllerWithIdentifier:@"WoundImageViewController"];
+                [self.initialview addSubview:tvc.view];
+                [self addChildViewController:tvc];
+                _btnclickobj.buttonClicked=6;
+                self.txtSearchEntryNumber.text =@"";
+                NSString *pName = [[[[[[[patientsDetails valueForKey:@"patient_name"]objectAtIndex:selectedPatientIndex] stringByAppendingString:@", DOB : "] stringByAppendingString:[[patientsDetails valueForKey:@"dob"]objectAtIndex:selectedPatientIndex] ] stringByAppendingString:@" ("] stringByAppendingString:[[patientsDetails valueForKey:@"age" ]objectAtIndex:selectedPatientIndex]] stringByAppendingString:@" Y)"];
+                [self.btnCurrentPatient setTitle:pName forState:UIControlStateNormal];
+                
+            }
+        }
+        if (!found) {
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Entry number Search" message:@"Entry number not found" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alertView show];
+        }
+    }
+    else{
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Entry number Search" message:@"Search field cannot be empty" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alertView show];
+    }
 }
 - (IBAction)showWoundAssessmentListPopup:(UIButton *)sender {
     self.woundAssessmentTVController = [self.storyboard instantiateViewControllerWithIdentifier:@"WoundAssessmentTVController"];

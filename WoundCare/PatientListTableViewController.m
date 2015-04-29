@@ -111,7 +111,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    selectedPatientIndex = indexPath.row;
+    selectedPatientIndex =(int) indexPath.row;
+    entry_no=[[patientsDetails valueForKey:@"entry_number"] objectAtIndex:indexPath.row];
+    CoreDataHelper *helper = [CoreDataHelper sharedInstance];
+    helper.imageArr = [[NSMutableDictionary alloc]init];
+    helper.imageText = [[NSMutableDictionary alloc]init];
+    helper.woundIdDic = [[NSMutableDictionary alloc]init];
+    helper.woundName = [[NSMutableDictionary alloc]init];
+    helper.woundImageName = [[NSMutableArray alloc]init];
+    helper.woundCoordinates = [[NSMutableArray alloc]init];
+    helper.woundNumber = [[NSMutableArray alloc]init];
+    
     AssessmentViewController *newAssessment = [self.storyboard instantiateViewControllerWithIdentifier:@"AssessmentViewController"];
     [self presentViewController:newAssessment animated:NO completion:nil];
 }

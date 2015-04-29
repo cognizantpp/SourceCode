@@ -127,7 +127,6 @@
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    NSLog(@"count %d",[fetchedObjects count]);
     if (fetchedObjects == nil || [fetchedObjects count] == 0) {
         return YES;
     }
@@ -1278,6 +1277,8 @@
     NSArray *imageKeys = [self.imageArr allKeys];
     NSArray *imageTextKeys = [self.imageText allKeys];
     NSArray *imageWoundKeys = [self.woundName allKeys];
+    NSString *currentTextKey;
+    NSString *currentWoundName;
     imageKeys = [imageKeys sortedArrayUsingDescriptors:
                  @[[NSSortDescriptor sortDescriptorWithKey:@"doubleValue"
                                                  ascending:YES]]];
@@ -1291,21 +1292,54 @@
                                                       ascending:YES]]];
     [self deleteImages];
     for(int i=0;i<[imageKeys count];i++){
+        switch ([imageKeys[i] intValue]) {
+            case 1:
+                currentTextKey = @"15";
+                currentWoundName = @"8";
+                break;
+            case 2:
+                currentTextKey = @"16";
+                currentWoundName = @"9";
+                break;
+            case 3:
+                currentTextKey = @"17";
+                currentWoundName = @"10";
+                break;
+            case 4:
+                currentTextKey = @"18";
+                currentWoundName = @"11";
+                break;
+            case 5:
+                currentTextKey = @"19";
+                currentWoundName = @"12";
+                break;
+            case 6:
+                currentTextKey = @"20";
+                currentWoundName = @"13";
+                break;
+            case 7:
+                currentTextKey = @"21";
+                currentWoundName = @"14";
+                break;
+            default:
+                break;
+        }
         NSLog(@"saving image id %@",imageKeys[i]);
         NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"Wound" inManagedObjectContext:self.managedObjectContext];
         UIImage *img  = [self.imageArr valueForKey:imageKeys[i]];
         NSData *imageData = UIImagePNGRepresentation(img);
         [insertObject setValue:imageData forKey:@"wound_image"];
-        if([imageWoundKeys count] >0 && [imageWoundKeys count]> i){
-            [insertObject setValue:[self.woundName valueForKey:imageWoundKeys[i]] forKey:@"wound_name"];
+        if(currentWoundName){
+            
+            [insertObject setValue:[self.woundName valueForKey:currentWoundName] forKey:@"wound_name"];
         }
         else{
             [insertObject setValue:@"" forKey:@"wound_name"];
         }
         [insertObject setValue:imageKeys[i] forKey:@"wound_id"];
-        if([imageTextKeys count] > 0 && [imageTextKeys count]> i)
+        if(currentTextKey)
         {
-            [insertObject setValue:[self.imageText valueForKey:imageTextKeys[i]] forKey:@"wound_text"];
+            [insertObject setValue:[self.imageText valueForKey:currentTextKey] forKey:@"wound_text"];
             
         }
         else{
