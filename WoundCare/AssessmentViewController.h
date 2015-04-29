@@ -21,7 +21,9 @@
 #import "GastrostomyViewController.h"
 @class WoundImageViewController;
 
-//UIView *assessmentGlobalView;
+UIView *assessmentGlobalView;
+UIViewController *assessmentglobalviewcontroller;
+UIView *leftViewPanel,*topViewPanel;
 
 
 @interface AssessmentViewController : UIViewController<GetDataProtocol>
@@ -34,4 +36,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnCurrentPatient;
 @property (weak, nonatomic) IBOutlet UIView *leftView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
+-(void)setButtonBackground;
 @end

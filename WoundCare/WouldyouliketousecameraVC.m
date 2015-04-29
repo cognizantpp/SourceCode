@@ -49,6 +49,9 @@
         [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:GVC.view];
         
         [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:GVC];
+        AssessmentViewController *assessment=[[AssessmentViewController alloc]init];
+       // [assessment setButtonBackground];
+
 
              //[self presentViewController:_GVC animated:YES completion:nil];
       //  _GVC.dataDelegate=self;
@@ -59,13 +62,15 @@
     else if ([_selectedString isEqualToString: @"Ostomy"])
     {
         
-        [CoreDataHelper sharedInstance].buttonClicked=13;
+        [CoreDataHelper sharedInstance].buttonClicked=14;
         NSLog(@"hey.......");
         [self dismissViewControllerAnimated:NO completion:nil];
           OVC=[self.storyboard instantiateViewControllerWithIdentifier:@"OstomyViewController"];
         [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:OVC.view];
         [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:OVC];
-        [CoreDataHelper sharedInstance].buttonClicked=13;
+        AssessmentViewController *assessment=[[AssessmentViewController alloc]init];
+        //[assessment setButtonBackground];
+        
         //[self presentViewController:OVC animated:YES completion:nil];
         //  _GVC.dataDelegate=self;
     }

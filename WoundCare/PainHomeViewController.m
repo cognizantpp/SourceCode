@@ -35,7 +35,10 @@ NSArray *painarr;
     painarr=[cdh setPainFields:entry_no];
     if(painarr.count>0){
     [self.characterButtonOutlet setTitle:[painarr objectAtIndex:0] forState:UIControlStateNormal];
-     [self.scoreButtonOutlet setTitle:[painarr objectAtIndex:1] forState:UIControlStateNormal];
+        NSString *scoreValue = [painarr objectAtIndex:1];
+        if([scoreValue intValue] >= 0){
+            [self.scoreButtonOutlet setTitle:[painarr objectAtIndex:1] forState:UIControlStateNormal];
+        }
     }
     _selectCharacterViewController=[[SelectCharacterTableViewController alloc]init];
     _selectCharacterViewController.dataDelegate=self;
