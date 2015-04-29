@@ -27,8 +27,7 @@
 
 -(void) viewDidLoad{
     CoreDataHelper *coreDatahelper = [CoreDataHelper sharedInstance];
-   // patientsDetails = [coreDatahelper getAssignmentsList:coreDatahelper.gblstaffId];
-     patientsDetails = [coreDatahelper getAssignmentsList:@"user1"];
+    patientsDetails = [coreDatahelper getAssignmentsList:coreDatahelper.gblstaffId];
     NSLog(@"staff %@  ::: %@",coreDatahelper.gblstaffName,coreDatahelper.gblstaffId);
     self.lblUserName.text = coreDatahelper.gblstaffName;
     self.lblPatientsCount.text = [NSString stringWithFormat:@"%d", [[patientsDetails valueForKey:@"patient_name"] count]];
@@ -53,6 +52,7 @@
     assignmentCell.lblEntryNo.text = [[patientsDetails valueForKey:@"entry_number"] objectAtIndex:indexPath.row];
     assignmentCell.lblConsult.text = [[patientsDetails valueForKey:@"consult_type"] objectAtIndex:indexPath.row];
     assignmentCell.lblRoomNo.text = [[patientsDetails valueForKey:@"room_number"] objectAtIndex:indexPath.row];
+    NSLog(@"%@",[[patientsDetails valueForKey:@"chart_status"] objectAtIndex:indexPath.row]);
     if ([[[patientsDetails valueForKey:@"chart_status"] objectAtIndex:indexPath.row] isEqualToString:@"fresh"]) {
         assignmentCell.imgStatus.image = [UIImage imageNamed:@"dottrans.png"];
     }
@@ -68,6 +68,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     CoreDataHelper *helper = [CoreDataHelper sharedInstance];
+    
     helper.imageArr = [[NSMutableDictionary alloc]init];
     helper.imageText = [[NSMutableDictionary alloc]init];
     helper.woundIdDic = [[NSMutableDictionary alloc]init];
@@ -79,11 +80,12 @@
     selectedPatientIndex = indexPath.row;
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     entry_no=[[patientsDetails valueForKey:@"entry_number"] objectAtIndex:indexPath.row];
+    [helper changeStatus:entry_no];
     AssessmentViewController *assessmentViewController=[storyBoard instantiateViewControllerWithIdentifier:@"AssessmentViewController"];
            [self.view addSubview:assessmentViewController.view];
             [self addChildViewController:assessmentViewController];
 
-
+   
    
 }
 
