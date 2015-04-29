@@ -21,9 +21,8 @@
 #import "GastrostomyViewController.h"
 @class WoundImageViewController;
 
-UIView *assessmentGlobalView;
-UIViewController *assessmentglobalviewcontroller;
-UIView *leftViewPanel,*topViewPanel;
+
+
 
 
 @interface AssessmentViewController : UIViewController<GetDataProtocol>
