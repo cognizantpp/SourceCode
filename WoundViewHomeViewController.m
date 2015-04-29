@@ -762,7 +762,7 @@ NSInteger selectedEntryButton;
         case 1:
             
             self.singleSelectionPopOver=[[UIPopoverController alloc]initWithContentViewController:_singleSelectionViewController];
-            [self.singleSelectionPopOver setPopoverContentSize:CGSizeMake(300, 80)];
+            [self.singleSelectionPopOver setPopoverContentSize:CGSizeMake(300, 150)];
             
             
             _r = [sender frame];
