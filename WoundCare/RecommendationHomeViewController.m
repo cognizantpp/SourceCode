@@ -61,7 +61,9 @@ NSArray *recommendationarray;
     self.tissueArray= [cdh fetchTheRecommendationsFields:@"6"];
     
     
-    recommendationarray=[cdh setRecommendationFields:entry_no];
+        // recommendationarray=[cdh setRecommendationFields:entry_no];
+        recommendationarray=[cdh setRecommendationFields:@"11"];
+
     NSLog(@"%@",recommendationarray);
     if(recommendationarray.count>0){
         [self.mobilityButtonOutlet setTitle:[recommendationarray objectAtIndex:0] forState:UIControlStateNormal];

@@ -2618,22 +2618,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ineerscreencommon.png" translatesAutoresizingMaskIntoConstraints="NO" id="zhv-nz-sfO">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
-                            </imageView>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="NbZ-cf-0VA">
                                 <rect key="frame" x="-5" y="44" width="320" height="216"/>
+                                <color key="backgroundColor" red="0.73022959180000002" green="0.73022959180000002" blue="0.73022959180000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <date key="date" timeIntervalSinceReferenceDate="449997973.54943299">
                                     <!--2015-04-06 07:26:13 +0000-->
                                 </date>
                             </datePicker>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1te-qA-7oE">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
-                                <color key="backgroundColor" red="0.73022959180000002" green="0.73022959180000002" blue="0.73022959180000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="QI8-dX-8BX"/>
+                                    <barButtonItem style="done" systemItem="flexibleSpace" id="e4K-9f-uYe">
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
                                     <barButtonItem style="done" systemItem="done" id="ICW-Vk-NJ9">
-                                        <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="doneButtonAction:" destination="UsB-8y-5Mr" id="DNf-7G-pau"/>
                                         </connections>
@@ -2642,18 +2641,11 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Wp6-m3-ak4" firstAttribute="top" secondItem="zhv-nz-sfO" secondAttribute="bottom" id="KH7-32-IFZ"/>
-                            <constraint firstItem="zhv-nz-sfO" firstAttribute="top" secondItem="S7A-VA-fWx" secondAttribute="topMargin" id="Nxa-dI-wcF"/>
-                            <constraint firstItem="zhv-nz-sfO" firstAttribute="leading" secondItem="S7A-VA-fWx" secondAttribute="leadingMargin" constant="-16" id="RQg-1E-rZD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zhv-nz-sfO" secondAttribute="trailing" constant="-16" id="YwV-Dm-iOL"/>
-                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="250"/>
                     <connections>
                         <outlet property="datePicker" destination="NbZ-cf-0VA" id="w7I-0J-HgA"/>
-                        <outlet property="toolBarOutlet" destination="QI8-dX-8BX" id="0eJ-QG-j1T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nIY-yF-g6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5948,9 +5940,6 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ineerscreencommon.png" translatesAutoresizingMaskIntoConstraints="NO" id="azr-ij-88A">
                                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="1500"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wound_reason.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bkp-hx-7xl">
-                                                <rect key="frame" x="25" y="48" width="349" height="70"/>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PIV Infiltrate Newborn" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVT-Xg-aQL">
                                                 <rect key="frame" x="126" y="120" width="168" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -6614,6 +6603,9 @@
                                                     <action selector="singleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="ju3-Xq-thb"/>
                                                 </connections>
                                             </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wound_reason.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bkp-hx-7xl">
+                                                <rect key="frame" x="25" y="42" width="349" height="70"/>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>

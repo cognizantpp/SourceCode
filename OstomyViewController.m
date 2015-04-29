@@ -64,109 +64,109 @@ NSArray *ostomyarr;
     self.PeristomalSkinCharacterArray= [cdh fetchTheOstomyFields:@"8"];
     self.ExudateCharacterArray= [cdh fetchTheOstomyFields:@"9"];
 
-        //  ostomyarr=[cdh setOstomyFields:entry_no];//@"11111"
-          ostomyarr=[cdh setOstomyFields:@"11111"];
+          ostomyarr=[cdh setOstomyFields:entry_no];//@"11111"
+          //ostomyarr=[cdh setOstomyFields:@"11111"];
 
     if(ostomyarr.count>0){
-//        [self.OstomySiteButton setTitle:[ostomyarr objectAtIndex:0] forState:UIControlStateNormal];
-//        [self.StomaLocationButton setTitle:[ostomyarr objectAtIndex:1] forState:UIControlStateNormal];
-//        [self.StomaColorButton setTitle:[ostomyarr objectAtIndex:2] forState:UIControlStateNormal];
-//        [self.StomaOutputColorButton setTitle:[ostomyarr objectAtIndex:3] forState:UIControlStateNormal];
-//        [self.StomaOutputCharacterButton setTitle:[ostomyarr objectAtIndex:4] forState:UIControlStateNormal];
-//        [self.FistulaLocationButton setTitle:[ostomyarr objectAtIndex:5] forState:UIControlStateNormal];
-//        [self.FistulaColorButton setTitle:[ostomyarr objectAtIndex:6] forState:UIControlStateNormal];
-//        [self.PeristomalSkinButton setTitle:[ostomyarr objectAtIndex:7] forState:UIControlStateNormal];
-//        [self.ExudateCharacterButton setTitle:[ostomyarr objectAtIndex:8] forState:UIControlStateNormal];
-//        [self.ExudateOdourButton setTitle:[ostomyarr objectAtIndex:9] forState:UIControlStateNormal];
-//        [self.ExudateAmountButton setTitle:[ostomyarr objectAtIndex:10] forState:UIControlStateNormal];
-//        [self.GranulationTissueButton setTitle:[ostomyarr objectAtIndex:11] forState:UIControlStateNormal];
-//        [self.EdemaButton setTitle:[ostomyarr objectAtIndex:12] forState:UIControlStateNormal];
-//        [self.PeristomalSkinConditionButton setTitle:[ostomyarr objectAtIndex:13] forState:UIControlStateNormal];
-//        [self.StomaLengthButton setTitle:[ostomyarr objectAtIndex:14] forState:UIControlStateNormal];
-//        [self.StomaWidthButton setTitle:[ostomyarr objectAtIndex:15] forState:UIControlStateNormal];
-//        [self.StomaDepthButton setTitle:[ostomyarr objectAtIndex:16] forState:UIControlStateNormal];
-//        [self.FistulaLengthButton setTitle:[ostomyarr objectAtIndex:17] forState:UIControlStateNormal];
-//        [self.FistulaWidthButton setTitle:[ostomyarr objectAtIndex:18] forState:UIControlStateNormal];
-//        [self.FistulaDepthButton setTitle:[ostomyarr objectAtIndex:19] forState:UIControlStateNormal];
-//        NSString *atypicalStr=[ostomyarr objectAtIndex:20];
-//        [self.AtypicalTextView setText:atypicalStr];
-//        NSString *commentsStr=[ostomyarr objectAtIndex:21];
-//        [self.CommentsTextView setText:commentsStr];
-//        
-//        [self.dateButtonOutlet setTitle:[ostomyarr objectAtIndex:22] forState:UIControlStateNormal];
-//
-//        if([[ostomyarr objectAtIndex:1]containsString:@"Other"]){
-//            self.StomaLocationOtherTextField.hidden=NO;
-//            NSString *othertext=[ostomyarr objectAtIndex:24] ;
-//            [self.StomaLocationOtherTextField setText:othertext];
-//        }
-//        if([[ostomyarr objectAtIndex:2]containsString:@"Other"]){
-//            self.StomaColorOtherTextField.hidden=NO;
-//            NSString *othertext=[ostomyarr objectAtIndex:25] ;
-//            [self.StomaColorOtherTextField setText:othertext];
-//        }
-//        if([[ostomyarr objectAtIndex:3]containsString:@"Other"]){
-//            self.StomaOutputColorOtherTextField.hidden=NO;
-//            NSString *othertext=[ostomyarr objectAtIndex:26] ;
-//            [self.StomaOutputColorOtherTextField setText:othertext];
-//        }
-//        if([[ostomyarr objectAtIndex:4]containsString:@"Other"]){
-//            self.StomaOutputCharacterOtherTextField.hidden=NO;
-//            NSString *othertext=[ostomyarr objectAtIndex:27] ;
-//            [self.StomaOutputCharacterOtherTextField setText:othertext];
-//        }
-//        if([[ostomyarr objectAtIndex:5]containsString:@"Other"]){
-//            self.FistulaLocationOtherTextField.hidden=NO;
-//            NSString *othertext=[ostomyarr objectAtIndex:28] ;
-//            [self.FistulaLocationOtherTextField setText:othertext];
-//        }
-//        if([[ostomyarr objectAtIndex:6]containsString:@"Other"]){
-//            self.FistulaColorOtherTextField.hidden=NO;
-//            NSString *othertext=[ostomyarr objectAtIndex:29] ;
-//            [self.FistulaColorOtherTextField setText:othertext];
-//        }
-//        if([[ostomyarr objectAtIndex:7]containsString:@"Other"]){
-//            self.CharacterOtherTextField.hidden=NO;
-//            NSString *othertext=[ostomyarr objectAtIndex:30] ;
-//            [self.CharacterOtherTextField setText:othertext];
-//        }
-//        if([[ostomyarr objectAtIndex:8]containsString:@"Other"]){
-//            self.ExudateCharacterOtherTextField.hidden=NO;
-//            NSString *othertext=[ostomyarr objectAtIndex:31] ;
-//            [self.ExudateCharacterOtherTextField setText:othertext];
-//        }
-//        if([[ostomyarr objectAtIndex:9]containsString:@"Other"]){
-//            self.ExudateOdourOtherTextField.hidden=NO;
-//            NSString *othertext=[ostomyarr objectAtIndex:32] ;
-//            [self.ExudateOdourOtherTextField setText:othertext];
-//        }
-//        if([[ostomyarr objectAtIndex:11]containsString:@"Other"]){
-//            self.GranulationTissueOtherTextField.hidden=NO;
-//            NSString *othertext=[ostomyarr objectAtIndex:34] ;
-//            [self.GranulationTissueOtherTextField setText:othertext];
-//        }
-//        if([ostomyarr objectAtIndex:37]){
-//            self.StomaSizecmButton.hidden=NO;
-//            NSString *othertext=[ostomyarr objectAtIndex:37] ;
-//            if([othertext isEqualToString:@"cm"])
-//                [self.StomaSizecmButton setSelected:YES];
-//            else if([othertext isEqualToString:@"mm"])
-//                [self.StomaSizemmButton setSelected:YES];
-//        }
-//        if([ostomyarr objectAtIndex:40]){
-//            self.FistulaSizecmButton.hidden=NO;
-//            NSString *othertext=[ostomyarr objectAtIndex:40] ;
-//            if([othertext isEqualToString:@"cm"])
-//                [self.FistulaSizecmButton setSelected:YES];
-//            else if([othertext isEqualToString:@"mm"])
-//                [self.FistulaSizemmButton setSelected:YES];
-//        }
+        [self.OstomySiteButton setTitle:[ostomyarr objectAtIndex:0] forState:UIControlStateNormal];
+        [self.StomaLocationButton setTitle:[ostomyarr objectAtIndex:1] forState:UIControlStateNormal];
+        [self.StomaColorButton setTitle:[ostomyarr objectAtIndex:2] forState:UIControlStateNormal];
+        [self.StomaOutputColorButton setTitle:[ostomyarr objectAtIndex:3] forState:UIControlStateNormal];
+        [self.StomaOutputCharacterButton setTitle:[ostomyarr objectAtIndex:4] forState:UIControlStateNormal];
+        [self.FistulaLocationButton setTitle:[ostomyarr objectAtIndex:5] forState:UIControlStateNormal];
+        [self.FistulaColorButton setTitle:[ostomyarr objectAtIndex:6] forState:UIControlStateNormal];
+        [self.PeristomalSkinButton setTitle:[ostomyarr objectAtIndex:7] forState:UIControlStateNormal];
+        [self.ExudateCharacterButton setTitle:[ostomyarr objectAtIndex:8] forState:UIControlStateNormal];
+        [self.ExudateOdourButton setTitle:[ostomyarr objectAtIndex:9] forState:UIControlStateNormal];
+        [self.ExudateAmountButton setTitle:[ostomyarr objectAtIndex:10] forState:UIControlStateNormal];
+        [self.GranulationTissueButton setTitle:[ostomyarr objectAtIndex:11] forState:UIControlStateNormal];
+        [self.EdemaButton setTitle:[ostomyarr objectAtIndex:12] forState:UIControlStateNormal];
+        [self.PeristomalSkinConditionButton setTitle:[ostomyarr objectAtIndex:13] forState:UIControlStateNormal];
+        [self.StomaLengthButton setTitle:[ostomyarr objectAtIndex:14] forState:UIControlStateNormal];
+        [self.StomaWidthButton setTitle:[ostomyarr objectAtIndex:15] forState:UIControlStateNormal];
+        [self.StomaDepthButton setTitle:[ostomyarr objectAtIndex:16] forState:UIControlStateNormal];
+        [self.FistulaLengthButton setTitle:[ostomyarr objectAtIndex:17] forState:UIControlStateNormal];
+        [self.FistulaWidthButton setTitle:[ostomyarr objectAtIndex:18] forState:UIControlStateNormal];
+        [self.FistulaDepthButton setTitle:[ostomyarr objectAtIndex:19] forState:UIControlStateNormal];
+        NSString *atypicalStr=[ostomyarr objectAtIndex:20];
+        [self.AtypicalTextView setText:atypicalStr];
+        NSString *commentsStr=[ostomyarr objectAtIndex:21];
+        [self.CommentsTextView setText:commentsStr];
+        
+        [self.dateButtonOutlet setTitle:[ostomyarr objectAtIndex:22] forState:UIControlStateNormal];
+
+        if([[ostomyarr objectAtIndex:1]containsString:@"Other"]){
+            self.StomaLocationOtherTextField.hidden=NO;
+            NSString *othertext=[ostomyarr objectAtIndex:24] ;
+            [self.StomaLocationOtherTextField setText:othertext];
+        }
+        if([[ostomyarr objectAtIndex:2]containsString:@"Other"]){
+            self.StomaColorOtherTextField.hidden=NO;
+            NSString *othertext=[ostomyarr objectAtIndex:25] ;
+            [self.StomaColorOtherTextField setText:othertext];
+        }
+        if([[ostomyarr objectAtIndex:3]containsString:@"Other"]){
+            self.StomaOutputColorOtherTextField.hidden=NO;
+            NSString *othertext=[ostomyarr objectAtIndex:26] ;
+            [self.StomaOutputColorOtherTextField setText:othertext];
+        }
+        if([[ostomyarr objectAtIndex:4]containsString:@"Other"]){
+            self.StomaOutputCharacterOtherTextField.hidden=NO;
+            NSString *othertext=[ostomyarr objectAtIndex:27] ;
+            [self.StomaOutputCharacterOtherTextField setText:othertext];
+        }
+        if([[ostomyarr objectAtIndex:5]containsString:@"Other"]){
+            self.FistulaLocationOtherTextField.hidden=NO;
+            NSString *othertext=[ostomyarr objectAtIndex:28] ;
+            [self.FistulaLocationOtherTextField setText:othertext];
+        }
+        if([[ostomyarr objectAtIndex:6]containsString:@"Other"]){
+            self.FistulaColorOtherTextField.hidden=NO;
+            NSString *othertext=[ostomyarr objectAtIndex:29] ;
+            [self.FistulaColorOtherTextField setText:othertext];
+        }
+        if([[ostomyarr objectAtIndex:7]containsString:@"Other"]){
+            self.CharacterOtherTextField.hidden=NO;
+            NSString *othertext=[ostomyarr objectAtIndex:30] ;
+            [self.CharacterOtherTextField setText:othertext];
+        }
+        if([[ostomyarr objectAtIndex:8]containsString:@"Other"]){
+            self.ExudateCharacterOtherTextField.hidden=NO;
+            NSString *othertext=[ostomyarr objectAtIndex:31] ;
+            [self.ExudateCharacterOtherTextField setText:othertext];
+        }
+        if([[ostomyarr objectAtIndex:9]containsString:@"Other"]){
+            self.ExudateOdourOtherTextField.hidden=NO;
+            NSString *othertext=[ostomyarr objectAtIndex:32] ;
+            [self.ExudateOdourOtherTextField setText:othertext];
+        }
+        if([[ostomyarr objectAtIndex:11]containsString:@"Other"]){
+            self.GranulationTissueOtherTextField.hidden=NO;
+            NSString *othertext=[ostomyarr objectAtIndex:34] ;
+            [self.GranulationTissueOtherTextField setText:othertext];
+        }
+        if([ostomyarr objectAtIndex:37]){
+            self.StomaSizecmButton.hidden=NO;
+            NSString *othertext=[ostomyarr objectAtIndex:37] ;
+            if([othertext isEqualToString:@"cm"])
+                [self.StomaSizecmButton setSelected:YES];
+            else if([othertext isEqualToString:@"mm"])
+                [self.StomaSizemmButton setSelected:YES];
+        }
+        if([ostomyarr objectAtIndex:40]){
+            self.FistulaSizecmButton.hidden=NO;
+            NSString *othertext=[ostomyarr objectAtIndex:40] ;
+            if([othertext isEqualToString:@"cm"])
+                [self.FistulaSizecmButton setSelected:YES];
+            else if([othertext isEqualToString:@"mm"])
+                [self.FistulaSizemmButton setSelected:YES];
+        }
 
 
         
     }
     _scrollView.delegate=self;
-    _scrollView.contentSize=CGSizeMake(1024, 1250);
+    _scrollView.contentSize=CGSizeMake(1024, 1300);
     
     _SelectOstomySiteController=[[SelectOstomySiteTVController alloc]init];
     _SelectOstomySiteController.dataDelegate=self;

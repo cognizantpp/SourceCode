@@ -155,4 +155,5 @@
 -(void)saveGastrostomy:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
 -( void)fetchGastrostomySaved;
 -(NSArray *)setGastroFields:(NSString *)entryNo;
+-(void)changeStatus:(NSString *)entryNo;
 @end
