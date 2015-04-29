@@ -166,7 +166,7 @@ NSArray *ostomyarr;
         
     }
     _scrollView.delegate=self;
-    _scrollView.contentSize=CGSizeMake(1024, 1250);
+    _scrollView.contentSize=CGSizeMake(1024, 1300);
     
     _SelectOstomySiteController=[[SelectOstomySiteTVController alloc]init];
     _SelectOstomySiteController.dataDelegate=self;
