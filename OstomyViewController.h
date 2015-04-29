@@ -16,7 +16,7 @@
 #import "AssignmentsViewController.h"
 
 
-@interface OstomyViewController : UIViewController<UIScrollViewDelegate,GetDataProtocol,UITextFieldDelegate>
+@interface OstomyViewController : UIViewController<UIScrollViewDelegate,GetDataProtocol,UITextFieldDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 //@property (weak, nonatomic) IBOutlet UITextField *OstomySiteOtherTextField;
