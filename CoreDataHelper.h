@@ -74,6 +74,7 @@
 @property (strong, nonatomic)NSMutableDictionary *woundName;
 -(void)saveImages;
 -(void)fetchImages;
+-(void)deleteSelectedImages:(NSString*)imageIdToDelete;
 
 
 //WoundCapture

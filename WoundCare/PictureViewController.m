@@ -60,6 +60,7 @@ int flagvalue;
 int selectedbtn;
 int woundImageCount = 0;
 int imageCount = 0;
+int selectedImageTag =0;
 UIButton *btn;
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -363,6 +364,7 @@ UIButton *btn;
     else{
         flagvalue++;
         [chckbtn setImage:[UIImage imageNamed:@"checkboxmark.png"] forState:UIControlStateNormal];
+        selectedImageTag = (int)[sender tag];
     }
 }
 -(void)enableFirstImage:(int)tempCount{
@@ -424,6 +426,12 @@ UIButton *btn;
         
         
     }
+}
+- (IBAction)deleteSelectedImage:(UIButton *)sender {
+    [[CoreDataHelper sharedInstance] deleteSelectedImages:[NSString stringWithFormat:@"%d",selectedImageTag]];
+    AssessmentViewController *pictureView = [self.storyboard instantiateViewControllerWithIdentifier:@"AssessmentViewController"];
+    [CoreDataHelper sharedInstance].buttonClicked = 7;
+    [self presentViewController:pictureView animated:NO completion:nil];
 }
 
 

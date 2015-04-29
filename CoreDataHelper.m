@@ -1376,7 +1376,35 @@
     }
 }
 
+-(void)deleteSelectedImages:(NSString*)imageIdToDelete{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Wound" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@ AND %K like %@", @"entry_number",entry_no,@"wound_id",imageIdToDelete];
+    [fetchRequest setPredicate:predicate];
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil || [fetchedObjects count]==0) {
+        // NSLog(@"There was an error in fetching");
+    }
+    else{
+        NSLog(@"deleting iamge id %@",entry_no);
+        for(int i=0;i<[fetchedObjects count];i++){
+            NSManagedObject *managedObject = fetchedObjects[i];
+            [self.managedObjectContext deleteObject:managedObject];
+        }
+    }
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error in saving new Patient : %@",[error localizedDescription]);
+    }
+    [self fetchImages];
+}
+
+
 -(void)fetchImages{
+    self.imageArr = [[NSMutableDictionary alloc]init];
+    self.imageText = [[NSMutableDictionary alloc]init];
+    self.woundName = [[NSMutableDictionary alloc]init];
     Wound *theWound;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Wound" inManagedObjectContext:self.managedObjectContext];
