@@ -57,7 +57,7 @@ NSArray *ostomyarr;
     self.PeristomalSkinCharacterArray= [cdh fetchTheOstomyFields:@"8"];
     self.ExudateCharacterArray= [cdh fetchTheOstomyFields:@"9"];
 
-    ostomyarr=[cdh setOstomyFields:entry_no];
+    ostomyarr=[cdh setOstomyFields:entry_no];//@"11111"
     if(ostomyarr.count>0){
 //        [self.OstomySiteButton setTitle:[ostomyarr objectAtIndex:0] forState:UIControlStateNormal];
 //        [self.StomaLocationButton setTitle:[ostomyarr objectAtIndex:1] forState:UIControlStateNormal];

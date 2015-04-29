@@ -7,6 +7,7 @@
 //
 
 #import "WouldyouliketomarkVC.h"
+#import "CoreDataHelper.h"
 
 @implementation WouldyouliketomarkVC
 - (IBAction)yescancelbutton:(UIButton *)sender {
@@ -16,12 +17,13 @@
     {
         case 1: self.tagtobepassed=(NSInteger *)1;
             [self.dataDelegate getTagId:self.tagtobepassed];
-            
+            [[CoreDataHelper sharedInstance]saveWoundCoordinates];
+            break;
             
         case 2: self.tagtobepassed=(NSInteger *)2;
             [self.dataDelegate getTagId:self.tagtobepassed];
 
-            
+            break;
             
             
     }

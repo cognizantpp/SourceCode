@@ -15,7 +15,7 @@
 #import "DismissPopOver.h"
 #import "SelectOnsetDate1.h"
 #import "CoreDataHelper.h"
-@interface GastrostomyViewController : UIViewController<UIScrollViewDelegate,GetDataProtocol,DismissPopOver>
+@interface GastrostomyViewController : UIViewController<UIScrollViewDelegate,GetDataProtocol,DismissPopOver,UITextFieldDelegate,UITextViewDelegate>
 @property (nonatomic, strong)id<DismissPopOver> delegate;
 //@property (nonatomic, strong)id<DismissPopOver> ddelegate;
 @property (nonatomic, strong)NSMutableString *entryData;

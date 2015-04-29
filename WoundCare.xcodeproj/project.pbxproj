@@ -124,6 +124,8 @@
 		91D19CE11ACBD6980056BD2E /* SelectTreatmentTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D19CD91ACBD6980056BD2E /* SelectTreatmentTableViewController.m */; };
 		91D48F081AC16441003F8B0A /* AddAssignmentPopOverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91D48F071AC16441003F8B0A /* AddAssignmentPopOverController.m */; };
 		91D48F0D1AC1655F003F8B0A /* checkboxun.png in Resources */ = {isa = PBXBuildFile; fileRef = 91D48F0C1AC1655F003F8B0A /* checkboxun.png */; };
+		91ED63FF1AEF902A00B81363 /* wound_education.png in Resources */ = {isa = PBXBuildFile; fileRef = 91ED63FD1AEF902A00B81363 /* wound_education.png */; };
+		91ED64001AEF902A00B81363 /* wound_pain.png in Resources */ = {isa = PBXBuildFile; fileRef = 91ED63FE1AEF902A00B81363 /* wound_pain.png */; };
 		9497787F1AD3E46D00257B94 /* PainSave.m in Sources */ = {isa = PBXBuildFile; fileRef = 9497787E1AD3E46D00257B94 /* PainSave.m */; };
 		949778821AD3E46E00257B94 /* RecommendationsSave.m in Sources */ = {isa = PBXBuildFile; fileRef = 949778811AD3E46E00257B94 /* RecommendationsSave.m */; };
 		949778851AD3E46E00257B94 /* ReviewSaveBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 949778841AD3E46E00257B94 /* ReviewSaveBase.m */; };
@@ -391,6 +393,8 @@
 		91D48F061AC16441003F8B0A /* AddAssignmentPopOverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAssignmentPopOverController.h; sourceTree = "<group>"; };
 		91D48F071AC16441003F8B0A /* AddAssignmentPopOverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAssignmentPopOverController.m; sourceTree = "<group>"; };
 		91D48F0C1AC1655F003F8B0A /* checkboxun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkboxun.png; sourceTree = "<group>"; };
+		91ED63FD1AEF902A00B81363 /* wound_education.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wound_education.png; sourceTree = "<group>"; };
+		91ED63FE1AEF902A00B81363 /* wound_pain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wound_pain.png; sourceTree = "<group>"; };
 		9497787D1AD3E46D00257B94 /* PainSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PainSave.h; path = WoundCare/PainSave.h; sourceTree = "<group>"; };
 		9497787E1AD3E46D00257B94 /* PainSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PainSave.m; path = WoundCare/PainSave.m; sourceTree = "<group>"; };
 		949778801AD3E46E00257B94 /* RecommendationsSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecommendationsSave.h; path = WoundCare/RecommendationsSave.h; sourceTree = "<group>"; };
@@ -852,6 +856,8 @@
 		91D19C6B1ACBCCB80056BD2E /* pain */ = {
 			isa = PBXGroup;
 			children = (
+				91ED63FD1AEF902A00B81363 /* wound_education.png */,
+				91ED63FE1AEF902A00B81363 /* wound_pain.png */,
 				91D19CA11ACBD0110056BD2E /* radiobtnactive.png */,
 				91D19CA21ACBD0110056BD2E /* radiobtndeactive.png */,
 				91D19CA31ACBD0110056BD2E /* radiobtnimg.png */,
@@ -1203,6 +1209,7 @@
 				91CD6F1B1AC150C300F56AE0 /* n5a.png in Resources */,
 				0A20E9FB1AE8D2990070189A /* wound_reason.png in Resources */,
 				91CD6F261AC150D500F56AE0 /* backspace.png in Resources */,
+				91ED63FF1AEF902A00B81363 /* wound_education.png in Resources */,
 				91C228C91ABA9B1B00E389AF /* welcome_bg.png in Resources */,
 				9497E8991ACAC7F000F8FC12 /* patientname_bg.png in Resources */,
 				91BA234F1AE4CEB7002CDD10 /* addimg.png in Resources */,
@@ -1250,6 +1257,7 @@
 				9497E89A1ACAC7F000F8FC12 /* popup.png in Resources */,
 				9497E8961ACAC7F000F8FC12 /* logout2013.png in Resources */,
 				91C228C81ABA9B1B00E389AF /* sample.png in Resources */,
+				91ED64001AEF902A00B81363 /* wound_pain.png in Resources */,
 				9497E8841ACAC7F000F8FC12 /* human2013.png in Resources */,
 				91BA23491AE4CEA3002CDD10 /* btnassessment.png in Resources */,
 				9497E89C1ACAC7F000F8FC12 /* testimg.png in Resources */,
