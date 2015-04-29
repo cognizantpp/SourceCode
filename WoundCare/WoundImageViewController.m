@@ -61,7 +61,7 @@
     for(int i=0;i<[helper.woundCoordinates count]; i++){
         NSString *loc = [helper.woundCoordinates objectAtIndex:i];
         NSArray *location = [loc componentsSeparatedByString:@" "];
-        UIImageView *dot =[[UIImageView alloc] initWithFrame:CGRectMake([location[0] intValue]-75,[location[1] intValue]-85,20,20)];
+        UIImageView *dot =[[UIImageView alloc] initWithFrame:CGRectMake([location[0] intValue]-10,[location[1] intValue],20,20)];
         dot.image=[UIImage imageNamed:[helper.woundImageName objectAtIndex:i]];
         [self.view addSubview:dot];
         
@@ -88,10 +88,10 @@
     CGPoint location = [touch locationInView:_imageV];
     
     NSLog(@"x:-%f,y:-%f",location.x,location.y);
-    if((location.x >=150 && location.x <=375 && location.y >=115 && location.y <=645)||
-       (location.x >=460 && location.x <=685 && location.y >=115 && location.y <=640)||
-       (location.x >=840 && location.x <=1000 && location.y >=180 && location.y <=345)||
-       (location.x >=805 && location.x <=1025 && location.y >=390 && location.y <=550))
+    if((location.x >=95 && location.x <=300 && location.y >=120 && location.y <=625)||
+       (location.x >=400 && location.x <=610 && location.y >=120 && location.y <=630)||
+       (location.x >=775 && location.x <=920 && location.y >=190 && location.y <=340)||
+       (location.x >=740 && location.x <=950 && location.y >=400 && location.y <=545))
         
     {
         _locx=location.x;
@@ -244,7 +244,7 @@
     [self.popOver1 dismissPopoverAnimated: YES];
     int a=(int)data;
     NSLog(@"value is %d",a);
-    NSLog(@"cordinates:%d %d",_locx,_locy);
+   // NSLog(@"cordinates:%d %d",_locx,_locy);
     switch(a)
     {
         case 1:
@@ -265,9 +265,9 @@
             if ([self.woundtype  isEqualToString:@"Wound"]  ) {
                 
                 
-                NSString *myString = [NSString stringWithFormat:@"%d",_locx];
+                NSString *myString = [NSString stringWithFormat:@"%d",_locx-10];
                 [_WoundCordinateArray addObject:myString];
-                NSString *myString1 = [NSString stringWithFormat:@"%d",_locy];
+                NSString *myString1 = [NSString stringWithFormat:@"%d",_locy-85];
                 [_WoundCordinateArray addObject:myString1];
                 
                 NSLog(@"array is %@",_WoundCordinateArray);
@@ -279,7 +279,7 @@
                 NSString *imageName;
                 if(self.wc == 0)
                 {
-                    UIImageView *dot =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
+                    UIImageView *dot =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-85,20,20)];
                     dot.image=[UIImage imageNamed:@"w1.png"];
                     [self.view addSubview:dot];
                     imageName = @"w1.png";
@@ -288,7 +288,7 @@
                 
                 if(self.wc == 1)
                 {
-                    UIImageView *dot1 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
+                    UIImageView *dot1 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-85,20,20)];
                     dot1.image=[UIImage imageNamed:@"w2.png"];
                     [self.view addSubview:dot1];
                     imageName = @"w2.png";
@@ -296,7 +296,7 @@
                 
                 if(self.wc == 2)
                 {
-                    UIImageView *dot2 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
+                    UIImageView *dot2 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-85,20,20)];
                     dot2.image=[UIImage imageNamed:@"w3.png"];
                     [self.view addSubview:dot2];
                     imageName = @"w3.png";
@@ -304,7 +304,7 @@
                 
                 if(self.wc == 3)
                 {
-                    UIImageView *dot3 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
+                    UIImageView *dot3 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-85,20,20)];
                     dot3.image=[UIImage imageNamed:@"w4.png"];
                     [self.view addSubview:dot3];
                     imageName = @"w4.png";
@@ -312,7 +312,7 @@
                 
                 if(self.wc == 4)
                 {
-                    UIImageView *dot4 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
+                    UIImageView *dot4 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-85,20,20)];
                     dot4.image=[UIImage imageNamed:@"w5.png"];
                     [self.view addSubview:dot4];
                     imageName = @"w5.png";
@@ -320,7 +320,7 @@
                 
                 if(self.wc == 5)
                 {
-                    UIImageView *dot5 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
+                    UIImageView *dot5 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-85,20,20)];
                     dot5.image=[UIImage imageNamed:@"w6.png"];
                     [self.view addSubview:dot5];
                     imageName = @"w6.png";
@@ -328,7 +328,7 @@
                 
                 if(self.wc == 6)
                 {
-                    UIImageView *dot6 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
+                    UIImageView *dot6 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-85,20,20)];
                     dot6.image=[UIImage imageNamed:@"w7.png"];
                     [self.view addSubview:dot6];
                     imageName = @"w7.png";
@@ -355,9 +355,9 @@
             
             if ([self.woundtype  isEqualToString:@"Gastrostomy"]  ) {
                 
-                NSString *myString2 = [NSString stringWithFormat:@"%d",_locx];
+                NSString *myString2 = [NSString stringWithFormat:@"%d",_locx-8];
                 [_GastroCordinateArray addObject:myString2];
-                NSString *myString3 = [NSString stringWithFormat:@"%d",_locy];
+                NSString *myString3 = [NSString stringWithFormat:@"%d",_locy-85];
                 [_GastroCordinateArray addObject:myString3];
                 
                 NSLog(@"array is %@",_GastroCordinateArray);
@@ -369,7 +369,7 @@
                 
                 if(self.gc == 0)
                 {
-                    UIImageView *dot7 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
+                    UIImageView *dot7 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-85,20,20)];
                     dot7.image=[UIImage imageNamed:@"g1.png"];
                     [self.view addSubview:dot7];
                     [helper.woundImageName addObject:@"g1.png"];
@@ -396,9 +396,9 @@
             if ([self.woundtype  isEqualToString:@"Ostomy"]  ) {
                 
                 
-                NSString *myString4 = [NSString stringWithFormat:@"%d",_locx];
+                NSString *myString4 = [NSString stringWithFormat:@"%d",_locx-10];
                 [_OstoCordinateArray addObject:myString4];
-                NSString *myString5 = [NSString stringWithFormat:@"%d",_locy];
+                NSString *myString5 = [NSString stringWithFormat:@"%d",_locy-85];
                 [_OstoCordinateArray addObject:myString5];
                 NSLog(@"array is %@",_OstoCordinateArray);
                 NSString *loctnString = [[myString4 stringByAppendingString:@" "] stringByAppendingString:myString5];
@@ -407,7 +407,7 @@
                 
                 if(self.oc == 0)
                 {
-                    UIImageView *dot8 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-75,_locy-85,20,20)];
+                    UIImageView *dot8 =[[UIImageView alloc] initWithFrame:CGRectMake(_locx-10,_locy-85,20,20)];
                     dot8.image=[UIImage imageNamed:@"o1.png"];
                     [self.view addSubview:dot8];
                     [helper.woundImageName addObject:@"o1.png"];

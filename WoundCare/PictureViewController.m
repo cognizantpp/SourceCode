@@ -81,7 +81,7 @@ UIButton *btn;
     [self setGesturesForImageView:self.img7];
     
     if([helper.imageArr count] > 0 ){
-        woundImageCount = [helper.imageArr count];
+        woundImageCount = (int)[helper.imageArr count];
     }
     else{
         woundImageCount = 0;
@@ -237,10 +237,10 @@ UIButton *btn;
 - (IBAction)takePicture:(id)sender {
     if(woundImageCount <7){
         _pickerController = [[UIImagePickerController alloc]init];
-        [_pickerController.view setFrame:CGRectMake(0, 0, 950, 725)];
+        [_pickerController.view setFrame:CGRectMake(0, 0, 1024, 768)];
         _pickerController.delegate = self;
         _pickerController.allowsEditing = YES;
-        _pickerController.sourceType =UIImagePickerControllerSourceTypeSavedPhotosAlbum;// UIImagePickerControllerSourceTypeCamera;//
+        _pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;//UIImagePickerControllerSourceTypeSavedPhotosAlbum;// UIImagePickerControllerSourceTypeCamera;//
         [leftViewPanel setHidden:YES];
         [topViewPanel setHidden:YES];
         [self.view addSubview:_pickerController.view];
@@ -328,7 +328,7 @@ UIButton *btn;
 
 - (IBAction)showWoundIds:(id)sender {
     btn = sender;
-    selectedbtn = [sender tag];
+    selectedbtn = (int)[sender tag];
     _woundIdPopupViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WoundIdPopupViewController"];
     self.woundIdPopupViewController.delegate = self;
     self.popOver = [[UIPopoverController alloc]initWithContentViewController:_woundIdPopupViewController];
@@ -338,8 +338,8 @@ UIButton *btn;
 }
 
 -(void)dismissWoundPopOver:(UIImage *)imageTag labelName:(NSString *)labelName{
-    [[CoreDataHelper sharedInstance].woundIdDic setValue:imageTag forKey:[NSString stringWithFormat:@"%d",[btn tag]]];
-    [[CoreDataHelper sharedInstance].woundName setValue:labelName forKey:[NSString stringWithFormat:@"%d",[btn tag]]];
+    [[CoreDataHelper sharedInstance].woundIdDic setValue:imageTag forKey:[NSString stringWithFormat:@"%d",(int)[btn tag]]];
+    [[CoreDataHelper sharedInstance].woundName setValue:labelName forKey:[NSString stringWithFormat:@"%d",(int)[btn tag]]];
     [self.popOver dismissPopoverAnimated:YES];
     [btn setImage:imageTag forState:UIControlStateNormal];
 }
@@ -410,7 +410,7 @@ UIButton *btn;
 }
 - (IBAction)textEditDone:(id)sender {
     UITextField *txtFild = sender;
-    [[CoreDataHelper sharedInstance].imageText setValue:[txtFild text] forKey:[NSString stringWithFormat:@"%d",[txtFild tag]]];
+    [[CoreDataHelper sharedInstance].imageText setValue:[txtFild text] forKey:[NSString stringWithFormat:@"%d",(int)[txtFild tag]]];
 }
 
 - (IBAction)assessClick:(id)sender {

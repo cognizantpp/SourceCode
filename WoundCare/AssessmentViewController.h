@@ -22,7 +22,8 @@
 @class WoundImageViewController;
 
 //UIView *assessmentGlobalView;
-
+UIView *leftViewPanel;
+UIView *topViewPanel;
 
 @interface AssessmentViewController : UIViewController<GetDataProtocol>
 @property (strong, nonatomic) PatientInfoViewController *patientInfoViewController;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -27,15 +27,6 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sample.png" highlightedImage="sample.png" translatesAutoresizingMaskIntoConstraints="NO" id="vXH-zf-evz">
                                         <rect key="frame" x="217" y="84" width="650" height="650"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NA0-Kc-GZr">
-                                        <rect key="frame" x="354" y="596" width="122" height="44"/>
-                                        <state key="normal" image="loginbutton.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="btnLoginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hak-QP-lQq"/>
-                                        </connections>
-                                    </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" background="textboxbig.png" translatesAutoresizingMaskIntoConstraints="NO" id="OV5-GX-dXw">
                                         <rect key="frame" x="261" y="510" width="430" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -52,6 +43,15 @@
                                             <outlet property="delegate" destination="vXH-zf-evz" id="0Wm-xA-QZ0"/>
                                         </connections>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NA0-Kc-GZr">
+                                        <rect key="frame" x="415" y="600" width="122" height="44"/>
+                                        <state key="normal" image="loginbutton.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnLoginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hak-QP-lQq"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -356,18 +356,9 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12m-tA-DfR">
-                                                <rect key="frame" x="414" y="431" width="133" height="33"/>
-                                                <state key="normal" title="Select" backgroundImage="txtbox.png">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="selectButtonAction:" destination="zrh-TX-lr7" eventType="touchUpInside" id="v8z-1L-lzh"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ai-1X-9Db">
                                                 <rect key="frame" x="414" y="467" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -378,6 +369,7 @@
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgK-cg-i2v">
                                                 <rect key="frame" x="414" y="391" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -407,6 +399,7 @@
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSj-lT-f71">
                                                 <rect key="frame" x="344" y="727" width="133" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -434,6 +427,7 @@
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAB-b6-Z9P">
                                                 <rect key="frame" x="414" y="551" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -461,6 +455,7 @@
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTx-n2-mb8">
                                                 <rect key="frame" x="414" y="350" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -471,12 +466,24 @@
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b58-NT-NEs">
                                                 <rect key="frame" x="414" y="508" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="selectButtonAction:" destination="zrh-TX-lr7" eventType="touchUpInside" id="b3N-WE-bfe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12m-tA-DfR">
+                                                <rect key="frame" x="414" y="432" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Select" backgroundImage="txtbox.png">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectButtonAction:" destination="zrh-TX-lr7" eventType="touchUpInside" id="v8z-1L-lzh"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -630,6 +637,7 @@
                                     </imageView>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvX-Z7-mWi">
                                         <rect key="frame" x="315" y="168" width="133" height="33"/>
+                                        <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Select" backgroundImage="txtbox.png">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -640,6 +648,7 @@
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYw-ZZ-gL1">
                                         <rect key="frame" x="315" y="118" width="133" height="33"/>
+                                        <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Select" backgroundImage="txtbox.png">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -692,6 +701,7 @@
                                     </label>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMC-L0-PAw">
                                         <rect key="frame" x="315" y="218" width="133" height="33"/>
+                                        <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Select" backgroundImage="txtbox.png">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -702,6 +712,7 @@
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UgH-aF-AHb">
                                         <rect key="frame" x="315" y="318" width="133" height="33"/>
+                                        <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Select" backgroundImage="txtbox.png">
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -982,16 +993,6 @@
                                                     <action selector="selectButtonAction:" destination="Iss-uo-VO3" eventType="touchUpInside" id="aAc-Gq-5tB"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4w-oK-uaC">
-                                                <rect key="frame" x="281" y="193" width="133" height="33"/>
-                                                <state key="normal" title="Select" backgroundImage="txtbox.png">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="selectButtonAction:" destination="Iss-uo-VO3" eventType="touchUpInside" id="B8g-fy-msZ"/>
-                                                </connections>
-                                            </button>
                                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" background="txtbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="238-RQ-k0a">
                                                 <rect key="frame" x="497" y="100" width="133" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1224,6 +1225,17 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4w-oK-uaC">
+                                                <rect key="frame" x="281" y="193" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Select" backgroundImage="txtbox.png">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectButtonAction:" destination="Iss-uo-VO3" eventType="touchUpInside" id="B8g-fy-msZ"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <accessibility key="accessibilityConfiguration">
@@ -1675,7 +1687,7 @@
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" restorationIdentifier="topView" translatesAutoresizingMaskIntoConstraints="NO" id="9Zd-ok-vyW">
-                                <rect key="frame" x="0.0" y="18" width="1024" height="52"/>
+                                <rect key="frame" x="-5" y="18" width="1024" height="52"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Dw-s5-BiS">
                                         <rect key="frame" x="0.0" y="0.0" width="1033" height="54"/>
@@ -1739,6 +1751,9 @@
                                         <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
                                             <rect key="frame" x="237" y="21" width="44" height="42"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="buttonClciked:" destination="LfV-4f-rmT" eventType="touchUpInside" id="QRS-3g-xdq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mw-IL-UT5">
                                         <rect key="frame" x="914" y="6" width="42" height="42"/>
@@ -1797,7 +1812,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" restorationIdentifier="leftView" translatesAutoresizingMaskIntoConstraints="NO" id="JGW-NF-mXy">
-                                <rect key="frame" x="0.0" y="71" width="55" height="698"/>
+                                <rect key="frame" x="-5" y="71" width="55" height="698"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left.png" translatesAutoresizingMaskIntoConstraints="NO" id="uBW-fo-zfT">
                                         <rect key="frame" x="0.0" y="0.0" width="55" height="698"/>
@@ -1989,16 +2004,16 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9Zd-ok-vyW" firstAttribute="top" secondItem="6Ad-Kx-nWb" secondAttribute="topMargin" constant="18" id="0pT-6P-vou"/>
-                            <constraint firstItem="JGW-NF-mXy" firstAttribute="leading" secondItem="6Ad-Kx-nWb" secondAttribute="leadingMargin" constant="-16" id="9ow-QM-6NB"/>
+                            <constraint firstItem="JGW-NF-mXy" firstAttribute="leading" secondItem="6Ad-Kx-nWb" secondAttribute="leadingMargin" constant="-21" id="9ow-QM-6NB"/>
                             <constraint firstAttribute="bottomMargin" secondItem="JGW-NF-mXy" secondAttribute="bottom" constant="-1" id="FJJ-wV-Ek8"/>
                             <constraint firstItem="C8B-I2-nZL" firstAttribute="top" secondItem="9Zd-ok-vyW" secondAttribute="bottom" constant="1" id="OlW-z9-VlF"/>
-                            <constraint firstItem="C8B-I2-nZL" firstAttribute="leading" secondItem="JGW-NF-mXy" secondAttribute="trailing" constant="-55" id="XnW-FB-3OJ"/>
+                            <constraint firstItem="C8B-I2-nZL" firstAttribute="leading" secondItem="JGW-NF-mXy" secondAttribute="trailing" constant="-50" id="XnW-FB-3OJ"/>
                             <constraint firstItem="JGW-NF-mXy" firstAttribute="top" secondItem="9Zd-ok-vyW" secondAttribute="bottom" constant="1" id="Xuu-6X-3lL"/>
                             <constraint firstItem="JGW-NF-mXy" firstAttribute="top" secondItem="9Zd-ok-vyW" secondAttribute="bottom" constant="1" id="ifA-Un-Rhv"/>
-                            <constraint firstItem="C8B-I2-nZL" firstAttribute="leading" secondItem="JGW-NF-mXy" secondAttribute="trailing" constant="-55" id="m4I-g7-nJp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9Zd-ok-vyW" secondAttribute="trailing" constant="-16" id="pXX-w7-a8P"/>
+                            <constraint firstItem="C8B-I2-nZL" firstAttribute="leading" secondItem="JGW-NF-mXy" secondAttribute="trailing" constant="-50" id="m4I-g7-nJp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9Zd-ok-vyW" secondAttribute="trailing" constant="-11" id="pXX-w7-a8P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C8B-I2-nZL" secondAttribute="trailing" constant="-16" id="uCA-J0-te2"/>
-                            <constraint firstItem="9Zd-ok-vyW" firstAttribute="leading" secondItem="6Ad-Kx-nWb" secondAttribute="leadingMargin" constant="-16" id="vtl-ff-x28"/>
+                            <constraint firstItem="9Zd-ok-vyW" firstAttribute="leading" secondItem="6Ad-Kx-nWb" secondAttribute="leadingMargin" constant="-21" id="vtl-ff-x28"/>
                             <constraint firstItem="BhU-WT-geK" firstAttribute="top" secondItem="C8B-I2-nZL" secondAttribute="bottom" constant="-1" id="yBd-Y4-8sG"/>
                         </constraints>
                     </view>
@@ -2070,6 +2085,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JgG-Dm-KiT">
                                 <rect key="frame" x="315" y="112" width="187" height="33"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2080,6 +2096,7 @@
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgx-0y-Iph">
                                 <rect key="frame" x="315" y="213" width="187" height="33"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2719,6 +2736,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQA-dO-1cz">
                                         <rect key="frame" x="315" y="118" width="133" height="33"/>
+                                        <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Select" backgroundImage="txtbox.png">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2729,6 +2747,7 @@
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0si-HJ-xYs">
                                         <rect key="frame" x="315" y="168" width="133" height="33"/>
+                                        <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Select" backgroundImage="txtbox.png">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2737,18 +2756,9 @@
                                             <action selector="selectButtonAction:" destination="MXL-4F-MPX" eventType="touchUpInside" id="lId-uJ-cow"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCG-SI-qOD">
-                                        <rect key="frame" x="315" y="218" width="133" height="33"/>
-                                        <state key="normal" title="Select" backgroundImage="txtbox.png">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="selectButtonAction:" destination="MXL-4F-MPX" eventType="touchUpInside" id="iVV-we-5cQ"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lH-rR-wRa">
                                         <rect key="frame" x="315" y="268" width="133" height="33"/>
+                                        <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Select" backgroundImage="txtbox.png">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2759,6 +2769,7 @@
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kO-Py-BQg">
                                         <rect key="frame" x="315" y="318" width="133" height="33"/>
+                                        <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Select" backgroundImage="txtbox.png">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2769,6 +2780,7 @@
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0Y-QA-uBx">
                                         <rect key="frame" x="315" y="418" width="133" height="33"/>
+                                        <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Select" backgroundImage="txtbox.png">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2848,6 +2860,7 @@
                                     </label>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DhH-jv-jw7">
                                         <rect key="frame" x="315" y="368" width="133" height="33"/>
+                                        <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Select" backgroundImage="txtbox.png">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2861,6 +2874,17 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCG-SI-qOD">
+                                        <rect key="frame" x="315" y="218" width="133" height="33"/>
+                                        <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Select" backgroundImage="txtbox.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="selectButtonAction:" destination="MXL-4F-MPX" eventType="touchUpInside" id="iVV-we-5cQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -6100,7 +6124,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r12-ZC-EYH">
                                                 <rect key="frame" x="370" y="337" width="133" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <inset key="contentEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -6111,6 +6135,7 @@
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mu7-bS-hZu">
                                                 <rect key="frame" x="370" y="460" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -6121,6 +6146,7 @@
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbC-zV-Ok1">
                                                 <rect key="frame" x="370" y="850" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -6131,6 +6157,7 @@
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8j-dc-FJU">
                                                 <rect key="frame" x="370" y="950" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -6151,6 +6178,7 @@
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrW-bR-kGf">
                                                 <rect key="frame" x="370" y="1100" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -6161,6 +6189,7 @@
                                             </button>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pM1-Yd-p9R">
                                                 <rect key="frame" x="370" y="1150" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -6171,6 +6200,7 @@
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsN-xi-Rfe">
                                                 <rect key="frame" x="370" y="1200" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -6181,6 +6211,7 @@
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPt-l7-tTh">
                                                 <rect key="frame" x="370" y="1250" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -6481,16 +6512,6 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oG-xM-dKa">
-                                                <rect key="frame" x="370" y="1300" width="133" height="33"/>
-                                                <state key="normal" title="Select" backgroundImage="txtbox.png">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="singleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="ju3-Xq-thb"/>
-                                                </connections>
-                                            </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="alN-1i-G3K">
                                                 <rect key="frame" x="370" y="1341" width="188" height="63"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -6521,6 +6542,7 @@
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKE-1K-qNj">
                                                 <rect key="frame" x="370" y="800" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -6541,6 +6563,7 @@
                                             </button>
                                             <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYH-VH-CJS">
                                                 <rect key="frame" x="370" y="1417" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -6551,6 +6574,7 @@
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxj-Fz-xMG">
                                                 <rect key="frame" x="370" y="900" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Select" backgroundImage="txtbox.png">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -6564,6 +6588,17 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oG-xM-dKa">
+                                                <rect key="frame" x="370" y="1300" width="133" height="33"/>
+                                                <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" title="Select" backgroundImage="txtbox.png">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="singleSelectButtonAction:" destination="eVb-6X-G5z" eventType="touchUpInside" id="ju3-Xq-thb"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>

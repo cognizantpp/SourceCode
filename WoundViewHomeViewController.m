@@ -62,7 +62,7 @@ NSInteger selectedEntryButton;
     
     
     _scrollView.delegate=self;
-    [_scrollView setContentSize:CGSizeMake(1024, 1500)];
+    [_scrollView setContentSize:CGSizeMake(1024, 1550)];
     
     _multipleSelectionViewController=[[MultipleSelectionTableViewController alloc]init];
     _multipleSelectionViewController.dataDelegate=self;
@@ -1066,14 +1066,14 @@ NSInteger selectedEntryButton;
     if (textView==_atypicalTextViewOutlet) {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 100)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 150)];
 
     }
     else if (textView==_commentsTextViewOutlet)
     {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 1000)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 1100)];
 
     }
     

@@ -12,6 +12,9 @@
 #import "AssignmentsViewController.h"
 
 @interface GastrostomyViewController ()
+{
+    CGPoint p;
+}
 
 
 @property(nonatomic,strong)UIPopoverController *GastrostomySitePopOver;
@@ -90,6 +93,14 @@ NSArray *gastroarr;
 //    self.GranulationTissueOtherTextField.hidden=YES;
     //
 }
+- (void)scrollViewDidScroll:(UIScrollView *)sender
+{
+    if (sender.contentOffset.x != 0) {
+        CGPoint offset = sender.contentOffset;
+        offset.x = 0;
+        sender.contentOffset = offset;
+    }
+}
 
 
 - (void)viewDidLoad {
@@ -98,7 +109,34 @@ NSArray *gastroarr;
     _scrollView.delegate=self;
     _scrollView.contentSize=CGSizeMake(1024, 1200);
     
-
+    [_atypicaltextview.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
+    [_atypicaltextview.layer setBorderColor: [[UIColor grayColor] CGColor]];
+    [_atypicaltextview.layer setBorderWidth: 1.0];
+    [_atypicaltextview.layer setCornerRadius:8.0f];
+    [_atypicaltextview.layer setMasksToBounds:YES];
+    
+    [_commentstextview.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
+    [_commentstextview.layer setBorderColor: [[UIColor grayColor] CGColor]];
+    [_commentstextview.layer setBorderWidth: 1.0];
+    [_commentstextview.layer setCornerRadius:8.0f];
+    [_commentstextview.layer setMasksToBounds:YES];
+    
+    
+    self.CharacterOtherTextField.delegate=self;
+    self.RetentionDiskOtherTextField.delegate=self;
+    self.CharacterOtherTextField.delegate=self;
+    self.RetentionDiskOtherTextField.delegate=self;
+    self.ExudateCharacterOtherTextField.delegate=self;
+    self.ExudateOdorOtherTextField.delegate=self;
+    
+    
+    self.atypicaltextview.delegate=self;
+    self.commentstextview.delegate=self;
+    
+    
+    self.GranulationTissueOtherTextField.delegate=self;
+    
+    
     
     _selectGastrostomySiteViewController=[[SelectGastrostomySiteTableViewController alloc]init];
     _selectGastrostomySiteViewController.dataDelegate=self;
@@ -238,14 +276,7 @@ NSArray *gastroarr;
 
 
 
-- (void)scrollViewDidScroll:(UIScrollView *)sender
-{
-    if (sender.contentOffset.x != 0) {
-        CGPoint offset = sender.contentOffset;
-        offset.x = 0;
-        sender.contentOffset = offset;
-    }
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -518,8 +549,9 @@ NSArray *gastroarr;
     
     [self.ExudateOdorOutlet setTitle:selectedData forState:UIControlStateNormal];
     
-    [self.oklessgastroPopOver dismissPopoverAnimated: YES];
     }
+    [self.oklessgastroPopOver dismissPopoverAnimated: YES];
+
 }
 
 -(void)getExudateAmount:(NSString *)data
@@ -590,8 +622,9 @@ NSArray *gastroarr;
             
             
     
-    [self.oklessgastroPopOver dismissPopoverAnimated: YES];
 }
+    [self.oklessgastroPopOver dismissPopoverAnimated: YES];
+
 }
 
 -(void)getEdema:(NSString *)data
@@ -1074,7 +1107,66 @@ NSArray *gastroarr;
 
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    if (textField==_CharacterOtherTextField) {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 150)];
+    }
+    else if (textField==_RetentionDiskOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 250)];
+        
+    }
+    
+    else if (textField==_ExudateCharacterOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 400)];
+        
+    }
+    else if (textField==_ExudateOdorOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 500)];
+        
+    }
+    else if (textField==_GranulationTissueOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 600)];
+        
+    }
 
+    
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    self.scrollView.contentOffset =p;
+    
+}
+
+
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+   
+     if (textView==_commentstextview)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 700)];
+        
+    }
+    
+}
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    self.scrollView.contentOffset =p;
+    
+}
 
 
 @end
