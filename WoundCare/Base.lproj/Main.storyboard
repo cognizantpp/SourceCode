@@ -1215,11 +1215,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" background="txtbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="yYB-D4-sAe">
-                                                <rect key="frame" x="920" y="770" width="47" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" background="txtbox.png" translatesAutoresizingMaskIntoConstraints="NO" id="XaU-fr-mqh">
                                                 <rect key="frame" x="570" y="610" width="304" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
