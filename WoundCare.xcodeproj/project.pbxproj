@@ -178,6 +178,7 @@
 		B61B33611AE77AF3007DBB69 /* LengthNumberEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61B33591AE77AF3007DBB69 /* LengthNumberEntryViewController.m */; };
 		B61B33621AE77AF3007DBB69 /* WoundBedPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61B335B1AE77AF3007DBB69 /* WoundBedPopUpViewController.m */; };
 		B6450EE81AE536F5009D1E6E /* textsmall.png in Resources */ = {isa = PBXBuildFile; fileRef = B6450EE71AE536F5009D1E6E /* textsmall.png */; };
+		B66C49961AF203C90087E097 /* WoundReasonSave.m in Sources */ = {isa = PBXBuildFile; fileRef = B66C49951AF203C90087E097 /* WoundReasonSave.m */; };
 		B6AF16CF1AE52D2C008FC7C0 /* gtube.png in Resources */ = {isa = PBXBuildFile; fileRef = B6AF16CE1AE52D2C008FC7C0 /* gtube.png */; };
 		B6AF16D61AE52D47008FC7C0 /* SelectOnsetDate1.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AF16D11AE52D47008FC7C0 /* SelectOnsetDate1.m */; };
 		B6AF16D71AE52D47008FC7C0 /* WidthNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AF16D31AE52D47008FC7C0 /* WidthNumberViewController.m */; };
@@ -468,6 +469,8 @@
 		B61B335A1AE77AF3007DBB69 /* WoundBedPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WoundBedPopUpViewController.h; sourceTree = "<group>"; };
 		B61B335B1AE77AF3007DBB69 /* WoundBedPopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WoundBedPopUpViewController.m; sourceTree = "<group>"; };
 		B6450EE71AE536F5009D1E6E /* textsmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textsmall.png; sourceTree = "<group>"; };
+		B66C49941AF203C90087E097 /* WoundReasonSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WoundReasonSave.h; path = WoundCare/WoundReasonSave.h; sourceTree = "<group>"; };
+		B66C49951AF203C90087E097 /* WoundReasonSave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WoundReasonSave.m; path = WoundCare/WoundReasonSave.m; sourceTree = "<group>"; };
 		B670CA961AE7D6EC00B510DF /* NumberEntryViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberEntryViewController1.h; sourceTree = "<group>"; };
 		B670CA971AE7D6F500B510DF /* OklessGastroTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OklessGastroTableViewController.h; sourceTree = "<group>"; };
 		B670CA981AE7D6FE00B510DF /* SelectGastrostomySiteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectGastrostomySiteTableViewController.h; sourceTree = "<group>"; };
@@ -785,6 +788,8 @@
 				B605DB041AE9257500308FA8 /* GastrostomySave.h */,
 				4597AA8E1AE62F0F008730A3 /* OstomySave.h */,
 				4597AA8F1AE62F0F008730A3 /* OstomySave.m */,
+				B66C49951AF203C90087E097 /* WoundReasonSave.m */,
+				B66C49941AF203C90087E097 /* WoundReasonSave.h */,
 				4597CDD11AE8F45500BA4F51 /* WoundReason.h */,
 				4597CDD21AE8F45500BA4F51 /* WoundReason.m */,
 			);
@@ -1345,6 +1350,7 @@
 				949BAA9F1AE7AD60001935A8 /* ReviewAssessmentSave.m in Sources */,
 				B6E4889B1ACC214600E356F7 /* WoundlimitreachedVC.m in Sources */,
 				91D19C641ACBCCA30056BD2E /* SelectWongBackerFacesViewController.m in Sources */,
+				B66C49961AF203C90087E097 /* WoundReasonSave.m in Sources */,
 				91BA23631AE53275002CDD10 /* WoundSelection.m in Sources */,
 				91C228BB1ABA9A5E00E389AF /* Login.m in Sources */,
 				91CC03DA1AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.m in Sources */,

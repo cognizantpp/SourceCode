@@ -8,6 +8,7 @@
 
 #import "WoundViewHomeViewController.h"
 #import "LengthNumberEntryViewController.h"
+#import "AssignmentsViewController.h"
 @interface WoundViewHomeViewController()
 {
     CGPoint p;
@@ -27,26 +28,35 @@
 @property(nonatomic,strong)NSMutableArray *woundBedArray;
 @property(nonatomic,strong)NSMutableArray *periWoundArray;
 @property(nonatomic,strong)NSMutableArray *exudateCharacterArray;
+@property (strong, nonatomic) UIPopoverController *popOver;
 
 - (IBAction)lengthButtonClicked:(UIButton*)sender;
-@property (weak, nonatomic) IBOutlet UIButton *btnLength;
-@property (weak, nonatomic) IBOutlet UIButton *btnWidth;
-@property (weak, nonatomic) IBOutlet UIButton *btnDepth;
-@property (weak, nonatomic) IBOutlet UIButton *btnUnderminingcm;
-@property (strong, nonatomic) UIPopoverController *popOver;
-@property (weak, nonatomic) IBOutlet UIButton *btnUnderminingClock;
-@property (weak, nonatomic) IBOutlet UIButton *btnTunnelingcm;
-@property (weak, nonatomic) IBOutlet UIButton *btnTunnelingClock;
-@property (weak, nonatomic) IBOutlet UIButton *btnWoundBedCharacter;
+//@property (weak, nonatomic) IBOutlet UIButton *btnLength;
+//@property (weak, nonatomic) IBOutlet UIButton *btnWidth;
+//@property (weak, nonatomic) IBOutlet UIButton *btnDepth;
+//@property (weak, nonatomic) IBOutlet UIButton *btnUnderminingcm;
+//@property (weak, nonatomic) IBOutlet UIButton *btnUnderminingClock;
+//@property (weak, nonatomic) IBOutlet UIButton *btnTunnelingcm;
+//@property (weak, nonatomic) IBOutlet UIButton *btnTunnelingClock;
+//@property (weak, nonatomic) IBOutlet UIButton *btnWoundBedCharacter;
 
 @end
-
+NSArray *woundarr;
 @implementation WoundViewHomeViewController
 NSInteger selectedEntryButton;
 -(void)viewDidLoad
 {
     
     [super viewDidLoad];
+    CoreDataHelper *helper = [CoreDataHelper sharedInstance];
+    helper.unit1 = @"";
+    helper.unit2 = @"";
+    helper.unit3 = @"";
+    helper.unit4 = @"";
+    helper.unit5 = @"";
+    helper.unit6 = @"";
+    helper.unit7 = @"";
+    
     [_atypicalTextViewOutlet.layer setBackgroundColor: [[UIColor whiteColor] CGColor]];
     [_atypicalTextViewOutlet.layer setBorderColor: [[UIColor grayColor] CGColor]];
     [_atypicalTextViewOutlet.layer setBorderWidth: 1.0];
@@ -59,6 +69,21 @@ NSInteger selectedEntryButton;
     [_commentsTextViewOutlet.layer setCornerRadius:8.0f];
     [_commentsTextViewOutlet.layer setMasksToBounds:YES];
     
+    
+    
+//    [self.yesButtonOutlet setSelected:NO];
+//    [self.noButtonOutlet setSelected:NO];
+//    [self.pediatricYesButtonOutlet setSelected:NO];
+//
+//    [self.pediatricNoButtonOutlet setSelected:NO];
+//
+//    [self.phlebitisYesButtonOutlet setSelected:NO];
+//
+//    [self.ulcerYesButtonOutlet setSelected:NO];
+//    [self.phlebitisNoButtonOutlet setSelected:NO];
+//    [self.ulcerNobuttonOutlet setSelected:NO];
+//
+
     
     
     _scrollView.delegate=self;
@@ -114,6 +139,232 @@ NSInteger selectedEntryButton;
     
     
     
+    
+    
+    
+    
+    //CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+        woundarr=[cdh setWoundReasonFields:entry_no];
+    //NSLog(@"gastro array is...%@",gastroarr);
+    if(woundarr.count>0){
+        [self.otherButtonOutlet setTitle:[woundarr objectAtIndex:0] forState:UIControlStateNormal];
+        [self.woundThicknessButtonOutlet setTitle:[woundarr objectAtIndex:1] forState:UIControlStateNormal];
+//        NSString *atypicalStr=[gastroarr objectAtIndex:2];
+//        [self.atypicaltextview setText:atypicalStr];
+        [self.woundBedColorButtonOutlet setTitle:[woundarr objectAtIndex:2] forState:UIControlStateNormal];
+        [self.woundBedButtonOutlet setTitle:[woundarr objectAtIndex:3] forState:UIControlStateNormal];
+        [self.btnWoundBedCharacter setTitle:[woundarr objectAtIndex:4] forState:UIControlStateNormal];
+        [self.periWoundButtonOutlet setTitle:[woundarr objectAtIndex:5] forState:UIControlStateNormal];
+        [self.exudateCharacterButtonOutlet setTitle:[woundarr objectAtIndex:6] forState:UIControlStateNormal];
+        [self.exudateOdorButtonOutlet setTitle:[woundarr objectAtIndex:7] forState:UIControlStateNormal];
+        [self.amountButtonOutlet setTitle:[woundarr objectAtIndex:8] forState:UIControlStateNormal];
+        [self.edemaButtonOutlet setTitle:[woundarr objectAtIndex:9] forState:UIControlStateNormal];
+        [self.conditionButtonOutlet setTitle:[woundarr objectAtIndex:10] forState:UIControlStateNormal];
+        [self.otherWoundsButtonOutlet setTitle:[woundarr objectAtIndex:11] forState:UIControlStateNormal];
+        [self.onsetButtonOutlet setTitle:[woundarr objectAtIndex:12] forState:UIControlStateNormal];
+        [self.btnLength setTitle:[woundarr objectAtIndex:13] forState:UIControlStateNormal];
+        [self.btnWidth setTitle:[woundarr objectAtIndex:14] forState:UIControlStateNormal];
+        [self.btnDepth setTitle:[woundarr objectAtIndex:15] forState:UIControlStateNormal];
+        [self.btnUnderminingcm setTitle:[woundarr objectAtIndex:16] forState:UIControlStateNormal];
+        [self.btnUnderminingClock setTitle:[woundarr objectAtIndex:17] forState:UIControlStateNormal];
+        [self.btnTunnelingcm setTitle:[woundarr objectAtIndex:18] forState:UIControlStateNormal];
+        [self.btnTunnelingClock setTitle:[woundarr objectAtIndex:19] forState:UIControlStateNormal];
+        NSString *NewBornStr=[woundarr objectAtIndex:20];
+        [self.newbornTextFieldOutlet setText:NewBornStr];
+        NSString *PediatricStr=[woundarr objectAtIndex:21];
+        [self.pediatricTextFieldOutlet setText:PediatricStr];
+        NSString *PhlebitisStr=[woundarr objectAtIndex:22];
+        [self.phlebitisTextFieldOutlet setText:PhlebitisStr];
+        NSString *UlcerStr=[woundarr objectAtIndex:23];
+        [self.ulcerTextFieldOutlet setText:UlcerStr];
+        NSString *AtypicalStr=[woundarr objectAtIndex:24];
+        [self.atypicalTextViewOutlet setText:AtypicalStr];
+        NSString *CommentsStr=[woundarr objectAtIndex:25];
+        [self.commentsTextViewOutlet setText:CommentsStr];
+
+        
+        
+        
+        
+        
+        if([[woundarr objectAtIndex:2]containsString:@"Other"]){
+            self.woundBedColorOtherTextField.hidden=NO;
+            NSString *woundbedcolorothertext=[woundarr objectAtIndex:28] ;
+            [self.woundBedColorOtherTextField setText:woundbedcolorothertext];
+        }
+        if([[woundarr objectAtIndex:3]containsString:@"Other"]){
+            self.woundBedOtherTextField.hidden=NO;
+            NSString *woundbedothertext=[woundarr objectAtIndex:29] ;
+            [self.woundBedOtherTextField setText:woundbedothertext];
+        }
+        if([[woundarr objectAtIndex:5]containsString:@"Other"]){
+            self.periwoundOtherTextField.hidden=NO;
+            NSString *periwoundothertext=[woundarr objectAtIndex:31] ;
+            [self.periwoundOtherTextField setText:periwoundothertext];
+        }
+        if([[woundarr objectAtIndex:6]containsString:@"Other"]){
+            self.exudateCharacterOtherTextField.hidden=NO;
+            NSString *exudatecharacterothertext=[woundarr objectAtIndex:32] ;
+            [self.exudateCharacterOtherTextField setText:exudatecharacterothertext];
+        }
+        if([[woundarr objectAtIndex:7]containsString:@"Other"]){
+            self.exudateOdorOtherTextField.hidden=NO;
+            NSString *exudateodorothertext=[woundarr objectAtIndex:33] ;
+            [self.exudateOdorOtherTextField setText:exudateodorothertext];
+        }
+        
+        if([[woundarr objectAtIndex:8]containsString:@"Estimated Amount"] || [[woundarr objectAtIndex:8]containsString:@"Canister Amount"]){
+            self.amountButtonOutlet.hidden=NO;
+           // NSString *exudateamountothertext=[woundarr objectAtIndex:34];
+            [self.amountButtonOutlet setTitle:[woundarr objectAtIndex:34] forState:UIControlStateNormal];
+                    }
+//
+//        if([gastroarr objectAtIndex:16]){
+//            // self.minButtonOutlet.hidden=NO;
+//            // self.cmbtnoutlet.hidden=YES;
+//            NSString *othertextunit=[gastroarr objectAtIndex:16] ;
+//            if([othertextunit isEqualToString:@"cm"])
+//                [self.cmbtnoutlet setSelected:YES];
+//            //[self.minButtonOutlet setSelected:YES];
+//            else if([othertextunit isEqualToString:@"mm"])
+//                [self.mmbtnoutlet setSelected:YES];
+//        }
+////
+        
+        
+        
+//                if([woundarr objectAtIndex:20]){
+//                    
+//                    [self.yesButtonOutlet setSelected:YES];
+//                }
+//        
+//                else {
+//                    [self.noButtonOutlet setSelected:NO];
+//                }
+//        if([woundarr objectAtIndex:21]){
+//            
+//            [self.pediatricYesButtonOutlet setSelected:YES];
+//        }
+//
+//        if([woundarr objectAtIndex:22]){
+//            
+//            [self.phlebitisYesButtonOutlet setSelected:YES];
+//        }
+//        
+//
+//        if([woundarr objectAtIndex:23]){
+//            
+//            [self.ulcerYesButtonOutlet setSelected:YES];
+//        }
+        
+
+    
+        
+                if([woundarr objectAtIndex:26]){
+                    // self.minButtonOutlet.hidden=NO;
+                    // self.cmbtnoutlet.hidden=YES;
+                    NSString *othertextunit1=[woundarr objectAtIndex:26] ;
+                    if([othertextunit1 isEqualToString:@"No"])
+                        [self.noButtonOutlet setSelected:YES];
+                    //[self.minButtonOutlet setSelected:YES];
+                    else if([othertextunit1 isEqualToString:@"Yes"])
+                        [self.yesButtonOutlet setSelected:YES];
+                }
+        if([woundarr objectAtIndex:27]){
+            // self.minButtonOutlet.hidden=NO;
+            // self.cmbtnoutlet.hidden=YES;
+            NSString *othertextunit2=[woundarr objectAtIndex:27] ;
+            if([othertextunit2 isEqualToString:@"No"])
+                [self.pediatricNoButtonOutlet setSelected:YES];
+            //[self.minButtonOutlet setSelected:YES];
+            else if([othertextunit2 isEqualToString:@"Yes"])
+                [self.pediatricYesButtonOutlet setSelected:YES];
+        }
+        if([woundarr objectAtIndex:35]){
+            // self.minButtonOutlet.hidden=NO;
+            // self.cmbtnoutlet.hidden=YES;
+            NSString *othertextunit3=[woundarr objectAtIndex:35] ;
+            if([othertextunit3 isEqualToString:@"No"])
+                [self.phlebitisNoButtonOutlet setSelected:YES];
+            //[self.minButtonOutlet setSelected:YES];
+            else if([othertextunit3 isEqualToString:@"Yes"])
+                [self.phlebitisYesButtonOutlet setSelected:YES];
+        }
+        
+        if([woundarr objectAtIndex:36]){
+            // self.minButtonOutlet.hidden=NO;
+            // self.cmbtnoutlet.hidden=YES;
+            NSString *othertextunit4=[woundarr objectAtIndex:36] ;
+            if([othertextunit4 isEqualToString:@"No"])
+                [self.ulcerNobuttonOutlet setSelected:YES];
+            //[self.minButtonOutlet setSelected:YES];
+            else if([othertextunit4 isEqualToString:@"Yes"])
+                [self.ulcerYesButtonOutlet setSelected:YES];
+        }
+        
+        if([woundarr objectAtIndex:37]){
+            // self.minButtonOutlet.hidden=NO;
+            // self.cmbtnoutlet.hidden=YES;
+            NSString *othertextunit5=[woundarr objectAtIndex:37] ;
+            if([othertextunit5 isEqualToString:@"Cm"])
+                [self.underminingCmButtonOutlet setSelected:YES];
+            //[self.minButtonOutlet setSelected:YES];
+            else if([othertextunit5 isEqualToString:@"Mm"])
+                [self.underminingMmButtonOutlet setSelected:YES];
+        }
+        
+        if([woundarr objectAtIndex:38]){
+            // self.minButtonOutlet.hidden=NO;
+            // self.cmbtnoutlet.hidden=YES;
+            NSString *othertextunit6=[woundarr objectAtIndex:38] ;
+            if([othertextunit6 isEqualToString:@"Cm"])
+                [self.tunnelingCmbuttonOutlet setSelected:YES];
+            //[self.minButtonOutlet setSelected:YES];
+            else if([othertextunit6 isEqualToString:@"Mm"])
+                [self.tunnelingMmButtonOutlet setSelected:YES];
+        }
+
+        
+        if([woundarr objectAtIndex:39]){
+            // self.minButtonOutlet.hidden=NO;
+            // self.cmbtnoutlet.hidden=YES;
+            NSString *othertextunit7=[woundarr objectAtIndex:39] ;
+            if([othertextunit7 isEqualToString:@"Cm"])
+                [self.unit7cm setSelected:YES];
+            //[self.minButtonOutlet setSelected:YES];
+            else if([othertextunit7 isEqualToString:@"Mm"])
+                [self.unit7mm setSelected:YES];
+        }
+        
+//        if([woundarr objectAtIndex:40]){
+//            // self.minButtonOutlet.hidden=NO;
+//            // self.cmbtnoutlet.hidden=YES;
+//            NSString *othertextunit7=[woundarr objectAtIndex:39] ;
+//            if([othertextunit7 isEqualToString:@"Cm"])
+//                [self.unit7cm setSelected:YES];
+//            //[self.minButtonOutlet setSelected:YES];
+//            else if([othertextunit7 isEqualToString:@"Mm"])
+//                [self.unit7mm setSelected:YES];
+//        }
+//
+        
+
+
+
+
+
+        
+        
+
+    
+    
+    
+    }
+    
+    
+
+    
+    
 }
 - (void)scrollViewDidScroll:(UIScrollView *)sender
 {
@@ -134,6 +385,7 @@ NSInteger selectedEntryButton;
         {
             [self.noButtonOutlet setSelected:YES];
             [self.yesButtonOutlet setSelected:NO];
+            [CoreDataHelper sharedInstance].unit1=@"No";
         }
             break;
             
@@ -144,7 +396,7 @@ NSInteger selectedEntryButton;
             [self.yesButtonOutlet setSelected:YES];
             
             
-            
+            [CoreDataHelper sharedInstance].unit1=@"Yes";
             
             _r = [sender frame];
             
@@ -173,6 +425,7 @@ NSInteger selectedEntryButton;
         {
             [self.pediatricNoButtonOutlet setSelected:YES];
             [self.pediatricYesButtonOutlet setSelected:NO];
+            [CoreDataHelper sharedInstance].unit2=@"No";
         }
             break;
             
@@ -181,7 +434,7 @@ NSInteger selectedEntryButton;
             [self.pediatricNoButtonOutlet setSelected:NO];
             [self.pediatricYesButtonOutlet setSelected:YES];
             
-            
+            [CoreDataHelper sharedInstance].unit2=@"Yes";
             
             
             _r = [sender frame];
@@ -209,6 +462,7 @@ NSInteger selectedEntryButton;
         {
             [self.phlebitisNoButtonOutlet setSelected:YES];
             [self.phlebitisYesButtonOutlet setSelected:NO];
+            [CoreDataHelper sharedInstance].unit3=@"No";
         }
             break;
             
@@ -218,7 +472,7 @@ NSInteger selectedEntryButton;
             [self.phlebitisYesButtonOutlet setSelected:YES];
             
             
-            
+            [CoreDataHelper sharedInstance].unit3=@"Yes";
             
             _r = [sender frame];
             
@@ -245,6 +499,7 @@ NSInteger selectedEntryButton;
         {
             [self.ulcerNobuttonOutlet setSelected:YES];
             [self.ulcerYesButtonOutlet setSelected:NO];
+            [CoreDataHelper sharedInstance].unit4=@"No";
         }
             break;
             
@@ -254,7 +509,7 @@ NSInteger selectedEntryButton;
             [self.ulcerYesButtonOutlet setSelected:YES];
             
             
-            
+            [CoreDataHelper sharedInstance].unit4=@"Yes";
             
             _r = [sender frame];
             
@@ -280,23 +535,43 @@ NSInteger selectedEntryButton;
             
             [self.underminingCmButtonOutlet setSelected:YES];
             [self.underminingMmButtonOutlet setSelected:NO];
+               [CoreDataHelper sharedInstance].unit5=@"Cm";
+           
             break;
             case 9:
             
             [self.underminingCmButtonOutlet setSelected:NO];
             [self.underminingMmButtonOutlet setSelected:YES];
+            [CoreDataHelper sharedInstance].unit5=@"Mm";
             break;
             
         case 10:
             
             [self.tunnelingCmbuttonOutlet setSelected:YES];
             [self.tunnelingMmButtonOutlet setSelected:NO];
+            [CoreDataHelper sharedInstance].unit6=@"Cm";
+
             break;
         case 11:
             
             [self.tunnelingCmbuttonOutlet setSelected:NO];
             [self.tunnelingMmButtonOutlet setSelected:YES];
+            [CoreDataHelper sharedInstance].unit6=@"Mm";
             break;
+        case 12:
+            
+            [self.unit7cm setSelected:YES];
+            [self.unit7mm setSelected:NO];
+            [CoreDataHelper sharedInstance].unit7=@"Cm";
+            break;
+        case 13:
+            
+            [self.unit7cm setSelected:NO];
+            [self.unit7mm setSelected:YES];
+            [CoreDataHelper sharedInstance].unit7=@"Mm";
+            break;
+
+
             
         default:
             

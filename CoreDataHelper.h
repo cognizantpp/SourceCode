@@ -30,6 +30,7 @@
 #import "ReviewAssessmentSave.h"
 #import "GastrostomySave.h"
 #import "WoundReason.h"
+#import "WoundReasonSave.h"
 
 
 @interface CoreDataHelper : NSObject
@@ -38,7 +39,13 @@
 
 @property(weak,nonatomic)UIView *assessmentGlobalView;
 @property(weak,nonatomic)UIViewController *assessmentglobalviewcontroller;
-
+@property(weak,nonatomic)NSString *unit1;
+@property(weak,nonatomic)NSString *unit2;
+@property(weak,nonatomic)NSString *unit3;
+@property(weak,nonatomic)NSString *unit4;
+@property(weak,nonatomic)NSString *unit5;
+@property(weak,nonatomic)NSString *unit6;
+@property(weak,nonatomic)NSString *unit7;
 +(instancetype)sharedInstance;
 @property(strong,nonatomic)NSManagedObjectContext *managedObjectContext;
 @property(strong,nonatomic)NSString *gblstaffName,*gblstaffId;
@@ -156,4 +163,12 @@
 -( void)fetchGastrostomySaved;
 -(NSArray *)setGastroFields:(NSString *)entryNo;
 -(void)changeStatus:(NSString *)entryNo;
+
+//wound reason
+@property(strong,nonatomic)NSArray *woundreasoncategoryid;
+@property(strong,nonatomic)NSArray *woundreasoncategory_name;
+@property(strong,nonatomic)NSArray *woundreasonselected_value;
+@property(strong,nonatomic)NSArray *woundreasonOthervalues;
+-(void)saveWoundReason:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
+-(NSArray *)setWoundReasonFields:(NSString *)entryNo;
 @end
