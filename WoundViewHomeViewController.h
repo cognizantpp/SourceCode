@@ -13,7 +13,7 @@
 #import "SingleSelectionTableViewController.h"
 #import "CoreDataHelper.h"
 #import "SelectDatePickerViewController.h"
-
+#import "WoundBedPopUpViewController.h"
 @interface WoundViewHomeViewController : UIViewController<GetDataProtocol,UIScrollViewDelegate,UITextFieldDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *onsetButtonOutlet;

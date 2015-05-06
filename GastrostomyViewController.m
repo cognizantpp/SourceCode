@@ -1158,7 +1158,7 @@ NSArray *gastroarr;
     {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 700)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 800)];
         
     }
     

@@ -87,7 +87,7 @@ NSInteger selectedEntryButton;
     
     
     _scrollView.delegate=self;
-    [_scrollView setContentSize:CGSizeMake(1024, 1550)];
+    [_scrollView setContentSize:CGSizeMake(1024, 1500)];
     
     _multipleSelectionViewController=[[MultipleSelectionTableViewController alloc]init];
     _multipleSelectionViewController.dataDelegate=self;
@@ -1058,9 +1058,9 @@ NSInteger selectedEntryButton;
             case 4:
         {
             selectedEntryButton = [sender tag];
-            LengthNumberEntryViewController *lengthNumberEntryViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PercentageNumberEntryViewController"];
-            self.woundBedPopOver = [[UIPopoverController alloc]initWithContentViewController:lengthNumberEntryViewController];
-            lengthNumberEntryViewController.delegate = self;
+           WoundBedPopUpViewController  *woundBedViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PercentageNumberEntryViewController"];
+            self.woundBedPopOver = [[UIPopoverController alloc]initWithContentViewController:woundBedViewController];
+            woundBedViewController.delegate = self;
             _r = [sender frame];
             [self.woundBedPopOver setPopoverContentSize:CGSizeMake(300, 250)];
 
@@ -1068,7 +1068,18 @@ NSInteger selectedEntryButton;
             
             _tRect = [sender convertRect:sender.bounds toView:self.view];
             _tRect.origin.x=_r.origin.x;
-            [self.woundBedPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+
+            if (_tRect.origin.y>400) {
+                  [self.woundBedPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+            }
+            else
+                
+            {
+                [self.woundBedPopOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+                
+            }
+            
+          
             
             break;
         }
@@ -1225,7 +1236,16 @@ NSInteger selectedEntryButton;
     
     _tRect = [sender convertRect:sender.bounds toView:self.view];
     _tRect.origin.x=_r.origin.x;
-    [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    if (_tRect.origin.y>500) {
+        [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
+    }
+    else
+        
+    {
+        [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        
+    }
+
     
 }
 -(void)updateLengthEntryNumber:(NSString *)data{
@@ -1288,34 +1308,34 @@ NSInteger selectedEntryButton;
     if (textField==_woundBedColorOtherTextField) {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 500)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 600)];
     }
     else if (textField==_woundBedOtherTextField)
     {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 550)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 650)];
 
     }
     else if (textField==_periwoundOtherTextField)
     {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 650)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 750)];
         
     }
     else if (textField==_exudateCharacterOtherTextField)
     {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 800)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 900)];
         
     }
     else if (textField==_exudateOdorOtherTextField)
     {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 850)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 950)];
         
     }
     
@@ -1323,7 +1343,7 @@ NSInteger selectedEntryButton;
     {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 1200)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 1300)];
         
     }
    

@@ -52,7 +52,8 @@ int selectedEntryButton;
     
    CGRect _tRect = [sender convertRect:sender.bounds toView:self.view];
     _tRect.origin.x=_r.origin.x;
-    [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+    [self.popOver presentPopoverFromRect:_tRect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionDown animated:YES];
 }
 
 -(void)updateLengthEntryNumber:(NSString *)data{
