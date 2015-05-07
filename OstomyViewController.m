@@ -998,62 +998,62 @@ NSArray *ostomyarr;
     if (textField==_StomaColorOtherTextField) {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 100)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 200)];
     }
     else if (textField==_StomaOutputColorOtherTextField)
-    {
-        p= self.scrollView.contentOffset;
-        
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 150)];
-        
-    }
-    else if (textField==_StomaOutputCharacterOtherTextField)
-    {
-        p= self.scrollView.contentOffset;
-        
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 200)];
-        
-    }
-    else if (textField==_FistulaLocationOtherTextField)
     {
         p= self.scrollView.contentOffset;
         
         [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 250)];
         
     }
-    else if (textField==_FistulaColorOtherTextField)
+    else if (textField==_StomaOutputCharacterOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 300)];
+        
+    }
+    else if (textField==_FistulaLocationOtherTextField)
     {
         p= self.scrollView.contentOffset;
         
         [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 350)];
         
     }
+    else if (textField==_FistulaColorOtherTextField)
+    {
+        p= self.scrollView.contentOffset;
+        
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 450)];
+        
+    }
     else if (textField==_CharacterOtherTextField)
     {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 400)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 500)];
         
     }
     else if (textField==_ExudateCharacterOtherTextField)
     {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 550)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 650)];
         
     }
     else if (textField==_ExudateOdourOtherTextField)
     {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 600)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 700)];
         
     }
     else if (textField==_GranulationTissueOtherTextField)
     {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 700)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 800)];
         
     }
 }

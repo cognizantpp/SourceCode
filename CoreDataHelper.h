@@ -39,7 +39,13 @@
 
 @property(weak,nonatomic)UIView *assessmentGlobalView;
 @property(weak,nonatomic)UIViewController *assessmentglobalviewcontroller;
-
+@property(weak,nonatomic)NSString *unit1;
+@property(weak,nonatomic)NSString *unit2;
+@property(weak,nonatomic)NSString *unit3;
+@property(weak,nonatomic)NSString *unit4;
+@property(weak,nonatomic)NSString *unit5;
+@property(weak,nonatomic)NSString *unit6;
+@property(weak,nonatomic)NSString *unit7;
 +(instancetype)sharedInstance;
 @property(strong,nonatomic)NSManagedObjectContext *managedObjectContext;
 @property(strong,nonatomic)NSString *gblstaffName,*gblstaffId;

@@ -335,6 +335,145 @@ OstomyViewController *ostomy;
         }
             break;
             
+        case 13:
+        {
+            // gastroVC=[self.storyboard instantiateViewControllerWithIdentifier:@"gastro"];
+            //[self.initialview addSubview:GastrostomyViewController.view];
+            // [self addChildViewController: GastrostomyViewController];
+            
+            
+            
+            //NSString *discussedselected_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.discussedButtonOutlet.titleLabel.text];
+            
+            
+            
+            
+            CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+            
+            NSString *OtherId=[NSString stringWithFormat:@"%ld",(long)WVC.otherButtonOutlet.tag];
+            NSString *WoundThicknessId=[NSString stringWithFormat:@"%ld",(long)WVC.woundThicknessButtonOutlet.tag];
+            
+            NSString *WoundBedColorId=[NSString stringWithFormat:@"%ld",(long)WVC.woundBedColorButtonOutlet.tag];            NSString *WoundBedId=[NSString stringWithFormat:@"%ld",(long)WVC.woundBedButtonOutlet.tag];
+            NSString *WoundBedCharacterId=[NSString stringWithFormat:@"%ld",(long)WVC.btnWoundBedCharacter.tag];
+            NSString *PeriWoundId=[NSString stringWithFormat:@"%ld",(long)WVC.periWoundButtonOutlet.tag];            NSString *ExudateCharacterId=[NSString stringWithFormat:@"%ld",(long)WVC.exudateCharacterButtonOutlet.tag];
+            NSString *ExudateOdorId=[NSString stringWithFormat:@"%ld",(long)WVC.exudateOdorButtonOutlet.tag];
+            NSString *ExudateAmountId=[NSString stringWithFormat:@"%ld",(long)WVC.exudateAmountButtonOutlet.tag];
+            NSString *EdemaId=[NSString stringWithFormat:@"%ld",(long)WVC.edemaButtonOutlet.tag];
+            NSString *ConditionId=[NSString stringWithFormat:@"%ld",(long)WVC.conditionButtonOutlet.tag];
+            NSString *OtherWoundsId=[NSString stringWithFormat:@"%ld",(long)WVC.otherWoundsButtonOutlet.tag];
+            NSString *OnsetId=[NSString stringWithFormat:@"%ld",(long)WVC.onsetButtonOutlet.tag];
+            NSString *LengthId=[NSString stringWithFormat:@"%ld",(long)WVC.btnLength.tag];
+            NSString *WidthId=[NSString stringWithFormat:@"%ld",(long)WVC.btnWidth.tag];
+            NSString *DepthId=[NSString stringWithFormat:@"%ld",(long)WVC.btnDepth.tag];
+            NSString *UnderminingId=[NSString stringWithFormat:@"%ld",(long)WVC.btnUnderminingcm.tag];
+            NSString *UnderminingTimeId=[NSString stringWithFormat:@"%ld",(long)WVC.btnUnderminingClock.tag];
+            NSString *TunnelingId=[NSString stringWithFormat:@"%ld",(long)WVC.btnTunnelingcm.tag];
+            NSString *TunnelingTimeId=[NSString stringWithFormat:@"%ld",(long)WVC.btnTunnelingClock.tag];
+            //             NSString *ExudateAmountOtherId=[NSString stringWithFormat:@"%ld",(long)WVC.amountButtonOutlet.tag];
+            //             NSString *WoundBedColorOtherId=[NSString stringWithFormat:@"%ld",(long)WVC.woundBedColorOtherTextField.tag];
+            //             NSString *WoundBedOtherId=[NSString stringWithFormat:@"%ld",(long)WVC.woundBedOtherTextField.tag];
+            //             NSString *PeriWoundOtherId=[NSString stringWithFormat:@"%ld",(long)WVC.periwoundOtherTextField.tag];
+            //             NSString *ExudateCharacterOtherId=[NSString stringWithFormat:@"%ld",(long)WVC.exudateCharacterOtherTextField.tag];
+            //             NSString *ExudateOdorOtherId=[NSString stringWithFormat:@"%ld",(long)WVC.exudateOdorOtherTextField.tag];
+            NSString *NewBornId=[NSString stringWithFormat:@"%ld",(long)WVC.newbornTextFieldOutlet.tag];
+            NSString *PediatricId=[NSString stringWithFormat:@"%ld",(long)WVC.pediatricTextFieldOutlet.tag];
+            NSString *PhlebitisId=[NSString stringWithFormat:@"%ld",(long)WVC.phlebitisTextFieldOutlet.tag];
+            NSString *UlcerId=[NSString stringWithFormat:@"%ld",(long)WVC.ulcerTextFieldOutlet.tag];
+            NSString *AtypicalId=[NSString stringWithFormat:@"%ld",(long)WVC.atypicalTextViewOutlet.tag];
+            NSString *ComentsId=[NSString stringWithFormat:@"%ld",(long)WVC.commentsTextViewOutlet.tag];
+            
+            
+            [CoreDataHelper sharedInstance].woundreasoncategoryid=[NSArray arrayWithObjects:OtherId,WoundThicknessId,WoundBedColorId,WoundBedId,WoundBedCharacterId,PeriWoundId,ExudateCharacterId,ExudateOdorId,ExudateAmountId,EdemaId,ConditionId,OtherWoundsId,OnsetId,LengthId,WidthId,DepthId,UnderminingId,UnderminingTimeId,TunnelingId,TunnelingTimeId,NewBornId,PediatricId,PhlebitisId,UlcerId,AtypicalId,ComentsId,nil];
+            
+            
+            
+            [CoreDataHelper sharedInstance].woundreasoncategory_name=[NSArray arrayWithObjects:@"Other",@"Wound Thickness",@"Wound Bed Color",@"Wound Bed",@"Wound Bed Character",@"Peri Wound",@"Exudate Character",@"Exudate Odor",@"Exudate Amount",@"Edema",@"Condition",@"Other Wounds",@"Onset",@"Length",@"Width",@"Depth",@"Undermining",@"Undermining Time",@"Tunneling",@"Tunneling Time",@"Newborn",@"Pediatric",@"Phlebitis",@"Ulcer",@"Atypical",@"Comments",nil];
+            
+            
+            
+            
+            
+//            if([WVC.underminingCmButtonOutlet isSelected])
+//                unit2=@"cm";
+//            else
+//                unit2=@"mm";
+//            
+//            if([WVC.tunnelingCmbuttonOutlet isSelected])
+//                unit3=@"cm";
+//            else
+//                unit3=@"mm";
+//
+
+            
+            // CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+            NSString *OtherSelected_Value=[NSString stringWithFormat:@"%@",WVC.otherButtonOutlet.titleLabel.text];
+            NSString *WoundThicknessSelected_Value=[NSString stringWithFormat:@"%@",WVC.woundThicknessButtonOutlet.titleLabel.text];
+            NSString *WoundBedColorSelected_Value=[NSString stringWithFormat:@"%@",WVC.woundBedColorButtonOutlet.titleLabel.text];
+            NSString *WoundBedSelected_Value=[NSString stringWithFormat:@"%@",WVC.woundBedButtonOutlet.titleLabel.text];
+            
+            NSString *WoundBedCharacterSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnWoundBedCharacter.titleLabel.text];
+            NSString *PeriWoundSelected_Value=[NSString stringWithFormat:@"%@",WVC.periWoundButtonOutlet.titleLabel.text];
+            NSString *ExudateCharacterSelected_Value=[NSString stringWithFormat:@"%@",WVC.exudateCharacterButtonOutlet.titleLabel.text];
+            NSString *ExudateOdorSelected_Value=[NSString stringWithFormat:@"%@",WVC.exudateOdorButtonOutlet.titleLabel.text];
+            NSString *ExudateAmountSelected_Value=[NSString stringWithFormat:@"%@",WVC.exudateAmountButtonOutlet.titleLabel.text];
+            NSString *EdemaSelected_Value=[NSString stringWithFormat:@"%@",WVC.edemaButtonOutlet.titleLabel.text];
+            
+            NSString *ConditionSelected_Value=[NSString stringWithFormat:@"%@",WVC.conditionButtonOutlet.titleLabel.text];
+            NSString *OtherWoundsSelected_Value=[NSString stringWithFormat:@"%@",WVC.otherWoundsButtonOutlet.titleLabel.text];
+            NSString *OnsetSelected_Value=[NSString stringWithFormat:@"%@",WVC.onsetButtonOutlet.titleLabel.text];
+            NSString *LengthSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnLength.titleLabel.text];
+            NSString *WidthSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnWidth.titleLabel.text];
+            NSString *DepthSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnDepth.titleLabel.text];
+            NSString *UnderminingSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnUnderminingcm.titleLabel.text];
+            NSString *UnderminingTimeSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnUnderminingClock.titleLabel.text];
+            NSString *TunnelingSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnTunnelingcm.titleLabel.text];
+            NSString *TunnelingTimeSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnTunnelingClock.titleLabel.text];
+            NSString *NewbornSelected_Value=[NSString stringWithFormat:@"%@",WVC.newbornTextFieldOutlet.text];
+            NSString *PediatricSelected_Value=[NSString stringWithFormat:@"%@",WVC.pediatricTextFieldOutlet.text];
+            NSString *PhlebitisSelected_Value=[NSString stringWithFormat:@"%@",WVC.phlebitisTextFieldOutlet.text];
+            NSString *UlcerSelected_Value=[NSString stringWithFormat:@"%@",WVC.ulcerTextFieldOutlet.text];
+            NSString *AtypicalSelected_Value=[NSString stringWithFormat:@"%@",WVC.atypicalTextViewOutlet.text];
+            NSString *CommentsSelected_Value=[NSString stringWithFormat:@"%@",WVC.commentsTextViewOutlet.text];
+            
+            
+            
+            NSString *ExudateAmountOtherSelected_value=[NSString stringWithFormat:@"%@",WVC.amountButtonOutlet.titleLabel.text];
+            NSString *WoundBedColorOtherSelected_Value=[NSString stringWithFormat:@"%@",WVC.woundBedColorOtherTextField.text];
+            NSString *WoundBedOtherSelected_Value=[NSString stringWithFormat:@"%@",WVC.woundBedOtherTextField.text];
+            NSString *PeriWoundOtherSelected_value=[NSString stringWithFormat:@"%@",WVC.periwoundOtherTextField.text];
+            NSString *ExudateCharacterOtherSelected_Value=[NSString stringWithFormat:@"%@",WVC.exudateCharacterOtherTextField.text];
+            NSString *ExudateOdorOtherSelected_Value=[NSString stringWithFormat:@"%@",WVC.exudateOdorOtherTextField .text];
+            
+            
+            
+            
+            
+            //
+            //            if([GVC.cmbtnoutlet isSelected])
+            //                unit=@"cm";
+            //            else
+            //                unit=@"mm";
+            //
+            
+            
+            [CoreDataHelper sharedInstance].woundreasonselected_value=[NSArray arrayWithObjects:OtherSelected_Value,WoundThicknessSelected_Value,WoundBedColorSelected_Value,WoundBedSelected_Value,WoundBedCharacterSelected_Value,PeriWoundSelected_Value,ExudateCharacterSelected_Value,ExudateOdorSelected_Value,ExudateAmountSelected_Value,EdemaSelected_Value,ConditionSelected_Value,OtherWoundsSelected_Value,OnsetSelected_Value,LengthSelected_Value,WidthSelected_Value,DepthSelected_Value,UnderminingSelected_Value,UnderminingTimeSelected_Value,TunnelingSelected_Value,TunnelingTimeSelected_Value,NewbornSelected_Value,PediatricSelected_Value,PhlebitisSelected_Value,UlcerSelected_Value,AtypicalSelected_Value,CommentsSelected_Value,nil];
+            
+            // NSLog(@"value= %@",GastrostomySiteSelected_Value);
+            
+            [CoreDataHelper sharedInstance].woundreasonOthervalues=[NSArray arrayWithObjects:[CoreDataHelper sharedInstance].unit1,[CoreDataHelper sharedInstance].unit2,WoundBedColorOtherSelected_Value,WoundBedOtherSelected_Value,@"",PeriWoundOtherSelected_value,ExudateCharacterOtherSelected_Value,ExudateOdorOtherSelected_Value,ExudateAmountOtherSelected_value,
+                                                                    [CoreDataHelper sharedInstance].unit3,[CoreDataHelper sharedInstance].unit4,[CoreDataHelper sharedInstance].unit5,[CoreDataHelper sharedInstance].unit6,[CoreDataHelper sharedInstance].unit7,@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",nil];
+            
+            
+            [cdh saveWoundReason:entry_no andCategoryid:cdh.woundreasoncategoryid andCategoryname:cdh.woundreasoncategory_name andSelectedvalue:cdh.woundreasonselected_value andOther:cdh.woundreasonOthervalues];
+            
+            
+            
+            //            [cdh saveGastrostomy:entry_no andCategoryid:cdh.gastrostomycategoryid andCategoryname:cdh.gastrostomycategory_name andSelectedvalue:cdh.gastrostomyselected_value andOther:cdh.gastrostomyOthervalues];
+            //            
+            
+        }
+            break;
+
             
         case 14:
         {
