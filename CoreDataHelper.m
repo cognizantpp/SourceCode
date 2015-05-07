@@ -1516,6 +1516,18 @@
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+//    if (fetchedObjects == nil) {
+//        NSLog(@"There was an error in fetching");
+//    }else{
+//        
+//        for (WoundSelection *wounds in fetchedObjects) {
+//            matches = wounds;
+//            [self.managedObjectContext deleteObject:matches];
+//            [self saveContext];
+//        }
+//    }
+    
+    
     if (fetchedObjects != nil && [fetchedObjects count]>0) {
         for (WoundSelection *wounds in fetchedObjects) {
             [self.woundCoordinates addObject:wounds.wound_coordinates];
@@ -1644,6 +1656,36 @@
     }
     }
     
+}
+-(NSArray *)setWoundTable:(NSString *)entryNo {
+    NSMutableArray *woundarr=[[NSMutableArray alloc]init];
+    //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WoundSelection" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    //    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+    //                                                                   ascending:YES];
+    //    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (WoundSelection *thewound in fetchedObjects) {
+            [woundarr addObject:thewound.wound_number];
+        }
+        
+        
+    }
+    // NSLog(@"%@",eduArr);
+    return woundarr;
 }
 
 @end

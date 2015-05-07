@@ -30,6 +30,7 @@
 #import "ReviewAssessmentSave.h"
 #import "GastrostomySave.h"
 #import "WoundReason.h"
+#import "WoundSelection.h"
 
 
 @interface CoreDataHelper : NSObject
@@ -156,4 +157,5 @@
 -( void)fetchGastrostomySaved;
 -(NSArray *)setGastroFields:(NSString *)entryNo;
 -(void)changeStatus:(NSString *)entryNo;
+-(NSArray *)setWoundTable:(NSString *)entryNo;
 @end
