@@ -156,6 +156,7 @@
 //GastrostomyReason
 
 @property(strong,nonatomic)NSArray *gastrostomycategoryid;
+
 @property(strong,nonatomic)NSArray *gastrostomycategory_name;
 @property(strong,nonatomic)NSArray *gastrostomyselected_value;
 @property(strong,nonatomic)NSArray *gastrostomyOthervalues;
@@ -164,4 +165,13 @@
 -(NSArray *)setGastroFields:(NSString *)entryNo;
 -(void)changeStatus:(NSString *)entryNo;
 -(NSArray *)setWoundTable:(NSString *)entryNo;
+-(NSArray *)setWoundReasonFields:(NSString *)entryNo;
+
+@property(strong,nonatomic)NSArray *woundreasoncategoryid;
+@property(strong,nonatomic)NSArray *woundreasoncategory_name;
+@property(strong,nonatomic)NSArray *woundreasonselected_value;
+@property(strong,nonatomic)NSArray *woundreasonOthervalues;
+
+-(void)saveWoundReason:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
+
 @end
