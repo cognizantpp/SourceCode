@@ -203,6 +203,7 @@ OstomyViewController *ostomy;
             break;
         case 5:
         {
+            NSString *bradenselected_value;
             NSString *str;
             CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
             [self.recommendation setBackgroundImage:[UIImage imageNamed:@"icon_recommend.png"] forState:UIControlStateNormal];
@@ -215,7 +216,13 @@ OstomyViewController *ostomy;
             NSString *labeltypeselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.labelTypeObtained.text];
             NSString *deitricialselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.deiticianReferral.text];
             NSString *otherselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.OtherTextfield.text];
-            NSString *bradenselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.bradenQRiskCategory.text];
+            if([reviewOfSystemsHomeViewController.totalScoreTextField.text intValue]<=17){
+           bradenselected_value=@"High";
+            }
+            else{
+            bradenselected_value=@"Normal";
+            }
+
             NSString *followselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.followUpButtonOutlet.titleLabel.text];
             NSString *timespentselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.btnrecommendationNumberEntry.titleLabel.text];
             

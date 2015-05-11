@@ -30,6 +30,7 @@
 #import "ReviewAssessmentSave.h"
 #import "GastrostomySave.h"
 #import "WoundReason.h"
+#import "WoundReasonSave.h"
 #import "WoundSelection.h"
 
 
@@ -163,5 +164,13 @@
 -( void)fetchGastrostomySaved;
 -(NSArray *)setGastroFields:(NSString *)entryNo;
 -(void)changeStatus:(NSString *)entryNo;
+
+//wound reason
+@property(strong,nonatomic)NSArray *woundreasoncategoryid;
+@property(strong,nonatomic)NSArray *woundreasoncategory_name;
+@property(strong,nonatomic)NSArray *woundreasonselected_value;
+@property(strong,nonatomic)NSArray *woundreasonOthervalues;
+-(void)saveWoundReason:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
+-(NSArray *)setWoundReasonFields:(NSString *)entryNo;
 -(NSArray *)setWoundTable:(NSString *)entryNo;
 @end
