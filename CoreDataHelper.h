@@ -174,13 +174,5 @@
 -(void)saveWoundReason:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
 -(NSArray *)setWoundReasonFields:(NSString *)entryNo;
 -(NSArray *)setWoundTable:(NSString *)entryNo;
--(NSArray *)setWoundReasonFields:(NSString *)entryNo;
-
-@property(strong,nonatomic)NSArray *woundreasoncategoryid;
-@property(strong,nonatomic)NSArray *woundreasoncategory_name;
-@property(strong,nonatomic)NSArray *woundreasonselected_value;
-@property(strong,nonatomic)NSArray *woundreasonOthervalues;
-
--(void)saveWoundReason:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other;
 
 @end
