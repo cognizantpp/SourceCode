@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "ViewController.h"
 #import "PainHomeViewController.h"
 #import "EducationHomeViewController.h"
@@ -28,7 +29,7 @@ UIView *topViewPanel;
 
 
 
-@interface AssessmentViewController : UIViewController<GetDataProtocol>
+@interface AssessmentViewController : UIViewController<GetDataProtocol,UIActionSheetDelegate>
 @property (strong, nonatomic) PatientInfoViewController *patientInfoViewController;
 @property (strong, nonatomic) PatientListTableViewController *patientListTableViewController;
 @property (strong, nonatomic) WoundAssessmentTVController *woundAssessmentTVController;
@@ -39,4 +40,12 @@ UIView *topViewPanel;
 @property (weak, nonatomic) IBOutlet UIView *leftView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 -(void)setButtonBackground;
+
+- (IBAction)EMRButtonAction:(UIButton *)sender;
+
+
+
+
+
+
 @end

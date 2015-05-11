@@ -9,10 +9,15 @@
 #import "AssessmentViewController.h"
 #import "PictureViewController.h"
 #import "WoundImageViewController.h"
-
+#define kInitialSpace 50
+#define kEachLineHight 50
+#define kInterLineSpace 10
 @interface AssessmentViewController (){
     
     UIStoryboard *storybrd;
+    CGSize pageSize;
+    NSString *filePath;
+    UIWebView *webView;
 }
 - (IBAction)buttonClciked:(id)sender;
 
@@ -567,6 +572,228 @@ OstomyViewController *ostomy;
         }
         default:
             break;
+    }
+}
+
+- (IBAction)EMRButtonAction:(UIButton *)sender {
+    pageSize=CGSizeMake(850,1500);
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)firstObject];
+    filePath = [docPath stringByAppendingPathComponent:@"EMR.pdf"];
+    NSLog(@"%@",filePath);
+    [self generatePDF:filePath];
+}
+
+
+
+
+
+-(void)drawText{
+    
+    CoreDataHelper *ch=[CoreDataHelper sharedInstance];
+     [ch setPainFields:entry_no];
+    
+    
+    UIFont *font=[UIFont fontWithName:@"Helvetica" size:30];
+        //CGRect textRect=CGRectMake(250,10, 300, 100);
+    CGRect textRect=CGRectMake(kInitialSpace*9,kInterLineSpace+kEachLineHight, 350, kEachLineHight);
+    NSString *myString=@"WoundCareApp";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor]}];
+    
+    
+    
+     font=[UIFont fontWithName:@"Helvetica" size:25];
+    textRect=CGRectMake(kInitialSpace, kInterLineSpace*2+kEachLineHight*2, 350, kEachLineHight);
+     myString=@"Pain";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]}];
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    
+    textRect=CGRectMake(kInitialSpace, kInterLineSpace*2+kEachLineHight*2+kEachLineHight, 350,kEachLineHight);
+    myString=[NSString stringWithFormat:@"Score: %@",[[ch setPainFields:entry_no ]objectAtIndex:1]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*2, 1024, kEachLineHight);
+    myString=[NSString stringWithFormat:@"Character: %@",[[ch setPainFields:entry_no ]objectAtIndex:0]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:25];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*3, 600, kEachLineHight);
+    myString=@"Review Of Systems";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]}];
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*4, 1024, kEachLineHight);
+    myString=[NSString stringWithFormat:@"Risk Factor: %@",[[ch setReviewbaseFields:entry_no ]objectAtIndex:0]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*5, 1024, kEachLineHight);
+    myString=[NSString stringWithFormat:@"Consult: %@",[[ch setReviewbaseFields:entry_no ]objectAtIndex:1]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*6, 1024, kEachLineHight);
+    myString=[NSString stringWithFormat:@"Tests: %@",[[ch setReviewbaseFields:entry_no ]objectAtIndex:2]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*7, 600, kEachLineHight);
+    myString=@"Category";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor]}];
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    myString=@"Score";
+    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*7, 600, kEachLineHight);
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor]}];
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*8, 600, kEachLineHight);
+    myString=@"Mobility";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:2];
+    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*8, 600, kEachLineHight);
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*9, 600, kEachLineHight);
+    myString=@"Activity";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:5];
+    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*9, 600, kEachLineHight);
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*10, 600, kEachLineHight);
+    myString=@"Sensory Perception";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:8];
+    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*10, 600, kEachLineHight);
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*11, 600, kEachLineHight);
+    myString=@"Moisture";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:11];
+    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*11, 600, kEachLineHight);
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*12, 600, kEachLineHight);
+    myString=@"Friction and Shear";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:14];
+    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*12, 600, kEachLineHight);
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*13, 600, kEachLineHight);
+    myString=@"Nutrition";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:17];
+    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*13, 600, kEachLineHight);
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*14, 600, kEachLineHight);
+    myString=@"Tissue Perfusion & Oxygenation";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:20];
+    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*14, 600, kEachLineHight);
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace*4.5,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*15, 600, kEachLineHight);
+    myString=[NSString stringWithFormat:@"Patient's Braden Score: %@",[[ch setReviewassessFields:entry_no ]objectAtIndex:21]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor]}];
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:25];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*16, 600, kEachLineHight);
+    myString=@"Education ";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]}];
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*17, 1024, kEachLineHight*3);
+    myString=[NSString stringWithFormat:@"Discussed: %@",[[ch setEducationFields:entry_no ]objectAtIndex:0]];
+    
+    
+    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [style setLineBreakMode:NSLineBreakByWordWrapping];
+    
+    
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    
+    
+}
+
+-(void)generatePDF:(NSString *)filepath{
+    
+    UIGraphicsBeginPDFContextToFile(filepath, CGRectZero, nil);
+    CGRect rect = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = rect.size;
+    UIGraphicsBeginPDFPageWithInfo(CGRectMake(0,0,screenSize.width,1500), nil);
+    
+    [self drawText];
+    UIGraphicsEndPDFContext();
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"Would you like to view the generated PDF?"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Review"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Submit", nil] ;
+    [actionSheet showInView:self.view];
+    
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        
+        CGRect rect = [[UIScreen mainScreen] bounds];
+        CGSize screenSize = rect.size;
+        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,screenSize.width,screenSize.height)];
+        
+        
+        NSURL *targetURL = [NSURL fileURLWithPath:filePath];
+        NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
+        [webView loadRequest:request];
+        
+        [self.view addSubview:webView];
+            //[self createPDFfromUIView:webView];
     }
 }
 
