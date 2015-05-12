@@ -18,6 +18,7 @@
     CGSize pageSize;
     NSString *filePath;
     UIWebView *webView;
+    CGFloat pdfyPos;
 }
 - (IBAction)buttonClciked:(id)sender;
 
@@ -600,173 +601,374 @@ OstomyViewController *ostomy;
      [ch setPainFields:entry_no];
     
     
+    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [style setLineBreakMode:NSLineBreakByWordWrapping];
+    
+
+    
+    pdfyPos = kEachLineHight+kInterLineSpace;
+    
     UIFont *font=[UIFont fontWithName:@"Helvetica" size:30];
-        //CGRect textRect=CGRectMake(250,10, 300, 100);
-    CGRect textRect=CGRectMake(kInitialSpace*9,kInterLineSpace+kEachLineHight, 350, kEachLineHight);
+    CGRect textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
     NSString *myString=@"WoundCareApp";
     [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor]}];
     
+    font=[UIFont fontWithName:@"Helvetica" size:25];
+   CGFloat textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
     
-    
-     font=[UIFont fontWithName:@"Helvetica" size:25];
-    textRect=CGRectMake(kInitialSpace, kInterLineSpace*2+kEachLineHight*2, 350, kEachLineHight);
+    textRect=CGRectMake(kInitialSpace, pdfyPos, 350, kEachLineHight);
      myString=@"Pain";
     [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]}];
     
     
     
     font=[UIFont fontWithName:@"Helvetica" size:20];
+     textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
     
-    textRect=CGRectMake(kInitialSpace, kInterLineSpace*2+kEachLineHight*2+kEachLineHight, 350,kEachLineHight);
+    textRect=CGRectMake(kInitialSpace,pdfyPos , 924,kEachLineHight);
     myString=[NSString stringWithFormat:@"Score: %@",[[ch setPainFields:entry_no ]objectAtIndex:1]];
     [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
     
+    
+    
     font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*2, 1024, kEachLineHight);
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
     myString=[NSString stringWithFormat:@"Character: %@",[[ch setPainFields:entry_no ]objectAtIndex:0]];
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
     
     
     font=[UIFont fontWithName:@"Helvetica" size:25];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*3, 600, kEachLineHight);
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace, pdfyPos, 924, kEachLineHight);
     myString=@"Review Of Systems";
     [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]}];
     
     
     font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*4, 1024, kEachLineHight);
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
     myString=[NSString stringWithFormat:@"Risk Factor: %@",[[ch setReviewbaseFields:entry_no ]objectAtIndex:0]];
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
     
     font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*5, 1024, kEachLineHight);
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
     myString=[NSString stringWithFormat:@"Consult: %@",[[ch setReviewbaseFields:entry_no ]objectAtIndex:1]];
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
     font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*6, 1024, kEachLineHight);
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
     myString=[NSString stringWithFormat:@"Tests: %@",[[ch setReviewbaseFields:entry_no ]objectAtIndex:2]];
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
     font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*7, 600, kEachLineHight);
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
     myString=@"Category";
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor],NSParagraphStyleAttributeName:style}];
     
-    
-    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
     myString=@"Score";
-    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*7, 600, kEachLineHight);
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor],NSParagraphStyleAttributeName:style}];
+    
     
     
     font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*8, 600, kEachLineHight);
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
     myString=@"Mobility";
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
     myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:2];
-    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*8, 600, kEachLineHight);
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
     
     
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*9, 600, kEachLineHight);
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
     myString=@"Activity";
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
     myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:5];
-    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*9, 600, kEachLineHight);
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*10, 600, kEachLineHight);
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
     myString=@"Sensory Perception";
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
     myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:8];
-    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*10, 600, kEachLineHight);
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+
 
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*11, 600, kEachLineHight);
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
     myString=@"Moisture";
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
     myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:11];
-    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*11, 600, kEachLineHight);
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
     
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*12, 600, kEachLineHight);
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
     myString=@"Friction and Shear";
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
     myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:14];
-    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*12, 600, kEachLineHight);
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*13, 600, kEachLineHight);
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
     myString=@"Nutrition";
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
     myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:17];
-    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*13, 600, kEachLineHight);
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
 
     
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*14, 600, kEachLineHight);
-    myString=@"Tissue Perfusion & Oxygenation";
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=@"Tissue Perfusion and Oxygenation";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
     myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:20];
-    textRect=CGRectMake(kInitialSpace*9,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*14, 600, kEachLineHight);
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
-
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
-    font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace*4.5,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*15, 600, kEachLineHight);
-    myString=[NSString stringWithFormat:@"Patient's Braden Score: %@",[[ch setReviewassessFields:entry_no ]objectAtIndex:21]];
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor]}];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
     
+    textRect=CGRectMake(kInitialSpace*4.5,pdfyPos, 924, kEachLineHight);
+    myString=@"Patient's Braden Score";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor],NSParagraphStyleAttributeName:style}];
     
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
+    myString=[[ch setReviewassessFields:entry_no ]objectAtIndex:21];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor],NSParagraphStyleAttributeName:style}];
     
     font=[UIFont fontWithName:@"Helvetica" size:25];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*16, 600, kEachLineHight);
-    myString=@"Education ";
-    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]}];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
     
-    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=@"Education";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor],NSParagraphStyleAttributeName:style}];
+
+
     font=[UIFont fontWithName:@"Helvetica" size:20];
-    textRect=CGRectMake(kInitialSpace,kInterLineSpace*2+kEachLineHight*2+kEachLineHight*17, 1024, kEachLineHight*3);
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
     myString=[NSString stringWithFormat:@"Discussed: %@",[[ch setEducationFields:entry_no ]objectAtIndex:0]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    if ([[[ch setEducationFields:entry_no ]objectAtIndex:0] containsString:@"Other"]) {
+        
+        textHeight= [self calculateHeight:myString withfont:font].height;
+        pdfyPos += textHeight+20;
+        
+        
+        textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+        myString=[NSString stringWithFormat:@"Other Value: %@",[[ch setEducationFields:entry_no ]objectAtIndex:8]];
+        [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    }
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
     
     
-    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    [style setLineBreakMode:NSLineBreakByWordWrapping];
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=[NSString stringWithFormat:@"Method Used: %@",[[ch setEducationFields:entry_no ]objectAtIndex:1]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+
+    
+    if ([[[ch setEducationFields:entry_no ]objectAtIndex:1] containsString:@"Other health care provider"]) {
+        
+        textHeight= [self calculateHeight:myString withfont:font].height;
+        pdfyPos += textHeight+20;
+        
+        
+        textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+        myString=[NSString stringWithFormat:@"Other Health Care Provider: %@",[[ch setEducationFields:entry_no ]objectAtIndex:9]];
+        [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    }
     
     
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=[NSString stringWithFormat:@"Handout: %@",[[ch setEducationFields:entry_no ]objectAtIndex:2]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    if ([[[ch setEducationFields:entry_no ]objectAtIndex:2] containsString:@"Other"]) {
+        
+        textHeight= [self calculateHeight:myString withfont:font].height;
+        pdfyPos += textHeight+20;
+        
+        
+        textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+        myString=[NSString stringWithFormat:@"Other Value: %@",[[ch setEducationFields:entry_no ]objectAtIndex:10]];
+        [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    }
+    
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+ 
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=[NSString stringWithFormat:@"person Taught: %@",[[ch setEducationFields:entry_no ]objectAtIndex:3]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    if ([[[ch setEducationFields:entry_no ]objectAtIndex:3] containsString:@"Other"]) {
+        
+        textHeight= [self calculateHeight:myString withfont:font].height;
+        pdfyPos += textHeight+20;
+        
+        
+        textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+        myString=[NSString stringWithFormat:@"Other Value: %@",[[ch setEducationFields:entry_no ]objectAtIndex:11]];
+        [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    }
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=[NSString stringWithFormat:@"Comprehension: %@",[[ch setEducationFields:entry_no ]objectAtIndex:4]];
     [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
     
     
     
     
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=[NSString stringWithFormat:@"Teaching Assessment: %@",[[ch setEducationFields:entry_no ]objectAtIndex:5]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    if ([[[ch setEducationFields:entry_no ]objectAtIndex:5] containsString:@"Other"]) {
+        
+        textHeight= [self calculateHeight:myString withfont:font].height;
+        pdfyPos += textHeight+20;
+        
+        
+        textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+        myString=[NSString stringWithFormat:@"Other Value: %@",[[ch setEducationFields:entry_no ]objectAtIndex:13]];
+        [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    }
+
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=[NSString stringWithFormat:@"Teaching Assessment: %@",[[ch setEducationFields:entry_no ]objectAtIndex:5]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    if ([[[ch setEducationFields:entry_no ]objectAtIndex:5] containsString:@"Other"]) {
+        
+        textHeight= [self calculateHeight:myString withfont:font].height;
+        pdfyPos += textHeight+20;
+        
+        
+        textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+        myString=[NSString stringWithFormat:@"Other Value: %@",[[ch setEducationFields:entry_no ]objectAtIndex:13]];
+        [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    }
+    
+
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=[NSString stringWithFormat:@"Time Spent Teaching: %@",[[ch setEducationFields:entry_no ]objectAtIndex:6]];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    
 }
+
+
+
+-(CGSize)calculateHeight:(NSString *)string  withfont:(UIFont *)font
+{
+    
+    
+    
+    CGRect text = [string boundingRectWithSize:CGSizeMake(924, kEachLineHight)
+                                         options:NSStringDrawingUsesLineFragmentOrigin
+                                      attributes:@{NSFontAttributeName:font}
+                                         context:nil];
+    
+    return   text.size;
+
+    
+}
+
 
 -(void)generatePDF:(NSString *)filepath{
     

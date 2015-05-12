@@ -59,7 +59,7 @@ NSArray *painarr;
 {
     
     
-    NSString *selectedData=[data componentsJoinedByString:@","];
+    NSString *selectedData=[data componentsJoinedByString:@", "];
     if ([data count]==0) {
         [self.characterButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
 

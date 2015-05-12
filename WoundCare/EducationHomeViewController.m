@@ -128,6 +128,9 @@ NSArray *eduarr;
 -(void)getDiscussedData:(NSArray *)data
 {
     NSString *selectedData=[data componentsJoinedByString:@","];
+    NSLog(@"%@",selectedData);
+    
+    
     BOOL isTheObjectThere = [selectedData containsString:@"Other"];
     if(isTheObjectThere )
     {
