@@ -40,6 +40,21 @@
     
 }
 
+- (IBAction)lgout2:(UIButton *)sender {
+    
+    
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main"
+                                
+                                                         bundle:nil];
+    ViewController *add =
+    
+    [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+    [self presentViewController:add
+     
+                       animated:YES
+     
+                     completion:nil];
+}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
