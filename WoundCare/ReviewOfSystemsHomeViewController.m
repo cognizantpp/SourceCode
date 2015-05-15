@@ -154,7 +154,7 @@ NSArray *reviewassessarray;
 
 -(void)getRiskFactorData:(NSArray *)data
 {
-    NSString *selectedData=[data componentsJoinedByString:@", "];
+    NSString *selectedData=[data componentsJoinedByString:@","];
     
     NSLog(@"$%@",selectedData);
     BOOL isTheObjectThere = [selectedData containsString:@"Other"];
@@ -198,7 +198,7 @@ NSArray *reviewassessarray;
 
 -(void)getConsultsData:(NSArray *)data
 {
-    NSString *selectedData=[data componentsJoinedByString:@", "];
+    NSString *selectedData=[data componentsJoinedByString:@","];
     BOOL isTheObjectThere = [selectedData containsString:@"Other"];
     if(isTheObjectThere )
     {
@@ -236,7 +236,7 @@ NSArray *reviewassessarray;
 {
     
     
-    NSString *selectedData=[data componentsJoinedByString:@", "];
+    NSString *selectedData=[data componentsJoinedByString:@","];
     BOOL isTheObjectThere = [selectedData containsString:@"Other"];
     if(isTheObjectThere )
     {

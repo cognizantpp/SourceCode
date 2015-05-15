@@ -132,10 +132,10 @@
 
 
 -(void)savePain:(NSString *)entryNo ;
--(NSArray *)setPainFields:(NSString *)entryNo;
+-(NSMutableArray *)setPainFields:(NSString *)entryNo;
 
 -(void)saveEducation:(NSString *)entryNo ;
--(NSArray *)setEducationFields:(NSString *)entryNo ;
+-(NSMutableArray *)setEducationFields:(NSString *)entryNo ;
 
 -(void)saveTreatment:(NSString *)entryNo ;
 -(NSArray *)setTreatmentFields:(NSString *)entryNo ;
@@ -144,9 +144,9 @@
 -(NSArray *)setRecommendationFields:(NSString *)entryNo ;
 
 -(void)saveReviewbase:(NSString *)entryNo;
--(NSArray *)setReviewbaseFields:(NSString *)entryNo;
+-(NSMutableArray *)setReviewbaseFields:(NSString *)entryNo;
 -(void)saveReviewAssess:(NSString *)entryNo;
--(NSArray *)setReviewassessFields:(NSString *)entryNo;
+-(NSMutableArray *)setReviewassessFields:(NSString *)entryNo;
 
 -(void)saveOstomy:(NSString *)entryNo;
 -(NSArray *)setOstomyFields:(NSString *)entryNo;

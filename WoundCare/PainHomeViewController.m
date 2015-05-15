@@ -36,7 +36,7 @@ NSArray *painarr;
     if(painarr.count>0){
     [self.characterButtonOutlet setTitle:[painarr objectAtIndex:0] forState:UIControlStateNormal];
         NSString *scoreValue = [painarr objectAtIndex:1];
-        if([scoreValue integerValue] != nil){
+        if([scoreValue integerValue] >0 && scoreValue != nil){
             [self.scoreButtonOutlet setTitle:[painarr objectAtIndex:1] forState:UIControlStateNormal];
 
                     }

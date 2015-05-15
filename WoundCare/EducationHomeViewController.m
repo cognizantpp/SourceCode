@@ -140,7 +140,7 @@ NSArray *eduarr;
         if (_discussedCount>1) {
             self.discussedOtherTextField.text=@"";
         }
-        
+    
     }
     else
     {

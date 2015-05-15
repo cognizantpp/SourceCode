@@ -616,7 +616,7 @@
     [self fetchPainSaved];
     
 }
--(NSArray *)setPainFields:(NSString *)entryNo {
+-(NSMutableArray *)setPainFields:(NSString *)entryNo {
     NSMutableArray *painArr=[[NSMutableArray alloc]init];;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"PainSave" inManagedObjectContext:self.managedObjectContext];
@@ -705,7 +705,7 @@
     
 }
 
--(NSArray *)setReviewbaseFields:(NSString *)entryNo {
+-(NSMutableArray *)setReviewbaseFields:(NSString *)entryNo {
     NSMutableArray *reviewArr=[[NSMutableArray alloc]init];
     //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
     
@@ -803,7 +803,7 @@
     
 }
 
--(NSArray *)setReviewassessFields:(NSString *)entryNo {
+-(NSMutableArray *)setReviewassessFields:(NSString *)entryNo {
     NSMutableArray *reviewArr=[[NSMutableArray alloc]init];
     //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
     
@@ -904,7 +904,7 @@
     
 }
 
--(NSArray *)setEducationFields:(NSString *)entryNo {
+-(NSMutableArray *)setEducationFields:(NSString *)entryNo {
     NSMutableArray *eduArr=[[NSMutableArray alloc]init];
     //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
     

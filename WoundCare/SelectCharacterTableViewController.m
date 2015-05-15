@@ -88,11 +88,18 @@
 
     cell.textLabel.text=[self.characterArray objectAtIndex:indexPath.row];
     
-    if ([self.itemsToBePassed indexOfObject:cell.textLabel.text] != NSNotFound) {
+    NSString *arrString=[NSString stringWithFormat:@"%@",self.itemsToBePassed];
+    
+    
+    
+    
+    if ([arrString containsString:cell.textLabel.text]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }else{
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
+    
+    
     NSArray *fetchedArr = [[[CoreDataHelper sharedInstance].painselected_value objectAtIndex:0] componentsSeparatedByString:@","];
     NSLog(@"fetched count %lu", (unsigned long)[fetchedArr count]);
     for(int i=0; i<[fetchedArr count];i++){
