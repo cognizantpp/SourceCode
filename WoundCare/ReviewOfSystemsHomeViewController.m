@@ -155,6 +155,8 @@ NSArray *reviewassessarray;
 -(void)getRiskFactorData:(NSArray *)data
 {
     NSString *selectedData=[data componentsJoinedByString:@","];
+    
+    NSLog(@"$%@",selectedData);
     BOOL isTheObjectThere = [selectedData containsString:@"Other"];
     
        if(isTheObjectThere )

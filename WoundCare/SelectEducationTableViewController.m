@@ -17,17 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+        // Uncomment the following line to preserve selection between presentations.
+        // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    
+    
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
     self.tableView.allowsMultipleSelection = YES;
     
     
     
-    
-    //self.discussedArray = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Other", nil];
     
     _itemsToBePassed=[[NSMutableArray alloc]init];
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -47,10 +48,11 @@
     [button addTarget:self action:@selector(footerTapped) forControlEvents:UIControlEventTouchUpInside];
     
     [_footerView addSubview:button];
-
+    
 }
 -(void)viewDidAppear:(BOOL)animated
 {
+    
     if (_itemsToBePassed) {
         [_itemsToBePassed removeAllObjects];
     }
@@ -60,14 +62,9 @@
     self.itemsToBePassed=self.array;
     
     [self.tableView reloadData];
-
+    
+    
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -82,9 +79,12 @@
     return 1;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"Education";
+    
+    
+    
+    
+    static NSString *simpleTableIdentifier = @"Treatment";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     
@@ -93,7 +93,7 @@
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
-       cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup.png"]];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"popup.png"]];
     
     
     cell.textLabel.text=[self.selectedArray objectAtIndex:indexPath.row];
@@ -107,8 +107,10 @@
     
     return cell;
     
-
+    
 }
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
@@ -125,10 +127,11 @@
         [_itemsToBePassed removeObject:[self.selectedArray objectAtIndex:indexPath.row]];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
+        //    [self.tableView reloadData];
     
     
 }
+
 - (void)footerTapped {
     
     if([_selectedString isEqualToString:@"Discussed"])

@@ -21,6 +21,6 @@ GastrostomyViewController *GVC;
 @property(nonatomic,strong)NSString *selectedString;
 //@property(nonatomic,strong)GastrostomyViewController *GVC;
 //@property(nonatomic,strong)OstomyViewController *OVC;
-@property(nonatomic,strong)WoundViewHomeViewController *WVC;
+//@property(nonatomic,strong)WoundViewHomeViewController *WVC;
 
 @end

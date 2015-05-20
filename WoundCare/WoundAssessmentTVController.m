@@ -12,6 +12,7 @@
 
 @end
 NSMutableArray *selectedArray;
+NSArray *woundArray;
 int count=0;
 NSString *str=@"Wound";
 @implementation WoundAssessmentTVController
@@ -25,9 +26,11 @@ NSString *str=@"Wound";
     selectedArray=[[NSMutableArray alloc]init];
        NSLog(@"%@",[CoreDataHelper sharedInstance].woundNumber);
     
-    for(int i=0;i<[CoreDataHelper sharedInstance].woundNumber.count;i++)
+    woundArray=[[CoreDataHelper sharedInstance] setWoundTable:entry_no];
+    count=0;
+    for(int i=0;i<woundArray.count;i++)
     {
-        if([[CoreDataHelper sharedInstance].woundNumber[i] containsString:@"w"]){
+        if([woundArray[i] containsString:@"w"]){
             count++;
              NSString *str1=[NSString stringWithFormat:@"%d",count];
              NSString *res=[NSString stringWithFormat:@"%@ %@",str,str1];
@@ -35,10 +38,10 @@ NSString *str=@"Wound";
             [selectedArray addObject:res];
             
         }
-        if([[CoreDataHelper sharedInstance].woundNumber[i] containsString:@"g"]){
+        if([woundArray[i] containsString:@"g"]){
              [selectedArray addObject:@"Gastrostomy"];
         }
-        if([[CoreDataHelper sharedInstance].woundNumber[i] containsString:@"o"]){
+        if([woundArray[i] containsString:@"o"]){
             [selectedArray addObject:@"Ostomy"];
         }
 

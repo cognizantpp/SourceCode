@@ -92,9 +92,9 @@
         //NSLog(@"hey.......");
         [self dismissViewControllerAnimated:NO completion:nil];
 
-        _WVC=[self.storyboard instantiateViewControllerWithIdentifier:@"woundreason"];
-        [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:_WVC.view];
-        [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:_WVC];
+        WVC=[self.storyboard instantiateViewControllerWithIdentifier:@"woundreason"];
+        [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:WVC.view];
+        [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:WVC];
 
        // [assessmentGlobal addChildViewController:_WVC];
        // [assessmentGlobal.childViewControllers[0] removeFromSuperview];

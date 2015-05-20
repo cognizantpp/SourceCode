@@ -30,6 +30,8 @@
 #import "ReviewAssessmentSave.h"
 #import "GastrostomySave.h"
 #import "WoundReason.h"
+#import "WoundReasonSave.h"
+#import "WoundSelection.h"
 
 //@class WouldyouliketousecameraVC;
 @interface CoreDataHelper : NSObject
@@ -40,7 +42,13 @@
 @property (nonatomic)BOOL isDeletePhotoClicked; // added to stop saving again
 @property(weak,nonatomic)UIView *assessmentGlobalView;
 @property(weak,nonatomic)UIViewController *assessmentglobalviewcontroller;
-
+@property(weak,nonatomic)NSString *unit1;
+@property(weak,nonatomic)NSString *unit2;
+@property(weak,nonatomic)NSString *unit3;
+@property(weak,nonatomic)NSString *unit4;
+@property(weak,nonatomic)NSString *unit5;
+@property(weak,nonatomic)NSString *unit6;
+@property(weak,nonatomic)NSString *unit7;
 +(instancetype)sharedInstance;
 @property(strong,nonatomic)NSManagedObjectContext *managedObjectContext;
 @property(strong,nonatomic)NSString *gblstaffName,*gblstaffId;
@@ -132,10 +140,10 @@
 
 
 -(void)savePain:(NSString *)entryNo ;
--(NSArray *)setPainFields:(NSString *)entryNo;
+-(NSMutableArray *)setPainFields:(NSString *)entryNo;
 
 -(void)saveEducation:(NSString *)entryNo ;
--(NSArray *)setEducationFields:(NSString *)entryNo ;
+-(NSMutableArray *)setEducationFields:(NSString *)entryNo ;
 
 -(void)saveTreatment:(NSString *)entryNo ;
 -(NSArray *)setTreatmentFields:(NSString *)entryNo ;
@@ -144,9 +152,9 @@
 -(NSArray *)setRecommendationFields:(NSString *)entryNo ;
 
 -(void)saveReviewbase:(NSString *)entryNo;
--(NSArray *)setReviewbaseFields:(NSString *)entryNo;
+-(NSMutableArray *)setReviewbaseFields:(NSString *)entryNo;
 -(void)saveReviewAssess:(NSString *)entryNo;
--(NSArray *)setReviewassessFields:(NSString *)entryNo;
+-(NSMutableArray *)setReviewassessFields:(NSString *)entryNo;
 
 -(void)saveOstomy:(NSString *)entryNo;
 -(NSArray *)setOstomyFields:(NSString *)entryNo;
@@ -157,6 +165,7 @@
 //GastrostomyReason
 
 @property(strong,nonatomic)NSArray *gastrostomycategoryid;
+
 @property(strong,nonatomic)NSArray *gastrostomycategory_name;
 @property(strong,nonatomic)NSArray *gastrostomyselected_value;
 @property(strong,nonatomic)NSArray *gastrostomyOthervalues;

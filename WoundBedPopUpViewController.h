@@ -17,4 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnEschar;
 @property (weak, nonatomic) IBOutlet UIButton *btnSlough;
 @property (nonatomic, strong)id<GetDataProtocol> delegate;
+
+
+
+
 @end

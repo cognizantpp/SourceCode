@@ -36,8 +36,13 @@ NSArray *painarr;
     if(painarr.count>0){
     [self.characterButtonOutlet setTitle:[painarr objectAtIndex:0] forState:UIControlStateNormal];
         NSString *scoreValue = [painarr objectAtIndex:1];
-        if([scoreValue intValue] >= 0){
+        if([scoreValue integerValue] >0 && scoreValue != nil){
             [self.scoreButtonOutlet setTitle:[painarr objectAtIndex:1] forState:UIControlStateNormal];
+
+                    }
+        else{
+             [self.scoreButtonOutlet setTitle:@"" forState:UIControlStateNormal];
+            
         }
     }
     _selectCharacterViewController=[[SelectCharacterTableViewController alloc]init];
@@ -54,7 +59,7 @@ NSArray *painarr;
 {
     
     
-    NSString *selectedData=[data componentsJoinedByString:@","];
+    NSString *selectedData=[data componentsJoinedByString:@", "];
     if ([data count]==0) {
         [self.characterButtonOutlet setTitle:@"Select" forState:UIControlStateNormal];
 

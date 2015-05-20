@@ -182,7 +182,7 @@ NSArray *gastroarr;
     
     
     //fetch
- //CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+ CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
 //    self.GastrostomySiteArray1=[cdh setGastroFields:@"0"];
 //    self.GastrostomyTubeTypeArray1= [cdh setGastroFields:@"1"];
 //    self.AtypicalArray1= [cdh setGastroFields:@"2"];
@@ -200,7 +200,7 @@ NSArray *gastroarr;
 //    self.OnsetArray1= [cdh setGastroFields:@"14"];
 //    self.CommentsArray1= [cdh setGastroFields:@"15"];
 //    
-   // gastroarr=[cdh setGastroFields:entry_no];
+    gastroarr=[cdh setGastroFields:entry_no];
     NSLog(@"gastro array is...%@",gastroarr);
     if(gastroarr.count>0){
         [self.GastrostomySiteOutlet setTitle:[gastroarr objectAtIndex:0] forState:UIControlStateNormal];
@@ -1158,7 +1158,7 @@ NSArray *gastroarr;
     {
         p= self.scrollView.contentOffset;
         
-        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 700)];
+        [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, 800)];
         
     }
     

@@ -616,7 +616,7 @@
     [self fetchPainSaved];
     
 }
--(NSArray *)setPainFields:(NSString *)entryNo {
+-(NSMutableArray *)setPainFields:(NSString *)entryNo {
     NSMutableArray *painArr=[[NSMutableArray alloc]init];;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"PainSave" inManagedObjectContext:self.managedObjectContext];
@@ -705,7 +705,7 @@
     
 }
 
--(NSArray *)setReviewbaseFields:(NSString *)entryNo {
+-(NSMutableArray *)setReviewbaseFields:(NSString *)entryNo {
     NSMutableArray *reviewArr=[[NSMutableArray alloc]init];
     //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
     
@@ -803,7 +803,7 @@
     
 }
 
--(NSArray *)setReviewassessFields:(NSString *)entryNo {
+-(NSMutableArray *)setReviewassessFields:(NSString *)entryNo {
     NSMutableArray *reviewArr=[[NSMutableArray alloc]init];
     //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
     
@@ -904,7 +904,7 @@
     
 }
 
--(NSArray *)setEducationFields:(NSString *)entryNo {
+-(NSMutableArray *)setEducationFields:(NSString *)entryNo {
     NSMutableArray *eduArr=[[NSMutableArray alloc]init];
     //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
     
@@ -1621,6 +1621,18 @@
     [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
     NSError *error = nil;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+//    if (fetchedObjects == nil) {
+//        NSLog(@"There was an error in fetching");
+//    }else{
+//        
+//        for (WoundSelection *wounds in fetchedObjects) {
+//            matches = wounds;
+//            [self.managedObjectContext deleteObject:matches];
+//            [self saveContext];
+//        }
+//    }
+    
+    
     if (fetchedObjects != nil && [fetchedObjects count]>0) {
         for (WoundSelection *wounds in fetchedObjects) {
             [self.woundCoordinates addObject:wounds.wound_coordinates];
@@ -1750,6 +1762,137 @@
     }
     
 }
+-(NSArray *)setWoundTable:(NSString *)entryNo {
+    NSMutableArray *woundarr=[[NSMutableArray alloc]init];
+    //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WoundSelection" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    //    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+    //                                                                   ascending:YES];
+    //    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (WoundSelection *thewound in fetchedObjects) {
+            [woundarr addObject:thewound.wound_number];
+        }
+        
+        
+    }
+    // NSLog(@"%@",eduArr);
+    return woundarr;
+}
+
+//woundreason
+
+-(void)saveWoundReason:(NSString *)entryNo andCategoryid:(NSArray *)category_id andCategoryname:(NSArray *)Category_name andSelectedvalue:(NSArray *)Selected_value andOther:(NSArray *)other{
+    
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WoundReasonSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSManagedObject *matches = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (WoundReasonSave *theWnd in fetchedObjects) {
+            matches = theWnd;
+            [self.managedObjectContext deleteObject:matches];
+            [self saveContext];
+        }
+    }
+    for (int i=0;i<category_id.count;i++) {
+        NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"WoundReasonSave" inManagedObjectContext:self.managedObjectContext];
+        [insertObject setValue:entryNo forKey:@"entry_number"];
+        [insertObject setValue:category_id[i] forKey:@"category_id"];
+        [insertObject setValue:Category_name[i] forKey:@"category_name"];
+        [insertObject setValue:Selected_value[i] forKey:@"selected_value"];
+        [insertObject setValue:other[i] forKey:@"other_value"];
+        [self saveContext];
+        
+    }
+    
+    [self fetchWoundReasonSaved];
+    
+}
+-( void)fetchWoundReasonSaved{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WoundReasonSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+                                                                   ascending:YES];
+    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (WoundReasonSave *theWnd in fetchedObjects) {
+            
+            NSLog(@"category ID: %@ Name: %@ entry_no:%@ selected_value:%@ other:%@",theWnd.category_id,theWnd.category_name,theWnd.entry_number,theWnd.selected_value,theWnd.other_value);
+        }
+    }
+}
+
+-(NSArray *)setWoundReasonFields:(NSString *)entryNo {
+    NSMutableArray *woundArr=[[NSMutableArray alloc]init];
+    //NSMutableArray *eduotherArr=[[NSMutableArray alloc]init];
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"WoundReasonSave" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",entryNo];
+    [fetchRequest setPredicate:predicate];
+    
+    
+    //    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"category_id"
+    //                                                                   ascending:YES];
+    //    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"There was an error in fetching");
+    }else{
+        
+        for (WoundReasonSave *theWound in fetchedObjects) {
+            [woundArr addObject:theWound.selected_value];
+        }
+        for (WoundReasonSave *theWound in fetchedObjects) {
+            [woundArr addObject:theWound.other_value];
+        }
+        
+    }
+    // NSLog(@"%@",eduArr);
+    return woundArr;
+}
+
+
+
 
 
 

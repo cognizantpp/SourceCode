@@ -13,7 +13,7 @@
 #import "SingleSelectionTableViewController.h"
 #import "CoreDataHelper.h"
 #import "SelectDatePickerViewController.h"
-
+#import "WoundBedPopUpViewController.h"
 @interface WoundViewHomeViewController : UIViewController<GetDataProtocol,UIScrollViewDelegate,UITextFieldDelegate,UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *onsetButtonOutlet;
@@ -49,9 +49,19 @@
 @property(nonatomic,strong)SelectDatePickerViewController *selectDateViewController;
 
 
+@property (weak, nonatomic) IBOutlet UIButton *btnLength;
+@property (weak, nonatomic) IBOutlet UIButton *btnWidth;
+@property (weak, nonatomic) IBOutlet UIButton *btnDepth;
+@property (weak, nonatomic) IBOutlet UIButton *btnUnderminingcm;
+@property (weak, nonatomic) IBOutlet UIButton *btnUnderminingClock;
+@property (weak, nonatomic) IBOutlet UIButton *btnTunnelingcm;
+@property (weak, nonatomic) IBOutlet UIButton *btnTunnelingClock;
+@property (weak, nonatomic) IBOutlet UIButton *btnWoundBedCharacter;
+
+@property (strong, nonatomic) IBOutlet UIButton *unit7mm;
 
 
-
+@property (strong, nonatomic) IBOutlet UIButton *unit7cm;
 
 - (IBAction)multipleSelectButtonAction:(UIButton *)sender;
 - (IBAction)singleSelectButtonAction:(UIButton *)sender;

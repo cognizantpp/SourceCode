@@ -9,10 +9,19 @@
 #import "AssessmentViewController.h"
 #import "PictureViewController.h"
 #import "WoundImageViewController.h"
-
+#define kInitialSpace 50
+#define kEachLineHight 50
+#define kInterLineSpace 10
 @interface AssessmentViewController (){
     
     UIStoryboard *storybrd;
+    CGSize pageSize;
+    NSString *filePath;
+    UIWebView *webView;
+    CGFloat pdfyPos;
+    
+    NSArray *returnedArray;
+    NSMutableString *returnedString;
 }
 - (IBAction)buttonClciked:(id)sender;
 
@@ -53,7 +62,8 @@ OstomyViewController *ostomy;
     _btnclickobj=[CoreDataHelper sharedInstance];
     
     
-    
+        //    returnedArray=[[NSMutableArray alloc]init];
+    returnedString=[NSMutableString new];
     
     NSString *pName = [[[[[[[patientsDetails valueForKey:@"patient_name"]objectAtIndex:selectedPatientIndex] stringByAppendingString:@", DOB : "] stringByAppendingString:[[patientsDetails valueForKey:@"dob"]objectAtIndex:selectedPatientIndex] ] stringByAppendingString:@" ("] stringByAppendingString:[[patientsDetails valueForKey:@"age" ]objectAtIndex:selectedPatientIndex]] stringByAppendingString:@" Y)"];
     [self.btnCurrentPatient setTitle:pName forState:UIControlStateNormal];
@@ -207,6 +217,7 @@ OstomyViewController *ostomy;
             break;
         case 5:
         {
+            NSString *bradenselected_value;
             NSString *str;
             CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
             [self.recommendation setBackgroundImage:[UIImage imageNamed:@"icon_recommend.png"] forState:UIControlStateNormal];
@@ -219,7 +230,13 @@ OstomyViewController *ostomy;
             NSString *labeltypeselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.labelTypeObtained.text];
             NSString *deitricialselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.deiticianReferral.text];
             NSString *otherselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.OtherTextfield.text];
-            NSString *bradenselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.bradenQRiskCategory.text];
+            if([reviewOfSystemsHomeViewController.totalScoreTextField.text intValue]<=17){
+           bradenselected_value=@"High";
+            }
+            else{
+            bradenselected_value=@"Normal";
+            }
+
             NSString *followselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.followUpButtonOutlet.titleLabel.text];
             NSString *timespentselected_value=[NSString stringWithFormat:@"%@",recommendationHomeViewController.btnrecommendationNumberEntry.titleLabel.text];
             
@@ -346,6 +363,145 @@ OstomyViewController *ostomy;
         }
             break;
             
+        case 13:
+        {
+            // gastroVC=[self.storyboard instantiateViewControllerWithIdentifier:@"gastro"];
+            //[self.initialview addSubview:GastrostomyViewController.view];
+            // [self addChildViewController: GastrostomyViewController];
+            
+            
+            
+            //NSString *discussedselected_value=[NSString stringWithFormat:@"%@",educationHomeviewcontroller.discussedButtonOutlet.titleLabel.text];
+            
+            
+            
+            
+            CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+            
+            NSString *OtherId=[NSString stringWithFormat:@"%ld",(long)WVC.otherButtonOutlet.tag];
+            NSString *WoundThicknessId=[NSString stringWithFormat:@"%ld",(long)WVC.woundThicknessButtonOutlet.tag];
+            
+            NSString *WoundBedColorId=[NSString stringWithFormat:@"%ld",(long)WVC.woundBedColorButtonOutlet.tag];            NSString *WoundBedId=[NSString stringWithFormat:@"%ld",(long)WVC.woundBedButtonOutlet.tag];
+            NSString *WoundBedCharacterId=[NSString stringWithFormat:@"%ld",(long)WVC.btnWoundBedCharacter.tag];
+            NSString *PeriWoundId=[NSString stringWithFormat:@"%ld",(long)WVC.periWoundButtonOutlet.tag];            NSString *ExudateCharacterId=[NSString stringWithFormat:@"%ld",(long)WVC.exudateCharacterButtonOutlet.tag];
+            NSString *ExudateOdorId=[NSString stringWithFormat:@"%ld",(long)WVC.exudateOdorButtonOutlet.tag];
+            NSString *ExudateAmountId=[NSString stringWithFormat:@"%ld",(long)WVC.exudateAmountButtonOutlet.tag];
+            NSString *EdemaId=[NSString stringWithFormat:@"%ld",(long)WVC.edemaButtonOutlet.tag];
+            NSString *ConditionId=[NSString stringWithFormat:@"%ld",(long)WVC.conditionButtonOutlet.tag];
+            NSString *OtherWoundsId=[NSString stringWithFormat:@"%ld",(long)WVC.otherWoundsButtonOutlet.tag];
+            NSString *OnsetId=[NSString stringWithFormat:@"%ld",(long)WVC.onsetButtonOutlet.tag];
+            NSString *LengthId=[NSString stringWithFormat:@"%ld",(long)WVC.btnLength.tag];
+            NSString *WidthId=[NSString stringWithFormat:@"%ld",(long)WVC.btnWidth.tag];
+            NSString *DepthId=[NSString stringWithFormat:@"%ld",(long)WVC.btnDepth.tag];
+            NSString *UnderminingId=[NSString stringWithFormat:@"%ld",(long)WVC.btnUnderminingcm.tag];
+            NSString *UnderminingTimeId=[NSString stringWithFormat:@"%ld",(long)WVC.btnUnderminingClock.tag];
+            NSString *TunnelingId=[NSString stringWithFormat:@"%ld",(long)WVC.btnTunnelingcm.tag];
+            NSString *TunnelingTimeId=[NSString stringWithFormat:@"%ld",(long)WVC.btnTunnelingClock.tag];
+            //             NSString *ExudateAmountOtherId=[NSString stringWithFormat:@"%ld",(long)WVC.amountButtonOutlet.tag];
+            //             NSString *WoundBedColorOtherId=[NSString stringWithFormat:@"%ld",(long)WVC.woundBedColorOtherTextField.tag];
+            //             NSString *WoundBedOtherId=[NSString stringWithFormat:@"%ld",(long)WVC.woundBedOtherTextField.tag];
+            //             NSString *PeriWoundOtherId=[NSString stringWithFormat:@"%ld",(long)WVC.periwoundOtherTextField.tag];
+            //             NSString *ExudateCharacterOtherId=[NSString stringWithFormat:@"%ld",(long)WVC.exudateCharacterOtherTextField.tag];
+            //             NSString *ExudateOdorOtherId=[NSString stringWithFormat:@"%ld",(long)WVC.exudateOdorOtherTextField.tag];
+            NSString *NewBornId=[NSString stringWithFormat:@"%ld",(long)WVC.newbornTextFieldOutlet.tag];
+            NSString *PediatricId=[NSString stringWithFormat:@"%ld",(long)WVC.pediatricTextFieldOutlet.tag];
+            NSString *PhlebitisId=[NSString stringWithFormat:@"%ld",(long)WVC.phlebitisTextFieldOutlet.tag];
+            NSString *UlcerId=[NSString stringWithFormat:@"%ld",(long)WVC.ulcerTextFieldOutlet.tag];
+            NSString *AtypicalId=[NSString stringWithFormat:@"%ld",(long)WVC.atypicalTextViewOutlet.tag];
+            NSString *ComentsId=[NSString stringWithFormat:@"%ld",(long)WVC.commentsTextViewOutlet.tag];
+            
+            
+            [CoreDataHelper sharedInstance].woundreasoncategoryid=[NSArray arrayWithObjects:OtherId,WoundThicknessId,WoundBedColorId,WoundBedId,WoundBedCharacterId,PeriWoundId,ExudateCharacterId,ExudateOdorId,ExudateAmountId,EdemaId,ConditionId,OtherWoundsId,OnsetId,LengthId,WidthId,DepthId,UnderminingId,UnderminingTimeId,TunnelingId,TunnelingTimeId,NewBornId,PediatricId,PhlebitisId,UlcerId,AtypicalId,ComentsId,nil];
+            
+            
+            
+            [CoreDataHelper sharedInstance].woundreasoncategory_name=[NSArray arrayWithObjects:@"Other",@"Wound Thickness",@"Wound Bed Color",@"Wound Bed",@"Wound Bed Character",@"Peri Wound",@"Exudate Character",@"Exudate Odor",@"Exudate Amount",@"Edema",@"Condition",@"Other Wounds",@"Onset",@"Length",@"Width",@"Depth",@"Undermining",@"Undermining Time",@"Tunneling",@"Tunneling Time",@"Newborn",@"Pediatric",@"Phlebitis",@"Ulcer",@"Atypical",@"Comments",nil];
+            
+            
+            
+            
+            
+//            if([WVC.underminingCmButtonOutlet isSelected])
+//                unit2=@"cm";
+//            else
+//                unit2=@"mm";
+//            
+//            if([WVC.tunnelingCmbuttonOutlet isSelected])
+//                unit3=@"cm";
+//            else
+//                unit3=@"mm";
+//
+
+            
+            // CoreDataHelper *cdh=[CoreDataHelper sharedInstance];
+            NSString *OtherSelected_Value=[NSString stringWithFormat:@"%@",WVC.otherButtonOutlet.titleLabel.text];
+            NSString *WoundThicknessSelected_Value=[NSString stringWithFormat:@"%@",WVC.woundThicknessButtonOutlet.titleLabel.text];
+            NSString *WoundBedColorSelected_Value=[NSString stringWithFormat:@"%@",WVC.woundBedColorButtonOutlet.titleLabel.text];
+            NSString *WoundBedSelected_Value=[NSString stringWithFormat:@"%@",WVC.woundBedButtonOutlet.titleLabel.text];
+            
+            NSString *WoundBedCharacterSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnWoundBedCharacter.titleLabel.text];
+            NSString *PeriWoundSelected_Value=[NSString stringWithFormat:@"%@",WVC.periWoundButtonOutlet.titleLabel.text];
+            NSString *ExudateCharacterSelected_Value=[NSString stringWithFormat:@"%@",WVC.exudateCharacterButtonOutlet.titleLabel.text];
+            NSString *ExudateOdorSelected_Value=[NSString stringWithFormat:@"%@",WVC.exudateOdorButtonOutlet.titleLabel.text];
+            NSString *ExudateAmountSelected_Value=[NSString stringWithFormat:@"%@",WVC.exudateAmountButtonOutlet.titleLabel.text];
+            NSString *EdemaSelected_Value=[NSString stringWithFormat:@"%@",WVC.edemaButtonOutlet.titleLabel.text];
+            
+            NSString *ConditionSelected_Value=[NSString stringWithFormat:@"%@",WVC.conditionButtonOutlet.titleLabel.text];
+            NSString *OtherWoundsSelected_Value=[NSString stringWithFormat:@"%@",WVC.otherWoundsButtonOutlet.titleLabel.text];
+            NSString *OnsetSelected_Value=[NSString stringWithFormat:@"%@",WVC.onsetButtonOutlet.titleLabel.text];
+            NSString *LengthSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnLength.titleLabel.text];
+            NSString *WidthSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnWidth.titleLabel.text];
+            NSString *DepthSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnDepth.titleLabel.text];
+            NSString *UnderminingSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnUnderminingcm.titleLabel.text];
+            NSString *UnderminingTimeSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnUnderminingClock.titleLabel.text];
+            NSString *TunnelingSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnTunnelingcm.titleLabel.text];
+            NSString *TunnelingTimeSelected_Value=[NSString stringWithFormat:@"%@",WVC.btnTunnelingClock.titleLabel.text];
+            NSString *NewbornSelected_Value=[NSString stringWithFormat:@"%@",WVC.newbornTextFieldOutlet.text];
+            NSString *PediatricSelected_Value=[NSString stringWithFormat:@"%@",WVC.pediatricTextFieldOutlet.text];
+            NSString *PhlebitisSelected_Value=[NSString stringWithFormat:@"%@",WVC.phlebitisTextFieldOutlet.text];
+            NSString *UlcerSelected_Value=[NSString stringWithFormat:@"%@",WVC.ulcerTextFieldOutlet.text];
+            NSString *AtypicalSelected_Value=[NSString stringWithFormat:@"%@",WVC.atypicalTextViewOutlet.text];
+            NSString *CommentsSelected_Value=[NSString stringWithFormat:@"%@",WVC.commentsTextViewOutlet.text];
+            
+            
+            
+            NSString *ExudateAmountOtherSelected_value=[NSString stringWithFormat:@"%@",WVC.amountButtonOutlet.titleLabel.text];
+            NSString *WoundBedColorOtherSelected_Value=[NSString stringWithFormat:@"%@",WVC.woundBedColorOtherTextField.text];
+            NSString *WoundBedOtherSelected_Value=[NSString stringWithFormat:@"%@",WVC.woundBedOtherTextField.text];
+            NSString *PeriWoundOtherSelected_value=[NSString stringWithFormat:@"%@",WVC.periwoundOtherTextField.text];
+            NSString *ExudateCharacterOtherSelected_Value=[NSString stringWithFormat:@"%@",WVC.exudateCharacterOtherTextField.text];
+            NSString *ExudateOdorOtherSelected_Value=[NSString stringWithFormat:@"%@",WVC.exudateOdorOtherTextField .text];
+            
+            
+            
+            
+            
+            //
+            //            if([GVC.cmbtnoutlet isSelected])
+            //                unit=@"cm";
+            //            else
+            //                unit=@"mm";
+            //
+            
+            
+            [CoreDataHelper sharedInstance].woundreasonselected_value=[NSArray arrayWithObjects:OtherSelected_Value,WoundThicknessSelected_Value,WoundBedColorSelected_Value,WoundBedSelected_Value,WoundBedCharacterSelected_Value,PeriWoundSelected_Value,ExudateCharacterSelected_Value,ExudateOdorSelected_Value,ExudateAmountSelected_Value,EdemaSelected_Value,ConditionSelected_Value,OtherWoundsSelected_Value,OnsetSelected_Value,LengthSelected_Value,WidthSelected_Value,DepthSelected_Value,UnderminingSelected_Value,UnderminingTimeSelected_Value,TunnelingSelected_Value,TunnelingTimeSelected_Value,NewbornSelected_Value,PediatricSelected_Value,PhlebitisSelected_Value,UlcerSelected_Value,AtypicalSelected_Value,CommentsSelected_Value,nil];
+            
+            // NSLog(@"value= %@",GastrostomySiteSelected_Value);
+            
+            [CoreDataHelper sharedInstance].woundreasonOthervalues=[NSArray arrayWithObjects:[CoreDataHelper sharedInstance].unit1,[CoreDataHelper sharedInstance].unit2,WoundBedColorOtherSelected_Value,WoundBedOtherSelected_Value,@"",PeriWoundOtherSelected_value,ExudateCharacterOtherSelected_Value,ExudateOdorOtherSelected_Value,ExudateAmountOtherSelected_value,
+                                                                    [CoreDataHelper sharedInstance].unit3,[CoreDataHelper sharedInstance].unit4,[CoreDataHelper sharedInstance].unit5,[CoreDataHelper sharedInstance].unit6,[CoreDataHelper sharedInstance].unit7,@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",nil];
+            
+            
+            [cdh saveWoundReason:entry_no andCategoryid:cdh.woundreasoncategoryid andCategoryname:cdh.woundreasoncategory_name andSelectedvalue:cdh.woundreasonselected_value andOther:cdh.woundreasonOthervalues];
+            
+            
+            
+            //            [cdh saveGastrostomy:entry_no andCategoryid:cdh.gastrostomycategoryid andCategoryname:cdh.gastrostomycategory_name andSelectedvalue:cdh.gastrostomyselected_value andOther:cdh.gastrostomyOthervalues];
+            //            
+            
+        }
+            break;
+
             
         case 14:
         {
@@ -441,6 +597,1253 @@ OstomyViewController *ostomy;
         }
         default:
             break;
+    }
+}
+
+- (IBAction)EMRButtonAction:(UIButton *)sender {
+    pageSize=CGSizeMake(850,4000);
+    NSString *docPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)firstObject];
+    filePath = [docPath stringByAppendingPathComponent:@"EMR.pdf"];
+    NSLog(@"%@",filePath);
+    [self generatePDF:filePath];
+}
+
+
+
+
+
+-(void)drawText{
+    
+    CoreDataHelper *ch=[CoreDataHelper sharedInstance];
+     [ch setPainFields:entry_no];
+    
+    
+    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [style setLineBreakMode:NSLineBreakByWordWrapping];
+    
+
+    
+    pdfyPos = kEachLineHight+kInterLineSpace;
+    
+    UIFont *font=[UIFont fontWithName:@"Helvetica" size:30];
+    CGRect textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
+    NSString * myString=@"WoundCareApp";
+    
+    
+         [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor]}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:25];
+   CGFloat textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    textRect=CGRectMake(kInitialSpace, pdfyPos, 350, kEachLineHight);
+     myString=@"Pain";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]}];
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+     textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos , 924,kEachLineHight);
+        //    NSMutableArray *painArray = [ch setPainFields:entry_no ];
+    returnedArray = [ch setPainFields:entry_no ];
+    NSString *valueScore;
+    if([returnedArray count] > 1 ){
+    valueScore  = [returnedArray objectAtIndex:1];
+    }
+    else{
+         valueScore = @"-";
+    }
+    if([valueScore integerValue] >= 0 && [valueScore integerValue] != nil){
+        
+    }
+    else{
+        valueScore = @"-";
+    }
+    
+        //returnedString=[self checkString:[[ch setPainFields:entry_no ]objectAtIndex:1]];
+    myString=[NSString stringWithFormat:@"Score: %@",valueScore];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor]}];
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setPainFields:entry_no ];
+    if([returnedArray count] > 0){
+        returnedString=[self checkString:[returnedArray objectAtIndex:0]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    myString=[NSString stringWithFormat:@"Character: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:25];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace, pdfyPos, 924, kEachLineHight);
+    myString=@"Review Of Systems";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]}];
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+ returnedArray =[ch setReviewbaseFields:entry_no ];
+    if([returnedArray count] > 0){
+    returnedString=[self checkString:[returnedArray objectAtIndex:0]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    myString=[NSString stringWithFormat:@"Risk Factor: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    if([returnedArray count] > 0){
+        if ([[[ch setReviewbaseFields:entry_no ]objectAtIndex:0] containsString:@"Other"]) {
+            
+            textHeight= [self calculateHeight:myString withfont:font].height;
+            pdfyPos += textHeight+20;
+            
+            
+            textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+            returnedArray =[ch setReviewbaseFields:entry_no ];
+            
+            if([returnedArray count] > 3){
+                returnedString=[self checkString:[returnedArray objectAtIndex:3]];
+            }
+            else{
+                returnedString = [NSMutableString stringWithFormat:@"-"];
+            }
+            
+            myString=[NSString stringWithFormat:@"Other Value: %@",returnedString];
+            [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+        }
+    }
+    
+
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    if([returnedArray count ]> 1)
+    returnedString=[self checkString:[returnedArray objectAtIndex:1]];
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+        
+    myString=[NSString stringWithFormat:@"Consult: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    if([returnedArray count] > 0){
+        if ([[[ch setReviewbaseFields:entry_no ]objectAtIndex:1] containsString:@"Other"]) {
+            
+            textHeight= [self calculateHeight:myString withfont:font].height;
+            pdfyPos += textHeight+20;
+            
+            
+            textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+            returnedArray =[ch setReviewbaseFields:entry_no ];
+            
+            if([returnedArray count] > 4){
+                returnedString=[self checkString:[returnedArray objectAtIndex:4]];
+            }
+            else{
+                returnedString = [NSMutableString stringWithFormat:@"-"];
+            }
+            
+            myString=[NSString stringWithFormat:@"Other Value: %@",returnedString];
+            [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+        }
+    }
+
+
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setReviewbaseFields:entry_no ];
+    if([returnedArray count] > 2){
+        returnedString=[self checkString:[returnedArray objectAtIndex:2]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    myString=[NSString stringWithFormat:@"Tests: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    if([returnedArray count] > 0){
+        if ([[[ch setReviewbaseFields:entry_no ]objectAtIndex:2] containsString:@"Other"]) {
+            
+            textHeight= [self calculateHeight:myString withfont:font].height;
+            pdfyPos += textHeight+20;
+            
+            
+            textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+            returnedArray =[ch setReviewbaseFields:entry_no ];
+            
+            if([returnedArray count] > 5){
+                returnedString=[self checkString:[returnedArray objectAtIndex:5]];
+            }
+            else{
+                returnedString = [NSMutableString stringWithFormat:@"-"];
+            }
+            
+            myString=[NSString stringWithFormat:@"Other Value: %@",returnedString];
+            [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+        }
+    }
+    
+    
+
+    
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=@"Category";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor],NSParagraphStyleAttributeName:style}];
+    
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
+    myString=@"Score";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=@"Mobility";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setReviewassessFields:entry_no ];
+    if([returnedArray count] > 2){
+        returnedString=[self checkString:[returnedArray objectAtIndex:2]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=returnedString;
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=@"Activity";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setReviewassessFields:entry_no ];
+
+    if([returnedArray count] > 5){
+        returnedString=[self checkString:[returnedArray objectAtIndex:5]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+
+        //returnedString=[self checkString:[[ch setReviewassessFields:entry_no ]objectAtIndex:5]];
+
+    myString=returnedString;
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=@"Sensory Perception";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setReviewassessFields:entry_no ];
+
+    if([returnedArray count] > 8){
+        returnedString=[self checkString:[returnedArray objectAtIndex:8]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+
+        //returnedString=[self checkString:[[ch setReviewassessFields:entry_no ]objectAtIndex:8]];
+
+    
+    myString=returnedString;
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+
+
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=@"Moisture";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setReviewassessFields:entry_no ];
+    
+    if([returnedArray count] > 11){
+        returnedString=[self checkString:[returnedArray objectAtIndex:11]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    myString=returnedString;
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=@"Friction and Shear";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setReviewassessFields:entry_no ];
+    
+    if([returnedArray count] > 14){
+        returnedString=[self checkString:[returnedArray objectAtIndex:14]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    myString=returnedString;
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=@"Nutrition";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setReviewassessFields:entry_no ];
+    
+    if([returnedArray count] > 17){
+        returnedString=[self checkString:[returnedArray objectAtIndex:17]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    myString=returnedString;
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=@"Tissue Perfusion and Oxygenation";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setReviewassessFields:entry_no ];
+    
+    if([returnedArray count] > 20){
+        returnedString=[self checkString:[returnedArray objectAtIndex:20]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    myString=returnedString;
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    textRect=CGRectMake(kInitialSpace*4.5,pdfyPos, 924, kEachLineHight);
+    myString=@"Patient's Braden Score";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor],NSParagraphStyleAttributeName:style}];
+    
+    textRect=CGRectMake(kInitialSpace*9,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setReviewassessFields:entry_no ];
+    
+    if([returnedArray count] > 21){
+        returnedString=[self checkString:[returnedArray objectAtIndex:21]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    myString=returnedString;
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blueColor],NSParagraphStyleAttributeName:style}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:25];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    myString=@"Education";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor],NSParagraphStyleAttributeName:style}];
+
+
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setEducationFields:entry_no ];
+    
+    if([returnedArray count] > 0){
+        returnedString=[self checkString:[returnedArray objectAtIndex:0]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Discussed: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+     if([returnedArray count] > 0){
+    if ([[[ch setEducationFields:entry_no ]objectAtIndex:0] containsString:@"Other"]) {
+        
+        textHeight= [self calculateHeight:myString withfont:font].height;
+        pdfyPos += textHeight+20;
+        
+        
+        textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+        returnedArray =[ch setEducationFields:entry_no ];
+        
+        if([returnedArray count] > 8){
+            returnedString=[self checkString:[returnedArray objectAtIndex:8]];
+        }
+        else{
+            returnedString = [NSMutableString stringWithFormat:@"-"];
+        }
+        
+        myString=[NSString stringWithFormat:@"Other Value: %@",returnedString];
+        [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    }
+     }
+    
+    
+    
+    
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setEducationFields:entry_no ];
+    
+    if([returnedArray count] > 1){
+        returnedString=[self checkString:[returnedArray objectAtIndex:1]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    myString=[NSString stringWithFormat:@"Method Used: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+
+     if([returnedArray count] > 1){
+    if ([[[ch setEducationFields:entry_no ]objectAtIndex:1] containsString:@"Other health care provider"]) {
+        
+        textHeight= [self calculateHeight:myString withfont:font].height;
+        pdfyPos += textHeight+20;
+        
+        
+        textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+        returnedArray =[ch setEducationFields:entry_no ];
+        
+        if([returnedArray count] > 9){
+            returnedString=[self checkString:[returnedArray objectAtIndex:9]];
+        }
+        else{
+            returnedString = [NSMutableString stringWithFormat:@"-"];
+        }
+    
+        myString=[NSString stringWithFormat:@"Other Health Care Provider: %@",returnedString];
+        [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    }
+    
+     }
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setEducationFields:entry_no ];
+    
+    if([returnedArray count] > 2){
+        returnedString=[self checkString:[returnedArray objectAtIndex:2]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Handout: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    if([returnedArray count] > 2){
+
+    if ([[[ch setEducationFields:entry_no ]objectAtIndex:2] containsString:@"Other"]) {
+        
+        textHeight= [self calculateHeight:myString withfont:font].height;
+        pdfyPos += textHeight+20;
+        
+        
+        textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+        returnedArray =[ch setEducationFields:entry_no ];
+        
+        if([returnedArray count] > 10){
+            returnedString=[self checkString:[returnedArray objectAtIndex:10]];
+        }
+        else{
+            returnedString = [NSMutableString stringWithFormat:@"-"];
+        }
+        myString=[NSString stringWithFormat:@"Other Value: %@",returnedString];
+        [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    }
+    }
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+ 
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setEducationFields:entry_no ];
+    
+    if([returnedArray count] > 3){
+        returnedString=[self checkString:[returnedArray objectAtIndex:3]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+
+    myString=[NSString stringWithFormat:@"person Taught: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    if([returnedArray count] > 3){
+
+    if ([[[ch setEducationFields:entry_no ]objectAtIndex:3] containsString:@"Other"]) {
+        
+        textHeight= [self calculateHeight:myString withfont:font].height;
+        pdfyPos += textHeight+20;
+        
+        
+        textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+        returnedArray =[ch setEducationFields:entry_no ];
+        
+        if([returnedArray count] > 11){
+            returnedString=[self checkString:[returnedArray objectAtIndex:11]];
+        }
+        else{
+            returnedString = [NSMutableString stringWithFormat:@"-"];
+        }
+        myString=[NSString stringWithFormat:@"Other Value: %@",returnedString];
+        [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    }
+    }
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setEducationFields:entry_no ];
+    
+    if([returnedArray count] > 4){
+        returnedString=[self checkString:[returnedArray objectAtIndex:4]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    myString=[NSString stringWithFormat:@"Comprehension: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setEducationFields:entry_no ];
+    
+    if([returnedArray count] > 5){
+        returnedString=[self checkString:[returnedArray objectAtIndex:5]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    myString=[NSString stringWithFormat:@"Teaching Assessment: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    if([returnedArray count] > 5){
+    if ([[[ch setEducationFields:entry_no ]objectAtIndex:5] containsString:@"Other"]) {
+        
+        textHeight= [self calculateHeight:myString withfont:font].height;
+        pdfyPos += textHeight+20;
+        
+        
+        textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+        
+        returnedArray =[ch setEducationFields:entry_no ];
+        
+        if([returnedArray count] > 13){
+            returnedString=[self checkString:[returnedArray objectAtIndex:13]];
+        }
+        else{
+            returnedString = [NSMutableString stringWithFormat:@"-"];
+        }
+        myString=[NSString stringWithFormat:@"Other Value: %@",returnedString];
+        [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    }
+    }
+    
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setEducationFields:entry_no ];
+    
+    if([returnedArray count] > 6){
+        returnedString=[self checkString:[returnedArray objectAtIndex:6]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+   
+    myString=[NSString stringWithFormat:@"Time Spent Teaching: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+ 
+    textRect=CGRectMake(kInitialSpace*5.5,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setEducationFields:entry_no ];
+    
+    if([returnedArray count] > 14){
+        returnedString=[self checkString:[returnedArray objectAtIndex:14]];
+    }
+    
+    myString=returnedString;
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+
+    
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setEducationFields:entry_no ];
+    
+    if([returnedArray count] > 7){
+        returnedString=[self checkString:[returnedArray objectAtIndex:7]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Other: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+
+    
+    font=[UIFont fontWithName:@"Helvetica" size:25];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace, pdfyPos, 924, kEachLineHight);
+    myString=@"Treatment";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]}];
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setTreatmentFields:entry_no ];
+    
+    if([returnedArray count] > 0){
+        returnedString=[self checkString:[returnedArray objectAtIndex:0]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Cleansing/Irrigation: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    if([returnedArray count] > 0){
+        if ([[[ch setTreatmentFields:entry_no ]objectAtIndex:0] containsString:@"Other"]) {
+            
+            textHeight= [self calculateHeight:myString withfont:font].height;
+            pdfyPos += textHeight+20;
+            
+            
+            textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+            returnedArray =[ch setTreatmentFields:entry_no ];
+            
+            if([returnedArray count] > 6){
+                returnedString=[self checkString:[returnedArray objectAtIndex:6]];
+            }
+            else{
+                returnedString = [NSMutableString stringWithFormat:@"-"];
+            }
+            
+            myString=[NSString stringWithFormat:@"Other Value: %@",returnedString];
+            [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+        }
+    }
+    
+
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setTreatmentFields:entry_no ];
+    
+    if([returnedArray count] >1){
+        returnedString=[self checkString:[returnedArray objectAtIndex:1]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Dressing/Care: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    if([returnedArray count] > 0){
+        if ([[[ch setTreatmentFields:entry_no ]objectAtIndex:1] containsString:@"Other"]) {
+            
+            textHeight= [self calculateHeight:myString withfont:font].height;
+            pdfyPos += textHeight+20;
+            
+            
+            textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+            returnedArray =[ch setTreatmentFields:entry_no ];
+            
+            if([returnedArray count] > 7){
+                returnedString=[self checkString:[returnedArray objectAtIndex:7]];
+            }
+            else{
+                returnedString = [NSMutableString stringWithFormat:@"-"];
+            }
+            
+            myString=[NSString stringWithFormat:@"Other Value: %@",returnedString];
+            [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+        }
+    }
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setTreatmentFields:entry_no ];
+    
+    if([returnedArray count] >2){
+        returnedString=[self checkString:[returnedArray objectAtIndex:2]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Neagtive Pressure Wound: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setTreatmentFields:entry_no ];
+    
+    if([returnedArray count] >3){
+        returnedString=[self checkString:[returnedArray objectAtIndex:3]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Debridement: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setTreatmentFields:entry_no ];
+    
+    if([returnedArray count] >4){
+        returnedString=[self checkString:[returnedArray objectAtIndex:4]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Skin Care: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+
+    
+    
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setTreatmentFields:entry_no ];
+    
+    if([returnedArray count] > 5){
+        returnedString=[self checkString:[returnedArray objectAtIndex:5]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Other: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:25];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace, pdfyPos, 924, kEachLineHight);
+    myString=@"Recommendations";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]}];
+
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setRecommendationFields:entry_no ];
+    
+    if([returnedArray count] > 11){
+        returnedString=[self checkString:[returnedArray objectAtIndex:11]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Label Type Obtained From: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setRecommendationFields:entry_no ];
+    
+    if([returnedArray count] > 1){
+        returnedString=[self checkString:[returnedArray objectAtIndex:1]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Deitician Referral: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setRecommendationFields:entry_no ];
+    
+    if([returnedArray count] > 2){
+        returnedString=[self checkString:[returnedArray objectAtIndex:2]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Other: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    returnedArray =[ch setRecommendationFields:entry_no ];
+    
+    if([returnedArray count] > 3){
+        returnedString=[self checkString:[returnedArray objectAtIndex:3]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Braden Q Risk Category: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setRecommendationFields:entry_no ];
+    
+    if([returnedArray count] >0){
+        returnedString=[self checkString:[returnedArray objectAtIndex:0]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Mobility: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setRecommendationFields:entry_no ];
+    
+    if([returnedArray count] >4){
+        returnedString=[self checkString:[returnedArray objectAtIndex:4]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Activity: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+
+
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setRecommendationFields:entry_no ];
+    
+    if([returnedArray count] >5){
+        returnedString=[self checkString:[returnedArray objectAtIndex:5]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Sensory Perception: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setRecommendationFields:entry_no ];
+    
+    if([returnedArray count] >6){
+        returnedString=[self checkString:[returnedArray objectAtIndex:6]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Moisture: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setRecommendationFields:entry_no ];
+    
+    if([returnedArray count] >7){
+        returnedString=[self checkString:[returnedArray objectAtIndex:7]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Friction and Shear: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setRecommendationFields:entry_no ];
+    
+    if([returnedArray count] >8){
+        returnedString=[self checkString:[returnedArray objectAtIndex:8]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Tissue Perfusion & Oxygenation: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:25];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace, pdfyPos, 924, kEachLineHight);
+    myString=@"Follow Up";
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]}];
+    
+
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setRecommendationFields:entry_no ];
+    
+    if([returnedArray count] >9){
+        returnedString=[self checkString:[returnedArray objectAtIndex:9]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Follow Up: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+
+
+    
+    if([returnedArray count] > 9){
+        if ([[[ch setRecommendationFields:entry_no ]objectAtIndex:9] containsString:@"Other"]) {
+            
+            textHeight= [self calculateHeight:myString withfont:font].height;
+            pdfyPos += textHeight+20;
+            
+            
+            textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+            returnedArray =[ch setRecommendationFields:entry_no ];
+            
+            if([returnedArray count] > 23){
+                returnedString=[self checkString:[returnedArray objectAtIndex:23]];
+            }
+            else{
+                returnedString = [NSMutableString stringWithFormat:@"-"];
+            }
+            
+            myString=[NSString stringWithFormat:@"Other Value: %@",returnedString];
+            [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+        }
+        else if ([[[ch setRecommendationFields:entry_no ]objectAtIndex:9] containsString:@"Appointment"])
+        {
+            textHeight= [self calculateHeight:myString withfont:font].height;
+            pdfyPos += textHeight+20;
+            
+            
+            textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+            returnedArray =[ch setRecommendationFields:entry_no ];
+            
+            if([returnedArray count] > 23){
+                returnedString=[self checkString:[returnedArray objectAtIndex:23]];
+                
+            }
+            else{
+                returnedString = [NSMutableString stringWithFormat:@"-"];
+            }
+            
+            myString=[NSString stringWithFormat:@"Appointment Made For The Date: %@",returnedString];
+            [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+        }
+    }
+    
+
+    
+    
+    font=[UIFont fontWithName:@"Helvetica" size:20];
+    textHeight= [self calculateHeight:myString withfont:font].height;
+    pdfyPos += textHeight+20;
+    
+    
+    textRect=CGRectMake(kInitialSpace,pdfyPos, 924, kEachLineHight);
+    
+    returnedArray =[ch setRecommendationFields:entry_no ];
+    
+    if([returnedArray count] >10){
+        returnedString=[self checkString:[returnedArray objectAtIndex:10]];
+    }
+    else{
+        returnedString = [NSMutableString stringWithFormat:@"-"];
+    }
+    
+    myString=[NSString stringWithFormat:@"Time Spent With Patient: %@",returnedString];
+    [myString drawInRect:textRect withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor blackColor],NSParagraphStyleAttributeName:style}];
+
+    
+    
+}
+
+
+-(NSMutableString *)checkString:(NSMutableString *)string
+{
+    if ([string containsString:@"Select" ] || [string isEqualToString:@""]) {
+        string = [NSMutableString stringWithFormat:@"-"];
+        return string;
+        
+    }
+    else
+    {
+        return string;
+    }
+}
+
+-(CGSize)calculateHeight:(NSString *)string  withfont:(UIFont *)font
+{
+    
+    
+    
+    CGRect text = [string boundingRectWithSize:CGSizeMake(924, kEachLineHight)
+                                         options:NSStringDrawingUsesLineFragmentOrigin
+                                      attributes:@{NSFontAttributeName:font}
+                                         context:nil];
+    
+    return   text.size;
+
+    
+}
+
+
+-(void)generatePDF:(NSString *)filepath{
+    
+    UIGraphicsBeginPDFContextToFile(filepath, CGRectZero, nil);
+    CGRect rect = [[UIScreen mainScreen] bounds];
+    CGSize screenSize = rect.size;
+    UIGraphicsBeginPDFPageWithInfo(CGRectMake(0,0,screenSize.width,4000), nil);
+    
+    [self drawText];
+    UIGraphicsEndPDFContext();
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"Would you like to view the generated PDF?"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Review"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Submit", nil] ;
+    [actionSheet showInView:self.view];
+    
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0) {
+        
+        CGRect rect = [[UIScreen mainScreen] bounds];
+        CGSize screenSize = rect.size;
+        webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,screenSize.width,screenSize.height)];
+        
+        
+        NSURL *targetURL = [NSURL fileURLWithPath:filePath];
+        NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
+        [webView loadRequest:request];
+        
+        [self.view addSubview:webView];
+            //[self createPDFfromUIView:webView];
     }
 }
 
