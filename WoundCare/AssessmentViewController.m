@@ -47,6 +47,9 @@ ReviewOfSystemsHomeViewController *reviewOfSystemsHomeViewController;
 OstomyViewController *ostomy;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"BUTTON CLICKED ON LOAD %ld",[CoreDataHelper sharedInstance].buttonClicked);
+    if(gblPictureViewController == nil)
+    gblPictureViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PictureViewController"];
     _btnclickobj=[CoreDataHelper sharedInstance];
     
     
@@ -63,9 +66,10 @@ OstomyViewController *ostomy;
     else{
         //[ setImage:[UIImage imageNamed:@"imggalleryhover2013.png"] forState:UIControlStateNormal];
         [self setButtonBackground];
-        PictureViewController *picVw=[self.storyboard instantiateViewControllerWithIdentifier:@"PictureViewController"];
-        [self.initialview addSubview:picVw.view];
-        [self addChildViewController:picVw];
+        //PictureViewController *picVw
+        gblPictureViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PictureViewController"];
+        [self.initialview addSubview:gblPictureViewController.view];
+        [self addChildViewController:gblPictureViewController];
         self.delete.alpha=0;
     }
     [CoreDataHelper sharedInstance].assessmentGlobalView = self.initialview;
@@ -241,7 +245,14 @@ OstomyViewController *ostomy;
         case 7:
         {
             [self.gallery setImage:[UIImage imageNamed:@"imggallery2013.png"] forState:UIControlStateNormal];
-            [[CoreDataHelper sharedInstance]saveImages];
+            [self getPictureViewData];
+            if([CoreDataHelper sharedInstance].isDeletePhotoClicked != YES){
+                [[CoreDataHelper sharedInstance]saveAllImages];
+            }
+            else{
+                [CoreDataHelper sharedInstance].isDeletePhotoClicked = NO;
+            }
+            //[[CoreDataHelper sharedInstance]saveImages];
             break;
         }
         case 12:
@@ -344,8 +355,8 @@ OstomyViewController *ostomy;
             NSString *stomaLocationselected_value=[NSString stringWithFormat:@"%@",OVC.StomaLocationButton.titleLabel.text];
             NSString *stomacolorselected_value=[NSString stringWithFormat:@"%@",OVC.StomaColorButton.titleLabel.text];
             NSString *stomaOutputColorselected_value=[NSString stringWithFormat:@"%@",OVC.StomaOutputColorButton.titleLabel.text];
-            NSString *stomaOutputCharacterselected_value=[NSString stringWithFormat:@"%@",OVC.StomaOutputCharacterButton.titleLabel.text];
-            NSString *fistulaLocationselected_value=[NSString stringWithFormat:@"%@",OVC.FistulaLengthButton.titleLabel.text];
+             NSString *stomaOutputCharacterselected_value=[NSString stringWithFormat:@"%@",OVC.StomaOutputCharacterButton.titleLabel.text];
+            NSString *fistulaLocationselected_value=[NSString stringWithFormat:@"%@",OVC.FistulaLocationButton.titleLabel.text];
             NSString *fistulaColorselected_value=[NSString stringWithFormat:@"%@",OVC.FistulaColorButton.titleLabel.text];
             NSString *characterselected_value=[NSString stringWithFormat:@"%@",OVC.PeristomalSkinButton.titleLabel.text];
             NSString *exudateCharacterselected_value=[NSString stringWithFormat:@"%@",OVC.ExudateCharacterButton.titleLabel.text];
@@ -390,7 +401,9 @@ OstomyViewController *ostomy;
             [CoreDataHelper sharedInstance].ostomyselected_value=[NSArray arrayWithObjects:ostomyselected_value,stomaLocationselected_value,stomacolorselected_value,stomaOutputColorselected_value,stomaOutputCharacterselected_value,fistulaLocationselected_value,fistulaColorselected_value,characterselected_value,exudateCharacterselected_value,exudateOdourselected_value,exudateAmountselected_value,garanulationTissueselected_value,edemaselected_value,conditionselected_value,stomaLengthselected_value,stomaWidthselected_value,stomaDepthselected_value,fistulaLengthselected_value,fistulaWidthselected_value,fistulaDepthselected_value,atypical,comments,onsetDateselected_value,nil];
             
             [CoreDataHelper sharedInstance].ostomyOthervalues=[NSArray arrayWithObjects:@"",stomaLocationother_value,stomaColorother_value,stomaOutputColorother_value,stomaOutputCharacterother_value,fistulaLocationother_value,fistulaColorother_value,characterother_value,exudateCharacterother_value,exudateOdourother_value,@"",granulationTissueother_value,@"",@"",StomaSize,@"",@"",FistulaSize,@"",@"",@"",@"",@"",nil];
-            
+            NSLog(@"%@",[CoreDataHelper sharedInstance].ostomyOthervalues);
+          
+
             
             
             
@@ -565,12 +578,13 @@ OstomyViewController *ostomy;
         
     }
     if([sender tag]==7){
-        [[CoreDataHelper sharedInstance] fetchImages];
+        
+        [[CoreDataHelper sharedInstance] fetchAllImages];
         [sender setImage:[UIImage imageNamed:@"imggalleryhover2013.png"] forState:UIControlStateNormal];
         [self setButtonBackground];
-        PictureViewController *picVw=[self.storyboard instantiateViewControllerWithIdentifier:@"PictureViewController"];
-        [self.initialview addSubview:picVw.view];
-        [self addChildViewController:picVw];
+       gblPictureViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PictureViewController"];
+        [self.initialview addSubview:gblPictureViewController.view];
+        [self addChildViewController:gblPictureViewController];
         self.delete.alpha=0;
         _btnclickobj.buttonClicked=[sender tag];
         
@@ -670,6 +684,105 @@ OstomyViewController *ostomy;
     [self.popOver dismissPopoverAnimated:YES];
 }
 
+-(void)getPictureViewData{
+    CoreDataHelper *helper = [CoreDataHelper sharedInstance];
+    [helper.pictureImgArr removeAllObjects];
+    [helper.pictureImgName removeAllObjects];
+    [helper.pictureImgText removeAllObjects];
+    
+   
+    
+    if([gblPictureViewController.btn1 accessibilityValue])
+        [helper.pictureImgName addObject:[gblPictureViewController.btn1 accessibilityValue]];
+    else
+        [helper.pictureImgName addObject:@"graycircle.png"];
+    
+    if([gblPictureViewController.btn2 accessibilityValue])
+        [helper.pictureImgName addObject:[gblPictureViewController.btn2 accessibilityValue]];
+    else
+        [helper.pictureImgName addObject:@"graycircle.png"];
+    
+    if([gblPictureViewController.btn3 accessibilityValue])
+        [helper.pictureImgName addObject:[gblPictureViewController.btn3 accessibilityValue]];
+    else
+        [helper.pictureImgName addObject:@"graycircle.png"];
+    
+    if([gblPictureViewController.btn4 accessibilityValue])
+        [helper.pictureImgName addObject:[gblPictureViewController.btn4 accessibilityValue]];
+    else
+        [helper.pictureImgName addObject:@"graycircle.png"];
+    
+    if([gblPictureViewController.btn5 accessibilityValue])
+        [helper.pictureImgName addObject:[gblPictureViewController.btn5 accessibilityValue]];
+    else
+        [helper.pictureImgName addObject:@"graycircle.png"];
+    
+    if([gblPictureViewController.btn6 accessibilityValue])
+        [helper.pictureImgName addObject:[gblPictureViewController.btn6 accessibilityValue]];
+    else
+        [helper.pictureImgName addObject:@"graycircle.png"];
+    
+    if([gblPictureViewController.btn7 accessibilityValue])
+        [helper.pictureImgName addObject:[gblPictureViewController.btn7 accessibilityValue]];
+    else
+        [helper.pictureImgName addObject:@"graycircle.png"];
+        
+   
+    
+    
+    if([helper.selectedImageTag isEqualToString:@"1"] && helper.isCropDone)
+        [helper.pictureImgArr addObject:helper.gblCroppedImage];
+    else
+        [helper.pictureImgArr addObject:gblPictureViewController.img1.image];
+    
+    if([helper.selectedImageTag isEqualToString:@"2"] && helper.isCropDone)
+        [helper.pictureImgArr addObject:helper.gblCroppedImage];
+    else
+        [helper.pictureImgArr addObject:gblPictureViewController.img2.image];
+    
+    if([helper.selectedImageTag isEqualToString:@"3"] && helper.isCropDone)
+        [helper.pictureImgArr addObject:helper.gblCroppedImage];
+    else
+        [helper.pictureImgArr addObject:gblPictureViewController.img3.image];
+    
+    if([helper.selectedImageTag isEqualToString:@"4"] && helper.isCropDone)
+        [helper.pictureImgArr addObject:helper.gblCroppedImage];
+    else
+        [helper.pictureImgArr addObject:gblPictureViewController.img4.image];
+    
+    if([helper.selectedImageTag isEqualToString:@"5"] && helper.isCropDone)
+        [helper.pictureImgArr addObject:helper.gblCroppedImage];
+    else
+        [helper.pictureImgArr addObject:gblPictureViewController.img5.image];
+    
+    if([helper.selectedImageTag isEqualToString:@"6"] && helper.isCropDone)
+        [helper.pictureImgArr addObject:helper.gblCroppedImage];
+    else
+        [helper.pictureImgArr addObject:gblPictureViewController.img6.image];
+    
+    if([helper.selectedImageTag isEqualToString:@"7"] && helper.isCropDone)
+        [helper.pictureImgArr addObject:helper.gblCroppedImage];
+    else
+        [helper.pictureImgArr addObject:gblPictureViewController.img7.image];
 
+    helper.isCropDone = NO;
+    
+    [helper.pictureImgText addObject:gblPictureViewController.txtField1.text];
+    [helper.pictureImgText addObject:gblPictureViewController.txtField2.text];
+    [helper.pictureImgText addObject:gblPictureViewController.txtField3.text];
+    [helper.pictureImgText addObject:gblPictureViewController.txtField4.text];
+    [helper.pictureImgText addObject:gblPictureViewController.txtField5.text];
+    [helper.pictureImgText addObject:gblPictureViewController.txtField6.text];
+    [helper.pictureImgText addObject:gblPictureViewController.txtField7.text];
+    
+}
+
+
+-(void)showCamera{
+  //  gblPictureViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PictureViewController"];
+    [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:gblPictureViewController.view];
+    [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:gblPictureViewController];
+    [CoreDataHelper sharedInstance].buttonClicked = 7;
+}
 
 @end

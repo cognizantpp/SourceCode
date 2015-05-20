@@ -20,11 +20,12 @@
 #import "WoundAssessmentTVController.h"
 #import "GastrostomyViewController.h"
 @class WoundImageViewController;
+@class PictureViewController;
 
 //UIView *assessmentGlobalView;
 UIView *leftViewPanel;
 UIView *topViewPanel;
-
+PictureViewController *gblPictureViewController;
 
 
 
@@ -39,4 +40,6 @@ UIView *topViewPanel;
 @property (weak, nonatomic) IBOutlet UIView *leftView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 -(void)setButtonBackground;
+-(void)getPictureViewData;
+-(void)showCamera;
 @end

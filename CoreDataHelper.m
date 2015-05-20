@@ -12,6 +12,7 @@
 #import <CoreData/CoreData.h>
 #import "AssignmentsViewController.h"
 #import "WoundSelection.h"
+#import "AssessmentViewController.h"
 @interface CoreDataHelper ()
 
 
@@ -1268,6 +1269,28 @@
  }*/
 
 //Image Capture
+-(void)saveAllImages{
+    
+    [self deleteImages];
+    for(int i=0;i< [self.pictureImgArr count];i++){
+        UIImage *img  = [self.pictureImgArr objectAtIndex:i];
+        NSData *imageData = UIImagePNGRepresentation(img);
+        NSManagedObject *insertObject = [NSEntityDescription insertNewObjectForEntityForName:@"Wound" inManagedObjectContext:self.managedObjectContext];
+        [insertObject setValue:imageData forKey:@"wound_image"];
+        [insertObject setValue:[self.pictureImgName objectAtIndex:i] forKey:@"wound_name"];
+        [insertObject setValue:[self.pictureImgText objectAtIndex:i] forKey:@"wound_text"];
+        [insertObject setValue:[NSString stringWithFormat:@"%d",i+1] forKey:@"wound_id"];
+        [insertObject setValue:[[patientsDetails valueForKey:@"entry_number"]objectAtIndex:selectedPatientIndex] forKey:@"entry_number"];
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Error in saving new Patient : %@",[error localizedDescription]);
+        }
+    }
+}
+
+
+
+
 -(void)saveImages{
     NSArray *imageKeys = [self.imageArr allKeys];
     NSArray *imageTextKeys = [self.imageText allKeys];
@@ -1392,14 +1415,96 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Error in saving new Patient : %@",[error localizedDescription]);
     }
-    [self fetchImages];
+    //[self fetchImages];
+    //[self fetchAllImages];
 }
+
+
+
+-(void)fetchAllImages{
+    self.pictureImgArr = [[NSMutableArray alloc]init];
+    self.pictureImgName = [[NSMutableArray alloc]init];
+    self.pictureImgText = [[NSMutableArray alloc]init];
+    self.woundName = [[NSMutableDictionary alloc]init];
+    Wound *theWound;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Wound" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Specify criteria for filtering which objects to fetch
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@", @"entry_number",[[patientsDetails valueForKey:@"entry_number"]objectAtIndex:selectedPatientIndex]];
+    
+//    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"wound_id"
+//                                                                   ascending:YES];
+//    [fetchRequest setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+    [fetchRequest setPredicate:predicate];
+    NSError *error = nil;
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil || [fetchedObjects count]==0) {
+        // NSLog(@"There was an error in fetching");
+    }
+    else{
+        theWound = (Wound*)fetchedObjects;
+        for (Wound *wounds in fetchedObjects) {
+            UIImage *image = [UIImage imageWithData:wounds.wound_image];
+            [self.pictureImgArr addObject:image];
+            [self.pictureImgName addObject:wounds.wound_name];
+            [self.pictureImgText addObject:wounds.wound_text];
+            int id =(int) wounds.wound_id;
+            switch (id) {
+                    
+                case 1:
+                {
+                    
+                    [self.woundName setValue:wounds.wound_name forKey:@"8"];
+                    break;
+                }
+                case 2:
+                    
+                    [self.woundName setValue:wounds.wound_name forKey:@"9"];
+                    break;
+                case 3:
+                    
+                    [self.woundName setValue:wounds.wound_name forKey:@"10"];
+                    break;
+                case 4:
+                    
+                    [self.woundName setValue:wounds.wound_name forKey:@"11"];
+                    break;
+                case 5:
+                    
+                    [self.woundName setValue:wounds.wound_name forKey:@"12"];
+                    break;
+                case 6:
+                    
+                    [self.woundName setValue:wounds.wound_name forKey:@"13"];
+                    break;
+                case 7:
+                    
+                    [self.woundName setValue:wounds.wound_name forKey:@"14"];
+                    break;
+                default:
+                    break;
+            }
+            
+            
+        }
+    }
+}
+    
+
 
 
 -(void)fetchImages{
     self.imageArr = [[NSMutableDictionary alloc]init];
     self.imageText = [[NSMutableDictionary alloc]init];
     self.woundName = [[NSMutableDictionary alloc]init];
+
+    self.pictureImgArr = [[NSMutableArray alloc]init];
+    self.pictureImgName = [[NSMutableArray alloc]init];
+    self.pictureImgText = [[NSMutableArray alloc]init];
+    
+    
     Wound *theWound;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Wound" inManagedObjectContext:self.managedObjectContext];
@@ -1645,5 +1750,7 @@
     }
     
 }
+
+
 
 @end

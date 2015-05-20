@@ -901,6 +901,9 @@
                                 <state key="normal" image="button_yes.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cameraYes:" destination="TMZ-XF-chI" eventType="touchUpInside" id="oBQ-IY-JsZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDT-PC-5Ta">
                                 <rect key="frame" x="153" y="85" width="137" height="44"/>
@@ -2550,6 +2553,37 @@
             </objects>
             <point key="canvasLocation" x="1181" y="341"/>
         </scene>
+        <!--NLView Controller-->
+        <scene sceneID="3bt-IP-jUL">
+            <objects>
+                <viewController storyboardIdentifier="NLViewController" id="vWb-Kq-Fa5" userLabel="NLView Controller" customClass="NLViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jh6-xN-cQH"/>
+                        <viewControllerLayoutGuide type="bottom" id="IJ4-PV-bAc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3jQ-vC-OLz">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbt-db-Yrh">
+                                <rect key="frame" x="500" y="730" width="46" height="30"/>
+                                <state key="normal" title="Crop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cropClicked:" destination="vWb-Kq-Fa5" eventType="touchUpInside" id="NOx-Af-PXP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1024" height="768"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ilW-S3-uG6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
         <!--Wound Image View Controller-->
         <scene sceneID="hgr-vp-5q5">
             <objects>
@@ -2577,6 +2611,76 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7m-eg-W13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Cropping View Controller-->
+        <scene sceneID="dzi-Wr-RID">
+            <objects>
+                <viewController storyboardIdentifier="CroppingViewController" id="DaH-Xc-bab" customClass="CroppingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="O8x-GB-kcm"/>
+                        <viewControllerLayoutGuide type="bottom" id="ig4-C5-51J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RNm-Ge-SP5">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="2" verticalHuggingPriority="2" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qdn-tM-9PQ">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="372"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" verticalHuggingPriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="Tuv-lP-X0Y">
+                                <rect key="frame" x="0.0" y="724" width="1024" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rrE-NI-qLt"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="take" id="hlH-jS-B5z">
+                                        <connections>
+                                            <action selector="takeBarButtonClick:" destination="DaH-Xc-bab" id="sjl-Lt-gM5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1OQ-gO-pTH"/>
+                                    <barButtonItem title="open" id="W7M-mt-Kk3">
+                                        <connections>
+                                            <action selector="openBarButtonClick:" destination="DaH-Xc-bab" id="gfA-Pm-TmE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Fe2-9Z-z36"/>
+                                    <barButtonItem title="crop" id="mgq-dc-miK">
+                                        <connections>
+                                            <action selector="cropBarButtonClick:" destination="DaH-Xc-bab" id="gfg-QV-FLh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WlH-I9-Dsg"/>
+                                    <barButtonItem title="save" id="4UU-F7-ZAs">
+                                        <connections>
+                                            <action selector="saveBarButtonClick:" destination="DaH-Xc-bab" id="P8X-Mx-dqF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qdn-tM-9PQ" firstAttribute="top" secondItem="O8x-GB-kcm" secondAttribute="bottom" id="0Gz-Z6-yKS"/>
+                            <constraint firstItem="Tuv-lP-X0Y" firstAttribute="leading" secondItem="RNm-Ge-SP5" secondAttribute="leading" id="9jK-RP-N9x"/>
+                            <constraint firstItem="ig4-C5-51J" firstAttribute="top" secondItem="Tuv-lP-X0Y" secondAttribute="bottom" id="DWm-qf-1xk"/>
+                            <constraint firstItem="ig4-C5-51J" firstAttribute="top" secondItem="qdn-tM-9PQ" secondAttribute="bottom" constant="44" id="LVG-q8-fyN"/>
+                            <constraint firstAttribute="trailing" secondItem="qdn-tM-9PQ" secondAttribute="trailing" id="O6p-94-yc0"/>
+                            <constraint firstItem="qdn-tM-9PQ" firstAttribute="leading" secondItem="RNm-Ge-SP5" secondAttribute="leading" id="pb8-QH-80n"/>
+                            <constraint firstAttribute="trailing" secondItem="Tuv-lP-X0Y" secondAttribute="trailing" id="q9M-nU-TlU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="A6e-GM-Xsv"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="1024" height="768"/>
+                    <connections>
+                        <outlet property="imageView" destination="qdn-tM-9PQ" id="n2q-Kc-uMt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AFY-xA-daA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="246" y="97"/>
         </scene>
         <!--Select Wound Type Table View Controller-->
         <scene sceneID="lKH-eh-1S1">
@@ -3601,7 +3705,7 @@
                                         <rect key="frame" x="328" y="407" width="200" height="200"/>
                                         <gestureRecognizers/>
                                     </imageView>
-                                    <button opaque="NO" userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISx-TD-ZgM">
+                                    <button opaque="NO" userInteractionEnabled="NO" tag="27" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISx-TD-ZgM">
                                         <rect key="frame" x="416" y="615" width="25" height="24"/>
                                         <state key="normal" image="checkboxun.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3610,7 +3714,7 @@
                                             <action selector="checkboxClicked:" destination="JUf-Gn-TdI" eventType="touchUpInside" id="BMP-we-dz5"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jS5-hl-B5P">
+                                    <button opaque="NO" userInteractionEnabled="NO" tag="28" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jS5-hl-B5P">
                                         <rect key="frame" x="636" y="615" width="25" height="24"/>
                                         <state key="normal" image="checkboxun.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3706,7 +3810,7 @@
                                         <rect key="frame" x="770" y="118" width="200" height="200"/>
                                         <gestureRecognizers/>
                                     </imageView>
-                                    <button opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCB-h8-tZf">
+                                    <button opaque="NO" userInteractionEnabled="NO" tag="22" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCB-h8-tZf">
                                         <rect key="frame" x="199" y="321" width="25" height="24"/>
                                         <state key="normal" image="checkboxun.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3716,7 +3820,7 @@
                                             <action selector="checkboxClicked:" destination="JUf-Gn-TdI" eventType="touchUpInside" id="nVr-kE-9wp"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBC-RU-2eh">
+                                    <button opaque="NO" userInteractionEnabled="NO" tag="26" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hBC-RU-2eh">
                                         <rect key="frame" x="199" y="615" width="25" height="24"/>
                                         <state key="normal" image="checkboxun.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3725,7 +3829,7 @@
                                             <action selector="checkboxClicked:" destination="JUf-Gn-TdI" eventType="touchUpInside" id="l4C-2G-OOF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t10-8S-2fu">
+                                    <button opaque="NO" userInteractionEnabled="NO" tag="23" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t10-8S-2fu">
                                         <rect key="frame" x="416" y="321" width="25" height="24"/>
                                         <state key="normal" image="checkboxun.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3734,7 +3838,7 @@
                                             <action selector="checkboxClicked:" destination="JUf-Gn-TdI" eventType="touchUpInside" id="gV0-6c-DhA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6p8-cT-PaZ">
+                                    <button opaque="NO" userInteractionEnabled="NO" tag="24" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6p8-cT-PaZ">
                                         <rect key="frame" x="636" y="321" width="25" height="24"/>
                                         <state key="normal" image="checkboxun.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -3743,7 +3847,7 @@
                                             <action selector="checkboxClicked:" destination="JUf-Gn-TdI" eventType="touchUpInside" id="iwf-mF-gc2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH6-DX-ziy">
+                                    <button opaque="NO" userInteractionEnabled="NO" tag="25" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH6-DX-ziy">
                                         <rect key="frame" x="858" y="321" width="25" height="24"/>
                                         <state key="normal" image="checkboxun.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

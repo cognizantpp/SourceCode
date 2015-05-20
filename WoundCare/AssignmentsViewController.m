@@ -81,6 +81,7 @@
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     entry_no=[[patientsDetails valueForKey:@"entry_number"] objectAtIndex:indexPath.row];
     [helper changeStatus:entry_no];
+    helper.buttonClicked = 6;
     AssessmentViewController *assessmentViewController=[storyBoard instantiateViewControllerWithIdentifier:@"AssessmentViewController"];
            [self.view addSubview:assessmentViewController.view];
             [self addChildViewController:assessmentViewController];

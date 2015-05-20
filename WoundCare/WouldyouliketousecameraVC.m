@@ -34,6 +34,18 @@
     
     
     }
+- (IBAction)cameraYes:(UIButton *)sender {
+//    gblPictureViewController=[self.storyboard instantiateViewControllerWithIdentifier:@"PictureViewController"];
+//    [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:gblPictureViewController.view];
+//   
+//    
+//    [[CoreDataHelper sharedInstance].assessmentglobalviewcontroller addChildViewController:gblPictureViewController];
+   // self.delete.alpha=0;
+    AssessmentViewController *assess = [[AssessmentViewController alloc]init];
+    [self dismissViewControllerAnimated:NO completion:nil];
+    [assess showCamera];
+    
+}
 
 - (IBAction)cameraNO:(UIButton *)sender {
     
@@ -42,7 +54,7 @@
     {
          [CoreDataHelper sharedInstance].buttonClicked=12;
         [self dismissViewControllerAnimated:NO completion:nil];
-         NSLog(@"hey.......");
+         //NSLog(@"hey.......");
        
         GVC=[self.storyboard instantiateViewControllerWithIdentifier:@"gastro"];
         
@@ -63,7 +75,7 @@
     {
         
         [CoreDataHelper sharedInstance].buttonClicked=14;
-        NSLog(@"hey.......");
+        //NSLog(@"hey.......");
         [self dismissViewControllerAnimated:NO completion:nil];
           OVC=[self.storyboard instantiateViewControllerWithIdentifier:@"OstomyViewController"];
         [[CoreDataHelper sharedInstance].assessmentGlobalView addSubview:OVC.view];
@@ -77,7 +89,7 @@
     
     else if ([_selectedString isEqualToString: @"Wound"])
     {
-        NSLog(@"hey.......");
+        //NSLog(@"hey.......");
         [self dismissViewControllerAnimated:NO completion:nil];
 
         _WVC=[self.storyboard instantiateViewControllerWithIdentifier:@"woundreason"];

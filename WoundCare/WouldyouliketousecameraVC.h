@@ -14,8 +14,8 @@
 #import "CoreDataHelper.h"
 OstomyViewController *OVC;
 GastrostomyViewController *GVC;
-@class AssessmentViewController;
-@interface WouldyouliketousecameraVC : UIViewController
+
+@interface WouldyouliketousecameraVC : UIViewController<UIImagePickerControllerDelegate>
 
 @property(nonatomic,strong)NSString *data;
 @property(nonatomic,strong)NSString *selectedString;

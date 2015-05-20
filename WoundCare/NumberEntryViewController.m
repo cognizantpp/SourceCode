@@ -42,6 +42,7 @@
             [_entryData appendString:@"."];
             break;
         case 12:
+            if([_entryData length] > 0)
             [_entryData deleteCharactersInRange:  NSMakeRange([_entryData length]-1, 1)];
             break;
         default:

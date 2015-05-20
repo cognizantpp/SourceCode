@@ -49,6 +49,9 @@
 		91BA23631AE53275002CDD10 /* WoundSelection.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BA23621AE53275002CDD10 /* WoundSelection.m */; };
 		91BCB0461AE75E6A0065565E /* PatientListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCB0451AE75E6A0065565E /* PatientListCell.m */; };
 		91BCB0491AE75EC20065565E /* PatientListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BCB0481AE75EC20065565E /* PatientListTableViewController.m */; };
+		91BFE7621B03628A002BB183 /* NLImageCropperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BFE75F1B03628A002BB183 /* NLImageCropperView.m */; };
+		91BFE7631B03628A002BB183 /* NLCropViewLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BFE7611B03628A002BB183 /* NLCropViewLayer.m */; };
+		91BFE7651B036357002BB183 /* corner.png in Resources */ = {isa = PBXBuildFile; fileRef = 91BFE7641B036357002BB183 /* corner.png */; };
 		91C090911AC047BD008D7FAC /* dottrans.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C090901AC047BD008D7FAC /* dottrans.png */; };
 		91C090931AC04957008D7FAC /* orangedot.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C090921AC04957008D7FAC /* orangedot.png */; };
 		91C165AA1ABFFD2A007A1B41 /* addnewcases.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C165A91ABFFD2A007A1B41 /* addnewcases.png */; };
@@ -79,6 +82,7 @@
 		91C228C91ABA9B1B00E389AF /* welcome_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C228C61ABA9B1B00E389AF /* welcome_bg.png */; };
 		91C228CA1ABA9B1B00E389AF /* loginbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C228C71ABA9B1B00E389AF /* loginbutton.png */; };
 		91C228CC1ABA9B2100E389AF /* textboxbig.png in Resources */ = {isa = PBXBuildFile; fileRef = 91C228CB1ABA9B2100E389AF /* textboxbig.png */; };
+		91C38E581AFCB635003B810A /* NLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91C38E531AFCB635003B810A /* NLViewController.m */; };
 		91CC03D41AD3A17500A4B2B6 /* SelectDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC03D31AD3A17500A4B2B6 /* SelectDatePickerViewController.m */; };
 		91CC03D71AD3B9E700A4B2B6 /* EducationNumberEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC03D61AD3B9E700A4B2B6 /* EducationNumberEntryViewController.m */; };
 		91CC03DA1AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91CC03D91AD3C5D900A4B2B6 /* RecommendationsNumberEntryViewController.m */; };
@@ -276,6 +280,11 @@
 		91BCB0451AE75E6A0065565E /* PatientListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListCell.m; sourceTree = "<group>"; };
 		91BCB0471AE75EC20065565E /* PatientListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientListTableViewController.h; sourceTree = "<group>"; };
 		91BCB0481AE75EC20065565E /* PatientListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientListTableViewController.m; sourceTree = "<group>"; };
+		91BFE75E1B03628A002BB183 /* NLImageCropperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLImageCropperView.h; sourceTree = "<group>"; };
+		91BFE75F1B03628A002BB183 /* NLImageCropperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLImageCropperView.m; sourceTree = "<group>"; };
+		91BFE7601B03628A002BB183 /* NLCropViewLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLCropViewLayer.h; sourceTree = "<group>"; };
+		91BFE7611B03628A002BB183 /* NLCropViewLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLCropViewLayer.m; sourceTree = "<group>"; };
+		91BFE7641B036357002BB183 /* corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corner.png; sourceTree = "<group>"; };
 		91C090901AC047BD008D7FAC /* dottrans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dottrans.png; sourceTree = "<group>"; };
 		91C090921AC04957008D7FAC /* orangedot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orangedot.png; sourceTree = "<group>"; };
 		91C165A91ABFFD2A007A1B41 /* addnewcases.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addnewcases.png; sourceTree = "<group>"; };
@@ -325,6 +334,8 @@
 		91C228C61ABA9B1B00E389AF /* welcome_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = welcome_bg.png; sourceTree = "<group>"; };
 		91C228C71ABA9B1B00E389AF /* loginbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginbutton.png; sourceTree = "<group>"; };
 		91C228CB1ABA9B2100E389AF /* textboxbig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textboxbig.png; sourceTree = "<group>"; };
+		91C38E521AFCB635003B810A /* NLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NLViewController.h; sourceTree = "<group>"; };
+		91C38E531AFCB635003B810A /* NLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NLViewController.m; sourceTree = "<group>"; };
 		91CC03D21AD3A17500A4B2B6 /* SelectDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDatePickerViewController.h; sourceTree = "<group>"; };
 		91CC03D31AD3A17500A4B2B6 /* SelectDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDatePickerViewController.m; sourceTree = "<group>"; };
 		91CC03D51AD3B9E700A4B2B6 /* EducationNumberEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EducationNumberEntryViewController.h; sourceTree = "<group>"; };
@@ -692,6 +703,7 @@
 		91C228791ABA983900E389AF /* WoundCare */ = {
 			isa = PBXGroup;
 			children = (
+				91C38E511AFCB61F003B810A /* ImageCropper */,
 				B670CA951AE7D6CD00B510DF /* Gastrostomy Reason */,
 				949BAAB01AE7D0AB001935A8 /* Ostomy reason */,
 				91BA233B1AE4CDA3002CDD10 /* ImageCapture */,
@@ -803,6 +815,7 @@
 		91C228C31ABA9B0C00E389AF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				91BFE7641B036357002BB183 /* corner.png */,
 				0A20E9F71AE8D1E80070189A /* Wound Reason */,
 				B6AF16CD1AE52D10008FC7C0 /* gastrostomy */,
 				459886411AE50E7F004C0984 /* ostomy */,
@@ -828,6 +841,19 @@
 				91C228C71ABA9B1B00E389AF /* loginbutton.png */,
 			);
 			name = login;
+			sourceTree = "<group>";
+		};
+		91C38E511AFCB61F003B810A /* ImageCropper */ = {
+			isa = PBXGroup;
+			children = (
+				91C38E521AFCB635003B810A /* NLViewController.h */,
+				91C38E531AFCB635003B810A /* NLViewController.m */,
+				91BFE75E1B03628A002BB183 /* NLImageCropperView.h */,
+				91BFE75F1B03628A002BB183 /* NLImageCropperView.m */,
+				91BFE7601B03628A002BB183 /* NLCropViewLayer.h */,
+				91BFE7611B03628A002BB183 /* NLCropViewLayer.m */,
+			);
+			name = ImageCropper;
 			sourceTree = "<group>";
 		};
 		91CD6F081AC150B300F56AE0 /* numbersView */ = {
@@ -1194,6 +1220,7 @@
 				91C228891ABA983900E389AF /* Main.storyboard in Resources */,
 				9497E89B1ACAC7F000F8FC12 /* searchnew.png in Resources */,
 				91CD6F231AC150C800F56AE0 /* n0.png in Resources */,
+				91BFE7651B036357002BB183 /* corner.png in Resources */,
 				9497E8851ACAC7F000F8FC12 /* icon_education.png in Resources */,
 				91CD6F241AC150C800F56AE0 /* n0a.png in Resources */,
 				B6E4886D1ACC1AFB00E356F7 /* poppupsmall.png in Resources */,
@@ -1317,10 +1344,12 @@
 				91D19CAD1ACBD1C90056BD2E /* SelectRecommendationsTableViewController.m in Sources */,
 				91C228A61ABA9A5D00E389AF /* Pain.m in Sources */,
 				B6AF16D71AE52D47008FC7C0 /* WidthNumberViewController.m in Sources */,
+				91BFE7631B03628A002BB183 /* NLCropViewLayer.m in Sources */,
 				B61B335C1AE77AF3007DBB69 /* WoundViewHomeViewController.m in Sources */,
 				91D19C991ACBCEEF0056BD2E /* EducationHomeViewController.m in Sources */,
 				91CC03D71AD3B9E700A4B2B6 /* EducationNumberEntryViewController.m in Sources */,
 				B6AF16D81AE52D47008FC7C0 /* WidthViewController.m in Sources */,
+				91BFE7621B03628A002BB183 /* NLImageCropperView.m in Sources */,
 				949BAABD1AE7D0E9001935A8 /* SelectOstomySiteTVController.m in Sources */,
 				949778821AD3E46E00257B94 /* RecommendationsSave.m in Sources */,
 				4597D6601AEE2337003389F4 /* WoundAssessmentTVController.m in Sources */,
@@ -1351,6 +1380,7 @@
 				91C228831ABA983900E389AF /* WoundCare.xcdatamodeld in Sources */,
 				91D19C661ACBCCA30056BD2E /* SelectFlaccPropertiesTableViewController.m in Sources */,
 				91BA23441AE4CDB2002CDD10 /* WoundIdPopupViewController.m in Sources */,
+				91C38E581AFCB635003B810A /* NLViewController.m in Sources */,
 				91C228C21ABA9AF500E389AF /* AssignmentsViewController.m in Sources */,
 				B61B335E1AE77AF3007DBB69 /* RadioPopUpViewController.m in Sources */,
 				949BAABC1AE7D0E9001935A8 /* SelectOnsetDate.m in Sources */,

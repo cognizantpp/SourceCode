@@ -31,11 +31,13 @@
 #import "GastrostomySave.h"
 #import "WoundReason.h"
 
-
+//@class WouldyouliketousecameraVC;
 @interface CoreDataHelper : NSObject
 
+@property (nonatomic)UIImage *gblCroppedImage;
+@property (nonatomic)BOOL isCropDone;
 @property (nonatomic)long buttonClicked;
-
+@property (nonatomic)BOOL isDeletePhotoClicked; // added to stop saving again
 @property(weak,nonatomic)UIView *assessmentGlobalView;
 @property(weak,nonatomic)UIViewController *assessmentglobalviewcontroller;
 
@@ -72,10 +74,16 @@
 @property (strong,nonatomic)NSMutableDictionary *imageText;
 @property (strong, nonatomic) NSMutableDictionary *woundIdDic;
 @property (strong, nonatomic)NSMutableDictionary *woundName;
+
+@property (strong, nonatomic)NSMutableArray *pictureImgArr;
+@property (strong, nonatomic)NSMutableArray *pictureImgName;
+@property (strong, nonatomic)NSMutableArray *pictureImgText;
+
 -(void)saveImages;
 -(void)fetchImages;
 -(void)deleteSelectedImages:(NSString*)imageIdToDelete;
-
+-(void)saveAllImages;
+-(void)fetchAllImages;
 
 //WoundCapture
 @property (strong, nonatomic) NSMutableArray *woundCoordinates;
@@ -156,4 +164,7 @@
 -( void)fetchGastrostomySaved;
 -(NSArray *)setGastroFields:(NSString *)entryNo;
 -(void)changeStatus:(NSString *)entryNo;
+
+
+-(void)dismissCropView;
 @end
